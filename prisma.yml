@@ -1,0 +1,12 @@
+endpoint: 'https://us1.prisma.sh/ian-likono-09ee33/agoraexpo/dev'
+datamodel: datamodel.prisma
+
+
+generate:
+  - generator: typescript-client
+    output: ./generated/prisma-client/
+
+hooks:
+  post-deploy:
+    - prisma generate
+    - npx nexus-prisma-generate --client ./generated/prisma-client --output ./generated/nexus-prisma

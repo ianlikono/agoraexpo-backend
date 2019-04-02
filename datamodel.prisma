@@ -1,0 +1,18 @@
+type User {
+  id: ID! @unique
+  email: String! @unique
+  password: String!
+  name: String!
+  username: String! @unique
+  shops: [Shop]
+}
+
+type Shop {
+  id: ID! @unique
+  name: String! @unique
+  description: String!
+  owners: [User!]
+  live: Boolean! @default(value: "false")
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
