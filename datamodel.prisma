@@ -4,15 +4,15 @@ type User {
   password: String!
   name: String!
   username: String! @unique
-  shops: [Shop]
+  shops: [Shop] @relation(name: "ShopOwners")
 }
 
 type Shop {
   id: ID! @unique
   name: String! @unique
   description: String!
-  owners: [User!]
   live: Boolean! @default(value: "false")
+  owners: [User!] @relation(name: "ShopOwners")
   createdAt: DateTime!
   updatedAt: DateTime!
 }

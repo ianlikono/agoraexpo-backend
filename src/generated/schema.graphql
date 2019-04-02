@@ -10,13 +10,15 @@ type AuthPayload {
 scalar DateTime
 
 type Mutation {
-  createShopDraft(description: String, live: Boolean, name: String): Shop
+  createShopDraft(description: String, live: Boolean, name: String, ownersIds: [ID!]): Shop
   login(email: String, password: String): AuthPayload
+  publishShop(id: ID): Shop
   signUp(email: String, name: String, password: String): AuthPayload
 }
 
 type Query {
   me: User
+  shop(id: ID): Shop
 }
 
 type Shop {

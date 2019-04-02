@@ -206,10 +206,12 @@ export interface NexusGenFieldTypes {
   Mutation: { // field return type
     createShopDraft: NexusGenRootTypes['Shop'] | null; // Shop
     login: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
+    publishShop: NexusGenRootTypes['Shop'] | null; // Shop
     signUp: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
   }
   Query: { // field return type
     me: NexusGenRootTypes['User'] | null; // User
+    shop: NexusGenRootTypes['Shop'] | null; // Shop
   }
   Shop: { // field return type
     createdAt: any; // DateTime!
@@ -235,15 +237,24 @@ export interface NexusGenArgTypes {
       description?: string | null; // String
       live?: boolean | null; // Boolean
       name?: string | null; // String
+      ownersIds?: string[] | null; // [ID!]
     }
     login: { // args
       email?: string | null; // String
       password?: string | null; // String
     }
+    publishShop: { // args
+      id?: string | null; // ID
+    }
     signUp: { // args
       email?: string | null; // String
       name?: string | null; // String
       password?: string | null; // String
+    }
+  }
+  Query: {
+    shop: { // args
+      id?: string | null; // ID
     }
   }
   Shop: {

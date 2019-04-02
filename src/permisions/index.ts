@@ -1,6 +1,14 @@
 import { rule, shield } from 'graphql-shield';
 import { getUserId } from '../utils/getUser';
 
+interface Owner {
+	name: String
+	email: String
+	username: String
+	id: String
+	password: String
+}
+
 const rules = {
 	isAuthenticatedUser: rule()((parent, args, context) => {
 		const userId = getUserId(context);
@@ -8,8 +16,14 @@ const rules = {
 	}),
 	isShopOwner: rule()(async (parent, { id }, context) => {
 		const userId = getUserId(context);
-		const owner = await context.prisma.shop({ id }).owners();
-		return userId === owner.id;
+		const owners = await context.prisma.shop({ id }).owners();
+		console.log(owners);
+		if (owners.some((e: Owner) => e.id == userId)) {
+			return true
+		  } else {
+			  return false
+		  }
+
 	})
 };
 
@@ -19,5 +33,6 @@ export const permissions = shield({
 	},
 	Mutation: {
 		createShopDraft: rules.isAuthenticatedUser,
+		publishShop: rules.isShopOwner,
 	}
 });

@@ -1,4 +1,4 @@
-import { queryType } from 'nexus';
+import { idArg, queryType } from 'nexus';
 import { getUserId } from '../utils/getUser';
 
 export const Query = queryType({
@@ -9,6 +9,13 @@ export const Query = queryType({
                 const userId = getUserId(ctx)
                 return ctx.prisma.user({ id: userId })
               },
+        })
+        t.field('shop', {
+            type: 'Shop',
+            args: {id: idArg() },
+            resolve: (parent, { id }, ctx) => {
+                return ctx.prisma.shop({ id })
+            }
         })
     }
 })

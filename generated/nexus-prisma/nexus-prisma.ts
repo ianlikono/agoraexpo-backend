@@ -327,8 +327,8 @@ type ShopObject =
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'description', args?: [] | false, alias?: string  } 
-  | { name: 'owners', args?: ShopOwnersArgs[] | false, alias?: string  } 
   | { name: 'live', args?: [] | false, alias?: string  } 
+  | { name: 'owners', args?: ShopOwnersArgs[] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
 
@@ -336,8 +336,8 @@ type ShopFields =
   | 'id'
   | 'name'
   | 'description'
-  | 'owners'
   | 'live'
+  | 'owners'
   | 'createdAt'
   | 'updatedAt'
 
@@ -377,6 +377,14 @@ export interface ShopFieldDetails {
     nullable: false
     resolve: undefined
   }
+  live: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
   owners: {
     type: 'User'
     args: Record<ShopOwnersArgs, core.NexusArgDef<string>>
@@ -389,14 +397,6 @@ export interface ShopFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.User[]> | prisma.User[]
-  }
-  live: {
-    type: 'Boolean'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
   }
   createdAt: {
     type: 'DateTime'
@@ -1356,11 +1356,11 @@ export interface ShopWhereInput {
   description_not_starts_with?: string | null
   description_ends_with?: string | null
   description_not_ends_with?: string | null
+  live?: boolean | null
+  live_not?: boolean | null
   owners_every?: UserWhereInput | null
   owners_some?: UserWhereInput | null
   owners_none?: UserWhereInput | null
-  live?: boolean | null
-  live_not?: boolean | null
   createdAt?: string | null
   createdAt_not?: string | null
   createdAt_in?: string[]
@@ -1425,11 +1425,11 @@ export type ShopWhereInputInputObject =
   | { name: 'description_not_starts_with', alias?: string  } 
   | { name: 'description_ends_with', alias?: string  } 
   | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'live', alias?: string  } 
+  | { name: 'live_not', alias?: string  } 
   | { name: 'owners_every', alias?: string  } 
   | { name: 'owners_some', alias?: string  } 
   | { name: 'owners_none', alias?: string  } 
-  | { name: 'live', alias?: string  } 
-  | { name: 'live_not', alias?: string  } 
   | { name: 'createdAt', alias?: string  } 
   | { name: 'createdAt_not', alias?: string  } 
   | { name: 'createdAt_in', alias?: string  } 
@@ -1887,15 +1887,15 @@ export type UserUpdateManyMutationInputInputObject =
 export interface ShopCreateInput {
   name?: string
   description?: string
-  owners?: UserCreateManyWithoutShopsInput | null
   live?: boolean | null
+  owners?: UserCreateManyWithoutShopsInput | null
 }
 export type ShopCreateInputInputObject =
   | Extract<keyof ShopCreateInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
-  | { name: 'owners', alias?: string  } 
   | { name: 'live', alias?: string  } 
+  | { name: 'owners', alias?: string  } 
   
 export interface UserCreateManyWithoutShopsInput {
   create?: UserCreateWithoutShopsInput[]
@@ -1922,15 +1922,15 @@ export type UserCreateWithoutShopsInputInputObject =
 export interface ShopUpdateInput {
   name?: string | null
   description?: string | null
-  owners?: UserUpdateManyWithoutShopsInput | null
   live?: boolean | null
+  owners?: UserUpdateManyWithoutShopsInput | null
 }
 export type ShopUpdateInputInputObject =
   | Extract<keyof ShopUpdateInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
-  | { name: 'owners', alias?: string  } 
   | { name: 'live', alias?: string  } 
+  | { name: 'owners', alias?: string  } 
   
 export interface UserUpdateManyWithoutShopsInput {
   create?: UserCreateWithoutShopsInput[]

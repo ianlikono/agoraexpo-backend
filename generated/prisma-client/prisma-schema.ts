@@ -64,8 +64,8 @@ type Shop {
   id: ID!
   name: String!
   description: String!
-  owners(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
   live: Boolean!
+  owners(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -79,8 +79,8 @@ type ShopConnection {
 input ShopCreateInput {
   name: String!
   description: String!
-  owners: UserCreateManyWithoutShopsInput
   live: Boolean
+  owners: UserCreateManyWithoutShopsInput
 }
 
 input ShopCreateManyWithoutOwnersInput {
@@ -210,8 +210,8 @@ input ShopSubscriptionWhereInput {
 input ShopUpdateInput {
   name: String
   description: String
-  owners: UserUpdateManyWithoutShopsInput
   live: Boolean
+  owners: UserUpdateManyWithoutShopsInput
 }
 
 input ShopUpdateManyDataInput {
@@ -303,11 +303,11 @@ input ShopWhereInput {
   description_not_starts_with: String
   description_ends_with: String
   description_not_ends_with: String
+  live: Boolean
+  live_not: Boolean
   owners_every: UserWhereInput
   owners_some: UserWhereInput
   owners_none: UserWhereInput
-  live: Boolean
-  live_not: Boolean
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
