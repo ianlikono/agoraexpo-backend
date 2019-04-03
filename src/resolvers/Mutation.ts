@@ -1,7 +1,7 @@
 import { compare, hash } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import { booleanArg, idArg, mutationType, stringArg } from 'nexus';
-import * as uuidv4 from 'uuid/v4';
+import * as shortid from 'shortid';
 import { APP_SECRET, getUserId } from '../utils/getUser';
 
 
@@ -15,7 +15,7 @@ export const Mutation = mutationType({
                 password: stringArg(),
             },
             resolve: async (parent, {name, email, password}, ctx) => {
-                const uniqueUsername = name.replace(/[^A-Z0-9]+/ig, "") + "-" + uuidv4();
+                const uniqueUsername = name.replace(/[^A-Z0-9]+/ig, "") + "-" + shortid.generate();
                 const hashedPassword = await hash(password, 12);
                 const user = await ctx.prisma.createUser({
                     name,
