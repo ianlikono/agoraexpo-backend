@@ -4,6 +4,7 @@ import { booleanArg, idArg, mutationType, stringArg } from 'nexus';
 import * as uuidv4 from 'uuid/v4';
 import { APP_SECRET, getUserId } from '../utils/getUser';
 
+
 export const Mutation = mutationType({
     definition(t) {
         t.field('signUp', {
@@ -27,6 +28,35 @@ export const Mutation = mutationType({
                     user,
                   }
             }
+        })
+
+        t.field('updateUser', {
+          type: 'User',
+          args: {
+            name: stringArg({nullable: true}),
+            email: stringArg({nullable: true}),
+            password: stringArg({nullable: true}),
+            username: stringArg({nullable: true}),
+            images: stringArg({list: true, required: false}),
+          },
+          resolve: async (_, { name, email, password, username, images }, ctx) => {
+            const userId = getUserId(ctx)
+            images.forEach(async (image) => {
+                await ctx.prisma.createUserImage({
+                imageUrl: image,
+                user: { connect:  {id: userId}}
+              })
+            })
+            return ctx.prisma.updateUser({
+              where: { id: userId },
+              data: {
+                name: name,
+                email: email,
+                password: password,
+                username: username,
+              }
+            })
+          }
         })
 
         t.field('login', {
@@ -82,6 +112,30 @@ export const Mutation = mutationType({
               return ctx.prisma.updateShop({
                 where: { id },
                 data: {live: true}
+              })
+            }
+          })
+          t.field('updateShop', {
+            type: 'Shop',
+            args: {
+              id: idArg(),
+              name: stringArg({nullable: true}),
+              description: stringArg({nullable: true}),
+              images: stringArg({list: true, required: false}),
+            },
+            resolve: async (_, { id,name, description, images }, ctx) => {
+              images.forEach(async (image: any) => {
+                  await ctx.prisma.createShopImage({
+                  imageUrl: image,
+                  shop: { connect:  {id: id}}
+                })
+              })
+              return ctx.prisma.updateShop({
+                where: { id: id },
+                data: {
+                  name: name,
+                  description: description,
+                }
               })
             }
           })

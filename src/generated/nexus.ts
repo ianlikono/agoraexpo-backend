@@ -11,6 +11,40 @@ declare global {
 }
 
 export interface NexusGenInputs {
+  ShopImageWhereInput: { // input type
+    AND?: NexusGenInputs['ShopImageWhereInput'][] | null; // [ShopImageWhereInput!]
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    imageUrl?: string | null; // String
+    imageUrl_contains?: string | null; // String
+    imageUrl_ends_with?: string | null; // String
+    imageUrl_gt?: string | null; // String
+    imageUrl_gte?: string | null; // String
+    imageUrl_in?: string[] | null; // [String!]
+    imageUrl_lt?: string | null; // String
+    imageUrl_lte?: string | null; // String
+    imageUrl_not?: string | null; // String
+    imageUrl_not_contains?: string | null; // String
+    imageUrl_not_ends_with?: string | null; // String
+    imageUrl_not_in?: string[] | null; // [String!]
+    imageUrl_not_starts_with?: string | null; // String
+    imageUrl_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['ShopImageWhereInput'][] | null; // [ShopImageWhereInput!]
+    OR?: NexusGenInputs['ShopImageWhereInput'][] | null; // [ShopImageWhereInput!]
+    shop?: NexusGenInputs['ShopWhereInput'] | null; // ShopWhereInput
+  }
   ShopWhereInput: { // input type
     AND?: NexusGenInputs['ShopWhereInput'][] | null; // [ShopWhereInput!]
     createdAt?: any | null; // DateTime
@@ -49,6 +83,9 @@ export interface NexusGenInputs {
     id_not_in?: string[] | null; // [ID!]
     id_not_starts_with?: string | null; // ID
     id_starts_with?: string | null; // ID
+    images_every?: NexusGenInputs['ShopImageWhereInput'] | null; // ShopImageWhereInput
+    images_none?: NexusGenInputs['ShopImageWhereInput'] | null; // ShopImageWhereInput
+    images_some?: NexusGenInputs['ShopImageWhereInput'] | null; // ShopImageWhereInput
     live?: boolean | null; // Boolean
     live_not?: boolean | null; // Boolean
     name?: string | null; // String
@@ -78,6 +115,40 @@ export interface NexusGenInputs {
     updatedAt_lte?: any | null; // DateTime
     updatedAt_not?: any | null; // DateTime
     updatedAt_not_in?: any[] | null; // [DateTime!]
+  }
+  UserImageWhereInput: { // input type
+    AND?: NexusGenInputs['UserImageWhereInput'][] | null; // [UserImageWhereInput!]
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    imageUrl?: string | null; // String
+    imageUrl_contains?: string | null; // String
+    imageUrl_ends_with?: string | null; // String
+    imageUrl_gt?: string | null; // String
+    imageUrl_gte?: string | null; // String
+    imageUrl_in?: string[] | null; // [String!]
+    imageUrl_lt?: string | null; // String
+    imageUrl_lte?: string | null; // String
+    imageUrl_not?: string | null; // String
+    imageUrl_not_contains?: string | null; // String
+    imageUrl_not_ends_with?: string | null; // String
+    imageUrl_not_in?: string[] | null; // [String!]
+    imageUrl_not_starts_with?: string | null; // String
+    imageUrl_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['UserImageWhereInput'][] | null; // [UserImageWhereInput!]
+    OR?: NexusGenInputs['UserImageWhereInput'][] | null; // [UserImageWhereInput!]
+    user?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
   }
   UserWhereInput: { // input type
     AND?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
@@ -109,6 +180,9 @@ export interface NexusGenInputs {
     id_not_in?: string[] | null; // [ID!]
     id_not_starts_with?: string | null; // ID
     id_starts_with?: string | null; // ID
+    images_every?: NexusGenInputs['UserImageWhereInput'] | null; // UserImageWhereInput
+    images_none?: NexusGenInputs['UserImageWhereInput'] | null; // UserImageWhereInput
+    images_some?: NexusGenInputs['UserImageWhereInput'] | null; // UserImageWhereInput
     name?: string | null; // String
     name_contains?: string | null; // String
     name_ends_with?: string | null; // String
@@ -160,6 +234,8 @@ export interface NexusGenInputs {
 }
 
 export interface NexusGenEnums {
+  ShopImageOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "imageUrl_ASC" | "imageUrl_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  UserImageOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "imageUrl_ASC" | "imageUrl_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   UserOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "password_ASC" | "password_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "username_ASC" | "username_DESC"
 }
 
@@ -178,11 +254,19 @@ export interface NexusGenRootTypes {
     name: string; // String!
     updatedAt: any; // DateTime!
   }
+  ShopImage: { // root type
+    id: string; // ID!
+    imageUrl: string; // String!
+  }
   User: { // root type
     email: string; // String!
     id: string; // ID!
     name: string; // String!
     username: string; // String!
+  }
+  UserImage: { // root type
+    id: string; // ID!
+    imageUrl: string; // String!
   }
   String: string;
   Int: number;
@@ -193,8 +277,12 @@ export interface NexusGenRootTypes {
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
+  ShopImageWhereInput: NexusGenInputs['ShopImageWhereInput'];
   ShopWhereInput: NexusGenInputs['ShopWhereInput'];
+  UserImageWhereInput: NexusGenInputs['UserImageWhereInput'];
   UserWhereInput: NexusGenInputs['UserWhereInput'];
+  ShopImageOrderByInput: NexusGenEnums['ShopImageOrderByInput'];
+  UserImageOrderByInput: NexusGenEnums['UserImageOrderByInput'];
   UserOrderByInput: NexusGenEnums['UserOrderByInput'];
 }
 
@@ -208,6 +296,8 @@ export interface NexusGenFieldTypes {
     login: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
     publishShop: NexusGenRootTypes['Shop'] | null; // Shop
     signUp: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
+    updateShop: NexusGenRootTypes['Shop'] | null; // Shop
+    updateUser: NexusGenRootTypes['User'] | null; // User
   }
   Query: { // field return type
     me: NexusGenRootTypes['User'] | null; // User
@@ -217,17 +307,29 @@ export interface NexusGenFieldTypes {
     createdAt: any; // DateTime!
     description: string; // String!
     id: string; // ID!
+    images: NexusGenRootTypes['ShopImage'][] | null; // [ShopImage!]
     live: boolean; // Boolean!
     name: string; // String!
     owners: NexusGenRootTypes['User'][] | null; // [User!]
     updatedAt: any; // DateTime!
   }
+  ShopImage: { // field return type
+    id: string; // ID!
+    imageUrl: string; // String!
+    shop: NexusGenRootTypes['Shop']; // Shop!
+  }
   User: { // field return type
     email: string; // String!
     id: string; // ID!
+    images: NexusGenRootTypes['UserImage'][] | null; // [UserImage!]
     name: string; // String!
     shops: NexusGenRootTypes['Shop'][] | null; // [Shop!]
     username: string; // String!
+  }
+  UserImage: { // field return type
+    id: string; // ID!
+    imageUrl: string; // String!
+    user: NexusGenRootTypes['User']; // User!
   }
 }
 
@@ -251,6 +353,19 @@ export interface NexusGenArgTypes {
       name?: string | null; // String
       password?: string | null; // String
     }
+    updateShop: { // args
+      description?: string | null; // String
+      id?: string | null; // ID
+      images?: string[] | null; // [String!]
+      name?: string | null; // String
+    }
+    updateUser: { // args
+      email?: string | null; // String
+      images?: string[] | null; // [String!]
+      name?: string | null; // String
+      password?: string | null; // String
+      username?: string | null; // String
+    }
   }
   Query: {
     shop: { // args
@@ -258,6 +373,15 @@ export interface NexusGenArgTypes {
     }
   }
   Shop: {
+    images: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['ShopImageOrderByInput'] | null; // ShopImageOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['ShopImageWhereInput'] | null; // ShopImageWhereInput
+    }
     owners: { // args
       after?: string | null; // String
       before?: string | null; // String
@@ -268,6 +392,17 @@ export interface NexusGenArgTypes {
       where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
     }
   }
+  User: {
+    images: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['UserImageOrderByInput'] | null; // UserImageOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['UserImageWhereInput'] | null; // UserImageWhereInput
+    }
+  }
 }
 
 export interface NexusGenAbstractResolveReturnTypes {
@@ -275,11 +410,11 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "AuthPayload" | "Mutation" | "Query" | "Shop" | "User";
+export type NexusGenObjectNames = "AuthPayload" | "Mutation" | "Query" | "Shop" | "ShopImage" | "User" | "UserImage";
 
-export type NexusGenInputNames = "ShopWhereInput" | "UserWhereInput";
+export type NexusGenInputNames = "ShopImageWhereInput" | "ShopWhereInput" | "UserImageWhereInput" | "UserWhereInput";
 
-export type NexusGenEnumNames = "UserOrderByInput";
+export type NexusGenEnumNames = "ShopImageOrderByInput" | "UserImageOrderByInput" | "UserOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 

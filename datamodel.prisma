@@ -5,6 +5,7 @@ type User {
   name: String!
   username: String! @unique
   shops: [Shop] @relation(name: "ShopOwners")
+  images: [UserImage] @relation(name: "UserImages")
 }
 
 type Shop {
@@ -15,4 +16,54 @@ type Shop {
   owners: [User!] @relation(name: "ShopOwners")
   createdAt: DateTime!
   updatedAt: DateTime!
+  images: [ShopImage] @relation(name: "ShopImages")
+  products: [Product] @relation(name: "ShopProducts")
+}
+
+type ShopImage {
+  id: ID! @unique
+  imageUrl: String! @unique
+  shop: Shop! @relation(name: "ShopImages")
+}
+
+type UserImage {
+  id: ID! @unique
+  imageUrl: String! @unique
+  user: User! @relation(name: "UserImages")
+}
+
+type Product {
+  id: ID! @unique
+  title: String!
+  description: String!
+  price: String!
+  categories: [Category] @relation(name: "ProductCategories")
+  brand: Brand @relation(name: "BrandProducts")
+  tags: [Tag] @relation(name: "ProductTags")
+  images: [ProductImage] @relation(name: "ProductImages")
+  shop: Shop! @relation(name: "ShopProducts")
+}
+
+type Brand {
+  id: ID! @unique
+  name: String! @unique
+  products: [Product] @relation(name: "BrandProducts")
+}
+
+type Tag {
+  id: ID! @unique
+  name: String! @unique
+  products: [Product] @relation(name: "ProductTags")
+}
+
+type Category {
+  id: ID! @unique
+  name: String! @unique
+  product: [Product] @relation(name: "ProductCategories")
+}
+
+type ProductImage {
+  id: ID! @unique
+  imageUrl: String! @unique
+  product: Product! @relation(name: "ProductImages")
 }

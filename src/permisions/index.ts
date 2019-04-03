@@ -17,7 +17,6 @@ const rules = {
 	isShopOwner: rule()(async (parent, { id }, context) => {
 		const userId = getUserId(context);
 		const owners = await context.prisma.shop({ id }).owners();
-		console.log(owners);
 		if (owners.some((e: Owner) => e.id == userId)) {
 			return true
 		  } else {
@@ -34,5 +33,6 @@ export const permissions = shield({
 	Mutation: {
 		createShopDraft: rules.isAuthenticatedUser,
 		publishShop: rules.isShopOwner,
+		updateShop: rules.isShopOwner,
 	}
 });
