@@ -243,7 +243,7 @@ export interface NexusPrismaTypes {
       ShopCreateOneWithoutImagesInput: ShopCreateOneWithoutImagesInputInputObject
       ShopCreateWithoutImagesInput: ShopCreateWithoutImagesInputInputObject
       ShopImageUpdateInput: ShopImageUpdateInputInputObject
-      ShopUpdateOneRequiredWithoutImagesInput: ShopUpdateOneRequiredWithoutImagesInputInputObject
+      ShopUpdateOneWithoutImagesInput: ShopUpdateOneWithoutImagesInputInputObject
       ShopUpdateWithoutImagesDataInput: ShopUpdateWithoutImagesDataInputInputObject
       ShopUpsertWithoutImagesInput: ShopUpsertWithoutImagesInputInputObject
       ShopImageUpdateManyMutationInput: ShopImageUpdateManyMutationInputInputObject
@@ -251,7 +251,7 @@ export interface NexusPrismaTypes {
       UserCreateOneWithoutImagesInput: UserCreateOneWithoutImagesInputInputObject
       UserCreateWithoutImagesInput: UserCreateWithoutImagesInputInputObject
       UserImageUpdateInput: UserImageUpdateInputInputObject
-      UserUpdateOneRequiredWithoutImagesInput: UserUpdateOneRequiredWithoutImagesInputInputObject
+      UserUpdateOneWithoutImagesInput: UserUpdateOneWithoutImagesInputInputObject
       UserUpdateWithoutImagesDataInput: UserUpdateWithoutImagesDataInputInputObject
       UserUpsertWithoutImagesInput: UserUpsertWithoutImagesInputInputObject
       UserImageUpdateManyMutationInput: UserImageUpdateManyMutationInputInputObject
@@ -294,7 +294,7 @@ export interface NexusPrismaTypes {
       ProductCreateOneWithoutImagesInput: ProductCreateOneWithoutImagesInputInputObject
       ProductCreateWithoutImagesInput: ProductCreateWithoutImagesInputInputObject
       ProductImageUpdateInput: ProductImageUpdateInputInputObject
-      ProductUpdateOneRequiredWithoutImagesInput: ProductUpdateOneRequiredWithoutImagesInputInputObject
+      ProductUpdateOneWithoutImagesInput: ProductUpdateOneWithoutImagesInputInputObject
       ProductUpdateWithoutImagesDataInput: ProductUpdateWithoutImagesDataInputInputObject
       ProductUpsertWithoutImagesInput: ProductUpsertWithoutImagesInputInputObject
       ProductImageUpdateManyMutationInput: ProductImageUpdateManyMutationInputInputObject
@@ -1196,13 +1196,13 @@ export interface ShopImageFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: (
       root: core.RootValue<"ShopImage">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Shop> | prisma.Shop
+    ) => Promise<prisma.Shop | null> | prisma.Shop | null
   }
 }
   
@@ -1570,13 +1570,13 @@ export interface ProductImageFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: (
       root: core.RootValue<"ProductImage">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Product> | prisma.Product
+    ) => Promise<prisma.Product | null> | prisma.Product | null
   }
 }
   
@@ -1620,13 +1620,13 @@ export interface UserImageFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: (
       root: core.RootValue<"UserImage">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.User> | prisma.User
+    ) => Promise<prisma.User | null> | prisma.User | null
   }
 }
   
@@ -5912,21 +5912,17 @@ export type ShopWhereUniqueInputInputObject =
   
 export interface ShopImageWhereUniqueInput {
   id?: string | null
-  imageUrl?: string | null
 }
 export type ShopImageWhereUniqueInputInputObject =
   | Extract<keyof ShopImageWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
-  | { name: 'imageUrl', alias?: string  } 
   
 export interface UserImageWhereUniqueInput {
   id?: string | null
-  imageUrl?: string | null
 }
 export type UserImageWhereUniqueInputInputObject =
   | Extract<keyof UserImageWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
-  | { name: 'imageUrl', alias?: string  } 
   
 export interface ProductWhereUniqueInput {
   id?: string | null
@@ -5964,12 +5960,10 @@ export type CategoryWhereUniqueInputInputObject =
   
 export interface ProductImageWhereUniqueInput {
   id?: string | null
-  imageUrl?: string | null
 }
 export type ProductImageWhereUniqueInputInputObject =
   | Extract<keyof ProductImageWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
-  | { name: 'imageUrl', alias?: string  } 
   
 export interface UserCreateInput {
   email?: string
@@ -7580,7 +7574,7 @@ export type ShopUpdateManyMutationInputInputObject =
   
 export interface ShopImageCreateInput {
   imageUrl?: string
-  shop?: ShopCreateOneWithoutImagesInput
+  shop?: ShopCreateOneWithoutImagesInput | null
 }
 export type ShopImageCreateInputInputObject =
   | Extract<keyof ShopImageCreateInput, string>
@@ -7613,24 +7607,28 @@ export type ShopCreateWithoutImagesInputInputObject =
   
 export interface ShopImageUpdateInput {
   imageUrl?: string | null
-  shop?: ShopUpdateOneRequiredWithoutImagesInput | null
+  shop?: ShopUpdateOneWithoutImagesInput | null
 }
 export type ShopImageUpdateInputInputObject =
   | Extract<keyof ShopImageUpdateInput, string>
   | { name: 'imageUrl', alias?: string  } 
   | { name: 'shop', alias?: string  } 
   
-export interface ShopUpdateOneRequiredWithoutImagesInput {
+export interface ShopUpdateOneWithoutImagesInput {
   create?: ShopCreateWithoutImagesInput | null
   update?: ShopUpdateWithoutImagesDataInput | null
   upsert?: ShopUpsertWithoutImagesInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
   connect?: ShopWhereUniqueInput | null
 }
-export type ShopUpdateOneRequiredWithoutImagesInputInputObject =
-  | Extract<keyof ShopUpdateOneRequiredWithoutImagesInput, string>
+export type ShopUpdateOneWithoutImagesInputInputObject =
+  | Extract<keyof ShopUpdateOneWithoutImagesInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
 export interface ShopUpdateWithoutImagesDataInput {
@@ -7666,7 +7664,7 @@ export type ShopImageUpdateManyMutationInputInputObject =
   
 export interface UserImageCreateInput {
   imageUrl?: string
-  user?: UserCreateOneWithoutImagesInput
+  user?: UserCreateOneWithoutImagesInput | null
 }
 export type UserImageCreateInputInputObject =
   | Extract<keyof UserImageCreateInput, string>
@@ -7699,24 +7697,28 @@ export type UserCreateWithoutImagesInputInputObject =
   
 export interface UserImageUpdateInput {
   imageUrl?: string | null
-  user?: UserUpdateOneRequiredWithoutImagesInput | null
+  user?: UserUpdateOneWithoutImagesInput | null
 }
 export type UserImageUpdateInputInputObject =
   | Extract<keyof UserImageUpdateInput, string>
   | { name: 'imageUrl', alias?: string  } 
   | { name: 'user', alias?: string  } 
   
-export interface UserUpdateOneRequiredWithoutImagesInput {
+export interface UserUpdateOneWithoutImagesInput {
   create?: UserCreateWithoutImagesInput | null
   update?: UserUpdateWithoutImagesDataInput | null
   upsert?: UserUpsertWithoutImagesInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
   connect?: UserWhereUniqueInput | null
 }
-export type UserUpdateOneRequiredWithoutImagesInputInputObject =
-  | Extract<keyof UserUpdateOneRequiredWithoutImagesInput, string>
+export type UserUpdateOneWithoutImagesInputInputObject =
+  | Extract<keyof UserUpdateOneWithoutImagesInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
 export interface UserUpdateWithoutImagesDataInput {
@@ -8211,7 +8213,7 @@ export type CategoryUpdateManyMutationInputInputObject =
   
 export interface ProductImageCreateInput {
   imageUrl?: string
-  product?: ProductCreateOneWithoutImagesInput
+  product?: ProductCreateOneWithoutImagesInput | null
 }
 export type ProductImageCreateInputInputObject =
   | Extract<keyof ProductImageCreateInput, string>
@@ -8248,24 +8250,28 @@ export type ProductCreateWithoutImagesInputInputObject =
   
 export interface ProductImageUpdateInput {
   imageUrl?: string | null
-  product?: ProductUpdateOneRequiredWithoutImagesInput | null
+  product?: ProductUpdateOneWithoutImagesInput | null
 }
 export type ProductImageUpdateInputInputObject =
   | Extract<keyof ProductImageUpdateInput, string>
   | { name: 'imageUrl', alias?: string  } 
   | { name: 'product', alias?: string  } 
   
-export interface ProductUpdateOneRequiredWithoutImagesInput {
+export interface ProductUpdateOneWithoutImagesInput {
   create?: ProductCreateWithoutImagesInput | null
   update?: ProductUpdateWithoutImagesDataInput | null
   upsert?: ProductUpsertWithoutImagesInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
   connect?: ProductWhereUniqueInput | null
 }
-export type ProductUpdateOneRequiredWithoutImagesInputInputObject =
-  | Extract<keyof ProductUpdateOneRequiredWithoutImagesInput, string>
+export type ProductUpdateOneWithoutImagesInputInputObject =
+  | Extract<keyof ProductUpdateOneWithoutImagesInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
 export interface ProductUpdateWithoutImagesDataInput {

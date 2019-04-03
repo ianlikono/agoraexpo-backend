@@ -707,7 +707,7 @@ export interface TagUpdateWithWhereUniqueWithoutProductsInput {
 
 export interface ShopImageUpdateInput {
   imageUrl?: String;
-  shop?: ShopUpdateOneRequiredWithoutImagesInput;
+  shop?: ShopUpdateOneWithoutImagesInput;
 }
 
 export interface TagUpdateWithoutProductsDataInput {
@@ -1046,7 +1046,6 @@ export interface UserUpdateManyWithoutShopsInput {
 
 export type ProductImageWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
-  imageUrl?: String;
 }>;
 
 export interface UserUpdateWithWhereUniqueWithoutShopsInput {
@@ -1163,7 +1162,6 @@ export interface UserImageUpdateWithWhereUniqueWithoutUserInput {
 
 export type ShopImageWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
-  imageUrl?: String;
 }>;
 
 export interface UserImageUpdateWithoutUserDataInput {
@@ -1226,7 +1224,6 @@ export interface UserUpsertWithWhereUniqueWithoutShopsInput {
 
 export type UserImageWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
-  imageUrl?: String;
 }>;
 
 export interface UserScalarWhereInput {
@@ -1722,10 +1719,12 @@ export interface ProductImageWhereInput {
   NOT?: ProductImageWhereInput[] | ProductImageWhereInput;
 }
 
-export interface ShopUpdateOneRequiredWithoutImagesInput {
+export interface ShopUpdateOneWithoutImagesInput {
   create?: ShopCreateWithoutImagesInput;
   update?: ShopUpdateWithoutImagesDataInput;
   upsert?: ShopUpsertWithoutImagesInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
   connect?: ShopWhereUniqueInput;
 }
 
@@ -1848,7 +1847,7 @@ export interface ProductCreateWithoutCategoriesInput {
 
 export interface UserImageUpdateInput {
   imageUrl?: String;
-  user?: UserUpdateOneRequiredWithoutImagesInput;
+  user?: UserUpdateOneWithoutImagesInput;
 }
 
 export interface BrandCreateOneWithoutProductsInput {
@@ -1858,7 +1857,7 @@ export interface BrandCreateOneWithoutProductsInput {
 
 export interface UserImageCreateInput {
   imageUrl: String;
-  user: UserCreateOneWithoutImagesInput;
+  user?: UserCreateOneWithoutImagesInput;
 }
 
 export interface BrandCreateWithoutProductsInput {
@@ -2050,7 +2049,7 @@ export interface CategoryUpsertWithWhereUniqueWithoutProductInput {
 
 export interface ProductImageCreateInput {
   imageUrl: String;
-  product: ProductCreateOneWithoutImagesInput;
+  product?: ProductCreateOneWithoutImagesInput;
 }
 
 export interface TagUpdateManyWithoutProductsInput {
@@ -2110,7 +2109,7 @@ export interface BrandSubscriptionWhereInput {
 
 export interface ProductImageUpdateInput {
   imageUrl?: String;
-  product?: ProductUpdateOneRequiredWithoutImagesInput;
+  product?: ProductUpdateOneWithoutImagesInput;
 }
 
 export interface UserCreateOneWithoutImagesInput {
@@ -2118,10 +2117,12 @@ export interface UserCreateOneWithoutImagesInput {
   connect?: UserWhereUniqueInput;
 }
 
-export interface ProductUpdateOneRequiredWithoutImagesInput {
+export interface ProductUpdateOneWithoutImagesInput {
   create?: ProductCreateWithoutImagesInput;
   update?: ProductUpdateWithoutImagesDataInput;
   upsert?: ProductUpsertWithoutImagesInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
   connect?: ProductWhereUniqueInput;
 }
 
@@ -2359,7 +2360,7 @@ export interface ShopCreateOneWithoutImagesInput {
 
 export interface ShopImageCreateInput {
   imageUrl: String;
-  shop: ShopCreateOneWithoutImagesInput;
+  shop?: ShopCreateOneWithoutImagesInput;
 }
 
 export interface ShopUpdateManyMutationInput {
@@ -2470,10 +2471,12 @@ export interface ShopUpdateManyWithoutOwnersInput {
     | ShopUpdateManyWithWhereNestedInput;
 }
 
-export interface UserUpdateOneRequiredWithoutImagesInput {
+export interface UserUpdateOneWithoutImagesInput {
   create?: UserCreateWithoutImagesInput;
   update?: UserUpdateWithoutImagesDataInput;
   upsert?: UserUpsertWithoutImagesInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
   connect?: UserWhereUniqueInput;
 }
 

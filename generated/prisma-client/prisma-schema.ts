@@ -552,7 +552,7 @@ type ProductEdge {
 type ProductImage {
   id: ID!
   imageUrl: String!
-  product: Product!
+  product: Product
 }
 
 type ProductImageConnection {
@@ -563,7 +563,7 @@ type ProductImageConnection {
 
 input ProductImageCreateInput {
   imageUrl: String!
-  product: ProductCreateOneWithoutImagesInput!
+  product: ProductCreateOneWithoutImagesInput
 }
 
 input ProductImageCreateManyWithoutProductInput {
@@ -650,7 +650,7 @@ input ProductImageSubscriptionWhereInput {
 
 input ProductImageUpdateInput {
   imageUrl: String
-  product: ProductUpdateOneRequiredWithoutImagesInput
+  product: ProductUpdateOneWithoutImagesInput
 }
 
 input ProductImageUpdateManyDataInput {
@@ -730,7 +730,6 @@ input ProductImageWhereInput {
 
 input ProductImageWhereUniqueInput {
   id: ID
-  imageUrl: String
 }
 
 enum ProductOrderByInput {
@@ -911,10 +910,12 @@ input ProductUpdateManyWithWhereNestedInput {
   data: ProductUpdateManyDataInput!
 }
 
-input ProductUpdateOneRequiredWithoutImagesInput {
+input ProductUpdateOneWithoutImagesInput {
   create: ProductCreateWithoutImagesInput
   update: ProductUpdateWithoutImagesDataInput
   upsert: ProductUpsertWithoutImagesInput
+  delete: Boolean
+  disconnect: Boolean
   connect: ProductWhereUniqueInput
 }
 
@@ -1199,7 +1200,7 @@ type ShopEdge {
 type ShopImage {
   id: ID!
   imageUrl: String!
-  shop: Shop!
+  shop: Shop
 }
 
 type ShopImageConnection {
@@ -1210,7 +1211,7 @@ type ShopImageConnection {
 
 input ShopImageCreateInput {
   imageUrl: String!
-  shop: ShopCreateOneWithoutImagesInput!
+  shop: ShopCreateOneWithoutImagesInput
 }
 
 input ShopImageCreateManyWithoutShopInput {
@@ -1297,7 +1298,7 @@ input ShopImageSubscriptionWhereInput {
 
 input ShopImageUpdateInput {
   imageUrl: String
-  shop: ShopUpdateOneRequiredWithoutImagesInput
+  shop: ShopUpdateOneWithoutImagesInput
 }
 
 input ShopImageUpdateManyDataInput {
@@ -1377,7 +1378,6 @@ input ShopImageWhereInput {
 
 input ShopImageWhereUniqueInput {
   id: ID
-  imageUrl: String
 }
 
 enum ShopOrderByInput {
@@ -1526,17 +1526,19 @@ input ShopUpdateManyWithWhereNestedInput {
   data: ShopUpdateManyDataInput!
 }
 
-input ShopUpdateOneRequiredWithoutImagesInput {
-  create: ShopCreateWithoutImagesInput
-  update: ShopUpdateWithoutImagesDataInput
-  upsert: ShopUpsertWithoutImagesInput
-  connect: ShopWhereUniqueInput
-}
-
 input ShopUpdateOneRequiredWithoutProductsInput {
   create: ShopCreateWithoutProductsInput
   update: ShopUpdateWithoutProductsDataInput
   upsert: ShopUpsertWithoutProductsInput
+  connect: ShopWhereUniqueInput
+}
+
+input ShopUpdateOneWithoutImagesInput {
+  create: ShopCreateWithoutImagesInput
+  update: ShopUpdateWithoutImagesDataInput
+  upsert: ShopUpsertWithoutImagesInput
+  delete: Boolean
+  disconnect: Boolean
   connect: ShopWhereUniqueInput
 }
 
@@ -1922,7 +1924,7 @@ type UserEdge {
 type UserImage {
   id: ID!
   imageUrl: String!
-  user: User!
+  user: User
 }
 
 type UserImageConnection {
@@ -1933,7 +1935,7 @@ type UserImageConnection {
 
 input UserImageCreateInput {
   imageUrl: String!
-  user: UserCreateOneWithoutImagesInput!
+  user: UserCreateOneWithoutImagesInput
 }
 
 input UserImageCreateManyWithoutUserInput {
@@ -2020,7 +2022,7 @@ input UserImageSubscriptionWhereInput {
 
 input UserImageUpdateInput {
   imageUrl: String
-  user: UserUpdateOneRequiredWithoutImagesInput
+  user: UserUpdateOneWithoutImagesInput
 }
 
 input UserImageUpdateManyDataInput {
@@ -2100,7 +2102,6 @@ input UserImageWhereInput {
 
 input UserImageWhereUniqueInput {
   id: ID
-  imageUrl: String
 }
 
 enum UserOrderByInput {
@@ -2262,10 +2263,12 @@ input UserUpdateManyWithWhereNestedInput {
   data: UserUpdateManyDataInput!
 }
 
-input UserUpdateOneRequiredWithoutImagesInput {
+input UserUpdateOneWithoutImagesInput {
   create: UserCreateWithoutImagesInput
   update: UserUpdateWithoutImagesDataInput
   upsert: UserUpsertWithoutImagesInput
+  delete: Boolean
+  disconnect: Boolean
   connect: UserWhereUniqueInput
 }
 

@@ -7,13 +7,13 @@ export default {
   uniqueFieldsByModel: {
     User: ['id', 'email', 'username'],
     Shop: ['id', 'name'],
-    ShopImage: ['id', 'imageUrl'],
-    UserImage: ['id', 'imageUrl'],
+    ShopImage: ['id'],
+    UserImage: ['id'],
     Product: ['id'],
     Brand: ['id', 'name'],
     Tag: ['id', 'name'],
     Category: ['id', 'name'],
-    ProductImage: ['id', 'imageUrl']
+    ProductImage: ['id']
   },
   embeddedTypes: [],
   clientPath: 'generated/prisma-client',
@@ -7856,13 +7856,9 @@ export default {
             "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Shop",
-                "ofType": null
-              }
+              "kind": "OBJECT",
+              "name": "Shop",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -8953,13 +8949,9 @@ export default {
             "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Product",
-                "ofType": null
-              }
+              "kind": "OBJECT",
+              "name": "Product",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -9071,13 +9063,9 @@ export default {
             "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "User",
-                "ofType": null
-              }
+              "kind": "OBJECT",
+              "name": "User",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -9467,16 +9455,6 @@ export default {
               "ofType": null
             },
             "defaultValue": null
-          },
-          {
-            "name": "imageUrl",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
           }
         ],
         "interfaces": null,
@@ -9628,16 +9606,6 @@ export default {
             "type": {
               "kind": "SCALAR",
               "name": "ID",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "imageUrl",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -10497,16 +10465,6 @@ export default {
             "type": {
               "kind": "SCALAR",
               "name": "ID",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "imageUrl",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -21251,13 +21209,9 @@ export default {
             "name": "shop",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "INPUT_OBJECT",
-                "name": "ShopCreateOneWithoutImagesInput",
-                "ofType": null
-              }
+              "kind": "INPUT_OBJECT",
+              "name": "ShopCreateOneWithoutImagesInput",
+              "ofType": null
             },
             "defaultValue": null
           }
@@ -21387,7 +21341,7 @@ export default {
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "ShopUpdateOneRequiredWithoutImagesInput",
+              "name": "ShopUpdateOneWithoutImagesInput",
               "ofType": null
             },
             "defaultValue": null
@@ -21399,7 +21353,7 @@ export default {
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "ShopUpdateOneRequiredWithoutImagesInput",
+        "name": "ShopUpdateOneWithoutImagesInput",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -21429,6 +21383,26 @@ export default {
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "ShopUpsertWithoutImagesInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "delete",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "disconnect",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
               "ofType": null
             },
             "defaultValue": null
@@ -21593,13 +21567,9 @@ export default {
             "name": "user",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "INPUT_OBJECT",
-                "name": "UserCreateOneWithoutImagesInput",
-                "ofType": null
-              }
+              "kind": "INPUT_OBJECT",
+              "name": "UserCreateOneWithoutImagesInput",
+              "ofType": null
             },
             "defaultValue": null
           }
@@ -21737,7 +21707,7 @@ export default {
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "UserUpdateOneRequiredWithoutImagesInput",
+              "name": "UserUpdateOneWithoutImagesInput",
               "ofType": null
             },
             "defaultValue": null
@@ -21749,7 +21719,7 @@ export default {
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "UserUpdateOneRequiredWithoutImagesInput",
+        "name": "UserUpdateOneWithoutImagesInput",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -21779,6 +21749,26 @@ export default {
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "UserUpsertWithoutImagesInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "delete",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "disconnect",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
               "ofType": null
             },
             "defaultValue": null
@@ -24164,13 +24154,9 @@ export default {
             "name": "product",
             "description": null,
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "INPUT_OBJECT",
-                "name": "ProductCreateOneWithoutImagesInput",
-                "ofType": null
-              }
+              "kind": "INPUT_OBJECT",
+              "name": "ProductCreateOneWithoutImagesInput",
+              "ofType": null
             },
             "defaultValue": null
           }
@@ -24328,7 +24314,7 @@ export default {
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "ProductUpdateOneRequiredWithoutImagesInput",
+              "name": "ProductUpdateOneWithoutImagesInput",
               "ofType": null
             },
             "defaultValue": null
@@ -24340,7 +24326,7 @@ export default {
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "ProductUpdateOneRequiredWithoutImagesInput",
+        "name": "ProductUpdateOneWithoutImagesInput",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -24370,6 +24356,26 @@ export default {
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "ProductUpsertWithoutImagesInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "delete",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "disconnect",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
               "ofType": null
             },
             "defaultValue": null

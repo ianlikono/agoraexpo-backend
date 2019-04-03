@@ -7,9 +7,107 @@ type AuthPayload {
   user: User
 }
 
+type Brand {
+  id: ID!
+  name: String!
+  products(after: String, before: String, first: Int, last: Int, orderBy: ProductOrderByInput, skip: Int, where: ProductWhereInput): [Product!]
+}
+
+input BrandWhereInput {
+  AND: [BrandWhereInput!]
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [BrandWhereInput!]
+  OR: [BrandWhereInput!]
+  products_every: ProductWhereInput
+  products_none: ProductWhereInput
+  products_some: ProductWhereInput
+}
+
+type Category {
+  id: ID!
+  name: String!
+  product(after: String, before: String, first: Int, last: Int, orderBy: ProductOrderByInput, skip: Int, where: ProductWhereInput): [Product!]
+}
+
+enum CategoryOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input CategoryWhereInput {
+  AND: [CategoryWhereInput!]
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [CategoryWhereInput!]
+  OR: [CategoryWhereInput!]
+  product_every: ProductWhereInput
+  product_none: ProductWhereInput
+  product_some: ProductWhereInput
+}
+
 scalar DateTime
 
 type Mutation {
+  createProduct(brand: String!, categories: [String!], description: String!, id: ID!, images: [String!], price: String!, tags: [String!], title: String!): Product
   createShopDraft(description: String, live: Boolean, name: String, ownersIds: [ID!]): Shop
   login(email: String, password: String): AuthPayload
   publishShop(id: ID): Shop
@@ -18,8 +116,161 @@ type Mutation {
   updateUser(email: String, images: [String!], name: String, password: String, username: String): User
 }
 
+type Product {
+  brand: Brand
+  categories(after: String, before: String, first: Int, last: Int, orderBy: CategoryOrderByInput, skip: Int, where: CategoryWhereInput): [Category!]
+  description: String!
+  id: ID!
+  images(after: String, before: String, first: Int, last: Int, orderBy: ProductImageOrderByInput, skip: Int, where: ProductImageWhereInput): [ProductImage!]
+  price: String!
+  shop: Shop!
+  tags(after: String, before: String, first: Int, last: Int, orderBy: TagOrderByInput, skip: Int, where: TagWhereInput): [Tag!]
+  title: String!
+}
+
+type ProductImage {
+  id: ID!
+  imageUrl: String!
+  product: Product
+}
+
+enum ProductImageOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+  imageUrl_ASC
+  imageUrl_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input ProductImageWhereInput {
+  AND: [ProductImageWhereInput!]
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  imageUrl: String
+  imageUrl_contains: String
+  imageUrl_ends_with: String
+  imageUrl_gt: String
+  imageUrl_gte: String
+  imageUrl_in: [String!]
+  imageUrl_lt: String
+  imageUrl_lte: String
+  imageUrl_not: String
+  imageUrl_not_contains: String
+  imageUrl_not_ends_with: String
+  imageUrl_not_in: [String!]
+  imageUrl_not_starts_with: String
+  imageUrl_starts_with: String
+  NOT: [ProductImageWhereInput!]
+  OR: [ProductImageWhereInput!]
+  product: ProductWhereInput
+}
+
+enum ProductOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  description_ASC
+  description_DESC
+  id_ASC
+  id_DESC
+  price_ASC
+  price_DESC
+  title_ASC
+  title_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input ProductWhereInput {
+  AND: [ProductWhereInput!]
+  brand: BrandWhereInput
+  categories_every: CategoryWhereInput
+  categories_none: CategoryWhereInput
+  categories_some: CategoryWhereInput
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  images_every: ProductImageWhereInput
+  images_none: ProductImageWhereInput
+  images_some: ProductImageWhereInput
+  NOT: [ProductWhereInput!]
+  OR: [ProductWhereInput!]
+  price: String
+  price_contains: String
+  price_ends_with: String
+  price_gt: String
+  price_gte: String
+  price_in: [String!]
+  price_lt: String
+  price_lte: String
+  price_not: String
+  price_not_contains: String
+  price_not_ends_with: String
+  price_not_in: [String!]
+  price_not_starts_with: String
+  price_starts_with: String
+  shop: ShopWhereInput
+  tags_every: TagWhereInput
+  tags_none: TagWhereInput
+  tags_some: TagWhereInput
+  title: String
+  title_contains: String
+  title_ends_with: String
+  title_gt: String
+  title_gte: String
+  title_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_not: String
+  title_not_contains: String
+  title_not_ends_with: String
+  title_not_in: [String!]
+  title_not_starts_with: String
+  title_starts_with: String
+}
+
 type Query {
   me: User
+  product(id: ID): Product
   shop(id: ID): Shop
 }
 
@@ -31,13 +282,14 @@ type Shop {
   live: Boolean!
   name: String!
   owners(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): [User!]
+  products(after: String, before: String, first: Int, last: Int, orderBy: ProductOrderByInput, skip: Int, where: ProductWhereInput): [Product!]
   updatedAt: DateTime!
 }
 
 type ShopImage {
   id: ID!
   imageUrl: String!
-  shop: Shop!
+  shop: Shop
 }
 
 enum ShopImageOrderByInput {
@@ -148,6 +400,9 @@ input ShopWhereInput {
   owners_every: UserWhereInput
   owners_none: UserWhereInput
   owners_some: UserWhereInput
+  products_every: ProductWhereInput
+  products_none: ProductWhereInput
+  products_some: ProductWhereInput
   updatedAt: DateTime
   updatedAt_gt: DateTime
   updatedAt_gte: DateTime
@@ -156,6 +411,60 @@ input ShopWhereInput {
   updatedAt_lte: DateTime
   updatedAt_not: DateTime
   updatedAt_not_in: [DateTime!]
+}
+
+type Tag {
+  id: ID!
+  name: String!
+  products(after: String, before: String, first: Int, last: Int, orderBy: ProductOrderByInput, skip: Int, where: ProductWhereInput): [Product!]
+}
+
+enum TagOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input TagWhereInput {
+  AND: [TagWhereInput!]
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [TagWhereInput!]
+  OR: [TagWhereInput!]
+  products_every: ProductWhereInput
+  products_none: ProductWhereInput
+  products_some: ProductWhereInput
 }
 
 type User {
@@ -170,7 +479,7 @@ type User {
 type UserImage {
   id: ID!
   imageUrl: String!
-  user: User!
+  user: User
 }
 
 enum UserImageOrderByInput {

@@ -17,5 +17,12 @@ export const Query = queryType({
                 return ctx.prisma.shop({ id })
             }
         })
+        t.field('product', {
+            type: 'Product',
+            args: {id: idArg() },
+            resolve: (parent, { id }, ctx) => {
+                return ctx.prisma.product({ id })
+            }
+        })
     }
 })

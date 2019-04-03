@@ -34,5 +34,6 @@ export const permissions = shield({
 		createShopDraft: rules.isAuthenticatedUser,
 		publishShop: rules.isShopOwner,
 		updateShop: rules.isShopOwner,
+		createProduct: rules.isShopOwner,
 	}
 });

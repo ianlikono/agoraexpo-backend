@@ -139,5 +139,77 @@ export const Mutation = mutationType({
               })
             }
           })
+
+          t.field('createProduct', {
+            type: 'Product',
+            args: {
+              id: idArg({required: true}),
+              title: stringArg({required: true}),
+              description: stringArg({required: true}),
+              price: stringArg({required: true}),
+              brand: stringArg({required: true}),
+              tags: stringArg({list: true, required: false}),
+              categories: stringArg({list: true, required: false}),
+              images: stringArg({list: true, required: false}),
+            },
+            resolve: async (parent, { id,title, description, price, brand, tags, categories,  images}, ctx) => {
+              let brandId = "null"
+              brand = brand.toLowerCase()
+              let brandItem = await ctx.prisma.brand({name: brand})
+              if(!brandItem) {
+                brandItem = await ctx.prisma.createBrand({
+                  name: brand
+                })
+              }
+              brandId = brandItem.id;
+              let categoriesArray: any = [];
+              let categoryIds: any = [];
+              let tagsArray: any = [];
+              let tagsIds: any = [];
+              let imagesArray: any = [];
+              let imagesIds: any = [];
+                for (let category of categories) {
+                category = category.toLowerCase()
+                let categoryItem = await ctx.prisma.category({name: category})
+                if(!categoryItem) {
+                  categoryItem = await ctx.prisma.createCategory({
+                    name: category
+                  })
+                }
+                await categoriesArray.push(categoryItem);
+                categoryIds = await categoriesArray.map((category: any) => ({id: category.id}));
+                }
+
+                for (let tag of tags) {
+                  tag = tag.toLowerCase()
+                  let tagItem = await ctx.prisma.tag({name: tag})
+                  if(!tagItem) {
+                    tagItem = await ctx.prisma.createTag({
+                      name: tag
+                    })
+                  }
+                  await tagsArray.push(tagItem);
+                  tagsIds = await tagsArray.map((tag: any) => ({id: tag.id}));
+                  }
+
+                  for (let image of images) {
+                      let imageItem = await ctx.prisma.createProductImage({
+                        imageUrl: image
+                      })
+                    await imagesArray.push(imageItem);
+                    imagesIds = await imagesArray.map((image: any) => ({id: image.id}));
+                    }
+              return ctx.prisma.createProduct({
+                title,
+                description,
+                price,
+                shop: { connect:  {id: id}},
+                brand: { connect: {id: brandId}},
+                categories: { connect: categoryIds},
+                tags: { connect: tagsIds },
+                images: { connect: imagesIds}
+              })
+            },
+          })
     }
 })

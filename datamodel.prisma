@@ -22,14 +22,14 @@ type Shop {
 
 type ShopImage {
   id: ID! @unique
-  imageUrl: String! @unique
-  shop: Shop! @relation(name: "ShopImages")
+  imageUrl: String!
+  shop: Shop @relation(name: "ShopImages")
 }
 
 type UserImage {
   id: ID! @unique
-  imageUrl: String! @unique
-  user: User! @relation(name: "UserImages")
+  imageUrl: String!
+  user: User @relation(name: "UserImages")
 }
 
 type Product {
@@ -64,6 +64,6 @@ type Category {
 
 type ProductImage {
   id: ID! @unique
-  imageUrl: String! @unique
-  product: Product! @relation(name: "ProductImages")
+  imageUrl: String!
+  product: Product @relation(name: "ProductImages")
 }
