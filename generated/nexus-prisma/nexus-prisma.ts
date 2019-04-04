@@ -1021,6 +1021,7 @@ type ShopObject =
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'description', args?: [] | false, alias?: string  } 
+  | { name: 'category', args?: [] | false, alias?: string  } 
   | { name: 'live', args?: [] | false, alias?: string  } 
   | { name: 'owners', args?: ShopOwnersArgs[] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
@@ -1032,6 +1033,7 @@ type ShopFields =
   | 'id'
   | 'name'
   | 'description'
+  | 'category'
   | 'live'
   | 'owners'
   | 'createdAt'
@@ -1084,6 +1086,14 @@ export interface ShopFieldDetails {
     resolve: undefined
   }
   description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  category: {
     type: 'String'
     args: {}
     description: string
@@ -4183,6 +4193,7 @@ type ShopPreviousValuesObject =
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'description', args?: [] | false, alias?: string  } 
+  | { name: 'category', args?: [] | false, alias?: string  } 
   | { name: 'live', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
@@ -4191,6 +4202,7 @@ type ShopPreviousValuesFields =
   | 'id'
   | 'name'
   | 'description'
+  | 'category'
   | 'live'
   | 'createdAt'
   | 'updatedAt'
@@ -4217,6 +4229,14 @@ export interface ShopPreviousValuesFieldDetails {
     resolve: undefined
   }
   description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  category: {
     type: 'String'
     args: {}
     description: string
@@ -5061,6 +5081,20 @@ export interface ShopWhereInput {
   description_not_starts_with?: string | null
   description_ends_with?: string | null
   description_not_ends_with?: string | null
+  category?: string | null
+  category_not?: string | null
+  category_in?: string[]
+  category_not_in?: string[]
+  category_lt?: string | null
+  category_lte?: string | null
+  category_gt?: string | null
+  category_gte?: string | null
+  category_contains?: string | null
+  category_not_contains?: string | null
+  category_starts_with?: string | null
+  category_not_starts_with?: string | null
+  category_ends_with?: string | null
+  category_not_ends_with?: string | null
   live?: boolean | null
   live_not?: boolean | null
   owners_every?: UserWhereInput | null
@@ -5136,6 +5170,20 @@ export type ShopWhereInputInputObject =
   | { name: 'description_not_starts_with', alias?: string  } 
   | { name: 'description_ends_with', alias?: string  } 
   | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'category', alias?: string  } 
+  | { name: 'category_not', alias?: string  } 
+  | { name: 'category_in', alias?: string  } 
+  | { name: 'category_not_in', alias?: string  } 
+  | { name: 'category_lt', alias?: string  } 
+  | { name: 'category_lte', alias?: string  } 
+  | { name: 'category_gt', alias?: string  } 
+  | { name: 'category_gte', alias?: string  } 
+  | { name: 'category_contains', alias?: string  } 
+  | { name: 'category_not_contains', alias?: string  } 
+  | { name: 'category_starts_with', alias?: string  } 
+  | { name: 'category_not_starts_with', alias?: string  } 
+  | { name: 'category_ends_with', alias?: string  } 
+  | { name: 'category_not_ends_with', alias?: string  } 
   | { name: 'live', alias?: string  } 
   | { name: 'live_not', alias?: string  } 
   | { name: 'owners_every', alias?: string  } 
@@ -5994,6 +6042,7 @@ export type ShopCreateManyWithoutOwnersInputInputObject =
 export interface ShopCreateWithoutOwnersInput {
   name?: string
   description?: string
+  category?: string
   live?: boolean | null
   images?: ShopImageCreateManyWithoutShopInput | null
   products?: ProductCreateManyWithoutShopInput | null
@@ -6002,6 +6051,7 @@ export type ShopCreateWithoutOwnersInputInputObject =
   | Extract<keyof ShopCreateWithoutOwnersInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
+  | { name: 'category', alias?: string  } 
   | { name: 'live', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'products', alias?: string  } 
@@ -6182,6 +6232,7 @@ export type ShopUpdateWithWhereUniqueWithoutOwnersInputInputObject =
 export interface ShopUpdateWithoutOwnersDataInput {
   name?: string | null
   description?: string | null
+  category?: string | null
   live?: boolean | null
   images?: ShopImageUpdateManyWithoutShopInput | null
   products?: ProductUpdateManyWithoutShopInput | null
@@ -6190,6 +6241,7 @@ export type ShopUpdateWithoutOwnersDataInputInputObject =
   | Extract<keyof ShopUpdateWithoutOwnersDataInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
+  | { name: 'category', alias?: string  } 
   | { name: 'live', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'products', alias?: string  } 
@@ -7018,6 +7070,20 @@ export interface ShopScalarWhereInput {
   description_not_starts_with?: string | null
   description_ends_with?: string | null
   description_not_ends_with?: string | null
+  category?: string | null
+  category_not?: string | null
+  category_in?: string[]
+  category_not_in?: string[]
+  category_lt?: string | null
+  category_lte?: string | null
+  category_gt?: string | null
+  category_gte?: string | null
+  category_contains?: string | null
+  category_not_contains?: string | null
+  category_starts_with?: string | null
+  category_not_starts_with?: string | null
+  category_ends_with?: string | null
+  category_not_ends_with?: string | null
   live?: boolean | null
   live_not?: boolean | null
   createdAt?: string | null
@@ -7084,6 +7150,20 @@ export type ShopScalarWhereInputInputObject =
   | { name: 'description_not_starts_with', alias?: string  } 
   | { name: 'description_ends_with', alias?: string  } 
   | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'category', alias?: string  } 
+  | { name: 'category_not', alias?: string  } 
+  | { name: 'category_in', alias?: string  } 
+  | { name: 'category_not_in', alias?: string  } 
+  | { name: 'category_lt', alias?: string  } 
+  | { name: 'category_lte', alias?: string  } 
+  | { name: 'category_gt', alias?: string  } 
+  | { name: 'category_gte', alias?: string  } 
+  | { name: 'category_contains', alias?: string  } 
+  | { name: 'category_not_contains', alias?: string  } 
+  | { name: 'category_starts_with', alias?: string  } 
+  | { name: 'category_not_starts_with', alias?: string  } 
+  | { name: 'category_ends_with', alias?: string  } 
+  | { name: 'category_not_ends_with', alias?: string  } 
   | { name: 'live', alias?: string  } 
   | { name: 'live_not', alias?: string  } 
   | { name: 'createdAt', alias?: string  } 
@@ -7118,12 +7198,14 @@ export type ShopUpdateManyWithWhereNestedInputInputObject =
 export interface ShopUpdateManyDataInput {
   name?: string | null
   description?: string | null
+  category?: string | null
   live?: boolean | null
 }
 export type ShopUpdateManyDataInputInputObject =
   | Extract<keyof ShopUpdateManyDataInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
+  | { name: 'category', alias?: string  } 
   | { name: 'live', alias?: string  } 
   
 export interface UserImageUpdateManyWithoutUserInput {
@@ -7275,6 +7357,7 @@ export type UserUpdateManyMutationInputInputObject =
 export interface ShopCreateInput {
   name?: string
   description?: string
+  category?: string
   live?: boolean | null
   owners?: UserCreateManyWithoutShopsInput | null
   images?: ShopImageCreateManyWithoutShopInput | null
@@ -7284,6 +7367,7 @@ export type ShopCreateInputInputObject =
   | Extract<keyof ShopCreateInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
+  | { name: 'category', alias?: string  } 
   | { name: 'live', alias?: string  } 
   | { name: 'owners', alias?: string  } 
   | { name: 'images', alias?: string  } 
@@ -7316,6 +7400,7 @@ export type UserCreateWithoutShopsInputInputObject =
 export interface ShopUpdateInput {
   name?: string | null
   description?: string | null
+  category?: string | null
   live?: boolean | null
   owners?: UserUpdateManyWithoutShopsInput | null
   images?: ShopImageUpdateManyWithoutShopInput | null
@@ -7325,6 +7410,7 @@ export type ShopUpdateInputInputObject =
   | Extract<keyof ShopUpdateInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
+  | { name: 'category', alias?: string  } 
   | { name: 'live', alias?: string  } 
   | { name: 'owners', alias?: string  } 
   | { name: 'images', alias?: string  } 
@@ -7564,12 +7650,14 @@ export type UserUpdateManyDataInputInputObject =
 export interface ShopUpdateManyMutationInput {
   name?: string | null
   description?: string | null
+  category?: string | null
   live?: boolean | null
 }
 export type ShopUpdateManyMutationInputInputObject =
   | Extract<keyof ShopUpdateManyMutationInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
+  | { name: 'category', alias?: string  } 
   | { name: 'live', alias?: string  } 
   
 export interface ShopImageCreateInput {
@@ -7593,6 +7681,7 @@ export type ShopCreateOneWithoutImagesInputInputObject =
 export interface ShopCreateWithoutImagesInput {
   name?: string
   description?: string
+  category?: string
   live?: boolean | null
   owners?: UserCreateManyWithoutShopsInput | null
   products?: ProductCreateManyWithoutShopInput | null
@@ -7601,6 +7690,7 @@ export type ShopCreateWithoutImagesInputInputObject =
   | Extract<keyof ShopCreateWithoutImagesInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
+  | { name: 'category', alias?: string  } 
   | { name: 'live', alias?: string  } 
   | { name: 'owners', alias?: string  } 
   | { name: 'products', alias?: string  } 
@@ -7634,6 +7724,7 @@ export type ShopUpdateOneWithoutImagesInputInputObject =
 export interface ShopUpdateWithoutImagesDataInput {
   name?: string | null
   description?: string | null
+  category?: string | null
   live?: boolean | null
   owners?: UserUpdateManyWithoutShopsInput | null
   products?: ProductUpdateManyWithoutShopInput | null
@@ -7642,6 +7733,7 @@ export type ShopUpdateWithoutImagesDataInputInputObject =
   | Extract<keyof ShopUpdateWithoutImagesDataInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
+  | { name: 'category', alias?: string  } 
   | { name: 'live', alias?: string  } 
   | { name: 'owners', alias?: string  } 
   | { name: 'products', alias?: string  } 
@@ -7785,6 +7877,7 @@ export type ShopCreateOneWithoutProductsInputInputObject =
 export interface ShopCreateWithoutProductsInput {
   name?: string
   description?: string
+  category?: string
   live?: boolean | null
   owners?: UserCreateManyWithoutShopsInput | null
   images?: ShopImageCreateManyWithoutShopInput | null
@@ -7793,6 +7886,7 @@ export type ShopCreateWithoutProductsInputInputObject =
   | Extract<keyof ShopCreateWithoutProductsInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
+  | { name: 'category', alias?: string  } 
   | { name: 'live', alias?: string  } 
   | { name: 'owners', alias?: string  } 
   | { name: 'images', alias?: string  } 
@@ -7834,6 +7928,7 @@ export type ShopUpdateOneRequiredWithoutProductsInputInputObject =
 export interface ShopUpdateWithoutProductsDataInput {
   name?: string | null
   description?: string | null
+  category?: string | null
   live?: boolean | null
   owners?: UserUpdateManyWithoutShopsInput | null
   images?: ShopImageUpdateManyWithoutShopInput | null
@@ -7842,6 +7937,7 @@ export type ShopUpdateWithoutProductsDataInputInputObject =
   | Extract<keyof ShopUpdateWithoutProductsDataInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
+  | { name: 'category', alias?: string  } 
   | { name: 'live', alias?: string  } 
   | { name: 'owners', alias?: string  } 
   | { name: 'images', alias?: string  } 
@@ -8506,6 +8602,8 @@ export type ShopOrderByInputValues =
   | 'name_DESC'
   | 'description_ASC'
   | 'description_DESC'
+  | 'category_ASC'
+  | 'category_DESC'
   | 'live_ASC'
   | 'live_DESC'
   | 'createdAt_ASC'

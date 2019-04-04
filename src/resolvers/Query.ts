@@ -1,4 +1,4 @@
-import { idArg, queryType } from 'nexus';
+import { idArg, queryType, stringArg } from 'nexus';
 import { getUserId } from '../utils/getUser';
 
 export const Query = queryType({
@@ -24,5 +24,36 @@ export const Query = queryType({
                 return ctx.prisma.product({ id })
             }
         })
+        t.list.field('filterCategories', {
+            type: 'Category',
+            args: {
+              searchString: stringArg(),
+            },
+            resolve: (parent, { searchString }, ctx) => {
+              return ctx.prisma.categories({
+                where: {
+                  OR: [
+                    { name_contains: searchString },
+                  ],
+                },
+              })
+            },
+          })
+          t.list.field('filterUsers', {
+            type: 'User',
+            args: {
+              searchString: stringArg(),
+            },
+            resolve: (parent, { searchString }, ctx) => {
+              return ctx.prisma.users({
+                where: {
+                  OR: [
+                    { name_contains: searchString },
+                    { username_contains: searchString}
+                  ],
+                },
+              })
+            },
+          })
     }
 })

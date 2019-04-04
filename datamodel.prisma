@@ -12,6 +12,7 @@ type Shop {
   id: ID! @unique
   name: String! @unique
   description: String!
+  category: String!
   live: Boolean! @default(value: "false")
   owners: [User!] @relation(name: "ShopOwners")
   createdAt: DateTime!

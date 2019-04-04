@@ -467,6 +467,8 @@ export type ShopOrderByInput =
   | "name_DESC"
   | "description_ASC"
   | "description_DESC"
+  | "category_ASC"
+  | "category_DESC"
   | "live_ASC"
   | "live_DESC"
   | "createdAt_ASC"
@@ -1014,6 +1016,7 @@ export type ProductWhereUniqueInput = AtLeastOne<{
 export interface ShopUpdateWithoutProductsDataInput {
   name?: String;
   description?: String;
+  category?: String;
   live?: Boolean;
   owners?: UserUpdateManyWithoutShopsInput;
   images?: ShopImageUpdateManyWithoutShopInput;
@@ -1096,6 +1099,20 @@ export interface ShopScalarWhereInput {
   description_not_starts_with?: String;
   description_ends_with?: String;
   description_not_ends_with?: String;
+  category?: String;
+  category_not?: String;
+  category_in?: String[] | String;
+  category_not_in?: String[] | String;
+  category_lt?: String;
+  category_lte?: String;
+  category_gt?: String;
+  category_gte?: String;
+  category_contains?: String;
+  category_not_contains?: String;
+  category_starts_with?: String;
+  category_not_starts_with?: String;
+  category_ends_with?: String;
+  category_not_ends_with?: String;
   live?: Boolean;
   live_not?: Boolean;
   createdAt?: DateTimeInput;
@@ -1171,6 +1188,7 @@ export interface UserImageUpdateWithoutUserDataInput {
 export interface ShopCreateWithoutOwnersInput {
   name: String;
   description: String;
+  category: String;
   live?: Boolean;
   images?: ShopImageCreateManyWithoutShopInput;
   products?: ProductCreateManyWithoutShopInput;
@@ -1679,6 +1697,7 @@ export interface UserImageSubscriptionWhereInput {
 export interface ShopUpdateWithoutImagesDataInput {
   name?: String;
   description?: String;
+  category?: String;
   live?: Boolean;
   owners?: UserUpdateManyWithoutShopsInput;
   products?: ProductUpdateManyWithoutShopInput;
@@ -1877,6 +1896,7 @@ export interface CategoryUpdateInput {
 export interface ShopUpdateWithoutOwnersDataInput {
   name?: String;
   description?: String;
+  category?: String;
   live?: Boolean;
   images?: ShopImageUpdateManyWithoutShopInput;
   products?: ProductUpdateManyWithoutShopInput;
@@ -2187,6 +2207,7 @@ export interface ProductCreateWithoutBrandInput {
 export interface ShopCreateInput {
   name: String;
   description: String;
+  category: String;
   live?: Boolean;
   owners?: UserCreateManyWithoutShopsInput;
   images?: ShopImageCreateManyWithoutShopInput;
@@ -2196,6 +2217,7 @@ export interface ShopCreateInput {
 export interface ShopCreateWithoutProductsInput {
   name: String;
   description: String;
+  category: String;
   live?: Boolean;
   owners?: UserCreateManyWithoutShopsInput;
   images?: ShopImageCreateManyWithoutShopInput;
@@ -2242,6 +2264,7 @@ export interface CategoryUpdateManyWithWhereNestedInput {
 export interface ShopUpdateInput {
   name?: String;
   description?: String;
+  category?: String;
   live?: Boolean;
   owners?: UserUpdateManyWithoutShopsInput;
   images?: ShopImageUpdateManyWithoutShopInput;
@@ -2306,6 +2329,7 @@ export interface ProductUpdateManyWithoutShopInput {
 export interface ShopUpdateManyDataInput {
   name?: String;
   description?: String;
+  category?: String;
   live?: Boolean;
 }
 
@@ -2348,6 +2372,7 @@ export interface CategoryUpdateWithWhereUniqueWithoutProductInput {
 export interface ShopCreateWithoutImagesInput {
   name: String;
   description: String;
+  category: String;
   live?: Boolean;
   owners?: UserCreateManyWithoutShopsInput;
   products?: ProductCreateManyWithoutShopInput;
@@ -2366,6 +2391,7 @@ export interface ShopImageCreateInput {
 export interface ShopUpdateManyMutationInput {
   name?: String;
   description?: String;
+  category?: String;
   live?: Boolean;
 }
 
@@ -2412,6 +2438,20 @@ export interface ShopWhereInput {
   description_not_starts_with?: String;
   description_ends_with?: String;
   description_not_ends_with?: String;
+  category?: String;
+  category_not?: String;
+  category_in?: String[] | String;
+  category_not_in?: String[] | String;
+  category_lt?: String;
+  category_lte?: String;
+  category_gt?: String;
+  category_gte?: String;
+  category_contains?: String;
+  category_not_contains?: String;
+  category_starts_with?: String;
+  category_not_starts_with?: String;
+  category_ends_with?: String;
+  category_not_ends_with?: String;
   live?: Boolean;
   live_not?: Boolean;
   owners_every?: UserWhereInput;
@@ -3322,6 +3362,7 @@ export interface Shop {
   id: ID_Output;
   name: String;
   description: String;
+  category: String;
   live: Boolean;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -3331,6 +3372,7 @@ export interface ShopPromise extends Promise<Shop>, Fragmentable {
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
   description: () => Promise<String>;
+  category: () => Promise<String>;
   live: () => Promise<Boolean>;
   owners: <T = FragmentableArray<User>>(
     args?: {
@@ -3375,6 +3417,7 @@ export interface ShopSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   name: () => Promise<AsyncIterator<String>>;
   description: () => Promise<AsyncIterator<String>>;
+  category: () => Promise<AsyncIterator<String>>;
   live: () => Promise<AsyncIterator<Boolean>>;
   owners: <T = Promise<AsyncIterator<UserSubscription>>>(
     args?: {
@@ -3479,6 +3522,7 @@ export interface ShopPreviousValues {
   id: ID_Output;
   name: String;
   description: String;
+  category: String;
   live: Boolean;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -3490,6 +3534,7 @@ export interface ShopPreviousValuesPromise
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
   description: () => Promise<String>;
+  category: () => Promise<String>;
   live: () => Promise<Boolean>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -3501,6 +3546,7 @@ export interface ShopPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   name: () => Promise<AsyncIterator<String>>;
   description: () => Promise<AsyncIterator<String>>;
+  category: () => Promise<AsyncIterator<String>>;
   live: () => Promise<AsyncIterator<Boolean>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;

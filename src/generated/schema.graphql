@@ -108,10 +108,10 @@ scalar DateTime
 
 type Mutation {
   createProduct(brand: String!, categories: [String!], description: String!, id: ID!, images: [String!], price: String!, tags: [String!], title: String!): Product
-  createShopDraft(description: String, live: Boolean, name: String, ownersIds: [ID!]): Shop
-  login(email: String, password: String): AuthPayload
+  createShopDraft(category: String!, description: String!, live: Boolean, name: String!, ownersIds: [ID!]): Shop
+  login(email: String!, password: String!): AuthPayload
   publishShop(id: ID): Shop
-  signUp(email: String, name: String, password: String): AuthPayload
+  signUp(email: String!, name: String!, password: String!): AuthPayload
   updateShop(description: String, id: ID, images: [String!], name: String): Shop
   updateUser(email: String, images: [String!], name: String, password: String, username: String): User
 }
@@ -269,12 +269,15 @@ input ProductWhereInput {
 }
 
 type Query {
+  filterCategories(searchString: String): [Category!]
+  filterUsers(searchString: String): [User!]
   me: User
   product(id: ID): Product
   shop(id: ID): Shop
 }
 
 type Shop {
+  category: String!
   createdAt: DateTime!
   description: String!
   id: ID!
@@ -340,6 +343,20 @@ input ShopImageWhereInput {
 
 input ShopWhereInput {
   AND: [ShopWhereInput!]
+  category: String
+  category_contains: String
+  category_ends_with: String
+  category_gt: String
+  category_gte: String
+  category_in: [String!]
+  category_lt: String
+  category_lte: String
+  category_not: String
+  category_not_contains: String
+  category_not_ends_with: String
+  category_not_in: [String!]
+  category_not_starts_with: String
+  category_starts_with: String
   createdAt: DateTime
   createdAt_gt: DateTime
   createdAt_gte: DateTime

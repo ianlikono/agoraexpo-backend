@@ -1130,6 +1130,7 @@ type Shop {
   id: ID!
   name: String!
   description: String!
+  category: String!
   live: Boolean!
   owners(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
   createdAt: DateTime!
@@ -1147,6 +1148,7 @@ type ShopConnection {
 input ShopCreateInput {
   name: String!
   description: String!
+  category: String!
   live: Boolean
   owners: UserCreateManyWithoutShopsInput
   images: ShopImageCreateManyWithoutShopInput
@@ -1171,6 +1173,7 @@ input ShopCreateOneWithoutProductsInput {
 input ShopCreateWithoutImagesInput {
   name: String!
   description: String!
+  category: String!
   live: Boolean
   owners: UserCreateManyWithoutShopsInput
   products: ProductCreateManyWithoutShopInput
@@ -1179,6 +1182,7 @@ input ShopCreateWithoutImagesInput {
 input ShopCreateWithoutOwnersInput {
   name: String!
   description: String!
+  category: String!
   live: Boolean
   images: ShopImageCreateManyWithoutShopInput
   products: ProductCreateManyWithoutShopInput
@@ -1187,6 +1191,7 @@ input ShopCreateWithoutOwnersInput {
 input ShopCreateWithoutProductsInput {
   name: String!
   description: String!
+  category: String!
   live: Boolean
   owners: UserCreateManyWithoutShopsInput
   images: ShopImageCreateManyWithoutShopInput
@@ -1387,6 +1392,8 @@ enum ShopOrderByInput {
   name_DESC
   description_ASC
   description_DESC
+  category_ASC
+  category_DESC
   live_ASC
   live_DESC
   createdAt_ASC
@@ -1399,6 +1406,7 @@ type ShopPreviousValues {
   id: ID!
   name: String!
   description: String!
+  category: String!
   live: Boolean!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -1447,6 +1455,20 @@ input ShopScalarWhereInput {
   description_not_starts_with: String
   description_ends_with: String
   description_not_ends_with: String
+  category: String
+  category_not: String
+  category_in: [String!]
+  category_not_in: [String!]
+  category_lt: String
+  category_lte: String
+  category_gt: String
+  category_gte: String
+  category_contains: String
+  category_not_contains: String
+  category_starts_with: String
+  category_not_starts_with: String
+  category_ends_with: String
+  category_not_ends_with: String
   live: Boolean
   live_not: Boolean
   createdAt: DateTime
@@ -1491,6 +1513,7 @@ input ShopSubscriptionWhereInput {
 input ShopUpdateInput {
   name: String
   description: String
+  category: String
   live: Boolean
   owners: UserUpdateManyWithoutShopsInput
   images: ShopImageUpdateManyWithoutShopInput
@@ -1500,12 +1523,14 @@ input ShopUpdateInput {
 input ShopUpdateManyDataInput {
   name: String
   description: String
+  category: String
   live: Boolean
 }
 
 input ShopUpdateManyMutationInput {
   name: String
   description: String
+  category: String
   live: Boolean
 }
 
@@ -1545,6 +1570,7 @@ input ShopUpdateOneWithoutImagesInput {
 input ShopUpdateWithoutImagesDataInput {
   name: String
   description: String
+  category: String
   live: Boolean
   owners: UserUpdateManyWithoutShopsInput
   products: ProductUpdateManyWithoutShopInput
@@ -1553,6 +1579,7 @@ input ShopUpdateWithoutImagesDataInput {
 input ShopUpdateWithoutOwnersDataInput {
   name: String
   description: String
+  category: String
   live: Boolean
   images: ShopImageUpdateManyWithoutShopInput
   products: ProductUpdateManyWithoutShopInput
@@ -1561,6 +1588,7 @@ input ShopUpdateWithoutOwnersDataInput {
 input ShopUpdateWithoutProductsDataInput {
   name: String
   description: String
+  category: String
   live: Boolean
   owners: UserUpdateManyWithoutShopsInput
   images: ShopImageUpdateManyWithoutShopInput
@@ -1630,6 +1658,20 @@ input ShopWhereInput {
   description_not_starts_with: String
   description_ends_with: String
   description_not_ends_with: String
+  category: String
+  category_not: String
+  category_in: [String!]
+  category_not_in: [String!]
+  category_lt: String
+  category_lte: String
+  category_gt: String
+  category_gte: String
+  category_contains: String
+  category_not_contains: String
+  category_starts_with: String
+  category_not_starts_with: String
+  category_ends_with: String
+  category_not_ends_with: String
   live: Boolean
   live_not: Boolean
   owners_every: UserWhereInput

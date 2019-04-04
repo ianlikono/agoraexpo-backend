@@ -225,6 +225,20 @@ export interface NexusGenInputs {
   }
   ShopWhereInput: { // input type
     AND?: NexusGenInputs['ShopWhereInput'][] | null; // [ShopWhereInput!]
+    category?: string | null; // String
+    category_contains?: string | null; // String
+    category_ends_with?: string | null; // String
+    category_gt?: string | null; // String
+    category_gte?: string | null; // String
+    category_in?: string[] | null; // [String!]
+    category_lt?: string | null; // String
+    category_lte?: string | null; // String
+    category_not?: string | null; // String
+    category_not_contains?: string | null; // String
+    category_not_ends_with?: string | null; // String
+    category_not_in?: string[] | null; // [String!]
+    category_not_starts_with?: string | null; // String
+    category_starts_with?: string | null; // String
     createdAt?: any | null; // DateTime
     createdAt_gt?: any | null; // DateTime
     createdAt_gte?: any | null; // DateTime
@@ -486,6 +500,7 @@ export interface NexusGenRootTypes {
   }
   Query: {};
   Shop: { // root type
+    category: string; // String!
     createdAt: any; // DateTime!
     description: string; // String!
     id: string; // ID!
@@ -579,11 +594,14 @@ export interface NexusGenFieldTypes {
     product: NexusGenRootTypes['Product'] | null; // Product
   }
   Query: { // field return type
+    filterCategories: NexusGenRootTypes['Category'][] | null; // [Category!]
+    filterUsers: NexusGenRootTypes['User'][] | null; // [User!]
     me: NexusGenRootTypes['User'] | null; // User
     product: NexusGenRootTypes['Product'] | null; // Product
     shop: NexusGenRootTypes['Shop'] | null; // Shop
   }
   Shop: { // field return type
+    category: string; // String!
     createdAt: any; // DateTime!
     description: string; // String!
     id: string; // ID!
@@ -654,22 +672,23 @@ export interface NexusGenArgTypes {
       title: string; // String!
     }
     createShopDraft: { // args
-      description?: string | null; // String
+      category: string; // String!
+      description: string; // String!
       live?: boolean | null; // Boolean
-      name?: string | null; // String
+      name: string; // String!
       ownersIds?: string[] | null; // [ID!]
     }
     login: { // args
-      email?: string | null; // String
-      password?: string | null; // String
+      email: string; // String!
+      password: string; // String!
     }
     publishShop: { // args
       id?: string | null; // ID
     }
     signUp: { // args
-      email?: string | null; // String
-      name?: string | null; // String
-      password?: string | null; // String
+      email: string; // String!
+      name: string; // String!
+      password: string; // String!
     }
     updateShop: { // args
       description?: string | null; // String
@@ -715,6 +734,12 @@ export interface NexusGenArgTypes {
     }
   }
   Query: {
+    filterCategories: { // args
+      searchString?: string | null; // String
+    }
+    filterUsers: { // args
+      searchString?: string | null; // String
+    }
     product: { // args
       id?: string | null; // ID
     }

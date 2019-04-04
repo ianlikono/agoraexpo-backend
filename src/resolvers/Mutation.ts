@@ -10,9 +10,9 @@ export const Mutation = mutationType({
         t.field('signUp', {
             type: 'AuthPayload',
             args: {
-                name: stringArg(),
-                email: stringArg(),
-                password: stringArg(),
+                name: stringArg({nullable: false}),
+                email: stringArg({nullable: false}),
+                password: stringArg({nullable: false}),
             },
             resolve: async (parent, {name, email, password}, ctx) => {
                 const uniqueUsername = name.replace(/[^A-Z0-9]+/ig, "") + "-" + shortid.generate();
@@ -62,8 +62,8 @@ export const Mutation = mutationType({
         t.field('login', {
             type: 'AuthPayload',
             args: {
-              email: stringArg(),
-              password: stringArg(),
+              email: stringArg({nullable: false}),
+              password: stringArg({nullable: false}),
             },
             resolve: async (parent, { email, password }, context) => {
               const user = await context.prisma.user({ email })
@@ -83,24 +83,27 @@ export const Mutation = mutationType({
           t.field('createShopDraft', {
             type: 'Shop',
             args: {
-              name: stringArg(),
-              description: stringArg(),
+              name: stringArg({required: true}),
+              description: stringArg({required: true}),
+              category: stringArg({required: true}),
               live: booleanArg(),
               ownersIds: idArg({list: true, required: false})
             },
-            resolve: async (parent, { description, name, live, ownersIds }, ctx) => {
+            resolve: async (parent, { description, name, live, category, ownersIds }, ctx) => {
               const userId = getUserId(ctx)
                 const ids = ownersIds.map((id) => {
                 return {
                   id: id
                 }
               })
+              category = category.toLowerCase()
               const loggedInUser = [{id: userId}]
               const finalOwnerIds = ids.concat(loggedInUser);
               return ctx.prisma.createShop({
                 name,
                 description,
                 live,
+                category,
                 owners: { connect:  finalOwnerIds},
               })
             },
