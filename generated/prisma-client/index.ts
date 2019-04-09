@@ -23,6 +23,7 @@ export interface Exists {
   tag: (where?: TagWhereInput) => Promise<boolean>;
   user: (where?: UserWhereInput) => Promise<boolean>;
   userImage: (where?: UserImageWhereInput) => Promise<boolean>;
+  variant: (where?: VariantWhereInput) => Promise<boolean>;
 }
 
 export interface Node {}
@@ -251,6 +252,29 @@ export interface Prisma {
       last?: Int;
     }
   ) => UserImageConnectionPromise;
+  variant: (where: VariantWhereUniqueInput) => VariantPromise;
+  variants: (
+    args?: {
+      where?: VariantWhereInput;
+      orderBy?: VariantOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Variant>;
+  variantsConnection: (
+    args?: {
+      where?: VariantWhereInput;
+      orderBy?: VariantOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => VariantConnectionPromise;
   node: (args: { id: ID_Output }) => Node;
 
   /**
@@ -414,6 +438,22 @@ export interface Prisma {
   ) => UserImagePromise;
   deleteUserImage: (where: UserImageWhereUniqueInput) => UserImagePromise;
   deleteManyUserImages: (where?: UserImageWhereInput) => BatchPayloadPromise;
+  createVariant: (data: VariantCreateInput) => VariantPromise;
+  updateVariant: (
+    args: { data: VariantUpdateInput; where: VariantWhereUniqueInput }
+  ) => VariantPromise;
+  updateManyVariants: (
+    args: { data: VariantUpdateManyMutationInput; where?: VariantWhereInput }
+  ) => BatchPayloadPromise;
+  upsertVariant: (
+    args: {
+      where: VariantWhereUniqueInput;
+      create: VariantCreateInput;
+      update: VariantUpdateInput;
+    }
+  ) => VariantPromise;
+  deleteVariant: (where: VariantWhereUniqueInput) => VariantPromise;
+  deleteManyVariants: (where?: VariantWhereInput) => BatchPayloadPromise;
 
   /**
    * Subscriptions
@@ -450,6 +490,9 @@ export interface Subscription {
   userImage: (
     where?: UserImageSubscriptionWhereInput
   ) => UserImageSubscriptionPayloadSubscription;
+  variant: (
+    where?: VariantSubscriptionWhereInput
+  ) => VariantSubscriptionPayloadSubscription;
 }
 
 export interface ClientConstructor<T> {
@@ -558,6 +601,16 @@ export type ShopImageOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
+export type VariantOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
 export type BrandOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -568,7 +621,102 @@ export type BrandOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export interface UserImageScalarWhereInput {
+export interface UserScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  email?: String;
+  email_not?: String;
+  email_in?: String[] | String;
+  email_not_in?: String[] | String;
+  email_lt?: String;
+  email_lte?: String;
+  email_gt?: String;
+  email_gte?: String;
+  email_contains?: String;
+  email_not_contains?: String;
+  email_starts_with?: String;
+  email_not_starts_with?: String;
+  email_ends_with?: String;
+  email_not_ends_with?: String;
+  password?: String;
+  password_not?: String;
+  password_in?: String[] | String;
+  password_not_in?: String[] | String;
+  password_lt?: String;
+  password_lte?: String;
+  password_gt?: String;
+  password_gte?: String;
+  password_contains?: String;
+  password_not_contains?: String;
+  password_starts_with?: String;
+  password_not_starts_with?: String;
+  password_ends_with?: String;
+  password_not_ends_with?: String;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  username?: String;
+  username_not?: String;
+  username_in?: String[] | String;
+  username_not_in?: String[] | String;
+  username_lt?: String;
+  username_lte?: String;
+  username_gt?: String;
+  username_gte?: String;
+  username_contains?: String;
+  username_not_contains?: String;
+  username_starts_with?: String;
+  username_not_starts_with?: String;
+  username_ends_with?: String;
+  username_not_ends_with?: String;
+  AND?: UserScalarWhereInput[] | UserScalarWhereInput;
+  OR?: UserScalarWhereInput[] | UserScalarWhereInput;
+  NOT?: UserScalarWhereInput[] | UserScalarWhereInput;
+}
+
+export type BrandWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  name?: String;
+}>;
+
+export interface TagUpdateWithWhereUniqueWithoutProductsInput {
+  where: TagWhereUniqueInput;
+  data: TagUpdateWithoutProductsDataInput;
+}
+
+export interface TagCreateInput {
+  name: String;
+  products?: ProductCreateManyWithoutTagsInput;
+}
+
+export interface TagUpdateWithoutProductsDataInput {
+  name?: String;
+}
+
+export interface ShopImageScalarWhereInput {
   id?: ID_Input;
   id_not?: ID_Input;
   id_in?: ID_Input[] | ID_Input;
@@ -597,21 +745,15 @@ export interface UserImageScalarWhereInput {
   imageUrl_not_starts_with?: String;
   imageUrl_ends_with?: String;
   imageUrl_not_ends_with?: String;
-  AND?: UserImageScalarWhereInput[] | UserImageScalarWhereInput;
-  OR?: UserImageScalarWhereInput[] | UserImageScalarWhereInput;
-  NOT?: UserImageScalarWhereInput[] | UserImageScalarWhereInput;
+  AND?: ShopImageScalarWhereInput[] | ShopImageScalarWhereInput;
+  OR?: ShopImageScalarWhereInput[] | ShopImageScalarWhereInput;
+  NOT?: ShopImageScalarWhereInput[] | ShopImageScalarWhereInput;
 }
 
-export type BrandWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-  name?: String;
-}>;
-
-export interface UserUpdateManyDataInput {
-  email?: String;
-  password?: String;
-  name?: String;
-  username?: String;
+export interface TagUpsertWithWhereUniqueWithoutProductsInput {
+  where: TagWhereUniqueInput;
+  update: TagUpdateWithoutProductsDataInput;
+  create: TagCreateWithoutProductsInput;
 }
 
 export interface UserImageWhereInput {
@@ -649,95 +791,6 @@ export interface UserImageWhereInput {
   NOT?: UserImageWhereInput[] | UserImageWhereInput;
 }
 
-export interface ShopImageUpdateManyWithoutShopInput {
-  create?: ShopImageCreateWithoutShopInput[] | ShopImageCreateWithoutShopInput;
-  delete?: ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput;
-  connect?: ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput;
-  set?: ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput;
-  disconnect?: ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput;
-  update?:
-    | ShopImageUpdateWithWhereUniqueWithoutShopInput[]
-    | ShopImageUpdateWithWhereUniqueWithoutShopInput;
-  upsert?:
-    | ShopImageUpsertWithWhereUniqueWithoutShopInput[]
-    | ShopImageUpsertWithWhereUniqueWithoutShopInput;
-  deleteMany?: ShopImageScalarWhereInput[] | ShopImageScalarWhereInput;
-  updateMany?:
-    | ShopImageUpdateManyWithWhereNestedInput[]
-    | ShopImageUpdateManyWithWhereNestedInput;
-}
-
-export interface ShopImageWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  imageUrl?: String;
-  imageUrl_not?: String;
-  imageUrl_in?: String[] | String;
-  imageUrl_not_in?: String[] | String;
-  imageUrl_lt?: String;
-  imageUrl_lte?: String;
-  imageUrl_gt?: String;
-  imageUrl_gte?: String;
-  imageUrl_contains?: String;
-  imageUrl_not_contains?: String;
-  imageUrl_starts_with?: String;
-  imageUrl_not_starts_with?: String;
-  imageUrl_ends_with?: String;
-  imageUrl_not_ends_with?: String;
-  shop?: ShopWhereInput;
-  AND?: ShopImageWhereInput[] | ShopImageWhereInput;
-  OR?: ShopImageWhereInput[] | ShopImageWhereInput;
-  NOT?: ShopImageWhereInput[] | ShopImageWhereInput;
-}
-
-export interface TagUpdateWithWhereUniqueWithoutProductsInput {
-  where: TagWhereUniqueInput;
-  data: TagUpdateWithoutProductsDataInput;
-}
-
-export interface ShopImageUpdateInput {
-  imageUrl?: String;
-  shop?: ShopUpdateOneWithoutImagesInput;
-}
-
-export interface TagUpdateWithoutProductsDataInput {
-  name?: String;
-}
-
-export interface ShopImageUpdateWithWhereUniqueWithoutShopInput {
-  where: ShopImageWhereUniqueInput;
-  data: ShopImageUpdateWithoutShopDataInput;
-}
-
-export interface TagUpsertWithWhereUniqueWithoutProductsInput {
-  where: TagWhereUniqueInput;
-  update: TagUpdateWithoutProductsDataInput;
-  create: TagCreateWithoutProductsInput;
-}
-
-export interface UserSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: UserWhereInput;
-  AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-  OR?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-  NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-}
-
 export interface TagScalarWhereInput {
   id?: ID_Input;
   id_not?: ID_Input;
@@ -772,20 +825,35 @@ export interface TagScalarWhereInput {
   NOT?: TagScalarWhereInput[] | TagScalarWhereInput;
 }
 
-export interface TagSubscriptionWhereInput {
+export interface UserImageSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
   updatedFields_contains?: String;
   updatedFields_contains_every?: String[] | String;
   updatedFields_contains_some?: String[] | String;
-  node?: TagWhereInput;
-  AND?: TagSubscriptionWhereInput[] | TagSubscriptionWhereInput;
-  OR?: TagSubscriptionWhereInput[] | TagSubscriptionWhereInput;
-  NOT?: TagSubscriptionWhereInput[] | TagSubscriptionWhereInput;
+  node?: UserImageWhereInput;
+  AND?: UserImageSubscriptionWhereInput[] | UserImageSubscriptionWhereInput;
+  OR?: UserImageSubscriptionWhereInput[] | UserImageSubscriptionWhereInput;
+  NOT?: UserImageSubscriptionWhereInput[] | UserImageSubscriptionWhereInput;
 }
 
 export interface TagUpdateManyWithWhereNestedInput {
   where: TagScalarWhereInput;
   data: TagUpdateManyDataInput;
+}
+
+export interface UserSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: UserWhereInput;
+  AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+  OR?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+  NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+}
+
+export interface TagUpdateManyDataInput {
+  name?: String;
 }
 
 export interface ShopImageSubscriptionWhereInput {
@@ -799,8 +867,79 @@ export interface ShopImageSubscriptionWhereInput {
   NOT?: ShopImageSubscriptionWhereInput[] | ShopImageSubscriptionWhereInput;
 }
 
-export interface TagUpdateManyDataInput {
-  name?: String;
+export interface ProductImageUpdateManyWithoutProductInput {
+  create?:
+    | ProductImageCreateWithoutProductInput[]
+    | ProductImageCreateWithoutProductInput;
+  delete?: ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput;
+  connect?: ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput;
+  set?: ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput;
+  disconnect?: ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput;
+  update?:
+    | ProductImageUpdateWithWhereUniqueWithoutProductInput[]
+    | ProductImageUpdateWithWhereUniqueWithoutProductInput;
+  upsert?:
+    | ProductImageUpsertWithWhereUniqueWithoutProductInput[]
+    | ProductImageUpsertWithWhereUniqueWithoutProductInput;
+  deleteMany?: ProductImageScalarWhereInput[] | ProductImageScalarWhereInput;
+  updateMany?:
+    | ProductImageUpdateManyWithWhereNestedInput[]
+    | ProductImageUpdateManyWithWhereNestedInput;
+}
+
+export interface ShopSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ShopWhereInput;
+  AND?: ShopSubscriptionWhereInput[] | ShopSubscriptionWhereInput;
+  OR?: ShopSubscriptionWhereInput[] | ShopSubscriptionWhereInput;
+  NOT?: ShopSubscriptionWhereInput[] | ShopSubscriptionWhereInput;
+}
+
+export interface ProductImageUpdateWithWhereUniqueWithoutProductInput {
+  where: ProductImageWhereUniqueInput;
+  data: ProductImageUpdateWithoutProductDataInput;
+}
+
+export interface ProductImageWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  imageUrl?: String;
+  imageUrl_not?: String;
+  imageUrl_in?: String[] | String;
+  imageUrl_not_in?: String[] | String;
+  imageUrl_lt?: String;
+  imageUrl_lte?: String;
+  imageUrl_gt?: String;
+  imageUrl_gte?: String;
+  imageUrl_contains?: String;
+  imageUrl_not_contains?: String;
+  imageUrl_starts_with?: String;
+  imageUrl_not_starts_with?: String;
+  imageUrl_ends_with?: String;
+  imageUrl_not_ends_with?: String;
+  product?: ProductWhereInput;
+  AND?: ProductImageWhereInput[] | ProductImageWhereInput;
+  OR?: ProductImageWhereInput[] | ProductImageWhereInput;
+  NOT?: ProductImageWhereInput[] | ProductImageWhereInput;
+}
+
+export interface ProductImageUpdateWithoutProductDataInput {
+  imageUrl?: String;
 }
 
 export interface TagWhereInput {
@@ -840,81 +979,10 @@ export interface TagWhereInput {
   NOT?: TagWhereInput[] | TagWhereInput;
 }
 
-export interface ProductImageUpdateManyWithoutProductInput {
-  create?:
-    | ProductImageCreateWithoutProductInput[]
-    | ProductImageCreateWithoutProductInput;
-  delete?: ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput;
-  connect?: ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput;
-  set?: ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput;
-  disconnect?: ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput;
-  update?:
-    | ProductImageUpdateWithWhereUniqueWithoutProductInput[]
-    | ProductImageUpdateWithWhereUniqueWithoutProductInput;
-  upsert?:
-    | ProductImageUpsertWithWhereUniqueWithoutProductInput[]
-    | ProductImageUpsertWithWhereUniqueWithoutProductInput;
-  deleteMany?: ProductImageScalarWhereInput[] | ProductImageScalarWhereInput;
-  updateMany?:
-    | ProductImageUpdateManyWithWhereNestedInput[]
-    | ProductImageUpdateManyWithWhereNestedInput;
-}
-
-export interface BrandWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  products_every?: ProductWhereInput;
-  products_some?: ProductWhereInput;
-  products_none?: ProductWhereInput;
-  AND?: BrandWhereInput[] | BrandWhereInput;
-  OR?: BrandWhereInput[] | BrandWhereInput;
-  NOT?: BrandWhereInput[] | BrandWhereInput;
-}
-
-export interface ProductImageUpdateWithWhereUniqueWithoutProductInput {
+export interface ProductImageUpsertWithWhereUniqueWithoutProductInput {
   where: ProductImageWhereUniqueInput;
-  data: ProductImageUpdateWithoutProductDataInput;
-}
-
-export interface ProductSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: ProductWhereInput;
-  AND?: ProductSubscriptionWhereInput[] | ProductSubscriptionWhereInput;
-  OR?: ProductSubscriptionWhereInput[] | ProductSubscriptionWhereInput;
-  NOT?: ProductSubscriptionWhereInput[] | ProductSubscriptionWhereInput;
-}
-
-export interface ProductImageUpdateWithoutProductDataInput {
-  imageUrl?: String;
+  update: ProductImageUpdateWithoutProductDataInput;
+  create: ProductImageCreateWithoutProductInput;
 }
 
 export interface CategorySubscriptionWhereInput {
@@ -926,16 +994,6 @@ export interface CategorySubscriptionWhereInput {
   AND?: CategorySubscriptionWhereInput[] | CategorySubscriptionWhereInput;
   OR?: CategorySubscriptionWhereInput[] | CategorySubscriptionWhereInput;
   NOT?: CategorySubscriptionWhereInput[] | CategorySubscriptionWhereInput;
-}
-
-export interface ProductImageUpsertWithWhereUniqueWithoutProductInput {
-  where: ProductImageWhereUniqueInput;
-  update: ProductImageUpdateWithoutProductDataInput;
-  create: ProductImageCreateWithoutProductInput;
-}
-
-export interface UserImageUpdateManyMutationInput {
-  imageUrl?: String;
 }
 
 export interface ProductImageScalarWhereInput {
@@ -972,12 +1030,15 @@ export interface ProductImageScalarWhereInput {
   NOT?: ProductImageScalarWhereInput[] | ProductImageScalarWhereInput;
 }
 
-export interface UserUpdateWithoutImagesDataInput {
-  email?: String;
-  password?: String;
-  name?: String;
-  username?: String;
-  shops?: ShopUpdateManyWithoutOwnersInput;
+export interface BrandSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: BrandWhereInput;
+  AND?: BrandSubscriptionWhereInput[] | BrandSubscriptionWhereInput;
+  OR?: BrandSubscriptionWhereInput[] | BrandSubscriptionWhereInput;
+  NOT?: BrandSubscriptionWhereInput[] | BrandSubscriptionWhereInput;
 }
 
 export interface ProductImageUpdateManyWithWhereNestedInput {
@@ -985,21 +1046,24 @@ export interface ProductImageUpdateManyWithWhereNestedInput {
   data: ProductImageUpdateManyDataInput;
 }
 
-export type CategoryWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
+export interface VariantUpdateManyMutationInput {
   name?: String;
-}>;
+  values?: VariantUpdatevaluesInput;
+}
 
 export interface ProductImageUpdateManyDataInput {
   imageUrl?: String;
 }
 
-export interface UserCreateWithoutImagesInput {
-  email: String;
-  password: String;
-  name: String;
-  username: String;
-  shops?: ShopCreateManyWithoutOwnersInput;
+export interface ProductUpdateWithoutVariantsDataInput {
+  title?: String;
+  description?: String;
+  price?: String;
+  categories?: CategoryUpdateManyWithoutProductInput;
+  brand?: BrandUpdateOneWithoutProductsInput;
+  tags?: TagUpdateManyWithoutProductsInput;
+  images?: ProductImageUpdateManyWithoutProductInput;
+  shop?: ShopUpdateOneRequiredWithoutProductsInput;
 }
 
 export interface ShopUpdateOneRequiredWithoutProductsInput {
@@ -1009,9 +1073,11 @@ export interface ShopUpdateOneRequiredWithoutProductsInput {
   connect?: ShopWhereUniqueInput;
 }
 
-export type ProductWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
+export interface VariantUpdateInput {
+  product?: ProductUpdateOneRequiredWithoutVariantsInput;
+  name?: String;
+  values?: VariantUpdatevaluesInput;
+}
 
 export interface ShopUpdateWithoutProductsDataInput {
   name?: String;
@@ -1022,12 +1088,10 @@ export interface ShopUpdateWithoutProductsDataInput {
   images?: ShopImageUpdateManyWithoutShopInput;
 }
 
-export interface UserUpdateManyMutationInput {
-  email?: String;
-  password?: String;
+export type CategoryWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
   name?: String;
-  username?: String;
-}
+}>;
 
 export interface UserUpdateManyWithoutShopsInput {
   create?: UserCreateWithoutShopsInput[] | UserCreateWithoutShopsInput;
@@ -1047,13 +1111,135 @@ export interface UserUpdateManyWithoutShopsInput {
     | UserUpdateManyWithWhereNestedInput;
 }
 
-export type ProductImageWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
+export interface VariantCreateInput {
+  product: ProductCreateOneWithoutVariantsInput;
+  name: String;
+  values?: VariantCreatevaluesInput;
+}
 
 export interface UserUpdateWithWhereUniqueWithoutShopsInput {
   where: UserWhereUniqueInput;
   data: UserUpdateWithoutShopsDataInput;
+}
+
+export type ProductWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface UserUpdateWithoutShopsDataInput {
+  email?: String;
+  password?: String;
+  name?: String;
+  username?: String;
+  images?: UserImageUpdateManyWithoutUserInput;
+}
+
+export interface UserUpdateWithoutImagesDataInput {
+  email?: String;
+  password?: String;
+  name?: String;
+  username?: String;
+  shops?: ShopUpdateManyWithoutOwnersInput;
+}
+
+export interface UserImageUpdateManyWithoutUserInput {
+  create?: UserImageCreateWithoutUserInput[] | UserImageCreateWithoutUserInput;
+  delete?: UserImageWhereUniqueInput[] | UserImageWhereUniqueInput;
+  connect?: UserImageWhereUniqueInput[] | UserImageWhereUniqueInput;
+  set?: UserImageWhereUniqueInput[] | UserImageWhereUniqueInput;
+  disconnect?: UserImageWhereUniqueInput[] | UserImageWhereUniqueInput;
+  update?:
+    | UserImageUpdateWithWhereUniqueWithoutUserInput[]
+    | UserImageUpdateWithWhereUniqueWithoutUserInput;
+  upsert?:
+    | UserImageUpsertWithWhereUniqueWithoutUserInput[]
+    | UserImageUpsertWithWhereUniqueWithoutUserInput;
+  deleteMany?: UserImageScalarWhereInput[] | UserImageScalarWhereInput;
+  updateMany?:
+    | UserImageUpdateManyWithWhereNestedInput[]
+    | UserImageUpdateManyWithWhereNestedInput;
+}
+
+export type ProductImageWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface UserImageUpdateWithWhereUniqueWithoutUserInput {
+  where: UserImageWhereUniqueInput;
+  data: UserImageUpdateWithoutUserDataInput;
+}
+
+export interface UserCreateWithoutImagesInput {
+  email: String;
+  password: String;
+  name: String;
+  username: String;
+  shops?: ShopCreateManyWithoutOwnersInput;
+}
+
+export interface UserImageUpdateWithoutUserDataInput {
+  imageUrl?: String;
+}
+
+export type ShopWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  name?: String;
+}>;
+
+export interface UserImageUpsertWithWhereUniqueWithoutUserInput {
+  where: UserImageWhereUniqueInput;
+  update: UserImageUpdateWithoutUserDataInput;
+  create: UserImageCreateWithoutUserInput;
+}
+
+export interface UserUpdateManyMutationInput {
+  email?: String;
+  password?: String;
+  name?: String;
+  username?: String;
+}
+
+export interface UserImageScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  imageUrl?: String;
+  imageUrl_not?: String;
+  imageUrl_in?: String[] | String;
+  imageUrl_not_in?: String[] | String;
+  imageUrl_lt?: String;
+  imageUrl_lte?: String;
+  imageUrl_gt?: String;
+  imageUrl_gte?: String;
+  imageUrl_contains?: String;
+  imageUrl_not_contains?: String;
+  imageUrl_starts_with?: String;
+  imageUrl_not_starts_with?: String;
+  imageUrl_ends_with?: String;
+  imageUrl_not_ends_with?: String;
+  AND?: UserImageScalarWhereInput[] | UserImageScalarWhereInput;
+  OR?: UserImageScalarWhereInput[] | UserImageScalarWhereInput;
+  NOT?: UserImageScalarWhereInput[] | UserImageScalarWhereInput;
+}
+
+export type ShopImageWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface UserImageUpdateManyWithWhereNestedInput {
+  where: UserImageScalarWhereInput;
+  data: UserImageUpdateManyDataInput;
 }
 
 export interface ShopScalarWhereInput {
@@ -1136,35 +1322,19 @@ export interface ShopScalarWhereInput {
   NOT?: ShopScalarWhereInput[] | ShopScalarWhereInput;
 }
 
-export interface UserUpdateWithoutShopsDataInput {
-  email?: String;
-  password?: String;
-  name?: String;
-  username?: String;
-  images?: UserImageUpdateManyWithoutUserInput;
+export interface UserImageUpdateManyDataInput {
+  imageUrl?: String;
 }
 
-export type ShopWhereUniqueInput = AtLeastOne<{
+export type TagWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
   name?: String;
 }>;
 
-export interface UserImageUpdateManyWithoutUserInput {
-  create?: UserImageCreateWithoutUserInput[] | UserImageCreateWithoutUserInput;
-  delete?: UserImageWhereUniqueInput[] | UserImageWhereUniqueInput;
-  connect?: UserImageWhereUniqueInput[] | UserImageWhereUniqueInput;
-  set?: UserImageWhereUniqueInput[] | UserImageWhereUniqueInput;
-  disconnect?: UserImageWhereUniqueInput[] | UserImageWhereUniqueInput;
-  update?:
-    | UserImageUpdateWithWhereUniqueWithoutUserInput[]
-    | UserImageUpdateWithWhereUniqueWithoutUserInput;
-  upsert?:
-    | UserImageUpsertWithWhereUniqueWithoutUserInput[]
-    | UserImageUpsertWithWhereUniqueWithoutUserInput;
-  deleteMany?: UserImageScalarWhereInput[] | UserImageScalarWhereInput;
-  updateMany?:
-    | UserImageUpdateManyWithWhereNestedInput[]
-    | UserImageUpdateManyWithWhereNestedInput;
+export interface UserUpsertWithWhereUniqueWithoutShopsInput {
+  where: UserWhereUniqueInput;
+  update: UserUpdateWithoutShopsDataInput;
+  create: UserCreateWithoutShopsInput;
 }
 
 export interface ShopUpdateWithWhereUniqueWithoutOwnersInput {
@@ -1172,17 +1342,20 @@ export interface ShopUpdateWithWhereUniqueWithoutOwnersInput {
   data: ShopUpdateWithoutOwnersDataInput;
 }
 
-export interface UserImageUpdateWithWhereUniqueWithoutUserInput {
-  where: UserImageWhereUniqueInput;
-  data: UserImageUpdateWithoutUserDataInput;
+export interface TagUpdateInput {
+  name?: String;
+  products?: ProductUpdateManyWithoutTagsInput;
 }
 
-export type ShopImageWhereUniqueInput = AtLeastOne<{
+export type UserWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
+  email?: String;
+  username?: String;
 }>;
 
-export interface UserImageUpdateWithoutUserDataInput {
-  imageUrl?: String;
+export interface UserUpdateManyWithWhereNestedInput {
+  where: UserScalarWhereInput;
+  data: UserUpdateManyDataInput;
 }
 
 export interface ShopCreateWithoutOwnersInput {
@@ -1194,38 +1367,49 @@ export interface ShopCreateWithoutOwnersInput {
   products?: ProductCreateManyWithoutShopInput;
 }
 
-export interface UserImageUpsertWithWhereUniqueWithoutUserInput {
-  where: UserImageWhereUniqueInput;
-  update: UserImageUpdateWithoutUserDataInput;
-  create: UserImageCreateWithoutUserInput;
+export interface UserUpdateManyDataInput {
+  email?: String;
+  password?: String;
+  name?: String;
+  username?: String;
 }
 
-export type TagWhereUniqueInput = AtLeastOne<{
+export type UserImageWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
-  name?: String;
 }>;
 
-export interface TagCreateInput {
-  name: String;
-  products?: ProductCreateManyWithoutTagsInput;
+export interface ShopImageUpdateManyWithoutShopInput {
+  create?: ShopImageCreateWithoutShopInput[] | ShopImageCreateWithoutShopInput;
+  delete?: ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput;
+  connect?: ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput;
+  set?: ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput;
+  disconnect?: ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput;
+  update?:
+    | ShopImageUpdateWithWhereUniqueWithoutShopInput[]
+    | ShopImageUpdateWithWhereUniqueWithoutShopInput;
+  upsert?:
+    | ShopImageUpsertWithWhereUniqueWithoutShopInput[]
+    | ShopImageUpsertWithWhereUniqueWithoutShopInput;
+  deleteMany?: ShopImageScalarWhereInput[] | ShopImageScalarWhereInput;
+  updateMany?:
+    | ShopImageUpdateManyWithWhereNestedInput[]
+    | ShopImageUpdateManyWithWhereNestedInput;
 }
 
 export interface TagUpdateManyMutationInput {
   name?: String;
 }
 
-export interface UserImageUpdateManyWithWhereNestedInput {
-  where: UserImageScalarWhereInput;
-  data: UserImageUpdateManyDataInput;
+export interface ShopImageUpdateWithWhereUniqueWithoutShopInput {
+  where: ShopImageWhereUniqueInput;
+  data: ShopImageUpdateWithoutShopDataInput;
 }
 
-export type UserWhereUniqueInput = AtLeastOne<{
+export type VariantWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
-  email?: String;
-  username?: String;
 }>;
 
-export interface UserImageUpdateManyDataInput {
+export interface ShopImageUpdateWithoutShopDataInput {
   imageUrl?: String;
 }
 
@@ -1234,105 +1418,10 @@ export interface ProductUpdateWithWhereUniqueWithoutTagsInput {
   data: ProductUpdateWithoutTagsDataInput;
 }
 
-export interface UserUpsertWithWhereUniqueWithoutShopsInput {
-  where: UserWhereUniqueInput;
-  update: UserUpdateWithoutShopsDataInput;
-  create: UserCreateWithoutShopsInput;
-}
-
-export type UserImageWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface UserScalarWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  email?: String;
-  email_not?: String;
-  email_in?: String[] | String;
-  email_not_in?: String[] | String;
-  email_lt?: String;
-  email_lte?: String;
-  email_gt?: String;
-  email_gte?: String;
-  email_contains?: String;
-  email_not_contains?: String;
-  email_starts_with?: String;
-  email_not_starts_with?: String;
-  email_ends_with?: String;
-  email_not_ends_with?: String;
-  password?: String;
-  password_not?: String;
-  password_in?: String[] | String;
-  password_not_in?: String[] | String;
-  password_lt?: String;
-  password_lte?: String;
-  password_gt?: String;
-  password_gte?: String;
-  password_contains?: String;
-  password_not_contains?: String;
-  password_starts_with?: String;
-  password_not_starts_with?: String;
-  password_ends_with?: String;
-  password_not_ends_with?: String;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  username?: String;
-  username_not?: String;
-  username_in?: String[] | String;
-  username_not_in?: String[] | String;
-  username_lt?: String;
-  username_lte?: String;
-  username_gt?: String;
-  username_gte?: String;
-  username_contains?: String;
-  username_not_contains?: String;
-  username_starts_with?: String;
-  username_not_starts_with?: String;
-  username_ends_with?: String;
-  username_not_ends_with?: String;
-  AND?: UserScalarWhereInput[] | UserScalarWhereInput;
-  OR?: UserScalarWhereInput[] | UserScalarWhereInput;
-  NOT?: UserScalarWhereInput[] | UserScalarWhereInput;
-}
-
-export interface ProductCreateWithoutTagsInput {
-  title: String;
-  description: String;
-  price: String;
-  categories?: CategoryCreateManyWithoutProductInput;
-  brand?: BrandCreateOneWithoutProductsInput;
-  images?: ProductImageCreateManyWithoutProductInput;
-  shop: ShopCreateOneWithoutProductsInput;
-}
-
-export interface UserUpdateManyWithWhereNestedInput {
-  where: UserScalarWhereInput;
-  data: UserUpdateManyDataInput;
+export interface ShopImageUpsertWithWhereUniqueWithoutShopInput {
+  where: ShopImageWhereUniqueInput;
+  update: ShopImageUpdateWithoutShopDataInput;
+  create: ShopImageCreateWithoutShopInput;
 }
 
 export interface ProductCreateManyWithoutBrandInput {
@@ -1340,137 +1429,7 @@ export interface ProductCreateManyWithoutBrandInput {
   connect?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
 }
 
-export interface ShopImageUpdateManyMutationInput {
-  imageUrl?: String;
-}
-
-export interface CategoryCreateManyWithoutProductInput {
-  create?:
-    | CategoryCreateWithoutProductInput[]
-    | CategoryCreateWithoutProductInput;
-  connect?: CategoryWhereUniqueInput[] | CategoryWhereUniqueInput;
-}
-
-export interface UserWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  email?: String;
-  email_not?: String;
-  email_in?: String[] | String;
-  email_not_in?: String[] | String;
-  email_lt?: String;
-  email_lte?: String;
-  email_gt?: String;
-  email_gte?: String;
-  email_contains?: String;
-  email_not_contains?: String;
-  email_starts_with?: String;
-  email_not_starts_with?: String;
-  email_ends_with?: String;
-  email_not_ends_with?: String;
-  password?: String;
-  password_not?: String;
-  password_in?: String[] | String;
-  password_not_in?: String[] | String;
-  password_lt?: String;
-  password_lte?: String;
-  password_gt?: String;
-  password_gte?: String;
-  password_contains?: String;
-  password_not_contains?: String;
-  password_starts_with?: String;
-  password_not_starts_with?: String;
-  password_ends_with?: String;
-  password_not_ends_with?: String;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  username?: String;
-  username_not?: String;
-  username_in?: String[] | String;
-  username_not_in?: String[] | String;
-  username_lt?: String;
-  username_lte?: String;
-  username_gt?: String;
-  username_gte?: String;
-  username_contains?: String;
-  username_not_contains?: String;
-  username_starts_with?: String;
-  username_not_starts_with?: String;
-  username_ends_with?: String;
-  username_not_ends_with?: String;
-  shops_every?: ShopWhereInput;
-  shops_some?: ShopWhereInput;
-  shops_none?: ShopWhereInput;
-  images_every?: UserImageWhereInput;
-  images_some?: UserImageWhereInput;
-  images_none?: UserImageWhereInput;
-  AND?: UserWhereInput[] | UserWhereInput;
-  OR?: UserWhereInput[] | UserWhereInput;
-  NOT?: UserWhereInput[] | UserWhereInput;
-}
-
-export interface TagCreateManyWithoutProductsInput {
-  create?: TagCreateWithoutProductsInput[] | TagCreateWithoutProductsInput;
-  connect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
-}
-
-export interface ShopUpsertWithoutImagesInput {
-  update: ShopUpdateWithoutImagesDataInput;
-  create: ShopCreateWithoutImagesInput;
-}
-
-export interface ProductImageCreateManyWithoutProductInput {
-  create?:
-    | ProductImageCreateWithoutProductInput[]
-    | ProductImageCreateWithoutProductInput;
-  connect?: ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput;
-}
-
-export interface ShopImageUpdateWithoutShopDataInput {
-  imageUrl?: String;
-}
-
-export interface ShopCreateOneWithoutProductsInput {
-  create?: ShopCreateWithoutProductsInput;
-  connect?: ShopWhereUniqueInput;
-}
-
-export interface ShopImageUpsertWithWhereUniqueWithoutShopInput {
-  where: ShopImageWhereUniqueInput;
-  update: ShopImageUpdateWithoutShopDataInput;
-  create: ShopImageCreateWithoutShopInput;
-}
-
-export interface UserCreateManyWithoutShopsInput {
-  create?: UserCreateWithoutShopsInput[] | UserCreateWithoutShopsInput;
-  connect?: UserWhereUniqueInput[] | UserWhereUniqueInput;
-}
-
-export interface ShopImageScalarWhereInput {
+export interface ShopImageWhereInput {
   id?: ID_Input;
   id_not?: ID_Input;
   id_in?: ID_Input[] | ID_Input;
@@ -1499,14 +1458,17 @@ export interface ShopImageScalarWhereInput {
   imageUrl_not_starts_with?: String;
   imageUrl_ends_with?: String;
   imageUrl_not_ends_with?: String;
-  AND?: ShopImageScalarWhereInput[] | ShopImageScalarWhereInput;
-  OR?: ShopImageScalarWhereInput[] | ShopImageScalarWhereInput;
-  NOT?: ShopImageScalarWhereInput[] | ShopImageScalarWhereInput;
+  shop?: ShopWhereInput;
+  AND?: ShopImageWhereInput[] | ShopImageWhereInput;
+  OR?: ShopImageWhereInput[] | ShopImageWhereInput;
+  NOT?: ShopImageWhereInput[] | ShopImageWhereInput;
 }
 
-export interface UserImageCreateManyWithoutUserInput {
-  create?: UserImageCreateWithoutUserInput[] | UserImageCreateWithoutUserInput;
-  connect?: UserImageWhereUniqueInput[] | UserImageWhereUniqueInput;
+export interface CategoryCreateManyWithoutProductInput {
+  create?:
+    | CategoryCreateWithoutProductInput[]
+    | CategoryCreateWithoutProductInput;
+  connect?: CategoryWhereUniqueInput[] | CategoryWhereUniqueInput;
 }
 
 export interface ShopImageUpdateManyWithWhereNestedInput {
@@ -1514,18 +1476,20 @@ export interface ShopImageUpdateManyWithWhereNestedInput {
   data: ShopImageUpdateManyDataInput;
 }
 
-export interface ShopImageCreateManyWithoutShopInput {
-  create?: ShopImageCreateWithoutShopInput[] | ShopImageCreateWithoutShopInput;
-  connect?: ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput;
+export interface TagCreateManyWithoutProductsInput {
+  create?: TagCreateWithoutProductsInput[] | TagCreateWithoutProductsInput;
+  connect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
 }
 
 export interface ShopImageUpdateManyDataInput {
   imageUrl?: String;
 }
 
-export interface BrandUpdateInput {
-  name?: String;
-  products?: ProductUpdateManyWithoutBrandInput;
+export interface ProductImageCreateManyWithoutProductInput {
+  create?:
+    | ProductImageCreateWithoutProductInput[]
+    | ProductImageCreateWithoutProductInput;
+  connect?: ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput;
 }
 
 export interface ShopUpsertWithoutProductsInput {
@@ -1533,9 +1497,153 @@ export interface ShopUpsertWithoutProductsInput {
   create: ShopCreateWithoutProductsInput;
 }
 
-export interface ProductUpdateWithWhereUniqueWithoutBrandInput {
-  where: ProductWhereUniqueInput;
-  data: ProductUpdateWithoutBrandDataInput;
+export interface ShopCreateOneWithoutProductsInput {
+  create?: ShopCreateWithoutProductsInput;
+  connect?: ShopWhereUniqueInput;
+}
+
+export interface VariantUpdateManyWithoutProductInput {
+  create?:
+    | VariantCreateWithoutProductInput[]
+    | VariantCreateWithoutProductInput;
+  delete?: VariantWhereUniqueInput[] | VariantWhereUniqueInput;
+  connect?: VariantWhereUniqueInput[] | VariantWhereUniqueInput;
+  set?: VariantWhereUniqueInput[] | VariantWhereUniqueInput;
+  disconnect?: VariantWhereUniqueInput[] | VariantWhereUniqueInput;
+  update?:
+    | VariantUpdateWithWhereUniqueWithoutProductInput[]
+    | VariantUpdateWithWhereUniqueWithoutProductInput;
+  upsert?:
+    | VariantUpsertWithWhereUniqueWithoutProductInput[]
+    | VariantUpsertWithWhereUniqueWithoutProductInput;
+  deleteMany?: VariantScalarWhereInput[] | VariantScalarWhereInput;
+  updateMany?:
+    | VariantUpdateManyWithWhereNestedInput[]
+    | VariantUpdateManyWithWhereNestedInput;
+}
+
+export interface UserCreateManyWithoutShopsInput {
+  create?: UserCreateWithoutShopsInput[] | UserCreateWithoutShopsInput;
+  connect?: UserWhereUniqueInput[] | UserWhereUniqueInput;
+}
+
+export interface VariantUpdateWithWhereUniqueWithoutProductInput {
+  where: VariantWhereUniqueInput;
+  data: VariantUpdateWithoutProductDataInput;
+}
+
+export interface UserImageCreateManyWithoutUserInput {
+  create?: UserImageCreateWithoutUserInput[] | UserImageCreateWithoutUserInput;
+  connect?: UserImageWhereUniqueInput[] | UserImageWhereUniqueInput;
+}
+
+export interface VariantUpdateWithoutProductDataInput {
+  name?: String;
+  values?: VariantUpdatevaluesInput;
+}
+
+export interface ShopImageCreateManyWithoutShopInput {
+  create?: ShopImageCreateWithoutShopInput[] | ShopImageCreateWithoutShopInput;
+  connect?: ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput;
+}
+
+export interface VariantUpdatevaluesInput {
+  set?: String[] | String;
+}
+
+export interface VariantCreateManyWithoutProductInput {
+  create?:
+    | VariantCreateWithoutProductInput[]
+    | VariantCreateWithoutProductInput;
+  connect?: VariantWhereUniqueInput[] | VariantWhereUniqueInput;
+}
+
+export interface VariantUpsertWithWhereUniqueWithoutProductInput {
+  where: VariantWhereUniqueInput;
+  update: VariantUpdateWithoutProductDataInput;
+  create: VariantCreateWithoutProductInput;
+}
+
+export interface VariantCreatevaluesInput {
+  set?: String[] | String;
+}
+
+export interface VariantScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  AND?: VariantScalarWhereInput[] | VariantScalarWhereInput;
+  OR?: VariantScalarWhereInput[] | VariantScalarWhereInput;
+  NOT?: VariantScalarWhereInput[] | VariantScalarWhereInput;
+}
+
+export interface ProductUpdateManyWithoutBrandInput {
+  create?: ProductCreateWithoutBrandInput[] | ProductCreateWithoutBrandInput;
+  delete?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
+  connect?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
+  set?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
+  disconnect?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
+  update?:
+    | ProductUpdateWithWhereUniqueWithoutBrandInput[]
+    | ProductUpdateWithWhereUniqueWithoutBrandInput;
+  upsert?:
+    | ProductUpsertWithWhereUniqueWithoutBrandInput[]
+    | ProductUpsertWithWhereUniqueWithoutBrandInput;
+  deleteMany?: ProductScalarWhereInput[] | ProductScalarWhereInput;
+  updateMany?:
+    | ProductUpdateManyWithWhereNestedInput[]
+    | ProductUpdateManyWithWhereNestedInput;
+}
+
+export interface VariantUpdateManyWithWhereNestedInput {
+  where: VariantScalarWhereInput;
+  data: VariantUpdateManyDataInput;
+}
+
+export interface ProductUpdateWithoutBrandDataInput {
+  title?: String;
+  description?: String;
+  price?: String;
+  categories?: CategoryUpdateManyWithoutProductInput;
+  tags?: TagUpdateManyWithoutProductsInput;
+  images?: ProductImageUpdateManyWithoutProductInput;
+  shop?: ShopUpdateOneRequiredWithoutProductsInput;
+  variants?: VariantUpdateManyWithoutProductInput;
+}
+
+export interface VariantUpdateManyDataInput {
+  name?: String;
+  values?: VariantUpdatevaluesInput;
+}
+
+export interface CategoryUpdateWithWhereUniqueWithoutProductInput {
+  where: CategoryWhereUniqueInput;
+  data: CategoryUpdateWithoutProductDataInput;
 }
 
 export interface ProductUpsertWithWhereUniqueWithoutBrandInput {
@@ -1544,24 +1652,10 @@ export interface ProductUpsertWithWhereUniqueWithoutBrandInput {
   create: ProductCreateWithoutBrandInput;
 }
 
-export interface CategoryUpdateManyWithoutProductInput {
-  create?:
-    | CategoryCreateWithoutProductInput[]
-    | CategoryCreateWithoutProductInput;
-  delete?: CategoryWhereUniqueInput[] | CategoryWhereUniqueInput;
-  connect?: CategoryWhereUniqueInput[] | CategoryWhereUniqueInput;
-  set?: CategoryWhereUniqueInput[] | CategoryWhereUniqueInput;
-  disconnect?: CategoryWhereUniqueInput[] | CategoryWhereUniqueInput;
-  update?:
-    | CategoryUpdateWithWhereUniqueWithoutProductInput[]
-    | CategoryUpdateWithWhereUniqueWithoutProductInput;
-  upsert?:
-    | CategoryUpsertWithWhereUniqueWithoutProductInput[]
-    | CategoryUpsertWithWhereUniqueWithoutProductInput;
-  deleteMany?: CategoryScalarWhereInput[] | CategoryScalarWhereInput;
-  updateMany?:
-    | CategoryUpdateManyWithWhereNestedInput[]
-    | CategoryUpdateManyWithWhereNestedInput;
+export interface CategoryUpsertWithWhereUniqueWithoutProductInput {
+  where: CategoryWhereUniqueInput;
+  update: CategoryUpdateWithoutProductDataInput;
+  create: CategoryCreateWithoutProductInput;
 }
 
 export interface ProductScalarWhereInput {
@@ -1626,8 +1720,9 @@ export interface ProductScalarWhereInput {
   NOT?: ProductScalarWhereInput[] | ProductScalarWhereInput;
 }
 
-export interface CategoryUpdateWithoutProductDataInput {
-  name?: String;
+export interface CategoryUpdateManyWithWhereNestedInput {
+  where: CategoryScalarWhereInput;
+  data: CategoryUpdateManyDataInput;
 }
 
 export interface ProductUpdateManyWithWhereNestedInput {
@@ -1635,7 +1730,90 @@ export interface ProductUpdateManyWithWhereNestedInput {
   data: ProductUpdateManyDataInput;
 }
 
-export interface CategoryScalarWhereInput {
+export interface TagUpdateManyWithoutProductsInput {
+  create?: TagCreateWithoutProductsInput[] | TagCreateWithoutProductsInput;
+  delete?: TagWhereUniqueInput[] | TagWhereUniqueInput;
+  connect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
+  set?: TagWhereUniqueInput[] | TagWhereUniqueInput;
+  disconnect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
+  update?:
+    | TagUpdateWithWhereUniqueWithoutProductsInput[]
+    | TagUpdateWithWhereUniqueWithoutProductsInput;
+  upsert?:
+    | TagUpsertWithWhereUniqueWithoutProductsInput[]
+    | TagUpsertWithWhereUniqueWithoutProductsInput;
+  deleteMany?: TagScalarWhereInput[] | TagScalarWhereInput;
+  updateMany?:
+    | TagUpdateManyWithWhereNestedInput[]
+    | TagUpdateManyWithWhereNestedInput;
+}
+
+export interface ProductUpdateManyDataInput {
+  title?: String;
+  description?: String;
+  price?: String;
+}
+
+export interface VariantSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: VariantWhereInput;
+  AND?: VariantSubscriptionWhereInput[] | VariantSubscriptionWhereInput;
+  OR?: VariantSubscriptionWhereInput[] | VariantSubscriptionWhereInput;
+  NOT?: VariantSubscriptionWhereInput[] | VariantSubscriptionWhereInput;
+}
+
+export interface BrandUpdateManyMutationInput {
+  name?: String;
+}
+
+export interface TagSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: TagWhereInput;
+  AND?: TagSubscriptionWhereInput[] | TagSubscriptionWhereInput;
+  OR?: TagSubscriptionWhereInput[] | TagSubscriptionWhereInput;
+  NOT?: TagSubscriptionWhereInput[] | TagSubscriptionWhereInput;
+}
+
+export interface ProductCreateWithoutTagsInput {
+  title: String;
+  description: String;
+  price: String;
+  categories?: CategoryCreateManyWithoutProductInput;
+  brand?: BrandCreateOneWithoutProductsInput;
+  images?: ProductImageCreateManyWithoutProductInput;
+  shop: ShopCreateOneWithoutProductsInput;
+  variants?: VariantCreateManyWithoutProductInput;
+}
+
+export interface ProductImageSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ProductImageWhereInput;
+  AND?:
+    | ProductImageSubscriptionWhereInput[]
+    | ProductImageSubscriptionWhereInput;
+  OR?:
+    | ProductImageSubscriptionWhereInput[]
+    | ProductImageSubscriptionWhereInput;
+  NOT?:
+    | ProductImageSubscriptionWhereInput[]
+    | ProductImageSubscriptionWhereInput;
+}
+
+export interface ProductCreateManyWithoutTagsInput {
+  create?: ProductCreateWithoutTagsInput[] | ProductCreateWithoutTagsInput;
+  connect?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
+}
+
+export interface BrandWhereInput {
   id?: ID_Input;
   id_not?: ID_Input;
   id_in?: ID_Input[] | ID_Input;
@@ -1664,104 +1842,12 @@ export interface CategoryScalarWhereInput {
   name_not_starts_with?: String;
   name_ends_with?: String;
   name_not_ends_with?: String;
-  AND?: CategoryScalarWhereInput[] | CategoryScalarWhereInput;
-  OR?: CategoryScalarWhereInput[] | CategoryScalarWhereInput;
-  NOT?: CategoryScalarWhereInput[] | CategoryScalarWhereInput;
-}
-
-export interface ProductUpdateManyDataInput {
-  title?: String;
-  description?: String;
-  price?: String;
-}
-
-export interface CategoryUpdateManyDataInput {
-  name?: String;
-}
-
-export interface BrandUpdateManyMutationInput {
-  name?: String;
-}
-
-export interface UserImageSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: UserImageWhereInput;
-  AND?: UserImageSubscriptionWhereInput[] | UserImageSubscriptionWhereInput;
-  OR?: UserImageSubscriptionWhereInput[] | UserImageSubscriptionWhereInput;
-  NOT?: UserImageSubscriptionWhereInput[] | UserImageSubscriptionWhereInput;
-}
-
-export interface ShopUpdateWithoutImagesDataInput {
-  name?: String;
-  description?: String;
-  category?: String;
-  live?: Boolean;
-  owners?: UserUpdateManyWithoutShopsInput;
-  products?: ProductUpdateManyWithoutShopInput;
-}
-
-export interface ProductImageWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  imageUrl?: String;
-  imageUrl_not?: String;
-  imageUrl_in?: String[] | String;
-  imageUrl_not_in?: String[] | String;
-  imageUrl_lt?: String;
-  imageUrl_lte?: String;
-  imageUrl_gt?: String;
-  imageUrl_gte?: String;
-  imageUrl_contains?: String;
-  imageUrl_not_contains?: String;
-  imageUrl_starts_with?: String;
-  imageUrl_not_starts_with?: String;
-  imageUrl_ends_with?: String;
-  imageUrl_not_ends_with?: String;
-  product?: ProductWhereInput;
-  AND?: ProductImageWhereInput[] | ProductImageWhereInput;
-  OR?: ProductImageWhereInput[] | ProductImageWhereInput;
-  NOT?: ProductImageWhereInput[] | ProductImageWhereInput;
-}
-
-export interface ShopUpdateOneWithoutImagesInput {
-  create?: ShopCreateWithoutImagesInput;
-  update?: ShopUpdateWithoutImagesDataInput;
-  upsert?: ShopUpsertWithoutImagesInput;
-  delete?: Boolean;
-  disconnect?: Boolean;
-  connect?: ShopWhereUniqueInput;
-}
-
-export interface ProductImageSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: ProductImageWhereInput;
-  AND?:
-    | ProductImageSubscriptionWhereInput[]
-    | ProductImageSubscriptionWhereInput;
-  OR?:
-    | ProductImageSubscriptionWhereInput[]
-    | ProductImageSubscriptionWhereInput;
-  NOT?:
-    | ProductImageSubscriptionWhereInput[]
-    | ProductImageSubscriptionWhereInput;
+  products_every?: ProductWhereInput;
+  products_some?: ProductWhereInput;
+  products_none?: ProductWhereInput;
+  AND?: BrandWhereInput[] | BrandWhereInput;
+  OR?: BrandWhereInput[] | BrandWhereInput;
+  NOT?: BrandWhereInput[] | BrandWhereInput;
 }
 
 export interface CategoryCreateInput {
@@ -1837,6 +1923,9 @@ export interface ProductWhereInput {
   images_some?: ProductImageWhereInput;
   images_none?: ProductImageWhereInput;
   shop?: ShopWhereInput;
+  variants_every?: VariantWhereInput;
+  variants_some?: VariantWhereInput;
+  variants_none?: VariantWhereInput;
   AND?: ProductWhereInput[] | ProductWhereInput;
   OR?: ProductWhereInput[] | ProductWhereInput;
   NOT?: ProductWhereInput[] | ProductWhereInput;
@@ -1849,9 +1938,11 @@ export interface ProductCreateManyWithoutCategoriesInput {
   connect?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
 }
 
-export interface UserUpsertWithoutImagesInput {
-  update: UserUpdateWithoutImagesDataInput;
-  create: UserCreateWithoutImagesInput;
+export interface ProductUpdateOneRequiredWithoutVariantsInput {
+  create?: ProductCreateWithoutVariantsInput;
+  update?: ProductUpdateWithoutVariantsDataInput;
+  upsert?: ProductUpsertWithoutVariantsInput;
+  connect?: ProductWhereUniqueInput;
 }
 
 export interface ProductCreateWithoutCategoriesInput {
@@ -1862,11 +1953,12 @@ export interface ProductCreateWithoutCategoriesInput {
   tags?: TagCreateManyWithoutProductsInput;
   images?: ProductImageCreateManyWithoutProductInput;
   shop: ShopCreateOneWithoutProductsInput;
+  variants?: VariantCreateManyWithoutProductInput;
 }
 
-export interface UserImageUpdateInput {
-  imageUrl?: String;
-  user?: UserUpdateOneWithoutImagesInput;
+export interface ProductCreateOneWithoutVariantsInput {
+  create?: ProductCreateWithoutVariantsInput;
+  connect?: ProductWhereUniqueInput;
 }
 
 export interface BrandCreateOneWithoutProductsInput {
@@ -1874,18 +1966,18 @@ export interface BrandCreateOneWithoutProductsInput {
   connect?: BrandWhereUniqueInput;
 }
 
-export interface UserImageCreateInput {
-  imageUrl: String;
-  user?: UserCreateOneWithoutImagesInput;
+export interface UserUpsertWithoutImagesInput {
+  update: UserUpdateWithoutImagesDataInput;
+  create: UserCreateWithoutImagesInput;
 }
 
 export interface BrandCreateWithoutProductsInput {
   name: String;
 }
 
-export interface ShopUpdateManyWithWhereNestedInput {
-  where: ShopScalarWhereInput;
-  data: ShopUpdateManyDataInput;
+export interface UserImageUpdateInput {
+  imageUrl?: String;
+  user?: UserUpdateOneWithoutImagesInput;
 }
 
 export interface CategoryUpdateInput {
@@ -1893,13 +1985,9 @@ export interface CategoryUpdateInput {
   product?: ProductUpdateManyWithoutCategoriesInput;
 }
 
-export interface ShopUpdateWithoutOwnersDataInput {
-  name?: String;
-  description?: String;
-  category?: String;
-  live?: Boolean;
-  images?: ShopImageUpdateManyWithoutShopInput;
-  products?: ProductUpdateManyWithoutShopInput;
+export interface UserImageCreateInput {
+  imageUrl: String;
+  user?: UserCreateOneWithoutImagesInput;
 }
 
 export interface ProductUpdateManyWithoutCategoriesInput {
@@ -1922,13 +2010,9 @@ export interface ProductUpdateManyWithoutCategoriesInput {
     | ProductUpdateManyWithWhereNestedInput;
 }
 
-export interface UserUpdateInput {
-  email?: String;
-  password?: String;
-  name?: String;
-  username?: String;
-  shops?: ShopUpdateManyWithoutOwnersInput;
-  images?: UserImageUpdateManyWithoutUserInput;
+export interface ShopUpdateManyWithWhereNestedInput {
+  where: ShopScalarWhereInput;
+  data: ShopUpdateManyDataInput;
 }
 
 export interface ProductUpdateWithWhereUniqueWithoutCategoriesInput {
@@ -1936,13 +2020,13 @@ export interface ProductUpdateWithWhereUniqueWithoutCategoriesInput {
   data: ProductUpdateWithoutCategoriesDataInput;
 }
 
-export interface UserCreateInput {
-  email: String;
-  password: String;
-  name: String;
-  username: String;
-  shops?: ShopCreateManyWithoutOwnersInput;
-  images?: UserImageCreateManyWithoutUserInput;
+export interface ShopUpdateWithoutOwnersDataInput {
+  name?: String;
+  description?: String;
+  category?: String;
+  live?: Boolean;
+  images?: ShopImageUpdateManyWithoutShopInput;
+  products?: ProductUpdateManyWithoutShopInput;
 }
 
 export interface ProductUpdateWithoutCategoriesDataInput {
@@ -1953,16 +2037,16 @@ export interface ProductUpdateWithoutCategoriesDataInput {
   tags?: TagUpdateManyWithoutProductsInput;
   images?: ProductImageUpdateManyWithoutProductInput;
   shop?: ShopUpdateOneRequiredWithoutProductsInput;
+  variants?: VariantUpdateManyWithoutProductInput;
 }
 
-export interface ProductUpdateWithoutTagsDataInput {
-  title?: String;
-  description?: String;
-  price?: String;
-  categories?: CategoryUpdateManyWithoutProductInput;
-  brand?: BrandUpdateOneWithoutProductsInput;
-  images?: ProductImageUpdateManyWithoutProductInput;
-  shop?: ShopUpdateOneRequiredWithoutProductsInput;
+export interface UserUpdateInput {
+  email?: String;
+  password?: String;
+  name?: String;
+  username?: String;
+  shops?: ShopUpdateManyWithoutOwnersInput;
+  images?: UserImageUpdateManyWithoutUserInput;
 }
 
 export interface BrandUpdateOneWithoutProductsInput {
@@ -1974,18 +2058,28 @@ export interface BrandUpdateOneWithoutProductsInput {
   connect?: BrandWhereUniqueInput;
 }
 
-export interface TagUpdateInput {
-  name?: String;
-  products?: ProductUpdateManyWithoutTagsInput;
+export interface UserCreateInput {
+  email: String;
+  password: String;
+  name: String;
+  username: String;
+  shops?: ShopCreateManyWithoutOwnersInput;
+  images?: UserImageCreateManyWithoutUserInput;
 }
 
 export interface BrandUpdateWithoutProductsDataInput {
   name?: String;
 }
 
-export interface BrandCreateInput {
-  name: String;
-  products?: ProductCreateManyWithoutBrandInput;
+export interface ProductUpdateWithoutTagsDataInput {
+  title?: String;
+  description?: String;
+  price?: String;
+  categories?: CategoryUpdateManyWithoutProductInput;
+  brand?: BrandUpdateOneWithoutProductsInput;
+  images?: ProductImageUpdateManyWithoutProductInput;
+  shop?: ShopUpdateOneRequiredWithoutProductsInput;
+  variants?: VariantUpdateManyWithoutProductInput;
 }
 
 export interface BrandUpsertWithoutProductsInput {
@@ -1993,8 +2087,9 @@ export interface BrandUpsertWithoutProductsInput {
   create: BrandCreateWithoutProductsInput;
 }
 
-export interface CategoryCreateWithoutProductInput {
+export interface BrandCreateInput {
   name: String;
+  products?: ProductCreateManyWithoutBrandInput;
 }
 
 export interface ProductUpsertWithWhereUniqueWithoutCategoriesInput {
@@ -2003,20 +2098,16 @@ export interface ProductUpsertWithWhereUniqueWithoutCategoriesInput {
   create: ProductCreateWithoutCategoriesInput;
 }
 
-export interface ProductImageCreateWithoutProductInput {
-  imageUrl: String;
+export interface CategoryCreateWithoutProductInput {
+  name: String;
 }
 
 export interface CategoryUpdateManyMutationInput {
   name?: String;
 }
 
-export interface UserCreateWithoutShopsInput {
-  email: String;
-  password: String;
-  name: String;
-  username: String;
-  images?: UserImageCreateManyWithoutUserInput;
+export interface ProductImageCreateWithoutProductInput {
+  imageUrl: String;
 }
 
 export interface ProductCreateInput {
@@ -2028,10 +2119,15 @@ export interface ProductCreateInput {
   tags?: TagCreateManyWithoutProductsInput;
   images?: ProductImageCreateManyWithoutProductInput;
   shop: ShopCreateOneWithoutProductsInput;
+  variants?: VariantCreateManyWithoutProductInput;
 }
 
-export interface ShopImageCreateWithoutShopInput {
-  imageUrl: String;
+export interface UserCreateWithoutShopsInput {
+  email: String;
+  password: String;
+  name: String;
+  username: String;
+  images?: UserImageCreateManyWithoutUserInput;
 }
 
 export interface ProductUpdateInput {
@@ -2043,16 +2139,11 @@ export interface ProductUpdateInput {
   tags?: TagUpdateManyWithoutProductsInput;
   images?: ProductImageUpdateManyWithoutProductInput;
   shop?: ShopUpdateOneRequiredWithoutProductsInput;
+  variants?: VariantUpdateManyWithoutProductInput;
 }
 
-export interface ProductUpdateWithoutBrandDataInput {
-  title?: String;
-  description?: String;
-  price?: String;
-  categories?: CategoryUpdateManyWithoutProductInput;
-  tags?: TagUpdateManyWithoutProductsInput;
-  images?: ProductImageUpdateManyWithoutProductInput;
-  shop?: ShopUpdateOneRequiredWithoutProductsInput;
+export interface ShopImageCreateWithoutShopInput {
+  imageUrl: String;
 }
 
 export interface ProductUpdateManyMutationInput {
@@ -2061,10 +2152,9 @@ export interface ProductUpdateManyMutationInput {
   price?: String;
 }
 
-export interface CategoryUpsertWithWhereUniqueWithoutProductInput {
-  where: CategoryWhereUniqueInput;
-  update: CategoryUpdateWithoutProductDataInput;
-  create: CategoryCreateWithoutProductInput;
+export interface BrandUpdateInput {
+  name?: String;
+  products?: ProductUpdateManyWithoutBrandInput;
 }
 
 export interface ProductImageCreateInput {
@@ -2072,22 +2162,24 @@ export interface ProductImageCreateInput {
   product?: ProductCreateOneWithoutImagesInput;
 }
 
-export interface TagUpdateManyWithoutProductsInput {
-  create?: TagCreateWithoutProductsInput[] | TagCreateWithoutProductsInput;
-  delete?: TagWhereUniqueInput[] | TagWhereUniqueInput;
-  connect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
-  set?: TagWhereUniqueInput[] | TagWhereUniqueInput;
-  disconnect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
+export interface CategoryUpdateManyWithoutProductInput {
+  create?:
+    | CategoryCreateWithoutProductInput[]
+    | CategoryCreateWithoutProductInput;
+  delete?: CategoryWhereUniqueInput[] | CategoryWhereUniqueInput;
+  connect?: CategoryWhereUniqueInput[] | CategoryWhereUniqueInput;
+  set?: CategoryWhereUniqueInput[] | CategoryWhereUniqueInput;
+  disconnect?: CategoryWhereUniqueInput[] | CategoryWhereUniqueInput;
   update?:
-    | TagUpdateWithWhereUniqueWithoutProductsInput[]
-    | TagUpdateWithWhereUniqueWithoutProductsInput;
+    | CategoryUpdateWithWhereUniqueWithoutProductInput[]
+    | CategoryUpdateWithWhereUniqueWithoutProductInput;
   upsert?:
-    | TagUpsertWithWhereUniqueWithoutProductsInput[]
-    | TagUpsertWithWhereUniqueWithoutProductsInput;
-  deleteMany?: TagScalarWhereInput[] | TagScalarWhereInput;
+    | CategoryUpsertWithWhereUniqueWithoutProductInput[]
+    | CategoryUpsertWithWhereUniqueWithoutProductInput;
+  deleteMany?: CategoryScalarWhereInput[] | CategoryScalarWhereInput;
   updateMany?:
-    | TagUpdateManyWithWhereNestedInput[]
-    | TagUpdateManyWithWhereNestedInput;
+    | CategoryUpdateManyWithWhereNestedInput[]
+    | CategoryUpdateManyWithWhereNestedInput;
 }
 
 export interface ProductCreateOneWithoutImagesInput {
@@ -2095,183 +2187,7 @@ export interface ProductCreateOneWithoutImagesInput {
   connect?: ProductWhereUniqueInput;
 }
 
-export interface ShopSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: ShopWhereInput;
-  AND?: ShopSubscriptionWhereInput[] | ShopSubscriptionWhereInput;
-  OR?: ShopSubscriptionWhereInput[] | ShopSubscriptionWhereInput;
-  NOT?: ShopSubscriptionWhereInput[] | ShopSubscriptionWhereInput;
-}
-
-export interface ProductCreateWithoutImagesInput {
-  title: String;
-  description: String;
-  price: String;
-  categories?: CategoryCreateManyWithoutProductInput;
-  brand?: BrandCreateOneWithoutProductsInput;
-  tags?: TagCreateManyWithoutProductsInput;
-  shop: ShopCreateOneWithoutProductsInput;
-}
-
-export interface BrandSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: BrandWhereInput;
-  AND?: BrandSubscriptionWhereInput[] | BrandSubscriptionWhereInput;
-  OR?: BrandSubscriptionWhereInput[] | BrandSubscriptionWhereInput;
-  NOT?: BrandSubscriptionWhereInput[] | BrandSubscriptionWhereInput;
-}
-
-export interface ProductImageUpdateInput {
-  imageUrl?: String;
-  product?: ProductUpdateOneWithoutImagesInput;
-}
-
-export interface UserCreateOneWithoutImagesInput {
-  create?: UserCreateWithoutImagesInput;
-  connect?: UserWhereUniqueInput;
-}
-
-export interface ProductUpdateOneWithoutImagesInput {
-  create?: ProductCreateWithoutImagesInput;
-  update?: ProductUpdateWithoutImagesDataInput;
-  upsert?: ProductUpsertWithoutImagesInput;
-  delete?: Boolean;
-  disconnect?: Boolean;
-  connect?: ProductWhereUniqueInput;
-}
-
-export interface ShopUpsertWithWhereUniqueWithoutOwnersInput {
-  where: ShopWhereUniqueInput;
-  update: ShopUpdateWithoutOwnersDataInput;
-  create: ShopCreateWithoutOwnersInput;
-}
-
-export interface ProductUpdateWithoutImagesDataInput {
-  title?: String;
-  description?: String;
-  price?: String;
-  categories?: CategoryUpdateManyWithoutProductInput;
-  brand?: BrandUpdateOneWithoutProductsInput;
-  tags?: TagUpdateManyWithoutProductsInput;
-  shop?: ShopUpdateOneRequiredWithoutProductsInput;
-}
-
-export interface ShopCreateManyWithoutOwnersInput {
-  create?: ShopCreateWithoutOwnersInput[] | ShopCreateWithoutOwnersInput;
-  connect?: ShopWhereUniqueInput[] | ShopWhereUniqueInput;
-}
-
-export interface ProductUpsertWithoutImagesInput {
-  update: ProductUpdateWithoutImagesDataInput;
-  create: ProductCreateWithoutImagesInput;
-}
-
-export interface ProductUpdateManyWithoutTagsInput {
-  create?: ProductCreateWithoutTagsInput[] | ProductCreateWithoutTagsInput;
-  delete?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
-  connect?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
-  set?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
-  disconnect?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
-  update?:
-    | ProductUpdateWithWhereUniqueWithoutTagsInput[]
-    | ProductUpdateWithWhereUniqueWithoutTagsInput;
-  upsert?:
-    | ProductUpsertWithWhereUniqueWithoutTagsInput[]
-    | ProductUpsertWithWhereUniqueWithoutTagsInput;
-  deleteMany?: ProductScalarWhereInput[] | ProductScalarWhereInput;
-  updateMany?:
-    | ProductUpdateManyWithWhereNestedInput[]
-    | ProductUpdateManyWithWhereNestedInput;
-}
-
-export interface ProductImageUpdateManyMutationInput {
-  imageUrl?: String;
-}
-
-export interface ProductCreateWithoutBrandInput {
-  title: String;
-  description: String;
-  price: String;
-  categories?: CategoryCreateManyWithoutProductInput;
-  tags?: TagCreateManyWithoutProductsInput;
-  images?: ProductImageCreateManyWithoutProductInput;
-  shop: ShopCreateOneWithoutProductsInput;
-}
-
-export interface ShopCreateInput {
-  name: String;
-  description: String;
-  category: String;
-  live?: Boolean;
-  owners?: UserCreateManyWithoutShopsInput;
-  images?: ShopImageCreateManyWithoutShopInput;
-  products?: ProductCreateManyWithoutShopInput;
-}
-
-export interface ShopCreateWithoutProductsInput {
-  name: String;
-  description: String;
-  category: String;
-  live?: Boolean;
-  owners?: UserCreateManyWithoutShopsInput;
-  images?: ShopImageCreateManyWithoutShopInput;
-}
-
-export interface ProductCreateManyWithoutShopInput {
-  create?: ProductCreateWithoutShopInput[] | ProductCreateWithoutShopInput;
-  connect?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
-}
-
-export interface ProductUpdateManyWithoutBrandInput {
-  create?: ProductCreateWithoutBrandInput[] | ProductCreateWithoutBrandInput;
-  delete?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
-  connect?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
-  set?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
-  disconnect?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
-  update?:
-    | ProductUpdateWithWhereUniqueWithoutBrandInput[]
-    | ProductUpdateWithWhereUniqueWithoutBrandInput;
-  upsert?:
-    | ProductUpsertWithWhereUniqueWithoutBrandInput[]
-    | ProductUpsertWithWhereUniqueWithoutBrandInput;
-  deleteMany?: ProductScalarWhereInput[] | ProductScalarWhereInput;
-  updateMany?:
-    | ProductUpdateManyWithWhereNestedInput[]
-    | ProductUpdateManyWithWhereNestedInput;
-}
-
-export interface ProductCreateWithoutShopInput {
-  title: String;
-  description: String;
-  price: String;
-  categories?: CategoryCreateManyWithoutProductInput;
-  brand?: BrandCreateOneWithoutProductsInput;
-  tags?: TagCreateManyWithoutProductsInput;
-  images?: ProductImageCreateManyWithoutProductInput;
-}
-
-export interface CategoryUpdateManyWithWhereNestedInput {
-  where: CategoryScalarWhereInput;
-  data: CategoryUpdateManyDataInput;
-}
-
-export interface ShopUpdateInput {
-  name?: String;
-  description?: String;
-  category?: String;
-  live?: Boolean;
-  owners?: UserUpdateManyWithoutShopsInput;
-  images?: ShopImageUpdateManyWithoutShopInput;
-  products?: ProductUpdateManyWithoutShopInput;
-}
-
-export interface CategoryWhereInput {
+export interface CategoryScalarWhereInput {
   id?: ID_Input;
   id_not?: ID_Input;
   id_in?: ID_Input[] | ID_Input;
@@ -2300,99 +2216,60 @@ export interface CategoryWhereInput {
   name_not_starts_with?: String;
   name_ends_with?: String;
   name_not_ends_with?: String;
-  product_every?: ProductWhereInput;
-  product_some?: ProductWhereInput;
-  product_none?: ProductWhereInput;
-  AND?: CategoryWhereInput[] | CategoryWhereInput;
-  OR?: CategoryWhereInput[] | CategoryWhereInput;
-  NOT?: CategoryWhereInput[] | CategoryWhereInput;
+  AND?: CategoryScalarWhereInput[] | CategoryScalarWhereInput;
+  OR?: CategoryScalarWhereInput[] | CategoryScalarWhereInput;
+  NOT?: CategoryScalarWhereInput[] | CategoryScalarWhereInput;
 }
 
-export interface ProductUpdateManyWithoutShopInput {
-  create?: ProductCreateWithoutShopInput[] | ProductCreateWithoutShopInput;
-  delete?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
-  connect?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
-  set?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
-  disconnect?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
-  update?:
-    | ProductUpdateWithWhereUniqueWithoutShopInput[]
-    | ProductUpdateWithWhereUniqueWithoutShopInput;
-  upsert?:
-    | ProductUpsertWithWhereUniqueWithoutShopInput[]
-    | ProductUpsertWithWhereUniqueWithoutShopInput;
-  deleteMany?: ProductScalarWhereInput[] | ProductScalarWhereInput;
-  updateMany?:
-    | ProductUpdateManyWithWhereNestedInput[]
-    | ProductUpdateManyWithWhereNestedInput;
-}
-
-export interface ShopUpdateManyDataInput {
-  name?: String;
-  description?: String;
-  category?: String;
-  live?: Boolean;
-}
-
-export interface ProductUpdateWithWhereUniqueWithoutShopInput {
-  where: ProductWhereUniqueInput;
-  data: ProductUpdateWithoutShopDataInput;
-}
-
-export interface ProductUpsertWithWhereUniqueWithoutTagsInput {
-  where: ProductWhereUniqueInput;
-  update: ProductUpdateWithoutTagsDataInput;
-  create: ProductCreateWithoutTagsInput;
-}
-
-export interface ProductUpdateWithoutShopDataInput {
-  title?: String;
-  description?: String;
-  price?: String;
-  categories?: CategoryUpdateManyWithoutProductInput;
-  brand?: BrandUpdateOneWithoutProductsInput;
-  tags?: TagUpdateManyWithoutProductsInput;
-  images?: ProductImageUpdateManyWithoutProductInput;
-}
-
-export interface TagCreateWithoutProductsInput {
-  name: String;
-}
-
-export interface ProductUpsertWithWhereUniqueWithoutShopInput {
-  where: ProductWhereUniqueInput;
-  update: ProductUpdateWithoutShopDataInput;
-  create: ProductCreateWithoutShopInput;
-}
-
-export interface CategoryUpdateWithWhereUniqueWithoutProductInput {
-  where: CategoryWhereUniqueInput;
-  data: CategoryUpdateWithoutProductDataInput;
-}
-
-export interface ShopCreateWithoutImagesInput {
-  name: String;
+export interface ProductCreateWithoutImagesInput {
+  title: String;
   description: String;
-  category: String;
-  live?: Boolean;
-  owners?: UserCreateManyWithoutShopsInput;
-  products?: ProductCreateManyWithoutShopInput;
+  price: String;
+  categories?: CategoryCreateManyWithoutProductInput;
+  brand?: BrandCreateOneWithoutProductsInput;
+  tags?: TagCreateManyWithoutProductsInput;
+  shop: ShopCreateOneWithoutProductsInput;
+  variants?: VariantCreateManyWithoutProductInput;
 }
 
-export interface ShopCreateOneWithoutImagesInput {
-  create?: ShopCreateWithoutImagesInput;
-  connect?: ShopWhereUniqueInput;
-}
-
-export interface ShopImageCreateInput {
-  imageUrl: String;
-  shop?: ShopCreateOneWithoutImagesInput;
-}
-
-export interface ShopUpdateManyMutationInput {
+export interface VariantWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  product?: ProductWhereInput;
   name?: String;
-  description?: String;
-  category?: String;
-  live?: Boolean;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  AND?: VariantWhereInput[] | VariantWhereInput;
+  OR?: VariantWhereInput[] | VariantWhereInput;
+  NOT?: VariantWhereInput[] | VariantWhereInput;
+}
+
+export interface ProductImageUpdateInput {
+  imageUrl?: String;
+  product?: ProductUpdateOneWithoutImagesInput;
 }
 
 export interface ShopWhereInput {
@@ -2484,13 +2361,107 @@ export interface ShopWhereInput {
   NOT?: ShopWhereInput[] | ShopWhereInput;
 }
 
-export interface UserImageCreateWithoutUserInput {
-  imageUrl: String;
+export interface ProductUpdateOneWithoutImagesInput {
+  create?: ProductCreateWithoutImagesInput;
+  update?: ProductUpdateWithoutImagesDataInput;
+  upsert?: ProductUpsertWithoutImagesInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: ProductWhereUniqueInput;
 }
 
-export interface ProductCreateManyWithoutTagsInput {
-  create?: ProductCreateWithoutTagsInput[] | ProductCreateWithoutTagsInput;
-  connect?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
+export interface CategoryWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  product_every?: ProductWhereInput;
+  product_some?: ProductWhereInput;
+  product_none?: ProductWhereInput;
+  AND?: CategoryWhereInput[] | CategoryWhereInput;
+  OR?: CategoryWhereInput[] | CategoryWhereInput;
+  NOT?: CategoryWhereInput[] | CategoryWhereInput;
+}
+
+export interface ProductUpdateWithoutImagesDataInput {
+  title?: String;
+  description?: String;
+  price?: String;
+  categories?: CategoryUpdateManyWithoutProductInput;
+  brand?: BrandUpdateOneWithoutProductsInput;
+  tags?: TagUpdateManyWithoutProductsInput;
+  shop?: ShopUpdateOneRequiredWithoutProductsInput;
+  variants?: VariantUpdateManyWithoutProductInput;
+}
+
+export interface ProductCreateWithoutVariantsInput {
+  title: String;
+  description: String;
+  price: String;
+  categories?: CategoryCreateManyWithoutProductInput;
+  brand?: BrandCreateOneWithoutProductsInput;
+  tags?: TagCreateManyWithoutProductsInput;
+  images?: ProductImageCreateManyWithoutProductInput;
+  shop: ShopCreateOneWithoutProductsInput;
+}
+
+export interface ProductUpsertWithoutImagesInput {
+  update: ProductUpdateWithoutImagesDataInput;
+  create: ProductCreateWithoutImagesInput;
+}
+
+export interface UserUpdateOneWithoutImagesInput {
+  create?: UserCreateWithoutImagesInput;
+  update?: UserUpdateWithoutImagesDataInput;
+  upsert?: UserUpsertWithoutImagesInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: UserWhereUniqueInput;
+}
+
+export interface ProductImageUpdateManyMutationInput {
+  imageUrl?: String;
+}
+
+export interface ShopUpdateManyDataInput {
+  name?: String;
+  description?: String;
+  category?: String;
+  live?: Boolean;
+}
+
+export interface ShopCreateInput {
+  name: String;
+  description: String;
+  category: String;
+  live?: Boolean;
+  owners?: UserCreateManyWithoutShopsInput;
+  images?: ShopImageCreateManyWithoutShopInput;
+  products?: ProductCreateManyWithoutShopInput;
 }
 
 export interface ShopUpdateManyWithoutOwnersInput {
@@ -2511,112 +2482,342 @@ export interface ShopUpdateManyWithoutOwnersInput {
     | ShopUpdateManyWithWhereNestedInput;
 }
 
-export interface UserUpdateOneWithoutImagesInput {
+export interface ProductCreateManyWithoutShopInput {
+  create?: ProductCreateWithoutShopInput[] | ProductCreateWithoutShopInput;
+  connect?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
+}
+
+export interface ProductUpsertWithWhereUniqueWithoutTagsInput {
+  where: ProductWhereUniqueInput;
+  update: ProductUpdateWithoutTagsDataInput;
+  create: ProductCreateWithoutTagsInput;
+}
+
+export interface ProductCreateWithoutShopInput {
+  title: String;
+  description: String;
+  price: String;
+  categories?: CategoryCreateManyWithoutProductInput;
+  brand?: BrandCreateOneWithoutProductsInput;
+  tags?: TagCreateManyWithoutProductsInput;
+  images?: ProductImageCreateManyWithoutProductInput;
+  variants?: VariantCreateManyWithoutProductInput;
+}
+
+export interface ProductCreateWithoutBrandInput {
+  title: String;
+  description: String;
+  price: String;
+  categories?: CategoryCreateManyWithoutProductInput;
+  tags?: TagCreateManyWithoutProductsInput;
+  images?: ProductImageCreateManyWithoutProductInput;
+  shop: ShopCreateOneWithoutProductsInput;
+  variants?: VariantCreateManyWithoutProductInput;
+}
+
+export interface ShopUpdateInput {
+  name?: String;
+  description?: String;
+  category?: String;
+  live?: Boolean;
+  owners?: UserUpdateManyWithoutShopsInput;
+  images?: ShopImageUpdateManyWithoutShopInput;
+  products?: ProductUpdateManyWithoutShopInput;
+}
+
+export interface ShopCreateWithoutProductsInput {
+  name: String;
+  description: String;
+  category: String;
+  live?: Boolean;
+  owners?: UserCreateManyWithoutShopsInput;
+  images?: ShopImageCreateManyWithoutShopInput;
+}
+
+export interface ProductUpdateManyWithoutShopInput {
+  create?: ProductCreateWithoutShopInput[] | ProductCreateWithoutShopInput;
+  delete?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
+  connect?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
+  set?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
+  disconnect?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
+  update?:
+    | ProductUpdateWithWhereUniqueWithoutShopInput[]
+    | ProductUpdateWithWhereUniqueWithoutShopInput;
+  upsert?:
+    | ProductUpsertWithWhereUniqueWithoutShopInput[]
+    | ProductUpsertWithWhereUniqueWithoutShopInput;
+  deleteMany?: ProductScalarWhereInput[] | ProductScalarWhereInput;
+  updateMany?:
+    | ProductUpdateManyWithWhereNestedInput[]
+    | ProductUpdateManyWithWhereNestedInput;
+}
+
+export interface VariantCreateWithoutProductInput {
+  name: String;
+  values?: VariantCreatevaluesInput;
+}
+
+export interface ProductUpdateWithWhereUniqueWithoutShopInput {
+  where: ProductWhereUniqueInput;
+  data: ProductUpdateWithoutShopDataInput;
+}
+
+export interface CategoryUpdateWithoutProductDataInput {
+  name?: String;
+}
+
+export interface ProductUpdateWithoutShopDataInput {
+  title?: String;
+  description?: String;
+  price?: String;
+  categories?: CategoryUpdateManyWithoutProductInput;
+  brand?: BrandUpdateOneWithoutProductsInput;
+  tags?: TagUpdateManyWithoutProductsInput;
+  images?: ProductImageUpdateManyWithoutProductInput;
+  variants?: VariantUpdateManyWithoutProductInput;
+}
+
+export interface UserWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  email?: String;
+  email_not?: String;
+  email_in?: String[] | String;
+  email_not_in?: String[] | String;
+  email_lt?: String;
+  email_lte?: String;
+  email_gt?: String;
+  email_gte?: String;
+  email_contains?: String;
+  email_not_contains?: String;
+  email_starts_with?: String;
+  email_not_starts_with?: String;
+  email_ends_with?: String;
+  email_not_ends_with?: String;
+  password?: String;
+  password_not?: String;
+  password_in?: String[] | String;
+  password_not_in?: String[] | String;
+  password_lt?: String;
+  password_lte?: String;
+  password_gt?: String;
+  password_gte?: String;
+  password_contains?: String;
+  password_not_contains?: String;
+  password_starts_with?: String;
+  password_not_starts_with?: String;
+  password_ends_with?: String;
+  password_not_ends_with?: String;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  username?: String;
+  username_not?: String;
+  username_in?: String[] | String;
+  username_not_in?: String[] | String;
+  username_lt?: String;
+  username_lte?: String;
+  username_gt?: String;
+  username_gte?: String;
+  username_contains?: String;
+  username_not_contains?: String;
+  username_starts_with?: String;
+  username_not_starts_with?: String;
+  username_ends_with?: String;
+  username_not_ends_with?: String;
+  shops_every?: ShopWhereInput;
+  shops_some?: ShopWhereInput;
+  shops_none?: ShopWhereInput;
+  images_every?: UserImageWhereInput;
+  images_some?: UserImageWhereInput;
+  images_none?: UserImageWhereInput;
+  AND?: UserWhereInput[] | UserWhereInput;
+  OR?: UserWhereInput[] | UserWhereInput;
+  NOT?: UserWhereInput[] | UserWhereInput;
+}
+
+export interface ProductUpsertWithWhereUniqueWithoutShopInput {
+  where: ProductWhereUniqueInput;
+  update: ProductUpdateWithoutShopDataInput;
+  create: ProductCreateWithoutShopInput;
+}
+
+export interface ProductUpsertWithoutVariantsInput {
+  update: ProductUpdateWithoutVariantsDataInput;
+  create: ProductCreateWithoutVariantsInput;
+}
+
+export interface ShopUpdateManyMutationInput {
+  name?: String;
+  description?: String;
+  category?: String;
+  live?: Boolean;
+}
+
+export interface UserCreateOneWithoutImagesInput {
   create?: UserCreateWithoutImagesInput;
-  update?: UserUpdateWithoutImagesDataInput;
-  upsert?: UserUpsertWithoutImagesInput;
+  connect?: UserWhereUniqueInput;
+}
+
+export interface ShopImageCreateInput {
+  imageUrl: String;
+  shop?: ShopCreateOneWithoutImagesInput;
+}
+
+export interface ShopCreateManyWithoutOwnersInput {
+  create?: ShopCreateWithoutOwnersInput[] | ShopCreateWithoutOwnersInput;
+  connect?: ShopWhereUniqueInput[] | ShopWhereUniqueInput;
+}
+
+export interface ShopCreateOneWithoutImagesInput {
+  create?: ShopCreateWithoutImagesInput;
+  connect?: ShopWhereUniqueInput;
+}
+
+export interface TagCreateWithoutProductsInput {
+  name: String;
+}
+
+export interface ShopCreateWithoutImagesInput {
+  name: String;
+  description: String;
+  category: String;
+  live?: Boolean;
+  owners?: UserCreateManyWithoutShopsInput;
+  products?: ProductCreateManyWithoutShopInput;
+}
+
+export interface ProductUpdateWithWhereUniqueWithoutBrandInput {
+  where: ProductWhereUniqueInput;
+  data: ProductUpdateWithoutBrandDataInput;
+}
+
+export interface ShopImageUpdateInput {
+  imageUrl?: String;
+  shop?: ShopUpdateOneWithoutImagesInput;
+}
+
+export interface ProductSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ProductWhereInput;
+  AND?: ProductSubscriptionWhereInput[] | ProductSubscriptionWhereInput;
+  OR?: ProductSubscriptionWhereInput[] | ProductSubscriptionWhereInput;
+  NOT?: ProductSubscriptionWhereInput[] | ProductSubscriptionWhereInput;
+}
+
+export interface ShopImageUpdateManyMutationInput {
+  imageUrl?: String;
+}
+
+export interface ShopUpsertWithoutImagesInput {
+  update: ShopUpdateWithoutImagesDataInput;
+  create: ShopCreateWithoutImagesInput;
+}
+
+export interface ShopUpdateWithoutImagesDataInput {
+  name?: String;
+  description?: String;
+  category?: String;
+  live?: Boolean;
+  owners?: UserUpdateManyWithoutShopsInput;
+  products?: ProductUpdateManyWithoutShopInput;
+}
+
+export interface ShopUpdateOneWithoutImagesInput {
+  create?: ShopCreateWithoutImagesInput;
+  update?: ShopUpdateWithoutImagesDataInput;
+  upsert?: ShopUpsertWithoutImagesInput;
   delete?: Boolean;
   disconnect?: Boolean;
-  connect?: UserWhereUniqueInput;
+  connect?: ShopWhereUniqueInput;
+}
+
+export interface UserImageUpdateManyMutationInput {
+  imageUrl?: String;
+}
+
+export interface CategoryUpdateManyDataInput {
+  name?: String;
+}
+
+export interface UserImageCreateWithoutUserInput {
+  imageUrl: String;
+}
+
+export interface ProductUpdateManyWithoutTagsInput {
+  create?: ProductCreateWithoutTagsInput[] | ProductCreateWithoutTagsInput;
+  delete?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
+  connect?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
+  set?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
+  disconnect?: ProductWhereUniqueInput[] | ProductWhereUniqueInput;
+  update?:
+    | ProductUpdateWithWhereUniqueWithoutTagsInput[]
+    | ProductUpdateWithWhereUniqueWithoutTagsInput;
+  upsert?:
+    | ProductUpsertWithWhereUniqueWithoutTagsInput[]
+    | ProductUpsertWithWhereUniqueWithoutTagsInput;
+  deleteMany?: ProductScalarWhereInput[] | ProductScalarWhereInput;
+  updateMany?:
+    | ProductUpdateManyWithWhereNestedInput[]
+    | ProductUpdateManyWithWhereNestedInput;
+}
+
+export interface ShopUpsertWithWhereUniqueWithoutOwnersInput {
+  where: ShopWhereUniqueInput;
+  update: ShopUpdateWithoutOwnersDataInput;
+  create: ShopCreateWithoutOwnersInput;
 }
 
 export interface NodeNode {
   id: ID_Output;
 }
 
-export interface UserImagePreviousValues {
-  id: ID_Output;
-  imageUrl: String;
-}
-
-export interface UserImagePreviousValuesPromise
-  extends Promise<UserImagePreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  imageUrl: () => Promise<String>;
-}
-
-export interface UserImagePreviousValuesSubscription
-  extends Promise<AsyncIterator<UserImagePreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  imageUrl: () => Promise<AsyncIterator<String>>;
-}
-
-export interface CategoryConnection {
-  pageInfo: PageInfo;
-  edges: CategoryEdge[];
-}
-
-export interface CategoryConnectionPromise
-  extends Promise<CategoryConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<CategoryEdge>>() => T;
-  aggregate: <T = AggregateCategoryPromise>() => T;
-}
-
-export interface CategoryConnectionSubscription
-  extends Promise<AsyncIterator<CategoryConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<CategoryEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateCategorySubscription>() => T;
-}
-
-export interface Category {
+export interface VariantPreviousValues {
   id: ID_Output;
   name: String;
+  values: String[];
 }
 
-export interface CategoryPromise extends Promise<Category>, Fragmentable {
+export interface VariantPreviousValuesPromise
+  extends Promise<VariantPreviousValues>,
+    Fragmentable {
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
-  product: <T = FragmentableArray<Product>>(
-    args?: {
-      where?: ProductWhereInput;
-      orderBy?: ProductOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
+  values: () => Promise<String[]>;
 }
 
-export interface CategorySubscription
-  extends Promise<AsyncIterator<Category>>,
+export interface VariantPreviousValuesSubscription
+  extends Promise<AsyncIterator<VariantPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   name: () => Promise<AsyncIterator<String>>;
-  product: <T = Promise<AsyncIterator<ProductSubscription>>>(
-    args?: {
-      where?: ProductWhereInput;
-      orderBy?: ProductOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-}
-
-export interface AggregateBrand {
-  count: Int;
-}
-
-export interface AggregateBrandPromise
-  extends Promise<AggregateBrand>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateBrandSubscription
-  extends Promise<AsyncIterator<AggregateBrand>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  values: () => Promise<AsyncIterator<String[]>>;
 }
 
 export interface BrandEdge {
@@ -2636,45 +2837,119 @@ export interface BrandEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface BatchPayload {
-  count: Long;
+export interface Product {
+  id: ID_Output;
+  title: String;
+  description: String;
+  price: String;
 }
 
-export interface BatchPayloadPromise
-  extends Promise<BatchPayload>,
+export interface ProductPromise extends Promise<Product>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  description: () => Promise<String>;
+  price: () => Promise<String>;
+  categories: <T = FragmentableArray<Category>>(
+    args?: {
+      where?: CategoryWhereInput;
+      orderBy?: CategoryOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  brand: <T = BrandPromise>() => T;
+  tags: <T = FragmentableArray<Tag>>(
+    args?: {
+      where?: TagWhereInput;
+      orderBy?: TagOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  images: <T = FragmentableArray<ProductImage>>(
+    args?: {
+      where?: ProductImageWhereInput;
+      orderBy?: ProductImageOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  shop: <T = ShopPromise>() => T;
+  variants: <T = FragmentableArray<Variant>>(
+    args?: {
+      where?: VariantWhereInput;
+      orderBy?: VariantOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface ProductSubscription
+  extends Promise<AsyncIterator<Product>>,
     Fragmentable {
-  count: () => Promise<Long>;
-}
-
-export interface BatchPayloadSubscription
-  extends Promise<AsyncIterator<BatchPayload>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Long>>;
-}
-
-export interface UserImageSubscriptionPayload {
-  mutation: MutationType;
-  node: UserImage;
-  updatedFields: String[];
-  previousValues: UserImagePreviousValues;
-}
-
-export interface UserImageSubscriptionPayloadPromise
-  extends Promise<UserImageSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = UserImagePromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = UserImagePreviousValuesPromise>() => T;
-}
-
-export interface UserImageSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<UserImageSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = UserImageSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = UserImagePreviousValuesSubscription>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  price: () => Promise<AsyncIterator<String>>;
+  categories: <T = Promise<AsyncIterator<CategorySubscription>>>(
+    args?: {
+      where?: CategoryWhereInput;
+      orderBy?: CategoryOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  brand: <T = BrandSubscription>() => T;
+  tags: <T = Promise<AsyncIterator<TagSubscription>>>(
+    args?: {
+      where?: TagWhereInput;
+      orderBy?: TagOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  images: <T = Promise<AsyncIterator<ProductImageSubscription>>>(
+    args?: {
+      where?: ProductImageWhereInput;
+      orderBy?: ProductImageOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  shop: <T = ShopSubscription>() => T;
+  variants: <T = Promise<AsyncIterator<VariantSubscription>>>(
+    args?: {
+      where?: VariantWhereInput;
+      orderBy?: VariantOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
 }
 
 export interface PageInfo {
@@ -2700,22 +2975,6 @@ export interface PageInfoSubscription
   endCursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AggregateUserImage {
-  count: Int;
-}
-
-export interface AggregateUserImagePromise
-  extends Promise<AggregateUserImage>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateUserImageSubscription
-  extends Promise<AsyncIterator<AggregateUserImage>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
 export interface BrandConnection {
   pageInfo: PageInfo;
   edges: BrandEdge[];
@@ -2737,25 +2996,36 @@ export interface BrandConnectionSubscription
   aggregate: <T = AggregateBrandSubscription>() => T;
 }
 
-export interface UserImageConnection {
-  pageInfo: PageInfo;
-  edges: UserImageEdge[];
+export interface BatchPayload {
+  count: Long;
 }
 
-export interface UserImageConnectionPromise
-  extends Promise<UserImageConnection>,
+export interface BatchPayloadPromise
+  extends Promise<BatchPayload>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<UserImageEdge>>() => T;
-  aggregate: <T = AggregateUserImagePromise>() => T;
+  count: () => Promise<Long>;
 }
 
-export interface UserImageConnectionSubscription
-  extends Promise<AsyncIterator<UserImageConnection>>,
+export interface BatchPayloadSubscription
+  extends Promise<AsyncIterator<BatchPayload>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<UserImageEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateUserImageSubscription>() => T;
+  count: () => Promise<AsyncIterator<Long>>;
+}
+
+export interface AggregateVariant {
+  count: Int;
+}
+
+export interface AggregateVariantPromise
+  extends Promise<AggregateVariant>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateVariantSubscription
+  extends Promise<AsyncIterator<AggregateVariant>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface Brand {
@@ -2797,62 +3067,141 @@ export interface BrandSubscription
   ) => T;
 }
 
-export interface UserEdge {
-  node: User;
+export interface VariantConnection {
+  pageInfo: PageInfo;
+  edges: VariantEdge[];
+}
+
+export interface VariantConnectionPromise
+  extends Promise<VariantConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<VariantEdge>>() => T;
+  aggregate: <T = AggregateVariantPromise>() => T;
+}
+
+export interface VariantConnectionSubscription
+  extends Promise<AsyncIterator<VariantConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<VariantEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateVariantSubscription>() => T;
+}
+
+export interface Variant {
+  id: ID_Output;
+  name: String;
+  values: String[];
+}
+
+export interface VariantPromise extends Promise<Variant>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  product: <T = ProductPromise>() => T;
+  name: () => Promise<String>;
+  values: () => Promise<String[]>;
+}
+
+export interface VariantSubscription
+  extends Promise<AsyncIterator<Variant>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  product: <T = ProductSubscription>() => T;
+  name: () => Promise<AsyncIterator<String>>;
+  values: () => Promise<AsyncIterator<String[]>>;
+}
+
+export interface UserImageEdge {
+  node: UserImage;
   cursor: String;
 }
 
-export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
-  node: <T = UserPromise>() => T;
+export interface UserImageEdgePromise
+  extends Promise<UserImageEdge>,
+    Fragmentable {
+  node: <T = UserImagePromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface UserEdgeSubscription
-  extends Promise<AsyncIterator<UserEdge>>,
+export interface UserImageEdgeSubscription
+  extends Promise<AsyncIterator<UserImageEdge>>,
     Fragmentable {
-  node: <T = UserSubscription>() => T;
+  node: <T = UserImageSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface UserSubscriptionPayload {
-  mutation: MutationType;
-  node: User;
-  updatedFields: String[];
-  previousValues: UserPreviousValues;
+export interface ShopImage {
+  id: ID_Output;
+  imageUrl: String;
 }
 
-export interface UserSubscriptionPayloadPromise
-  extends Promise<UserSubscriptionPayload>,
+export interface ShopImagePromise extends Promise<ShopImage>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  imageUrl: () => Promise<String>;
+  shop: <T = ShopPromise>() => T;
+}
+
+export interface ShopImageSubscription
+  extends Promise<AsyncIterator<ShopImage>>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = UserPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = UserPreviousValuesPromise>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  imageUrl: () => Promise<AsyncIterator<String>>;
+  shop: <T = ShopSubscription>() => T;
 }
 
-export interface UserSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<UserSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = UserSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = UserPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateTag {
+export interface AggregateUser {
   count: Int;
 }
 
-export interface AggregateTagPromise
-  extends Promise<AggregateTag>,
+export interface AggregateUserPromise
+  extends Promise<AggregateUser>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateTagSubscription
-  extends Promise<AsyncIterator<AggregateTag>>,
+export interface AggregateUserSubscription
+  extends Promise<AsyncIterator<AggregateUser>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface UserImagePreviousValues {
+  id: ID_Output;
+  imageUrl: String;
+}
+
+export interface UserImagePreviousValuesPromise
+  extends Promise<UserImagePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  imageUrl: () => Promise<String>;
+}
+
+export interface UserImagePreviousValuesSubscription
+  extends Promise<AsyncIterator<UserImagePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  imageUrl: () => Promise<AsyncIterator<String>>;
+}
+
+export interface UserConnection {
+  pageInfo: PageInfo;
+  edges: UserEdge[];
+}
+
+export interface UserConnectionPromise
+  extends Promise<UserConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<UserEdge>>() => T;
+  aggregate: <T = AggregateUserPromise>() => T;
+}
+
+export interface UserConnectionSubscription
+  extends Promise<AsyncIterator<UserConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateUserSubscription>() => T;
 }
 
 export interface BrandSubscriptionPayload {
@@ -2880,25 +3229,21 @@ export interface BrandSubscriptionPayloadSubscription
   previousValues: <T = BrandPreviousValuesSubscription>() => T;
 }
 
-export interface TagConnection {
-  pageInfo: PageInfo;
-  edges: TagEdge[];
+export interface TagEdge {
+  node: Tag;
+  cursor: String;
 }
 
-export interface TagConnectionPromise
-  extends Promise<TagConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<TagEdge>>() => T;
-  aggregate: <T = AggregateTagPromise>() => T;
+export interface TagEdgePromise extends Promise<TagEdge>, Fragmentable {
+  node: <T = TagPromise>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface TagConnectionSubscription
-  extends Promise<AsyncIterator<TagConnection>>,
+export interface TagEdgeSubscription
+  extends Promise<AsyncIterator<TagEdge>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<TagEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateTagSubscription>() => T;
+  node: <T = TagSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface BrandPreviousValues {
@@ -2920,58 +3265,60 @@ export interface BrandPreviousValuesSubscription
   name: () => Promise<AsyncIterator<String>>;
 }
 
-export interface ShopImageEdge {
-  node: ShopImage;
-  cursor: String;
-}
-
-export interface ShopImageEdgePromise
-  extends Promise<ShopImageEdge>,
-    Fragmentable {
-  node: <T = ShopImagePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ShopImageEdgeSubscription
-  extends Promise<AsyncIterator<ShopImageEdge>>,
-    Fragmentable {
-  node: <T = ShopImageSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ShopImage {
-  id: ID_Output;
-  imageUrl: String;
-}
-
-export interface ShopImagePromise extends Promise<ShopImage>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  imageUrl: () => Promise<String>;
-  shop: <T = ShopPromise>() => T;
-}
-
-export interface ShopImageSubscription
-  extends Promise<AsyncIterator<ShopImage>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  imageUrl: () => Promise<AsyncIterator<String>>;
-  shop: <T = ShopSubscription>() => T;
-}
-
-export interface AggregateShop {
+export interface AggregateShopImage {
   count: Int;
 }
 
-export interface AggregateShopPromise
-  extends Promise<AggregateShop>,
+export interface AggregateShopImagePromise
+  extends Promise<AggregateShopImage>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateShopSubscription
-  extends Promise<AsyncIterator<AggregateShop>>,
+export interface AggregateShopImageSubscription
+  extends Promise<AsyncIterator<AggregateShopImage>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface UserImage {
+  id: ID_Output;
+  imageUrl: String;
+}
+
+export interface UserImagePromise extends Promise<UserImage>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  imageUrl: () => Promise<String>;
+  user: <T = UserPromise>() => T;
+}
+
+export interface UserImageSubscription
+  extends Promise<AsyncIterator<UserImage>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  imageUrl: () => Promise<AsyncIterator<String>>;
+  user: <T = UserSubscription>() => T;
+}
+
+export interface ShopImageConnection {
+  pageInfo: PageInfo;
+  edges: ShopImageEdge[];
+}
+
+export interface ShopImageConnectionPromise
+  extends Promise<ShopImageConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ShopImageEdge>>() => T;
+  aggregate: <T = AggregateShopImagePromise>() => T;
+}
+
+export interface ShopImageConnectionSubscription
+  extends Promise<AsyncIterator<ShopImageConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ShopImageEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateShopImageSubscription>() => T;
 }
 
 export interface CategorySubscriptionPayload {
@@ -2999,25 +3346,21 @@ export interface CategorySubscriptionPayloadSubscription
   previousValues: <T = CategoryPreviousValuesSubscription>() => T;
 }
 
-export interface ShopConnection {
-  pageInfo: PageInfo;
-  edges: ShopEdge[];
+export interface ShopEdge {
+  node: Shop;
+  cursor: String;
 }
 
-export interface ShopConnectionPromise
-  extends Promise<ShopConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ShopEdge>>() => T;
-  aggregate: <T = AggregateShopPromise>() => T;
+export interface ShopEdgePromise extends Promise<ShopEdge>, Fragmentable {
+  node: <T = ShopPromise>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface ShopConnectionSubscription
-  extends Promise<AsyncIterator<ShopConnection>>,
+export interface ShopEdgeSubscription
+  extends Promise<AsyncIterator<ShopEdge>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ShopEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateShopSubscription>() => T;
+  node: <T = ShopSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface CategoryPreviousValues {
@@ -3039,148 +3382,20 @@ export interface CategoryPreviousValuesSubscription
   name: () => Promise<AsyncIterator<String>>;
 }
 
-export interface ProductImageEdge {
-  node: ProductImage;
-  cursor: String;
-}
-
-export interface ProductImageEdgePromise
-  extends Promise<ProductImageEdge>,
-    Fragmentable {
-  node: <T = ProductImagePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ProductImageEdgeSubscription
-  extends Promise<AsyncIterator<ProductImageEdge>>,
-    Fragmentable {
-  node: <T = ProductImageSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface UserImage {
-  id: ID_Output;
-  imageUrl: String;
-}
-
-export interface UserImagePromise extends Promise<UserImage>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  imageUrl: () => Promise<String>;
-  user: <T = UserPromise>() => T;
-}
-
-export interface UserImageSubscription
-  extends Promise<AsyncIterator<UserImage>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  imageUrl: () => Promise<AsyncIterator<String>>;
-  user: <T = UserSubscription>() => T;
-}
-
-export interface AggregateProduct {
+export interface AggregateProductImage {
   count: Int;
 }
 
-export interface AggregateProductPromise
-  extends Promise<AggregateProduct>,
+export interface AggregateProductImagePromise
+  extends Promise<AggregateProductImage>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateProductSubscription
-  extends Promise<AsyncIterator<AggregateProduct>>,
+export interface AggregateProductImageSubscription
+  extends Promise<AsyncIterator<AggregateProductImage>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface ProductSubscriptionPayload {
-  mutation: MutationType;
-  node: Product;
-  updatedFields: String[];
-  previousValues: ProductPreviousValues;
-}
-
-export interface ProductSubscriptionPayloadPromise
-  extends Promise<ProductSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ProductPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ProductPreviousValuesPromise>() => T;
-}
-
-export interface ProductSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ProductSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ProductSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ProductPreviousValuesSubscription>() => T;
-}
-
-export interface ProductConnection {
-  pageInfo: PageInfo;
-  edges: ProductEdge[];
-}
-
-export interface ProductConnectionPromise
-  extends Promise<ProductConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ProductEdge>>() => T;
-  aggregate: <T = AggregateProductPromise>() => T;
-}
-
-export interface ProductConnectionSubscription
-  extends Promise<AsyncIterator<ProductConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ProductEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateProductSubscription>() => T;
-}
-
-export interface ProductPreviousValues {
-  id: ID_Output;
-  title: String;
-  description: String;
-  price: String;
-}
-
-export interface ProductPreviousValuesPromise
-  extends Promise<ProductPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  description: () => Promise<String>;
-  price: () => Promise<String>;
-}
-
-export interface ProductPreviousValuesSubscription
-  extends Promise<AsyncIterator<ProductPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  price: () => Promise<AsyncIterator<String>>;
-}
-
-export interface CategoryEdge {
-  node: Category;
-  cursor: String;
-}
-
-export interface CategoryEdgePromise
-  extends Promise<CategoryEdge>,
-    Fragmentable {
-  node: <T = CategoryPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface CategoryEdgeSubscription
-  extends Promise<AsyncIterator<CategoryEdge>>,
-    Fragmentable {
-  node: <T = CategorySubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface User {
@@ -3253,109 +3468,108 @@ export interface UserSubscription
   ) => T;
 }
 
-export interface UserPreviousValues {
-  id: ID_Output;
-  email: String;
-  password: String;
-  name: String;
-  username: String;
+export interface ProductImageConnection {
+  pageInfo: PageInfo;
+  edges: ProductImageEdge[];
 }
 
-export interface UserPreviousValuesPromise
-  extends Promise<UserPreviousValues>,
+export interface ProductImageConnectionPromise
+  extends Promise<ProductImageConnection>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  email: () => Promise<String>;
-  password: () => Promise<String>;
-  name: () => Promise<String>;
-  username: () => Promise<String>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ProductImageEdge>>() => T;
+  aggregate: <T = AggregateProductImagePromise>() => T;
 }
 
-export interface UserPreviousValuesSubscription
-  extends Promise<AsyncIterator<UserPreviousValues>>,
+export interface ProductImageConnectionSubscription
+  extends Promise<AsyncIterator<ProductImageConnection>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  email: () => Promise<AsyncIterator<String>>;
-  password: () => Promise<AsyncIterator<String>>;
-  name: () => Promise<AsyncIterator<String>>;
-  username: () => Promise<AsyncIterator<String>>;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ProductImageEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateProductImageSubscription>() => T;
 }
 
-export interface ProductImageSubscriptionPayload {
+export interface ProductSubscriptionPayload {
   mutation: MutationType;
-  node: ProductImage;
+  node: Product;
   updatedFields: String[];
-  previousValues: ProductImagePreviousValues;
+  previousValues: ProductPreviousValues;
 }
 
-export interface ProductImageSubscriptionPayloadPromise
-  extends Promise<ProductImageSubscriptionPayload>,
+export interface ProductSubscriptionPayloadPromise
+  extends Promise<ProductSubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = ProductImagePromise>() => T;
+  node: <T = ProductPromise>() => T;
   updatedFields: () => Promise<String[]>;
-  previousValues: <T = ProductImagePreviousValuesPromise>() => T;
+  previousValues: <T = ProductPreviousValuesPromise>() => T;
 }
 
-export interface ProductImageSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ProductImageSubscriptionPayload>>,
+export interface ProductSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ProductSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ProductImageSubscription>() => T;
+  node: <T = ProductSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ProductImagePreviousValuesSubscription>() => T;
+  previousValues: <T = ProductPreviousValuesSubscription>() => T;
 }
 
-export interface AggregateUser {
+export interface ProductEdge {
+  node: Product;
+  cursor: String;
+}
+
+export interface ProductEdgePromise extends Promise<ProductEdge>, Fragmentable {
+  node: <T = ProductPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ProductEdgeSubscription
+  extends Promise<AsyncIterator<ProductEdge>>,
+    Fragmentable {
+  node: <T = ProductSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface ProductPreviousValues {
+  id: ID_Output;
+  title: String;
+  description: String;
+  price: String;
+}
+
+export interface ProductPreviousValuesPromise
+  extends Promise<ProductPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  description: () => Promise<String>;
+  price: () => Promise<String>;
+}
+
+export interface ProductPreviousValuesSubscription
+  extends Promise<AsyncIterator<ProductPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  price: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateCategory {
   count: Int;
 }
 
-export interface AggregateUserPromise
-  extends Promise<AggregateUser>,
+export interface AggregateCategoryPromise
+  extends Promise<AggregateCategory>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateUserSubscription
-  extends Promise<AsyncIterator<AggregateUser>>,
+export interface AggregateCategorySubscription
+  extends Promise<AsyncIterator<AggregateCategory>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface ProductImagePreviousValues {
-  id: ID_Output;
-  imageUrl: String;
-}
-
-export interface ProductImagePreviousValuesPromise
-  extends Promise<ProductImagePreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  imageUrl: () => Promise<String>;
-}
-
-export interface ProductImagePreviousValuesSubscription
-  extends Promise<AsyncIterator<ProductImagePreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  imageUrl: () => Promise<AsyncIterator<String>>;
-}
-
-export interface TagEdge {
-  node: Tag;
-  cursor: String;
-}
-
-export interface TagEdgePromise extends Promise<TagEdge>, Fragmentable {
-  node: <T = TagPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface TagEdgeSubscription
-  extends Promise<AsyncIterator<TagEdge>>,
-    Fragmentable {
-  node: <T = TagSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface Shop {
@@ -3456,25 +3670,148 @@ export interface ShopSubscription
   ) => T;
 }
 
-export interface ShopImageConnection {
+export interface CategoryConnection {
   pageInfo: PageInfo;
-  edges: ShopImageEdge[];
+  edges: CategoryEdge[];
 }
 
-export interface ShopImageConnectionPromise
-  extends Promise<ShopImageConnection>,
+export interface CategoryConnectionPromise
+  extends Promise<CategoryConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ShopImageEdge>>() => T;
-  aggregate: <T = AggregateShopImagePromise>() => T;
+  edges: <T = FragmentableArray<CategoryEdge>>() => T;
+  aggregate: <T = AggregateCategoryPromise>() => T;
 }
 
-export interface ShopImageConnectionSubscription
-  extends Promise<AsyncIterator<ShopImageConnection>>,
+export interface CategoryConnectionSubscription
+  extends Promise<AsyncIterator<CategoryConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ShopImageEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateShopImageSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<CategoryEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateCategorySubscription>() => T;
+}
+
+export interface ProductImageSubscriptionPayload {
+  mutation: MutationType;
+  node: ProductImage;
+  updatedFields: String[];
+  previousValues: ProductImagePreviousValues;
+}
+
+export interface ProductImageSubscriptionPayloadPromise
+  extends Promise<ProductImageSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ProductImagePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ProductImagePreviousValuesPromise>() => T;
+}
+
+export interface ProductImageSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ProductImageSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ProductImageSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ProductImagePreviousValuesSubscription>() => T;
+}
+
+export interface VariantSubscriptionPayload {
+  mutation: MutationType;
+  node: Variant;
+  updatedFields: String[];
+  previousValues: VariantPreviousValues;
+}
+
+export interface VariantSubscriptionPayloadPromise
+  extends Promise<VariantSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = VariantPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = VariantPreviousValuesPromise>() => T;
+}
+
+export interface VariantSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<VariantSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = VariantSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = VariantPreviousValuesSubscription>() => T;
+}
+
+export interface ProductImagePreviousValues {
+  id: ID_Output;
+  imageUrl: String;
+}
+
+export interface ProductImagePreviousValuesPromise
+  extends Promise<ProductImagePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  imageUrl: () => Promise<String>;
+}
+
+export interface ProductImagePreviousValuesSubscription
+  extends Promise<AsyncIterator<ProductImagePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  imageUrl: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateUserImage {
+  count: Int;
+}
+
+export interface AggregateUserImagePromise
+  extends Promise<AggregateUserImage>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateUserImageSubscription
+  extends Promise<AsyncIterator<AggregateUserImage>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ProductImage {
+  id: ID_Output;
+  imageUrl: String;
+}
+
+export interface ProductImagePromise
+  extends Promise<ProductImage>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  imageUrl: () => Promise<String>;
+  product: <T = ProductPromise>() => T;
+}
+
+export interface ProductImageSubscription
+  extends Promise<AsyncIterator<ProductImage>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  imageUrl: () => Promise<AsyncIterator<String>>;
+  product: <T = ProductSubscription>() => T;
+}
+
+export interface UserEdge {
+  node: User;
+  cursor: String;
+}
+
+export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
+  node: <T = UserPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface UserEdgeSubscription
+  extends Promise<AsyncIterator<UserEdge>>,
+    Fragmentable {
+  node: <T = UserSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface ShopSubscriptionPayload {
@@ -3502,20 +3839,25 @@ export interface ShopSubscriptionPayloadSubscription
   previousValues: <T = ShopPreviousValuesSubscription>() => T;
 }
 
-export interface AggregateProductImage {
-  count: Int;
+export interface TagConnection {
+  pageInfo: PageInfo;
+  edges: TagEdge[];
 }
 
-export interface AggregateProductImagePromise
-  extends Promise<AggregateProductImage>,
+export interface TagConnectionPromise
+  extends Promise<TagConnection>,
     Fragmentable {
-  count: () => Promise<Int>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<TagEdge>>() => T;
+  aggregate: <T = AggregateTagPromise>() => T;
 }
 
-export interface AggregateProductImageSubscription
-  extends Promise<AsyncIterator<AggregateProductImage>>,
+export interface TagConnectionSubscription
+  extends Promise<AsyncIterator<TagConnection>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<TagEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateTagSubscription>() => T;
 }
 
 export interface ShopPreviousValues {
@@ -3552,242 +3894,20 @@ export interface ShopPreviousValuesSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface ProductEdge {
-  node: Product;
-  cursor: String;
+export interface AggregateShop {
+  count: Int;
 }
 
-export interface ProductEdgePromise extends Promise<ProductEdge>, Fragmentable {
-  node: <T = ProductPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ProductEdgeSubscription
-  extends Promise<AsyncIterator<ProductEdge>>,
+export interface AggregateShopPromise
+  extends Promise<AggregateShop>,
     Fragmentable {
-  node: <T = ProductSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  count: () => Promise<Int>;
 }
 
-export interface ProductImage {
-  id: ID_Output;
-  imageUrl: String;
-}
-
-export interface ProductImagePromise
-  extends Promise<ProductImage>,
+export interface AggregateShopSubscription
+  extends Promise<AsyncIterator<AggregateShop>>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  imageUrl: () => Promise<String>;
-  product: <T = ProductPromise>() => T;
-}
-
-export interface ProductImageSubscription
-  extends Promise<AsyncIterator<ProductImage>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  imageUrl: () => Promise<AsyncIterator<String>>;
-  product: <T = ProductSubscription>() => T;
-}
-
-export interface Product {
-  id: ID_Output;
-  title: String;
-  description: String;
-  price: String;
-}
-
-export interface ProductPromise extends Promise<Product>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  description: () => Promise<String>;
-  price: () => Promise<String>;
-  categories: <T = FragmentableArray<Category>>(
-    args?: {
-      where?: CategoryWhereInput;
-      orderBy?: CategoryOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  brand: <T = BrandPromise>() => T;
-  tags: <T = FragmentableArray<Tag>>(
-    args?: {
-      where?: TagWhereInput;
-      orderBy?: TagOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  images: <T = FragmentableArray<ProductImage>>(
-    args?: {
-      where?: ProductImageWhereInput;
-      orderBy?: ProductImageOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  shop: <T = ShopPromise>() => T;
-}
-
-export interface ProductSubscription
-  extends Promise<AsyncIterator<Product>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  price: () => Promise<AsyncIterator<String>>;
-  categories: <T = Promise<AsyncIterator<CategorySubscription>>>(
-    args?: {
-      where?: CategoryWhereInput;
-      orderBy?: CategoryOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  brand: <T = BrandSubscription>() => T;
-  tags: <T = Promise<AsyncIterator<TagSubscription>>>(
-    args?: {
-      where?: TagWhereInput;
-      orderBy?: TagOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  images: <T = Promise<AsyncIterator<ProductImageSubscription>>>(
-    args?: {
-      where?: ProductImageWhereInput;
-      orderBy?: ProductImageOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  shop: <T = ShopSubscription>() => T;
-}
-
-export interface ShopImageSubscriptionPayload {
-  mutation: MutationType;
-  node: ShopImage;
-  updatedFields: String[];
-  previousValues: ShopImagePreviousValues;
-}
-
-export interface ShopImageSubscriptionPayloadPromise
-  extends Promise<ShopImageSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ShopImagePromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ShopImagePreviousValuesPromise>() => T;
-}
-
-export interface ShopImageSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ShopImageSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ShopImageSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ShopImagePreviousValuesSubscription>() => T;
-}
-
-export interface UserConnection {
-  pageInfo: PageInfo;
-  edges: UserEdge[];
-}
-
-export interface UserConnectionPromise
-  extends Promise<UserConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<UserEdge>>() => T;
-  aggregate: <T = AggregateUserPromise>() => T;
-}
-
-export interface UserConnectionSubscription
-  extends Promise<AsyncIterator<UserConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateUserSubscription>() => T;
-}
-
-export interface ShopEdge {
-  node: Shop;
-  cursor: String;
-}
-
-export interface ShopEdgePromise extends Promise<ShopEdge>, Fragmentable {
-  node: <T = ShopPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ShopEdgeSubscription
-  extends Promise<AsyncIterator<ShopEdge>>,
-    Fragmentable {
-  node: <T = ShopSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface TagPreviousValues {
-  id: ID_Output;
-  name: String;
-}
-
-export interface TagPreviousValuesPromise
-  extends Promise<TagPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-}
-
-export interface TagPreviousValuesSubscription
-  extends Promise<AsyncIterator<TagPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-}
-
-export interface TagSubscriptionPayload {
-  mutation: MutationType;
-  node: Tag;
-  updatedFields: String[];
-  previousValues: TagPreviousValues;
-}
-
-export interface TagSubscriptionPayloadPromise
-  extends Promise<TagSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = TagPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = TagPreviousValuesPromise>() => T;
-}
-
-export interface TagSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<TagSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = TagSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = TagPreviousValuesSubscription>() => T;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface Tag {
@@ -3829,6 +3949,71 @@ export interface TagSubscription
   ) => T;
 }
 
+export interface ProductImageEdge {
+  node: ProductImage;
+  cursor: String;
+}
+
+export interface ProductImageEdgePromise
+  extends Promise<ProductImageEdge>,
+    Fragmentable {
+  node: <T = ProductImagePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ProductImageEdgeSubscription
+  extends Promise<AsyncIterator<ProductImageEdge>>,
+    Fragmentable {
+  node: <T = ProductImageSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface ShopImageSubscriptionPayload {
+  mutation: MutationType;
+  node: ShopImage;
+  updatedFields: String[];
+  previousValues: ShopImagePreviousValues;
+}
+
+export interface ShopImageSubscriptionPayloadPromise
+  extends Promise<ShopImageSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ShopImagePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ShopImagePreviousValuesPromise>() => T;
+}
+
+export interface ShopImageSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ShopImageSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ShopImageSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ShopImagePreviousValuesSubscription>() => T;
+}
+
+export interface ProductConnection {
+  pageInfo: PageInfo;
+  edges: ProductEdge[];
+}
+
+export interface ProductConnectionPromise
+  extends Promise<ProductConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ProductEdge>>() => T;
+  aggregate: <T = AggregateProductPromise>() => T;
+}
+
+export interface ProductConnectionSubscription
+  extends Promise<AsyncIterator<ProductConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ProductEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateProductSubscription>() => T;
+}
+
 export interface ShopImagePreviousValues {
   id: ID_Output;
   imageUrl: String;
@@ -3848,84 +4033,311 @@ export interface ShopImagePreviousValuesSubscription
   imageUrl: () => Promise<AsyncIterator<String>>;
 }
 
-export interface ProductImageConnection {
-  pageInfo: PageInfo;
-  edges: ProductImageEdge[];
-}
-
-export interface ProductImageConnectionPromise
-  extends Promise<ProductImageConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ProductImageEdge>>() => T;
-  aggregate: <T = AggregateProductImagePromise>() => T;
-}
-
-export interface ProductImageConnectionSubscription
-  extends Promise<AsyncIterator<ProductImageConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ProductImageEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateProductImageSubscription>() => T;
-}
-
-export interface AggregateShopImage {
+export interface AggregateBrand {
   count: Int;
 }
 
-export interface AggregateShopImagePromise
-  extends Promise<AggregateShopImage>,
+export interface AggregateBrandPromise
+  extends Promise<AggregateBrand>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateShopImageSubscription
-  extends Promise<AsyncIterator<AggregateShopImage>>,
+export interface AggregateBrandSubscription
+  extends Promise<AsyncIterator<AggregateBrand>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface UserImageEdge {
+export interface UserImageSubscriptionPayload {
+  mutation: MutationType;
   node: UserImage;
+  updatedFields: String[];
+  previousValues: UserImagePreviousValues;
+}
+
+export interface UserImageSubscriptionPayloadPromise
+  extends Promise<UserImageSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = UserImagePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = UserImagePreviousValuesPromise>() => T;
+}
+
+export interface UserImageSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<UserImageSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = UserImageSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = UserImagePreviousValuesSubscription>() => T;
+}
+
+export interface UserImageConnection {
+  pageInfo: PageInfo;
+  edges: UserImageEdge[];
+}
+
+export interface UserImageConnectionPromise
+  extends Promise<UserImageConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<UserImageEdge>>() => T;
+  aggregate: <T = AggregateUserImagePromise>() => T;
+}
+
+export interface UserImageConnectionSubscription
+  extends Promise<AsyncIterator<UserImageConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<UserImageEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateUserImageSubscription>() => T;
+}
+
+export interface TagSubscriptionPayload {
+  mutation: MutationType;
+  node: Tag;
+  updatedFields: String[];
+  previousValues: TagPreviousValues;
+}
+
+export interface TagSubscriptionPayloadPromise
+  extends Promise<TagSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = TagPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = TagPreviousValuesPromise>() => T;
+}
+
+export interface TagSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<TagSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = TagSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = TagPreviousValuesSubscription>() => T;
+}
+
+export interface ShopImageEdge {
+  node: ShopImage;
   cursor: String;
 }
 
-export interface UserImageEdgePromise
-  extends Promise<UserImageEdge>,
+export interface ShopImageEdgePromise
+  extends Promise<ShopImageEdge>,
     Fragmentable {
-  node: <T = UserImagePromise>() => T;
+  node: <T = ShopImagePromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface UserImageEdgeSubscription
-  extends Promise<AsyncIterator<UserImageEdge>>,
+export interface ShopImageEdgeSubscription
+  extends Promise<AsyncIterator<ShopImageEdge>>,
     Fragmentable {
-  node: <T = UserImageSubscription>() => T;
+  node: <T = ShopImageSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AggregateCategory {
+export interface AggregateProduct {
   count: Int;
 }
 
-export interface AggregateCategoryPromise
-  extends Promise<AggregateCategory>,
+export interface AggregateProductPromise
+  extends Promise<AggregateProduct>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateCategorySubscription
-  extends Promise<AsyncIterator<AggregateCategory>>,
+export interface AggregateProductSubscription
+  extends Promise<AsyncIterator<AggregateProduct>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-/*
-The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
-*/
-export type Int = number;
+export interface UserPreviousValues {
+  id: ID_Output;
+  email: String;
+  password: String;
+  name: String;
+  username: String;
+}
 
-export type Long = string;
+export interface UserPreviousValuesPromise
+  extends Promise<UserPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  email: () => Promise<String>;
+  password: () => Promise<String>;
+  name: () => Promise<String>;
+  username: () => Promise<String>;
+}
+
+export interface UserPreviousValuesSubscription
+  extends Promise<AsyncIterator<UserPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  email: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  username: () => Promise<AsyncIterator<String>>;
+}
+
+export interface UserSubscriptionPayload {
+  mutation: MutationType;
+  node: User;
+  updatedFields: String[];
+  previousValues: UserPreviousValues;
+}
+
+export interface UserSubscriptionPayloadPromise
+  extends Promise<UserSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = UserPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = UserPreviousValuesPromise>() => T;
+}
+
+export interface UserSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<UserSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = UserSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = UserPreviousValuesSubscription>() => T;
+}
+
+export interface Category {
+  id: ID_Output;
+  name: String;
+}
+
+export interface CategoryPromise extends Promise<Category>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  product: <T = FragmentableArray<Product>>(
+    args?: {
+      where?: ProductWhereInput;
+      orderBy?: ProductOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface CategorySubscription
+  extends Promise<AsyncIterator<Category>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  product: <T = Promise<AsyncIterator<ProductSubscription>>>(
+    args?: {
+      where?: ProductWhereInput;
+      orderBy?: ProductOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface TagPreviousValues {
+  id: ID_Output;
+  name: String;
+}
+
+export interface TagPreviousValuesPromise
+  extends Promise<TagPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+}
+
+export interface TagPreviousValuesSubscription
+  extends Promise<AsyncIterator<TagPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+}
+
+export interface CategoryEdge {
+  node: Category;
+  cursor: String;
+}
+
+export interface CategoryEdgePromise
+  extends Promise<CategoryEdge>,
+    Fragmentable {
+  node: <T = CategoryPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface CategoryEdgeSubscription
+  extends Promise<AsyncIterator<CategoryEdge>>,
+    Fragmentable {
+  node: <T = CategorySubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface ShopConnection {
+  pageInfo: PageInfo;
+  edges: ShopEdge[];
+}
+
+export interface ShopConnectionPromise
+  extends Promise<ShopConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ShopEdge>>() => T;
+  aggregate: <T = AggregateShopPromise>() => T;
+}
+
+export interface ShopConnectionSubscription
+  extends Promise<AsyncIterator<ShopConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ShopEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateShopSubscription>() => T;
+}
+
+export interface AggregateTag {
+  count: Int;
+}
+
+export interface AggregateTagPromise
+  extends Promise<AggregateTag>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateTagSubscription
+  extends Promise<AsyncIterator<AggregateTag>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface VariantEdge {
+  node: Variant;
+  cursor: String;
+}
+
+export interface VariantEdgePromise extends Promise<VariantEdge>, Fragmentable {
+  node: <T = VariantPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface VariantEdgeSubscription
+  extends Promise<AsyncIterator<VariantEdge>>,
+    Fragmentable {
+  node: <T = VariantSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
 
 /*
 DateTime scalar input type, allowing Date
@@ -3937,10 +4349,7 @@ DateTime scalar output type, which is always a string
 */
 export type DateTimeOutput = string;
 
-/*
-The `Boolean` scalar type represents `true` or `false`.
-*/
-export type Boolean = boolean;
+export type Long = string;
 
 /*
 The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
@@ -3949,9 +4358,19 @@ export type ID_Input = string | number;
 export type ID_Output = string;
 
 /*
+The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
+*/
+export type Int = number;
+
+/*
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
 */
 export type String = string;
+
+/*
+The `Boolean` scalar type represents `true` or `false`.
+*/
+export type Boolean = boolean;
 
 /**
  * Model Metadata
@@ -3992,6 +4411,10 @@ export const models: Model[] = [
   },
   {
     name: "ProductImage",
+    embedded: false
+  },
+  {
+    name: "Variant",
     embedded: false
   }
 ];

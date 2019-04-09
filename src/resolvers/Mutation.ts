@@ -202,6 +202,7 @@ export const Mutation = mutationType({
                     await imagesArray.push(imageItem);
                     imagesIds = await imagesArray.map((image: any) => ({id: image.id}));
                     }
+
               return ctx.prisma.createProduct({
                 title,
                 description,
@@ -211,6 +212,40 @@ export const Mutation = mutationType({
                 categories: { connect: categoryIds},
                 tags: { connect: tagsIds },
                 images: { connect: imagesIds}
+              })
+            },
+          })
+
+          t.field('addVariant', {
+            type: 'Variant',
+            args: {
+              productId: idArg({required: true}),
+              name: stringArg({required: true}),
+              values: stringArg({list: true, required: false}),
+            },
+            resolve: async (parent, { productId, name, values }, ctx) => {
+              return ctx.prisma.createVariant({
+                name,
+                values: {set: values},
+                product: { connect:  {id: productId}},
+              })
+            },
+          })
+
+          t.field('updateVariant', {
+            type: 'Variant',
+            args: {
+              variantId: idArg({required: true}),
+              name: stringArg({required: false}),
+              values: stringArg({list: true, required: false}),
+            },
+            resolve: async (parent, { variantId, name, values }, ctx) => {
+              return ctx.prisma.updateVariant({
+                where: { id: variantId},
+                data: {
+                  name,
+                  values: {set: values},
+                }
               })
             },
           })

@@ -23,6 +23,7 @@ export interface NexusPrismaTypes {
       Brand: BrandObject
       Tag: TagObject
       ProductImage: ProductImageObject
+      Variant: VariantObject
       UserImage: UserImageObject
       UserConnection: UserConnectionObject
       PageInfo: PageInfoObject
@@ -52,6 +53,9 @@ export interface NexusPrismaTypes {
       ProductImageConnection: ProductImageConnectionObject
       ProductImageEdge: ProductImageEdgeObject
       AggregateProductImage: AggregateProductImageObject
+      VariantConnection: VariantConnectionObject
+      VariantEdge: VariantEdgeObject
+      AggregateVariant: AggregateVariantObject
       Mutation: MutationObject
       BatchPayload: BatchPayloadObject
       Subscription: SubscriptionObject
@@ -73,6 +77,8 @@ export interface NexusPrismaTypes {
       CategoryPreviousValues: CategoryPreviousValuesObject
       ProductImageSubscriptionPayload: ProductImageSubscriptionPayloadObject
       ProductImagePreviousValues: ProductImagePreviousValuesObject
+      VariantSubscriptionPayload: VariantSubscriptionPayloadObject
+      VariantPreviousValues: VariantPreviousValuesObject
     }
     fieldsDetails: {
       Query: QueryFieldDetails
@@ -84,6 +90,7 @@ export interface NexusPrismaTypes {
       Brand: BrandFieldDetails
       Tag: TagFieldDetails
       ProductImage: ProductImageFieldDetails
+      Variant: VariantFieldDetails
       UserImage: UserImageFieldDetails
       UserConnection: UserConnectionFieldDetails
       PageInfo: PageInfoFieldDetails
@@ -113,6 +120,9 @@ export interface NexusPrismaTypes {
       ProductImageConnection: ProductImageConnectionFieldDetails
       ProductImageEdge: ProductImageEdgeFieldDetails
       AggregateProductImage: AggregateProductImageFieldDetails
+      VariantConnection: VariantConnectionFieldDetails
+      VariantEdge: VariantEdgeFieldDetails
+      AggregateVariant: AggregateVariantFieldDetails
       Mutation: MutationFieldDetails
       BatchPayload: BatchPayloadFieldDetails
       Subscription: SubscriptionFieldDetails
@@ -134,6 +144,8 @@ export interface NexusPrismaTypes {
       CategoryPreviousValues: CategoryPreviousValuesFieldDetails
       ProductImageSubscriptionPayload: ProductImageSubscriptionPayloadFieldDetails
       ProductImagePreviousValues: ProductImagePreviousValuesFieldDetails
+      VariantSubscriptionPayload: VariantSubscriptionPayloadFieldDetails
+      VariantPreviousValues: VariantPreviousValuesFieldDetails
     }
   }
   inputTypes: {
@@ -148,6 +160,7 @@ export interface NexusPrismaTypes {
       BrandWhereInput: BrandWhereInputInputObject
       TagWhereInput: TagWhereInputInputObject
       ProductImageWhereInput: ProductImageWhereInputInputObject
+      VariantWhereInput: VariantWhereInputInputObject
       ShopWhereUniqueInput: ShopWhereUniqueInputInputObject
       ShopImageWhereUniqueInput: ShopImageWhereUniqueInputInputObject
       UserImageWhereUniqueInput: UserImageWhereUniqueInputInputObject
@@ -156,6 +169,7 @@ export interface NexusPrismaTypes {
       TagWhereUniqueInput: TagWhereUniqueInputInputObject
       CategoryWhereUniqueInput: CategoryWhereUniqueInputInputObject
       ProductImageWhereUniqueInput: ProductImageWhereUniqueInputInputObject
+      VariantWhereUniqueInput: VariantWhereUniqueInputInputObject
       UserCreateInput: UserCreateInputInputObject
       ShopCreateManyWithoutOwnersInput: ShopCreateManyWithoutOwnersInputInputObject
       ShopCreateWithoutOwnersInput: ShopCreateWithoutOwnersInputInputObject
@@ -171,6 +185,9 @@ export interface NexusPrismaTypes {
       TagCreateWithoutProductsInput: TagCreateWithoutProductsInputInputObject
       ProductImageCreateManyWithoutProductInput: ProductImageCreateManyWithoutProductInputInputObject
       ProductImageCreateWithoutProductInput: ProductImageCreateWithoutProductInputInputObject
+      VariantCreateManyWithoutProductInput: VariantCreateManyWithoutProductInputInputObject
+      VariantCreateWithoutProductInput: VariantCreateWithoutProductInputInputObject
+      VariantCreatevaluesInput: VariantCreatevaluesInputInputObject
       UserImageCreateManyWithoutUserInput: UserImageCreateManyWithoutUserInputInputObject
       UserImageCreateWithoutUserInput: UserImageCreateWithoutUserInputInputObject
       UserUpdateInput: UserUpdateInputInputObject
@@ -211,6 +228,14 @@ export interface NexusPrismaTypes {
       ProductImageScalarWhereInput: ProductImageScalarWhereInputInputObject
       ProductImageUpdateManyWithWhereNestedInput: ProductImageUpdateManyWithWhereNestedInputInputObject
       ProductImageUpdateManyDataInput: ProductImageUpdateManyDataInputInputObject
+      VariantUpdateManyWithoutProductInput: VariantUpdateManyWithoutProductInputInputObject
+      VariantUpdateWithWhereUniqueWithoutProductInput: VariantUpdateWithWhereUniqueWithoutProductInputInputObject
+      VariantUpdateWithoutProductDataInput: VariantUpdateWithoutProductDataInputInputObject
+      VariantUpdatevaluesInput: VariantUpdatevaluesInputInputObject
+      VariantUpsertWithWhereUniqueWithoutProductInput: VariantUpsertWithWhereUniqueWithoutProductInputInputObject
+      VariantScalarWhereInput: VariantScalarWhereInputInputObject
+      VariantUpdateManyWithWhereNestedInput: VariantUpdateManyWithWhereNestedInputInputObject
+      VariantUpdateManyDataInput: VariantUpdateManyDataInputInputObject
       ProductUpsertWithWhereUniqueWithoutShopInput: ProductUpsertWithWhereUniqueWithoutShopInputInputObject
       ProductScalarWhereInput: ProductScalarWhereInputInputObject
       ProductUpdateManyWithWhereNestedInput: ProductUpdateManyWithWhereNestedInputInputObject
@@ -298,6 +323,14 @@ export interface NexusPrismaTypes {
       ProductUpdateWithoutImagesDataInput: ProductUpdateWithoutImagesDataInputInputObject
       ProductUpsertWithoutImagesInput: ProductUpsertWithoutImagesInputInputObject
       ProductImageUpdateManyMutationInput: ProductImageUpdateManyMutationInputInputObject
+      VariantCreateInput: VariantCreateInputInputObject
+      ProductCreateOneWithoutVariantsInput: ProductCreateOneWithoutVariantsInputInputObject
+      ProductCreateWithoutVariantsInput: ProductCreateWithoutVariantsInputInputObject
+      VariantUpdateInput: VariantUpdateInputInputObject
+      ProductUpdateOneRequiredWithoutVariantsInput: ProductUpdateOneRequiredWithoutVariantsInputInputObject
+      ProductUpdateWithoutVariantsDataInput: ProductUpdateWithoutVariantsDataInputInputObject
+      ProductUpsertWithoutVariantsInput: ProductUpsertWithoutVariantsInputInputObject
+      VariantUpdateManyMutationInput: VariantUpdateManyMutationInputInputObject
       UserSubscriptionWhereInput: UserSubscriptionWhereInputInputObject
       ShopSubscriptionWhereInput: ShopSubscriptionWhereInputInputObject
       ShopImageSubscriptionWhereInput: ShopImageSubscriptionWhereInputInputObject
@@ -307,6 +340,7 @@ export interface NexusPrismaTypes {
       TagSubscriptionWhereInput: TagSubscriptionWhereInputInputObject
       CategorySubscriptionWhereInput: CategorySubscriptionWhereInputInputObject
       ProductImageSubscriptionWhereInput: ProductImageSubscriptionWhereInputInputObject
+      VariantSubscriptionWhereInput: VariantSubscriptionWhereInputInputObject
     }
   }
   enumTypes: {
@@ -317,6 +351,7 @@ export interface NexusPrismaTypes {
     CategoryOrderByInput: CategoryOrderByInputValues,
     TagOrderByInput: TagOrderByInputValues,
     ProductImageOrderByInput: ProductImageOrderByInputValues,
+    VariantOrderByInput: VariantOrderByInputValues,
     UserImageOrderByInput: UserImageOrderByInputValues,
     BrandOrderByInput: BrandOrderByInputValues,
     MutationType: MutationTypeValues,
@@ -354,6 +389,9 @@ type QueryObject =
   | { name: 'productImage', args?: QueryProductImageArgs[] | false, alias?: string  } 
   | { name: 'productImages', args?: QueryProductImagesArgs[] | false, alias?: string  } 
   | { name: 'productImagesConnection', args?: QueryProductImagesConnectionArgs[] | false, alias?: string  } 
+  | { name: 'variant', args?: QueryVariantArgs[] | false, alias?: string  } 
+  | { name: 'variants', args?: QueryVariantsArgs[] | false, alias?: string  } 
+  | { name: 'variantsConnection', args?: QueryVariantsConnectionArgs[] | false, alias?: string  } 
 
 type QueryFields =
   | 'user'
@@ -383,6 +421,9 @@ type QueryFields =
   | 'productImage'
   | 'productImages'
   | 'productImagesConnection'
+  | 'variant'
+  | 'variants'
+  | 'variantsConnection'
 
 
 type QueryUserArgs =
@@ -540,6 +581,24 @@ type QueryProductImagesArgs =
   | 'first'
   | 'last'
 type QueryProductImagesConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryVariantArgs =
+  | 'where'
+type QueryVariantsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryVariantsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -901,6 +960,45 @@ export interface QueryFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ProductImageConnection> | prisma.ProductImageConnection
   }
+  variant: {
+    type: 'Variant'
+    args: Record<QueryVariantArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: VariantWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Variant | null> | prisma.Variant | null
+  }
+  variants: {
+    type: 'Variant'
+    args: Record<QueryVariantsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: VariantWhereInput | null, orderBy?: prisma.VariantOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Variant[]> | prisma.Variant[]
+  }
+  variantsConnection: {
+    type: 'VariantConnection'
+    args: Record<QueryVariantsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: VariantWhereInput | null, orderBy?: prisma.VariantOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.VariantConnection> | prisma.VariantConnection
+  }
 }
   
 
@@ -1230,6 +1328,7 @@ type ProductObject =
   | { name: 'tags', args?: ProductTagsArgs[] | false, alias?: string  } 
   | { name: 'images', args?: ProductImagesArgs[] | false, alias?: string  } 
   | { name: 'shop', args?: [] | false, alias?: string  } 
+  | { name: 'variants', args?: ProductVariantsArgs[] | false, alias?: string  } 
 
 type ProductFields =
   | 'id'
@@ -1241,6 +1340,7 @@ type ProductFields =
   | 'tags'
   | 'images'
   | 'shop'
+  | 'variants'
 
 
 type ProductCategoriesArgs =
@@ -1260,6 +1360,14 @@ type ProductTagsArgs =
   | 'first'
   | 'last'
 type ProductImagesArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type ProductVariantsArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -1366,6 +1474,19 @@ export interface ProductFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Shop> | prisma.Shop
+  }
+  variants: {
+    type: 'Variant'
+    args: Record<ProductVariantsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Product">,
+      args: { where?: VariantWhereInput | null, orderBy?: prisma.VariantOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Variant[]> | prisma.Variant[]
   }
 }
   
@@ -1587,6 +1708,66 @@ export interface ProductImageFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Product | null> | prisma.Product | null
+  }
+}
+  
+
+// Types for Variant
+
+type VariantObject =
+  | VariantFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'product', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'values', args?: [] | false, alias?: string  } 
+
+type VariantFields =
+  | 'id'
+  | 'product'
+  | 'name'
+  | 'values'
+
+
+
+  
+
+export interface VariantFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  product: {
+    type: 'Product'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Variant">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Product> | prisma.Product
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  values: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
   }
 }
   
@@ -2821,6 +3002,131 @@ export interface AggregateProductImageFieldDetails {
 }
   
 
+// Types for VariantConnection
+
+type VariantConnectionObject =
+  | VariantConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type VariantConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface VariantConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"VariantConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'VariantEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"VariantConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.VariantEdge[]> | prisma.VariantEdge[]
+  }
+  aggregate: {
+    type: 'AggregateVariant'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"VariantConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateVariant> | prisma.AggregateVariant
+  }
+}
+  
+
+// Types for VariantEdge
+
+type VariantEdgeObject =
+  | VariantEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type VariantEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface VariantEdgeFieldDetails {
+  node: {
+    type: 'Variant'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"VariantEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Variant> | prisma.Variant
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateVariant
+
+type AggregateVariantObject =
+  | AggregateVariantFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateVariantFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateVariantFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 // Types for Mutation
 
 type MutationObject =
@@ -2879,6 +3185,12 @@ type MutationObject =
   | { name: 'upsertProductImage', args?: MutationUpsertProductImageArgs[] | false, alias?: string  } 
   | { name: 'deleteProductImage', args?: MutationDeleteProductImageArgs[] | false, alias?: string  } 
   | { name: 'deleteManyProductImages', args?: MutationDeleteManyProductImagesArgs[] | false, alias?: string  } 
+  | { name: 'createVariant', args?: MutationCreateVariantArgs[] | false, alias?: string  } 
+  | { name: 'updateVariant', args?: MutationUpdateVariantArgs[] | false, alias?: string  } 
+  | { name: 'updateManyVariants', args?: MutationUpdateManyVariantsArgs[] | false, alias?: string  } 
+  | { name: 'upsertVariant', args?: MutationUpsertVariantArgs[] | false, alias?: string  } 
+  | { name: 'deleteVariant', args?: MutationDeleteVariantArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyVariants', args?: MutationDeleteManyVariantsArgs[] | false, alias?: string  } 
 
 type MutationFields =
   | 'createUser'
@@ -2935,6 +3247,12 @@ type MutationFields =
   | 'upsertProductImage'
   | 'deleteProductImage'
   | 'deleteManyProductImages'
+  | 'createVariant'
+  | 'updateVariant'
+  | 'updateManyVariants'
+  | 'upsertVariant'
+  | 'deleteVariant'
+  | 'deleteManyVariants'
 
 
 type MutationCreateUserArgs =
@@ -3080,6 +3398,22 @@ type MutationUpsertProductImageArgs =
 type MutationDeleteProductImageArgs =
   | 'where'
 type MutationDeleteManyProductImagesArgs =
+  | 'where'
+type MutationCreateVariantArgs =
+  | 'data'
+type MutationUpdateVariantArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyVariantsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertVariantArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteVariantArgs =
+  | 'where'
+type MutationDeleteManyVariantsArgs =
   | 'where'
   
 
@@ -3786,6 +4120,84 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
+  createVariant: {
+    type: 'Variant'
+    args: Record<MutationCreateVariantArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: VariantCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Variant> | prisma.Variant
+  }
+  updateVariant: {
+    type: 'Variant'
+    args: Record<MutationUpdateVariantArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: VariantUpdateInput, where: VariantWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Variant | null> | prisma.Variant | null
+  }
+  updateManyVariants: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyVariantsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: VariantUpdateManyMutationInput, where?: VariantWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertVariant: {
+    type: 'Variant'
+    args: Record<MutationUpsertVariantArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: VariantWhereUniqueInput, create: VariantCreateInput, update: VariantUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Variant> | prisma.Variant
+  }
+  deleteVariant: {
+    type: 'Variant'
+    args: Record<MutationDeleteVariantArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: VariantWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Variant | null> | prisma.Variant | null
+  }
+  deleteManyVariants: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyVariantsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: VariantWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
 }
   
 
@@ -3827,6 +4239,7 @@ type SubscriptionObject =
   | { name: 'tag', args?: SubscriptionTagArgs[] | false, alias?: string  } 
   | { name: 'category', args?: SubscriptionCategoryArgs[] | false, alias?: string  } 
   | { name: 'productImage', args?: SubscriptionProductImageArgs[] | false, alias?: string  } 
+  | { name: 'variant', args?: SubscriptionVariantArgs[] | false, alias?: string  } 
 
 type SubscriptionFields =
   | 'user'
@@ -3838,6 +4251,7 @@ type SubscriptionFields =
   | 'tag'
   | 'category'
   | 'productImage'
+  | 'variant'
 
 
 type SubscriptionUserArgs =
@@ -3857,6 +4271,8 @@ type SubscriptionTagArgs =
 type SubscriptionCategoryArgs =
   | 'where'
 type SubscriptionProductImageArgs =
+  | 'where'
+type SubscriptionVariantArgs =
   | 'where'
   
 
@@ -3977,6 +4393,19 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ProductImageSubscriptionPayload | null> | prisma.ProductImageSubscriptionPayload | null
+  }
+  variant: {
+    type: 'VariantSubscriptionPayload'
+    args: Record<SubscriptionVariantArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: VariantSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.VariantSubscriptionPayload | null> | prisma.VariantSubscriptionPayload | null
   }
 }
   
@@ -5026,6 +5455,121 @@ export interface ProductImagePreviousValuesFieldDetails {
 }
   
 
+// Types for VariantSubscriptionPayload
+
+type VariantSubscriptionPayloadObject =
+  | VariantSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type VariantSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface VariantSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"VariantSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Variant'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"VariantSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Variant | null> | prisma.Variant | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'VariantPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"VariantSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.VariantPreviousValues | null> | prisma.VariantPreviousValues | null
+  }
+}
+  
+
+// Types for VariantPreviousValues
+
+type VariantPreviousValuesObject =
+  | VariantPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'values', args?: [] | false, alias?: string  } 
+
+type VariantPreviousValuesFields =
+  | 'id'
+  | 'name'
+  | 'values'
+
+
+
+  
+
+export interface VariantPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  values: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 
 export interface UserWhereUniqueInput {
   id?: string | null
@@ -5584,6 +6128,9 @@ export interface ProductWhereInput {
   images_some?: ProductImageWhereInput | null
   images_none?: ProductImageWhereInput | null
   shop?: ShopWhereInput | null
+  variants_every?: VariantWhereInput | null
+  variants_some?: VariantWhereInput | null
+  variants_none?: VariantWhereInput | null
   AND?: ProductWhereInput[]
   OR?: ProductWhereInput[]
   NOT?: ProductWhereInput[]
@@ -5657,6 +6204,9 @@ export type ProductWhereInputInputObject =
   | { name: 'images_some', alias?: string  } 
   | { name: 'images_none', alias?: string  } 
   | { name: 'shop', alias?: string  } 
+  | { name: 'variants_every', alias?: string  } 
+  | { name: 'variants_some', alias?: string  } 
+  | { name: 'variants_none', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -5949,6 +6499,75 @@ export type ProductImageWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface VariantWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  product?: ProductWhereInput | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  AND?: VariantWhereInput[]
+  OR?: VariantWhereInput[]
+  NOT?: VariantWhereInput[]
+}
+export type VariantWhereInputInputObject =
+  | Extract<keyof VariantWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'product', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 export interface ShopWhereUniqueInput {
   id?: string | null
   name?: string | null
@@ -6011,6 +6630,13 @@ export interface ProductImageWhereUniqueInput {
 }
 export type ProductImageWhereUniqueInputInputObject =
   | Extract<keyof ProductImageWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface VariantWhereUniqueInput {
+  id?: string | null
+}
+export type VariantWhereUniqueInputInputObject =
+  | Extract<keyof VariantWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
   
 export interface UserCreateInput {
@@ -6089,6 +6715,7 @@ export interface ProductCreateWithoutShopInput {
   brand?: BrandCreateOneWithoutProductsInput | null
   tags?: TagCreateManyWithoutProductsInput | null
   images?: ProductImageCreateManyWithoutProductInput | null
+  variants?: VariantCreateManyWithoutProductInput | null
 }
 export type ProductCreateWithoutShopInputInputObject =
   | Extract<keyof ProductCreateWithoutShopInput, string>
@@ -6099,6 +6726,7 @@ export type ProductCreateWithoutShopInputInputObject =
   | { name: 'brand', alias?: string  } 
   | { name: 'tags', alias?: string  } 
   | { name: 'images', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
   
 export interface CategoryCreateManyWithoutProductInput {
   create?: CategoryCreateWithoutProductInput[]
@@ -6163,6 +6791,31 @@ export interface ProductImageCreateWithoutProductInput {
 export type ProductImageCreateWithoutProductInputInputObject =
   | Extract<keyof ProductImageCreateWithoutProductInput, string>
   | { name: 'imageUrl', alias?: string  } 
+  
+export interface VariantCreateManyWithoutProductInput {
+  create?: VariantCreateWithoutProductInput[]
+  connect?: VariantWhereUniqueInput[]
+}
+export type VariantCreateManyWithoutProductInputInputObject =
+  | Extract<keyof VariantCreateManyWithoutProductInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface VariantCreateWithoutProductInput {
+  name?: string
+  values?: VariantCreatevaluesInput | null
+}
+export type VariantCreateWithoutProductInputInputObject =
+  | Extract<keyof VariantCreateWithoutProductInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'values', alias?: string  } 
+  
+export interface VariantCreatevaluesInput {
+  set?: string[]
+}
+export type VariantCreatevaluesInputInputObject =
+  | Extract<keyof VariantCreatevaluesInput, string>
+  | { name: 'set', alias?: string  } 
   
 export interface UserImageCreateManyWithoutUserInput {
   create?: UserImageCreateWithoutUserInput[]
@@ -6419,6 +7072,7 @@ export interface ProductUpdateWithoutShopDataInput {
   brand?: BrandUpdateOneWithoutProductsInput | null
   tags?: TagUpdateManyWithoutProductsInput | null
   images?: ProductImageUpdateManyWithoutProductInput | null
+  variants?: VariantUpdateManyWithoutProductInput | null
 }
 export type ProductUpdateWithoutShopDataInputInputObject =
   | Extract<keyof ProductUpdateWithoutShopDataInput, string>
@@ -6429,6 +7083,7 @@ export type ProductUpdateWithoutShopDataInputInputObject =
   | { name: 'brand', alias?: string  } 
   | { name: 'tags', alias?: string  } 
   | { name: 'images', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
   
 export interface CategoryUpdateManyWithoutProductInput {
   create?: CategoryCreateWithoutProductInput[]
@@ -6861,6 +7516,150 @@ export interface ProductImageUpdateManyDataInput {
 export type ProductImageUpdateManyDataInputInputObject =
   | Extract<keyof ProductImageUpdateManyDataInput, string>
   | { name: 'imageUrl', alias?: string  } 
+  
+export interface VariantUpdateManyWithoutProductInput {
+  create?: VariantCreateWithoutProductInput[]
+  delete?: VariantWhereUniqueInput[]
+  connect?: VariantWhereUniqueInput[]
+  set?: VariantWhereUniqueInput[]
+  disconnect?: VariantWhereUniqueInput[]
+  update?: VariantUpdateWithWhereUniqueWithoutProductInput[]
+  upsert?: VariantUpsertWithWhereUniqueWithoutProductInput[]
+  deleteMany?: VariantScalarWhereInput[]
+  updateMany?: VariantUpdateManyWithWhereNestedInput[]
+}
+export type VariantUpdateManyWithoutProductInputInputObject =
+  | Extract<keyof VariantUpdateManyWithoutProductInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface VariantUpdateWithWhereUniqueWithoutProductInput {
+  where?: VariantWhereUniqueInput
+  data?: VariantUpdateWithoutProductDataInput
+}
+export type VariantUpdateWithWhereUniqueWithoutProductInputInputObject =
+  | Extract<keyof VariantUpdateWithWhereUniqueWithoutProductInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface VariantUpdateWithoutProductDataInput {
+  name?: string | null
+  values?: VariantUpdatevaluesInput | null
+}
+export type VariantUpdateWithoutProductDataInputInputObject =
+  | Extract<keyof VariantUpdateWithoutProductDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'values', alias?: string  } 
+  
+export interface VariantUpdatevaluesInput {
+  set?: string[]
+}
+export type VariantUpdatevaluesInputInputObject =
+  | Extract<keyof VariantUpdatevaluesInput, string>
+  | { name: 'set', alias?: string  } 
+  
+export interface VariantUpsertWithWhereUniqueWithoutProductInput {
+  where?: VariantWhereUniqueInput
+  update?: VariantUpdateWithoutProductDataInput
+  create?: VariantCreateWithoutProductInput
+}
+export type VariantUpsertWithWhereUniqueWithoutProductInputInputObject =
+  | Extract<keyof VariantUpsertWithWhereUniqueWithoutProductInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface VariantScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  AND?: VariantScalarWhereInput[]
+  OR?: VariantScalarWhereInput[]
+  NOT?: VariantScalarWhereInput[]
+}
+export type VariantScalarWhereInputInputObject =
+  | Extract<keyof VariantScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface VariantUpdateManyWithWhereNestedInput {
+  where?: VariantScalarWhereInput
+  data?: VariantUpdateManyDataInput
+}
+export type VariantUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof VariantUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface VariantUpdateManyDataInput {
+  name?: string | null
+  values?: VariantUpdatevaluesInput | null
+}
+export type VariantUpdateManyDataInputInputObject =
+  | Extract<keyof VariantUpdateManyDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'values', alias?: string  } 
   
 export interface ProductUpsertWithWhereUniqueWithoutShopInput {
   where?: ProductWhereUniqueInput
@@ -7853,6 +8652,7 @@ export interface ProductCreateInput {
   tags?: TagCreateManyWithoutProductsInput | null
   images?: ProductImageCreateManyWithoutProductInput | null
   shop?: ShopCreateOneWithoutProductsInput
+  variants?: VariantCreateManyWithoutProductInput | null
 }
 export type ProductCreateInputInputObject =
   | Extract<keyof ProductCreateInput, string>
@@ -7864,6 +8664,7 @@ export type ProductCreateInputInputObject =
   | { name: 'tags', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'shop', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
   
 export interface ShopCreateOneWithoutProductsInput {
   create?: ShopCreateWithoutProductsInput | null
@@ -7900,6 +8701,7 @@ export interface ProductUpdateInput {
   tags?: TagUpdateManyWithoutProductsInput | null
   images?: ProductImageUpdateManyWithoutProductInput | null
   shop?: ShopUpdateOneRequiredWithoutProductsInput | null
+  variants?: VariantUpdateManyWithoutProductInput | null
 }
 export type ProductUpdateInputInputObject =
   | Extract<keyof ProductUpdateInput, string>
@@ -7911,6 +8713,7 @@ export type ProductUpdateInputInputObject =
   | { name: 'tags', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'shop', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
   
 export interface ShopUpdateOneRequiredWithoutProductsInput {
   create?: ShopCreateWithoutProductsInput | null
@@ -7988,6 +8791,7 @@ export interface ProductCreateWithoutBrandInput {
   tags?: TagCreateManyWithoutProductsInput | null
   images?: ProductImageCreateManyWithoutProductInput | null
   shop?: ShopCreateOneWithoutProductsInput
+  variants?: VariantCreateManyWithoutProductInput | null
 }
 export type ProductCreateWithoutBrandInputInputObject =
   | Extract<keyof ProductCreateWithoutBrandInput, string>
@@ -7998,6 +8802,7 @@ export type ProductCreateWithoutBrandInputInputObject =
   | { name: 'tags', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'shop', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
   
 export interface BrandUpdateInput {
   name?: string | null
@@ -8048,6 +8853,7 @@ export interface ProductUpdateWithoutBrandDataInput {
   tags?: TagUpdateManyWithoutProductsInput | null
   images?: ProductImageUpdateManyWithoutProductInput | null
   shop?: ShopUpdateOneRequiredWithoutProductsInput | null
+  variants?: VariantUpdateManyWithoutProductInput | null
 }
 export type ProductUpdateWithoutBrandDataInputInputObject =
   | Extract<keyof ProductUpdateWithoutBrandDataInput, string>
@@ -8058,6 +8864,7 @@ export type ProductUpdateWithoutBrandDataInputInputObject =
   | { name: 'tags', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'shop', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
   
 export interface ProductUpsertWithWhereUniqueWithoutBrandInput {
   where?: ProductWhereUniqueInput
@@ -8103,6 +8910,7 @@ export interface ProductCreateWithoutTagsInput {
   brand?: BrandCreateOneWithoutProductsInput | null
   images?: ProductImageCreateManyWithoutProductInput | null
   shop?: ShopCreateOneWithoutProductsInput
+  variants?: VariantCreateManyWithoutProductInput | null
 }
 export type ProductCreateWithoutTagsInputInputObject =
   | Extract<keyof ProductCreateWithoutTagsInput, string>
@@ -8113,6 +8921,7 @@ export type ProductCreateWithoutTagsInputInputObject =
   | { name: 'brand', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'shop', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
   
 export interface TagUpdateInput {
   name?: string | null
@@ -8163,6 +8972,7 @@ export interface ProductUpdateWithoutTagsDataInput {
   brand?: BrandUpdateOneWithoutProductsInput | null
   images?: ProductImageUpdateManyWithoutProductInput | null
   shop?: ShopUpdateOneRequiredWithoutProductsInput | null
+  variants?: VariantUpdateManyWithoutProductInput | null
 }
 export type ProductUpdateWithoutTagsDataInputInputObject =
   | Extract<keyof ProductUpdateWithoutTagsDataInput, string>
@@ -8173,6 +8983,7 @@ export type ProductUpdateWithoutTagsDataInputInputObject =
   | { name: 'brand', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'shop', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
   
 export interface ProductUpsertWithWhereUniqueWithoutTagsInput {
   where?: ProductWhereUniqueInput
@@ -8218,6 +9029,7 @@ export interface ProductCreateWithoutCategoriesInput {
   tags?: TagCreateManyWithoutProductsInput | null
   images?: ProductImageCreateManyWithoutProductInput | null
   shop?: ShopCreateOneWithoutProductsInput
+  variants?: VariantCreateManyWithoutProductInput | null
 }
 export type ProductCreateWithoutCategoriesInputInputObject =
   | Extract<keyof ProductCreateWithoutCategoriesInput, string>
@@ -8228,6 +9040,7 @@ export type ProductCreateWithoutCategoriesInputInputObject =
   | { name: 'tags', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'shop', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
   
 export interface CategoryUpdateInput {
   name?: string | null
@@ -8278,6 +9091,7 @@ export interface ProductUpdateWithoutCategoriesDataInput {
   tags?: TagUpdateManyWithoutProductsInput | null
   images?: ProductImageUpdateManyWithoutProductInput | null
   shop?: ShopUpdateOneRequiredWithoutProductsInput | null
+  variants?: VariantUpdateManyWithoutProductInput | null
 }
 export type ProductUpdateWithoutCategoriesDataInputInputObject =
   | Extract<keyof ProductUpdateWithoutCategoriesDataInput, string>
@@ -8288,6 +9102,7 @@ export type ProductUpdateWithoutCategoriesDataInputInputObject =
   | { name: 'tags', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'shop', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
   
 export interface ProductUpsertWithWhereUniqueWithoutCategoriesInput {
   where?: ProductWhereUniqueInput
@@ -8333,6 +9148,7 @@ export interface ProductCreateWithoutImagesInput {
   brand?: BrandCreateOneWithoutProductsInput | null
   tags?: TagCreateManyWithoutProductsInput | null
   shop?: ShopCreateOneWithoutProductsInput
+  variants?: VariantCreateManyWithoutProductInput | null
 }
 export type ProductCreateWithoutImagesInputInputObject =
   | Extract<keyof ProductCreateWithoutImagesInput, string>
@@ -8343,6 +9159,7 @@ export type ProductCreateWithoutImagesInputInputObject =
   | { name: 'brand', alias?: string  } 
   | { name: 'tags', alias?: string  } 
   | { name: 'shop', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
   
 export interface ProductImageUpdateInput {
   imageUrl?: string | null
@@ -8378,6 +9195,7 @@ export interface ProductUpdateWithoutImagesDataInput {
   brand?: BrandUpdateOneWithoutProductsInput | null
   tags?: TagUpdateManyWithoutProductsInput | null
   shop?: ShopUpdateOneRequiredWithoutProductsInput | null
+  variants?: VariantUpdateManyWithoutProductInput | null
 }
 export type ProductUpdateWithoutImagesDataInputInputObject =
   | Extract<keyof ProductUpdateWithoutImagesDataInput, string>
@@ -8388,6 +9206,7 @@ export type ProductUpdateWithoutImagesDataInputInputObject =
   | { name: 'brand', alias?: string  } 
   | { name: 'tags', alias?: string  } 
   | { name: 'shop', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
   
 export interface ProductUpsertWithoutImagesInput {
   update?: ProductUpdateWithoutImagesDataInput
@@ -8404,6 +9223,110 @@ export interface ProductImageUpdateManyMutationInput {
 export type ProductImageUpdateManyMutationInputInputObject =
   | Extract<keyof ProductImageUpdateManyMutationInput, string>
   | { name: 'imageUrl', alias?: string  } 
+  
+export interface VariantCreateInput {
+  product?: ProductCreateOneWithoutVariantsInput
+  name?: string
+  values?: VariantCreatevaluesInput | null
+}
+export type VariantCreateInputInputObject =
+  | Extract<keyof VariantCreateInput, string>
+  | { name: 'product', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'values', alias?: string  } 
+  
+export interface ProductCreateOneWithoutVariantsInput {
+  create?: ProductCreateWithoutVariantsInput | null
+  connect?: ProductWhereUniqueInput | null
+}
+export type ProductCreateOneWithoutVariantsInputInputObject =
+  | Extract<keyof ProductCreateOneWithoutVariantsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ProductCreateWithoutVariantsInput {
+  title?: string
+  description?: string
+  price?: string
+  categories?: CategoryCreateManyWithoutProductInput | null
+  brand?: BrandCreateOneWithoutProductsInput | null
+  tags?: TagCreateManyWithoutProductsInput | null
+  images?: ProductImageCreateManyWithoutProductInput | null
+  shop?: ShopCreateOneWithoutProductsInput
+}
+export type ProductCreateWithoutVariantsInputInputObject =
+  | Extract<keyof ProductCreateWithoutVariantsInput, string>
+  | { name: 'title', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'price', alias?: string  } 
+  | { name: 'categories', alias?: string  } 
+  | { name: 'brand', alias?: string  } 
+  | { name: 'tags', alias?: string  } 
+  | { name: 'images', alias?: string  } 
+  | { name: 'shop', alias?: string  } 
+  
+export interface VariantUpdateInput {
+  product?: ProductUpdateOneRequiredWithoutVariantsInput | null
+  name?: string | null
+  values?: VariantUpdatevaluesInput | null
+}
+export type VariantUpdateInputInputObject =
+  | Extract<keyof VariantUpdateInput, string>
+  | { name: 'product', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'values', alias?: string  } 
+  
+export interface ProductUpdateOneRequiredWithoutVariantsInput {
+  create?: ProductCreateWithoutVariantsInput | null
+  update?: ProductUpdateWithoutVariantsDataInput | null
+  upsert?: ProductUpsertWithoutVariantsInput | null
+  connect?: ProductWhereUniqueInput | null
+}
+export type ProductUpdateOneRequiredWithoutVariantsInputInputObject =
+  | Extract<keyof ProductUpdateOneRequiredWithoutVariantsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ProductUpdateWithoutVariantsDataInput {
+  title?: string | null
+  description?: string | null
+  price?: string | null
+  categories?: CategoryUpdateManyWithoutProductInput | null
+  brand?: BrandUpdateOneWithoutProductsInput | null
+  tags?: TagUpdateManyWithoutProductsInput | null
+  images?: ProductImageUpdateManyWithoutProductInput | null
+  shop?: ShopUpdateOneRequiredWithoutProductsInput | null
+}
+export type ProductUpdateWithoutVariantsDataInputInputObject =
+  | Extract<keyof ProductUpdateWithoutVariantsDataInput, string>
+  | { name: 'title', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'price', alias?: string  } 
+  | { name: 'categories', alias?: string  } 
+  | { name: 'brand', alias?: string  } 
+  | { name: 'tags', alias?: string  } 
+  | { name: 'images', alias?: string  } 
+  | { name: 'shop', alias?: string  } 
+  
+export interface ProductUpsertWithoutVariantsInput {
+  update?: ProductUpdateWithoutVariantsDataInput
+  create?: ProductCreateWithoutVariantsInput
+}
+export type ProductUpsertWithoutVariantsInputInputObject =
+  | Extract<keyof ProductUpsertWithoutVariantsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface VariantUpdateManyMutationInput {
+  name?: string | null
+  values?: VariantUpdatevaluesInput | null
+}
+export type VariantUpdateManyMutationInputInputObject =
+  | Extract<keyof VariantUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'values', alias?: string  } 
   
 export interface UserSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
@@ -8594,6 +9517,27 @@ export type ProductImageSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface VariantSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: VariantWhereInput | null
+  AND?: VariantSubscriptionWhereInput[]
+  OR?: VariantSubscriptionWhereInput[]
+  NOT?: VariantSubscriptionWhereInput[]
+}
+export type VariantSubscriptionWhereInputInputObject =
+  | Extract<keyof VariantSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 
 export type ShopOrderByInputValues =
   | 'id_ASC'
@@ -8676,6 +9620,16 @@ export type ProductImageOrderByInputValues =
   | 'id_DESC'
   | 'imageUrl_ASC'
   | 'imageUrl_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type VariantOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'

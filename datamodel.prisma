@@ -43,6 +43,7 @@ type Product {
   tags: [Tag] @relation(name: "ProductTags")
   images: [ProductImage] @relation(name: "ProductImages")
   shop: Shop! @relation(name: "ShopProducts")
+  variants: [Variant] @relation(name: "ProductVariants")
 }
 
 type Brand {
@@ -67,4 +68,11 @@ type ProductImage {
   id: ID! @unique
   imageUrl: String!
   product: Product @relation(name: "ProductImages")
+}
+
+type Variant {
+  id: ID! @unique
+  product: Product! @relation(name: "ProductVariants")
+  name: String!
+  values: [String]
 }

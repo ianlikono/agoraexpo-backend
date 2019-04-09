@@ -38,6 +38,10 @@ type AggregateUserImage {
   count: Int!
 }
 
+type AggregateVariant {
+  count: Int!
+}
+
 type BatchPayload {
   count: Long!
 }
@@ -421,6 +425,12 @@ type Mutation {
   upsertUserImage(where: UserImageWhereUniqueInput!, create: UserImageCreateInput!, update: UserImageUpdateInput!): UserImage!
   deleteUserImage(where: UserImageWhereUniqueInput!): UserImage
   deleteManyUserImages(where: UserImageWhereInput): BatchPayload!
+  createVariant(data: VariantCreateInput!): Variant!
+  updateVariant(data: VariantUpdateInput!, where: VariantWhereUniqueInput!): Variant
+  updateManyVariants(data: VariantUpdateManyMutationInput!, where: VariantWhereInput): BatchPayload!
+  upsertVariant(where: VariantWhereUniqueInput!, create: VariantCreateInput!, update: VariantUpdateInput!): Variant!
+  deleteVariant(where: VariantWhereUniqueInput!): Variant
+  deleteManyVariants(where: VariantWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -450,6 +460,7 @@ type Product {
   tags(where: TagWhereInput, orderBy: TagOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Tag!]
   images(where: ProductImageWhereInput, orderBy: ProductImageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ProductImage!]
   shop: Shop!
+  variants(where: VariantWhereInput, orderBy: VariantOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Variant!]
 }
 
 type ProductConnection {
@@ -467,6 +478,7 @@ input ProductCreateInput {
   tags: TagCreateManyWithoutProductsInput
   images: ProductImageCreateManyWithoutProductInput
   shop: ShopCreateOneWithoutProductsInput!
+  variants: VariantCreateManyWithoutProductInput
 }
 
 input ProductCreateManyWithoutBrandInput {
@@ -494,6 +506,11 @@ input ProductCreateOneWithoutImagesInput {
   connect: ProductWhereUniqueInput
 }
 
+input ProductCreateOneWithoutVariantsInput {
+  create: ProductCreateWithoutVariantsInput
+  connect: ProductWhereUniqueInput
+}
+
 input ProductCreateWithoutBrandInput {
   title: String!
   description: String!
@@ -502,6 +519,7 @@ input ProductCreateWithoutBrandInput {
   tags: TagCreateManyWithoutProductsInput
   images: ProductImageCreateManyWithoutProductInput
   shop: ShopCreateOneWithoutProductsInput!
+  variants: VariantCreateManyWithoutProductInput
 }
 
 input ProductCreateWithoutCategoriesInput {
@@ -512,6 +530,7 @@ input ProductCreateWithoutCategoriesInput {
   tags: TagCreateManyWithoutProductsInput
   images: ProductImageCreateManyWithoutProductInput
   shop: ShopCreateOneWithoutProductsInput!
+  variants: VariantCreateManyWithoutProductInput
 }
 
 input ProductCreateWithoutImagesInput {
@@ -522,6 +541,7 @@ input ProductCreateWithoutImagesInput {
   brand: BrandCreateOneWithoutProductsInput
   tags: TagCreateManyWithoutProductsInput
   shop: ShopCreateOneWithoutProductsInput!
+  variants: VariantCreateManyWithoutProductInput
 }
 
 input ProductCreateWithoutShopInput {
@@ -532,6 +552,7 @@ input ProductCreateWithoutShopInput {
   brand: BrandCreateOneWithoutProductsInput
   tags: TagCreateManyWithoutProductsInput
   images: ProductImageCreateManyWithoutProductInput
+  variants: VariantCreateManyWithoutProductInput
 }
 
 input ProductCreateWithoutTagsInput {
@@ -540,6 +561,18 @@ input ProductCreateWithoutTagsInput {
   price: String!
   categories: CategoryCreateManyWithoutProductInput
   brand: BrandCreateOneWithoutProductsInput
+  images: ProductImageCreateManyWithoutProductInput
+  shop: ShopCreateOneWithoutProductsInput!
+  variants: VariantCreateManyWithoutProductInput
+}
+
+input ProductCreateWithoutVariantsInput {
+  title: String!
+  description: String!
+  price: String!
+  categories: CategoryCreateManyWithoutProductInput
+  brand: BrandCreateOneWithoutProductsInput
+  tags: TagCreateManyWithoutProductsInput
   images: ProductImageCreateManyWithoutProductInput
   shop: ShopCreateOneWithoutProductsInput!
 }
@@ -843,6 +876,7 @@ input ProductUpdateInput {
   tags: TagUpdateManyWithoutProductsInput
   images: ProductImageUpdateManyWithoutProductInput
   shop: ShopUpdateOneRequiredWithoutProductsInput
+  variants: VariantUpdateManyWithoutProductInput
 }
 
 input ProductUpdateManyDataInput {
@@ -910,6 +944,13 @@ input ProductUpdateManyWithWhereNestedInput {
   data: ProductUpdateManyDataInput!
 }
 
+input ProductUpdateOneRequiredWithoutVariantsInput {
+  create: ProductCreateWithoutVariantsInput
+  update: ProductUpdateWithoutVariantsDataInput
+  upsert: ProductUpsertWithoutVariantsInput
+  connect: ProductWhereUniqueInput
+}
+
 input ProductUpdateOneWithoutImagesInput {
   create: ProductCreateWithoutImagesInput
   update: ProductUpdateWithoutImagesDataInput
@@ -927,6 +968,7 @@ input ProductUpdateWithoutBrandDataInput {
   tags: TagUpdateManyWithoutProductsInput
   images: ProductImageUpdateManyWithoutProductInput
   shop: ShopUpdateOneRequiredWithoutProductsInput
+  variants: VariantUpdateManyWithoutProductInput
 }
 
 input ProductUpdateWithoutCategoriesDataInput {
@@ -937,6 +979,7 @@ input ProductUpdateWithoutCategoriesDataInput {
   tags: TagUpdateManyWithoutProductsInput
   images: ProductImageUpdateManyWithoutProductInput
   shop: ShopUpdateOneRequiredWithoutProductsInput
+  variants: VariantUpdateManyWithoutProductInput
 }
 
 input ProductUpdateWithoutImagesDataInput {
@@ -947,6 +990,7 @@ input ProductUpdateWithoutImagesDataInput {
   brand: BrandUpdateOneWithoutProductsInput
   tags: TagUpdateManyWithoutProductsInput
   shop: ShopUpdateOneRequiredWithoutProductsInput
+  variants: VariantUpdateManyWithoutProductInput
 }
 
 input ProductUpdateWithoutShopDataInput {
@@ -957,6 +1001,7 @@ input ProductUpdateWithoutShopDataInput {
   brand: BrandUpdateOneWithoutProductsInput
   tags: TagUpdateManyWithoutProductsInput
   images: ProductImageUpdateManyWithoutProductInput
+  variants: VariantUpdateManyWithoutProductInput
 }
 
 input ProductUpdateWithoutTagsDataInput {
@@ -965,6 +1010,18 @@ input ProductUpdateWithoutTagsDataInput {
   price: String
   categories: CategoryUpdateManyWithoutProductInput
   brand: BrandUpdateOneWithoutProductsInput
+  images: ProductImageUpdateManyWithoutProductInput
+  shop: ShopUpdateOneRequiredWithoutProductsInput
+  variants: VariantUpdateManyWithoutProductInput
+}
+
+input ProductUpdateWithoutVariantsDataInput {
+  title: String
+  description: String
+  price: String
+  categories: CategoryUpdateManyWithoutProductInput
+  brand: BrandUpdateOneWithoutProductsInput
+  tags: TagUpdateManyWithoutProductsInput
   images: ProductImageUpdateManyWithoutProductInput
   shop: ShopUpdateOneRequiredWithoutProductsInput
 }
@@ -992,6 +1049,11 @@ input ProductUpdateWithWhereUniqueWithoutTagsInput {
 input ProductUpsertWithoutImagesInput {
   update: ProductUpdateWithoutImagesDataInput!
   create: ProductCreateWithoutImagesInput!
+}
+
+input ProductUpsertWithoutVariantsInput {
+  update: ProductUpdateWithoutVariantsDataInput!
+  create: ProductCreateWithoutVariantsInput!
 }
 
 input ProductUpsertWithWhereUniqueWithoutBrandInput {
@@ -1086,6 +1148,9 @@ input ProductWhereInput {
   images_some: ProductImageWhereInput
   images_none: ProductImageWhereInput
   shop: ShopWhereInput
+  variants_every: VariantWhereInput
+  variants_some: VariantWhereInput
+  variants_none: VariantWhereInput
   AND: [ProductWhereInput!]
   OR: [ProductWhereInput!]
   NOT: [ProductWhereInput!]
@@ -1123,6 +1188,9 @@ type Query {
   userImage(where: UserImageWhereUniqueInput!): UserImage
   userImages(where: UserImageWhereInput, orderBy: UserImageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [UserImage]!
   userImagesConnection(where: UserImageWhereInput, orderBy: UserImageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserImageConnection!
+  variant(where: VariantWhereUniqueInput!): Variant
+  variants(where: VariantWhereInput, orderBy: VariantOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Variant]!
+  variantsConnection(where: VariantWhereInput, orderBy: VariantOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): VariantConnection!
   node(id: ID!): Node
 }
 
@@ -1719,6 +1787,7 @@ type Subscription {
   tag(where: TagSubscriptionWhereInput): TagSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
   userImage(where: UserImageSubscriptionWhereInput): UserImageSubscriptionPayload
+  variant(where: VariantSubscriptionWhereInput): VariantSubscriptionPayload
 }
 
 type Tag {
@@ -2432,5 +2501,204 @@ input UserWhereUniqueInput {
   id: ID
   email: String
   username: String
+}
+
+type Variant {
+  id: ID!
+  product: Product!
+  name: String!
+  values: [String!]!
+}
+
+type VariantConnection {
+  pageInfo: PageInfo!
+  edges: [VariantEdge]!
+  aggregate: AggregateVariant!
+}
+
+input VariantCreateInput {
+  product: ProductCreateOneWithoutVariantsInput!
+  name: String!
+  values: VariantCreatevaluesInput
+}
+
+input VariantCreateManyWithoutProductInput {
+  create: [VariantCreateWithoutProductInput!]
+  connect: [VariantWhereUniqueInput!]
+}
+
+input VariantCreatevaluesInput {
+  set: [String!]
+}
+
+input VariantCreateWithoutProductInput {
+  name: String!
+  values: VariantCreatevaluesInput
+}
+
+type VariantEdge {
+  node: Variant!
+  cursor: String!
+}
+
+enum VariantOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type VariantPreviousValues {
+  id: ID!
+  name: String!
+  values: [String!]!
+}
+
+input VariantScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  AND: [VariantScalarWhereInput!]
+  OR: [VariantScalarWhereInput!]
+  NOT: [VariantScalarWhereInput!]
+}
+
+type VariantSubscriptionPayload {
+  mutation: MutationType!
+  node: Variant
+  updatedFields: [String!]
+  previousValues: VariantPreviousValues
+}
+
+input VariantSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: VariantWhereInput
+  AND: [VariantSubscriptionWhereInput!]
+  OR: [VariantSubscriptionWhereInput!]
+  NOT: [VariantSubscriptionWhereInput!]
+}
+
+input VariantUpdateInput {
+  product: ProductUpdateOneRequiredWithoutVariantsInput
+  name: String
+  values: VariantUpdatevaluesInput
+}
+
+input VariantUpdateManyDataInput {
+  name: String
+  values: VariantUpdatevaluesInput
+}
+
+input VariantUpdateManyMutationInput {
+  name: String
+  values: VariantUpdatevaluesInput
+}
+
+input VariantUpdateManyWithoutProductInput {
+  create: [VariantCreateWithoutProductInput!]
+  delete: [VariantWhereUniqueInput!]
+  connect: [VariantWhereUniqueInput!]
+  set: [VariantWhereUniqueInput!]
+  disconnect: [VariantWhereUniqueInput!]
+  update: [VariantUpdateWithWhereUniqueWithoutProductInput!]
+  upsert: [VariantUpsertWithWhereUniqueWithoutProductInput!]
+  deleteMany: [VariantScalarWhereInput!]
+  updateMany: [VariantUpdateManyWithWhereNestedInput!]
+}
+
+input VariantUpdateManyWithWhereNestedInput {
+  where: VariantScalarWhereInput!
+  data: VariantUpdateManyDataInput!
+}
+
+input VariantUpdatevaluesInput {
+  set: [String!]
+}
+
+input VariantUpdateWithoutProductDataInput {
+  name: String
+  values: VariantUpdatevaluesInput
+}
+
+input VariantUpdateWithWhereUniqueWithoutProductInput {
+  where: VariantWhereUniqueInput!
+  data: VariantUpdateWithoutProductDataInput!
+}
+
+input VariantUpsertWithWhereUniqueWithoutProductInput {
+  where: VariantWhereUniqueInput!
+  update: VariantUpdateWithoutProductDataInput!
+  create: VariantCreateWithoutProductInput!
+}
+
+input VariantWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  product: ProductWhereInput
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  AND: [VariantWhereInput!]
+  OR: [VariantWhereInput!]
+  NOT: [VariantWhereInput!]
+}
+
+input VariantWhereUniqueInput {
+  id: ID
 }
 `

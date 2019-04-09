@@ -188,6 +188,9 @@ export interface NexusGenInputs {
     title_not_in?: string[] | null; // [String!]
     title_not_starts_with?: string | null; // String
     title_starts_with?: string | null; // String
+    variants_every?: NexusGenInputs['VariantWhereInput'] | null; // VariantWhereInput
+    variants_none?: NexusGenInputs['VariantWhereInput'] | null; // VariantWhereInput
+    variants_some?: NexusGenInputs['VariantWhereInput'] | null; // VariantWhereInput
   }
   ShopImageWhereInput: { // input type
     AND?: NexusGenInputs['ShopImageWhereInput'][] | null; // [ShopImageWhereInput!]
@@ -462,6 +465,40 @@ export interface NexusGenInputs {
     username_not_starts_with?: string | null; // String
     username_starts_with?: string | null; // String
   }
+  VariantWhereInput: { // input type
+    AND?: NexusGenInputs['VariantWhereInput'][] | null; // [VariantWhereInput!]
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['VariantWhereInput'][] | null; // [VariantWhereInput!]
+    OR?: NexusGenInputs['VariantWhereInput'][] | null; // [VariantWhereInput!]
+    product?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
+  }
 }
 
 export interface NexusGenEnums {
@@ -472,6 +509,7 @@ export interface NexusGenEnums {
   TagOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   UserImageOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "imageUrl_ASC" | "imageUrl_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   UserOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "password_ASC" | "password_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "username_ASC" | "username_DESC"
+  VariantOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
 }
 
 export interface NexusGenRootTypes {
@@ -526,6 +564,11 @@ export interface NexusGenRootTypes {
     id: string; // ID!
     imageUrl: string; // String!
   }
+  Variant: { // root type
+    id: string; // ID!
+    name: string; // String!
+    values: string[]; // [String!]!
+  }
   String: string;
   Int: number;
   Float: number;
@@ -544,6 +587,7 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   TagWhereInput: NexusGenInputs['TagWhereInput'];
   UserImageWhereInput: NexusGenInputs['UserImageWhereInput'];
   UserWhereInput: NexusGenInputs['UserWhereInput'];
+  VariantWhereInput: NexusGenInputs['VariantWhereInput'];
   CategoryOrderByInput: NexusGenEnums['CategoryOrderByInput'];
   ProductImageOrderByInput: NexusGenEnums['ProductImageOrderByInput'];
   ProductOrderByInput: NexusGenEnums['ProductOrderByInput'];
@@ -551,6 +595,7 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   TagOrderByInput: NexusGenEnums['TagOrderByInput'];
   UserImageOrderByInput: NexusGenEnums['UserImageOrderByInput'];
   UserOrderByInput: NexusGenEnums['UserOrderByInput'];
+  VariantOrderByInput: NexusGenEnums['VariantOrderByInput'];
 }
 
 export interface NexusGenFieldTypes {
@@ -569,6 +614,7 @@ export interface NexusGenFieldTypes {
     product: NexusGenRootTypes['Product'][] | null; // [Product!]
   }
   Mutation: { // field return type
+    addVariant: NexusGenRootTypes['Variant'] | null; // Variant
     createProduct: NexusGenRootTypes['Product'] | null; // Product
     createShopDraft: NexusGenRootTypes['Shop'] | null; // Shop
     login: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
@@ -576,6 +622,7 @@ export interface NexusGenFieldTypes {
     signUp: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
     updateShop: NexusGenRootTypes['Shop'] | null; // Shop
     updateUser: NexusGenRootTypes['User'] | null; // User
+    updateVariant: NexusGenRootTypes['Variant'] | null; // Variant
   }
   Product: { // field return type
     brand: NexusGenRootTypes['Brand'] | null; // Brand
@@ -587,6 +634,7 @@ export interface NexusGenFieldTypes {
     shop: NexusGenRootTypes['Shop']; // Shop!
     tags: NexusGenRootTypes['Tag'][] | null; // [Tag!]
     title: string; // String!
+    variants: NexusGenRootTypes['Variant'][] | null; // [Variant!]
   }
   ProductImage: { // field return type
     id: string; // ID!
@@ -635,6 +683,12 @@ export interface NexusGenFieldTypes {
     imageUrl: string; // String!
     user: NexusGenRootTypes['User'] | null; // User
   }
+  Variant: { // field return type
+    id: string; // ID!
+    name: string; // String!
+    product: NexusGenRootTypes['Product']; // Product!
+    values: string[]; // [String!]!
+  }
 }
 
 export interface NexusGenArgTypes {
@@ -661,6 +715,11 @@ export interface NexusGenArgTypes {
     }
   }
   Mutation: {
+    addVariant: { // args
+      name: string; // String!
+      productId: string; // ID!
+      values?: string[] | null; // [String!]
+    }
     createProduct: { // args
       brand: string; // String!
       categories?: string[] | null; // [String!]
@@ -703,6 +762,11 @@ export interface NexusGenArgTypes {
       password?: string | null; // String
       username?: string | null; // String
     }
+    updateVariant: { // args
+      name?: string | null; // String
+      values?: string[] | null; // [String!]
+      variantId: string; // ID!
+    }
   }
   Product: {
     categories: { // args
@@ -731,6 +795,15 @@ export interface NexusGenArgTypes {
       orderBy?: NexusGenEnums['TagOrderByInput'] | null; // TagOrderByInput
       skip?: number | null; // Int
       where?: NexusGenInputs['TagWhereInput'] | null; // TagWhereInput
+    }
+    variants: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['VariantOrderByInput'] | null; // VariantOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['VariantWhereInput'] | null; // VariantWhereInput
     }
   }
   Query: {
@@ -805,11 +878,11 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "AuthPayload" | "Brand" | "Category" | "Mutation" | "Product" | "ProductImage" | "Query" | "Shop" | "ShopImage" | "Tag" | "User" | "UserImage";
+export type NexusGenObjectNames = "AuthPayload" | "Brand" | "Category" | "Mutation" | "Product" | "ProductImage" | "Query" | "Shop" | "ShopImage" | "Tag" | "User" | "UserImage" | "Variant";
 
-export type NexusGenInputNames = "BrandWhereInput" | "CategoryWhereInput" | "ProductImageWhereInput" | "ProductWhereInput" | "ShopImageWhereInput" | "ShopWhereInput" | "TagWhereInput" | "UserImageWhereInput" | "UserWhereInput";
+export type NexusGenInputNames = "BrandWhereInput" | "CategoryWhereInput" | "ProductImageWhereInput" | "ProductWhereInput" | "ShopImageWhereInput" | "ShopWhereInput" | "TagWhereInput" | "UserImageWhereInput" | "UserWhereInput" | "VariantWhereInput";
 
-export type NexusGenEnumNames = "CategoryOrderByInput" | "ProductImageOrderByInput" | "ProductOrderByInput" | "ShopImageOrderByInput" | "TagOrderByInput" | "UserImageOrderByInput" | "UserOrderByInput";
+export type NexusGenEnumNames = "CategoryOrderByInput" | "ProductImageOrderByInput" | "ProductOrderByInput" | "ShopImageOrderByInput" | "TagOrderByInput" | "UserImageOrderByInput" | "UserOrderByInput" | "VariantOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 
