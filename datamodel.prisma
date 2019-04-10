@@ -4,8 +4,10 @@ type User {
   password: String!
   name: String!
   username: String! @unique
+  profilePic: String
   shops: [Shop] @relation(name: "ShopOwners")
   images: [UserImage] @relation(name: "UserImages")
+  productReviews: [ProductReview] @relation(name: "UserProductReview")
 }
 
 type Shop {
@@ -44,6 +46,7 @@ type Product {
   images: [ProductImage] @relation(name: "ProductImages")
   shop: Shop! @relation(name: "ShopProducts")
   variants: [Variant] @relation(name: "ProductVariants")
+  reviews: [ProductReview] @relation(name: "ProductReview")
 }
 
 type Brand {
@@ -75,4 +78,14 @@ type Variant {
   product: Product! @relation(name: "ProductVariants")
   name: String!
   values: [String]
+}
+
+type ProductReview {
+  id: ID! @unique
+  user: User! @relation(name: "UserProductReview")
+  product: Product! @relation(name: "ProductReview")
+  rating: Int!
+  review: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }

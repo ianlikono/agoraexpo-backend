@@ -55,5 +55,19 @@ export const Query = queryType({
               })
             },
           })
+
+          t.list.field('productReviews', {
+            type: 'ProductReview',
+            args: {
+              productId: idArg({ required: true}),
+            },
+            resolve: (parent, { productId }, ctx) => {
+              return ctx.prisma.productReviews({
+                where: {
+                  product: { id: productId}
+                },
+              })
+            },
+          })
     }
 })

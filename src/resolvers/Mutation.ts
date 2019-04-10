@@ -1,6 +1,6 @@
 import { compare, hash } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
-import { booleanArg, idArg, mutationType, stringArg } from 'nexus';
+import { booleanArg, idArg, intArg, mutationType, stringArg } from 'nexus';
 import * as shortid from 'shortid';
 import { APP_SECRET, getUserId } from '../utils/getUser';
 
@@ -246,6 +246,24 @@ export const Mutation = mutationType({
                   name,
                   values: {set: values},
                 }
+              })
+            },
+          })
+
+          t.field('createProductReview', {
+            type: 'ProductReview',
+            args: {
+              productId: idArg({required: true}),
+              rating: intArg({required: true}),
+              review: stringArg({required: false}),
+            },
+            resolve: async (parent, { productId, rating, review }, ctx) => {
+              const userId = getUserId(ctx)
+              return ctx.prisma.createProductReview({
+                rating,
+                review,
+                product: { connect: {id: productId}},
+                user: { connect: {id: userId}}
               })
             },
           })
