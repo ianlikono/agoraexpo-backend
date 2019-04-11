@@ -1,13 +1,15 @@
 type User {
   id: ID! @unique
-  email: String! @unique
-  password: String!
-  name: String!
-  username: String! @unique
+  email: String @unique
+  password: String
+  name: String
+  username: String @unique
   profilePic: String
+  isAnonymous: Boolean! @default(value: "false")
   shops: [Shop] @relation(name: "ShopOwners")
   images: [UserImage] @relation(name: "UserImages")
   productReviews: [ProductReview] @relation(name: "UserProductReview")
+  cartItems: Cart @relation(name: "UserCart")
 }
 
 type Shop {
@@ -47,6 +49,19 @@ type Product {
   shop: Shop! @relation(name: "ShopProducts")
   variants: [Variant] @relation(name: "ProductVariants")
   reviews: [ProductReview] @relation(name: "ProductReview")
+}
+
+type Cart {
+  id: ID! @unique
+  user: User! @relation(name: "UserCart")
+  items: [CartItem]
+}
+
+type CartItem {
+  id: ID! @unique
+  product: Product!
+  quantity: Int!
+  variants: [String]
 }
 
 type Brand {

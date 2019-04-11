@@ -69,5 +69,17 @@ export const Query = queryType({
               })
             },
           })
+
+          t.list.field('getMeCart', {
+            type: 'Cart',
+            resolve: (parent, { productId }, ctx) => {
+              const userId = getUserId(ctx)
+              return ctx.prisma.carts({
+                where: { user: {
+                  id: userId,
+                }}
+              })
+            },
+          })
     }
 })

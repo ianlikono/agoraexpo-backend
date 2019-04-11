@@ -50,6 +50,83 @@ input BrandWhereInput {
   products_some: ProductWhereInput
 }
 
+type Cart {
+  id: ID!
+  items(after: String, before: String, first: Int, last: Int, orderBy: CartItemOrderByInput, skip: Int, where: CartItemWhereInput): [CartItem!]
+  user: User!
+}
+
+type CartItem {
+  id: ID!
+  product: Product!
+  quantity: Int!
+  variants: [String!]!
+}
+
+enum CartItemOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+  quantity_ASC
+  quantity_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input CartItemWhereInput {
+  AND: [CartItemWhereInput!]
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  NOT: [CartItemWhereInput!]
+  OR: [CartItemWhereInput!]
+  product: ProductWhereInput
+  quantity: Int
+  quantity_gt: Int
+  quantity_gte: Int
+  quantity_in: [Int!]
+  quantity_lt: Int
+  quantity_lte: Int
+  quantity_not: Int
+  quantity_not_in: [Int!]
+}
+
+input CartWhereInput {
+  AND: [CartWhereInput!]
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  items_every: CartItemWhereInput
+  items_none: CartItemWhereInput
+  items_some: CartItemWhereInput
+  NOT: [CartWhereInput!]
+  OR: [CartWhereInput!]
+  user: UserWhereInput
+}
+
 type Category {
   id: ID!
   name: String!
@@ -107,6 +184,7 @@ input CategoryWhereInput {
 scalar DateTime
 
 type Mutation {
+  addItemToCart(productId: ID!, quantity: Int!, variants: [String!]): Cart
   addVariant(name: String!, productId: ID!, values: [String!]): Variant
   createProduct(brand: String!, categories: [String!], description: String!, id: ID!, images: [String!], price: String!, tags: [String!], title: String!): Product
   createProductReview(productId: ID!, rating: Int!, review: String): ProductReview
@@ -365,6 +443,7 @@ input ProductWhereInput {
 type Query {
   filterCategories(searchString: String): [Category!]
   filterUsers(searchString: String): [User!]
+  getMeCart: [Cart!]
   me: User
   product(id: ID): Product
   productReviews(productId: ID!): [ProductReview!]
@@ -580,13 +659,13 @@ input TagWhereInput {
 }
 
 type User {
-  email: String!
+  email: String
   id: ID!
   images(after: String, before: String, first: Int, last: Int, orderBy: UserImageOrderByInput, skip: Int, where: UserImageWhereInput): [UserImage!]
-  name: String!
+  name: String
   profilePic: String
   shops: [Shop!]
-  username: String!
+  username: String
 }
 
 type UserImage {
@@ -648,6 +727,8 @@ enum UserOrderByInput {
   email_DESC
   id_ASC
   id_DESC
+  isAnonymous_ASC
+  isAnonymous_DESC
   name_ASC
   name_DESC
   password_ASC
@@ -662,6 +743,7 @@ enum UserOrderByInput {
 
 input UserWhereInput {
   AND: [UserWhereInput!]
+  cartItems: CartWhereInput
   email: String
   email_contains: String
   email_ends_with: String
@@ -693,6 +775,8 @@ input UserWhereInput {
   images_every: UserImageWhereInput
   images_none: UserImageWhereInput
   images_some: UserImageWhereInput
+  isAnonymous: Boolean
+  isAnonymous_not: Boolean
   name: String
   name_contains: String
   name_ends_with: String

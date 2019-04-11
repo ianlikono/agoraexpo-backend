@@ -6,6 +6,14 @@ export const typeDefs = /* GraphQL */ `type AggregateBrand {
   count: Int!
 }
 
+type AggregateCart {
+  count: Int!
+}
+
+type AggregateCartItem {
+  count: Int!
+}
+
 type AggregateCategory {
   count: Int!
 }
@@ -182,6 +190,302 @@ input BrandWhereInput {
 input BrandWhereUniqueInput {
   id: ID
   name: String
+}
+
+type Cart {
+  id: ID!
+  user: User!
+  items(where: CartItemWhereInput, orderBy: CartItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [CartItem!]
+}
+
+type CartConnection {
+  pageInfo: PageInfo!
+  edges: [CartEdge]!
+  aggregate: AggregateCart!
+}
+
+input CartCreateInput {
+  user: UserCreateOneWithoutCartItemsInput!
+  items: CartItemCreateManyInput
+}
+
+input CartCreateOneWithoutUserInput {
+  create: CartCreateWithoutUserInput
+  connect: CartWhereUniqueInput
+}
+
+input CartCreateWithoutUserInput {
+  items: CartItemCreateManyInput
+}
+
+type CartEdge {
+  node: Cart!
+  cursor: String!
+}
+
+type CartItem {
+  id: ID!
+  product: Product!
+  quantity: Int!
+  variants: [String!]!
+}
+
+type CartItemConnection {
+  pageInfo: PageInfo!
+  edges: [CartItemEdge]!
+  aggregate: AggregateCartItem!
+}
+
+input CartItemCreateInput {
+  product: ProductCreateOneInput!
+  quantity: Int!
+  variants: CartItemCreatevariantsInput
+}
+
+input CartItemCreateManyInput {
+  create: [CartItemCreateInput!]
+  connect: [CartItemWhereUniqueInput!]
+}
+
+input CartItemCreatevariantsInput {
+  set: [String!]
+}
+
+type CartItemEdge {
+  node: CartItem!
+  cursor: String!
+}
+
+enum CartItemOrderByInput {
+  id_ASC
+  id_DESC
+  quantity_ASC
+  quantity_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type CartItemPreviousValues {
+  id: ID!
+  quantity: Int!
+  variants: [String!]!
+}
+
+input CartItemScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  quantity: Int
+  quantity_not: Int
+  quantity_in: [Int!]
+  quantity_not_in: [Int!]
+  quantity_lt: Int
+  quantity_lte: Int
+  quantity_gt: Int
+  quantity_gte: Int
+  AND: [CartItemScalarWhereInput!]
+  OR: [CartItemScalarWhereInput!]
+  NOT: [CartItemScalarWhereInput!]
+}
+
+type CartItemSubscriptionPayload {
+  mutation: MutationType!
+  node: CartItem
+  updatedFields: [String!]
+  previousValues: CartItemPreviousValues
+}
+
+input CartItemSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: CartItemWhereInput
+  AND: [CartItemSubscriptionWhereInput!]
+  OR: [CartItemSubscriptionWhereInput!]
+  NOT: [CartItemSubscriptionWhereInput!]
+}
+
+input CartItemUpdateDataInput {
+  product: ProductUpdateOneRequiredInput
+  quantity: Int
+  variants: CartItemUpdatevariantsInput
+}
+
+input CartItemUpdateInput {
+  product: ProductUpdateOneRequiredInput
+  quantity: Int
+  variants: CartItemUpdatevariantsInput
+}
+
+input CartItemUpdateManyDataInput {
+  quantity: Int
+  variants: CartItemUpdatevariantsInput
+}
+
+input CartItemUpdateManyInput {
+  create: [CartItemCreateInput!]
+  update: [CartItemUpdateWithWhereUniqueNestedInput!]
+  upsert: [CartItemUpsertWithWhereUniqueNestedInput!]
+  delete: [CartItemWhereUniqueInput!]
+  connect: [CartItemWhereUniqueInput!]
+  set: [CartItemWhereUniqueInput!]
+  disconnect: [CartItemWhereUniqueInput!]
+  deleteMany: [CartItemScalarWhereInput!]
+  updateMany: [CartItemUpdateManyWithWhereNestedInput!]
+}
+
+input CartItemUpdateManyMutationInput {
+  quantity: Int
+  variants: CartItemUpdatevariantsInput
+}
+
+input CartItemUpdateManyWithWhereNestedInput {
+  where: CartItemScalarWhereInput!
+  data: CartItemUpdateManyDataInput!
+}
+
+input CartItemUpdatevariantsInput {
+  set: [String!]
+}
+
+input CartItemUpdateWithWhereUniqueNestedInput {
+  where: CartItemWhereUniqueInput!
+  data: CartItemUpdateDataInput!
+}
+
+input CartItemUpsertWithWhereUniqueNestedInput {
+  where: CartItemWhereUniqueInput!
+  update: CartItemUpdateDataInput!
+  create: CartItemCreateInput!
+}
+
+input CartItemWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  product: ProductWhereInput
+  quantity: Int
+  quantity_not: Int
+  quantity_in: [Int!]
+  quantity_not_in: [Int!]
+  quantity_lt: Int
+  quantity_lte: Int
+  quantity_gt: Int
+  quantity_gte: Int
+  AND: [CartItemWhereInput!]
+  OR: [CartItemWhereInput!]
+  NOT: [CartItemWhereInput!]
+}
+
+input CartItemWhereUniqueInput {
+  id: ID
+}
+
+enum CartOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type CartPreviousValues {
+  id: ID!
+}
+
+type CartSubscriptionPayload {
+  mutation: MutationType!
+  node: Cart
+  updatedFields: [String!]
+  previousValues: CartPreviousValues
+}
+
+input CartSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: CartWhereInput
+  AND: [CartSubscriptionWhereInput!]
+  OR: [CartSubscriptionWhereInput!]
+  NOT: [CartSubscriptionWhereInput!]
+}
+
+input CartUpdateInput {
+  user: UserUpdateOneRequiredWithoutCartItemsInput
+  items: CartItemUpdateManyInput
+}
+
+input CartUpdateOneWithoutUserInput {
+  create: CartCreateWithoutUserInput
+  update: CartUpdateWithoutUserDataInput
+  upsert: CartUpsertWithoutUserInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: CartWhereUniqueInput
+}
+
+input CartUpdateWithoutUserDataInput {
+  items: CartItemUpdateManyInput
+}
+
+input CartUpsertWithoutUserInput {
+  update: CartUpdateWithoutUserDataInput!
+  create: CartCreateWithoutUserInput!
+}
+
+input CartWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  user: UserWhereInput
+  items_every: CartItemWhereInput
+  items_some: CartItemWhereInput
+  items_none: CartItemWhereInput
+  AND: [CartWhereInput!]
+  OR: [CartWhereInput!]
+  NOT: [CartWhereInput!]
+}
+
+input CartWhereUniqueInput {
+  id: ID
 }
 
 type Category {
@@ -381,6 +685,17 @@ type Mutation {
   upsertBrand(where: BrandWhereUniqueInput!, create: BrandCreateInput!, update: BrandUpdateInput!): Brand!
   deleteBrand(where: BrandWhereUniqueInput!): Brand
   deleteManyBrands(where: BrandWhereInput): BatchPayload!
+  createCart(data: CartCreateInput!): Cart!
+  updateCart(data: CartUpdateInput!, where: CartWhereUniqueInput!): Cart
+  upsertCart(where: CartWhereUniqueInput!, create: CartCreateInput!, update: CartUpdateInput!): Cart!
+  deleteCart(where: CartWhereUniqueInput!): Cart
+  deleteManyCarts(where: CartWhereInput): BatchPayload!
+  createCartItem(data: CartItemCreateInput!): CartItem!
+  updateCartItem(data: CartItemUpdateInput!, where: CartItemWhereUniqueInput!): CartItem
+  updateManyCartItems(data: CartItemUpdateManyMutationInput!, where: CartItemWhereInput): BatchPayload!
+  upsertCartItem(where: CartItemWhereUniqueInput!, create: CartItemCreateInput!, update: CartItemUpdateInput!): CartItem!
+  deleteCartItem(where: CartItemWhereUniqueInput!): CartItem
+  deleteManyCartItems(where: CartItemWhereInput): BatchPayload!
   createCategory(data: CategoryCreateInput!): Category!
   updateCategory(data: CategoryUpdateInput!, where: CategoryWhereUniqueInput!): Category
   updateManyCategories(data: CategoryUpdateManyMutationInput!, where: CategoryWhereInput): BatchPayload!
@@ -511,6 +826,11 @@ input ProductCreateManyWithoutShopInput {
 input ProductCreateManyWithoutTagsInput {
   create: [ProductCreateWithoutTagsInput!]
   connect: [ProductWhereUniqueInput!]
+}
+
+input ProductCreateOneInput {
+  create: ProductCreateInput
+  connect: ProductWhereUniqueInput
 }
 
 input ProductCreateOneWithoutImagesInput {
@@ -1193,6 +1513,19 @@ input ProductSubscriptionWhereInput {
   NOT: [ProductSubscriptionWhereInput!]
 }
 
+input ProductUpdateDataInput {
+  title: String
+  description: String
+  price: String
+  categories: CategoryUpdateManyWithoutProductInput
+  brand: BrandUpdateOneWithoutProductsInput
+  tags: TagUpdateManyWithoutProductsInput
+  images: ProductImageUpdateManyWithoutProductInput
+  shop: ShopUpdateOneRequiredWithoutProductsInput
+  variants: VariantUpdateManyWithoutProductInput
+  reviews: ProductReviewUpdateManyWithoutProductInput
+}
+
 input ProductUpdateInput {
   title: String
   description: String
@@ -1269,6 +1602,13 @@ input ProductUpdateManyWithoutTagsInput {
 input ProductUpdateManyWithWhereNestedInput {
   where: ProductScalarWhereInput!
   data: ProductUpdateManyDataInput!
+}
+
+input ProductUpdateOneRequiredInput {
+  create: ProductCreateInput
+  update: ProductUpdateDataInput
+  upsert: ProductUpsertNestedInput
+  connect: ProductWhereUniqueInput
 }
 
 input ProductUpdateOneRequiredWithoutReviewsInput {
@@ -1398,6 +1738,11 @@ input ProductUpdateWithWhereUniqueWithoutTagsInput {
   data: ProductUpdateWithoutTagsDataInput!
 }
 
+input ProductUpsertNestedInput {
+  update: ProductUpdateDataInput!
+  create: ProductCreateInput!
+}
+
 input ProductUpsertWithoutImagesInput {
   update: ProductUpdateWithoutImagesDataInput!
   create: ProductCreateWithoutImagesInput!
@@ -1524,6 +1869,12 @@ type Query {
   brand(where: BrandWhereUniqueInput!): Brand
   brands(where: BrandWhereInput, orderBy: BrandOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Brand]!
   brandsConnection(where: BrandWhereInput, orderBy: BrandOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): BrandConnection!
+  cart(where: CartWhereUniqueInput!): Cart
+  carts(where: CartWhereInput, orderBy: CartOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Cart]!
+  cartsConnection(where: CartWhereInput, orderBy: CartOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CartConnection!
+  cartItem(where: CartItemWhereUniqueInput!): CartItem
+  cartItems(where: CartItemWhereInput, orderBy: CartItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [CartItem]!
+  cartItemsConnection(where: CartItemWhereInput, orderBy: CartItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CartItemConnection!
   category(where: CategoryWhereUniqueInput!): Category
   categories(where: CategoryWhereInput, orderBy: CategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Category]!
   categoriesConnection(where: CategoryWhereInput, orderBy: CategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CategoryConnection!
@@ -2142,6 +2493,8 @@ input ShopWhereUniqueInput {
 
 type Subscription {
   brand(where: BrandSubscriptionWhereInput): BrandSubscriptionPayload
+  cart(where: CartSubscriptionWhereInput): CartSubscriptionPayload
+  cartItem(where: CartItemSubscriptionWhereInput): CartItemSubscriptionPayload
   category(where: CategorySubscriptionWhereInput): CategorySubscriptionPayload
   product(where: ProductSubscriptionWhereInput): ProductSubscriptionPayload
   productImage(where: ProductImageSubscriptionWhereInput): ProductImageSubscriptionPayload
@@ -2342,14 +2695,16 @@ input TagWhereUniqueInput {
 
 type User {
   id: ID!
-  email: String!
-  password: String!
-  name: String!
-  username: String!
+  email: String
+  password: String
+  name: String
+  username: String
   profilePic: String
+  isAnonymous: Boolean!
   shops(where: ShopWhereInput, orderBy: ShopOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Shop!]
   images(where: UserImageWhereInput, orderBy: UserImageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [UserImage!]
   productReviews(where: ProductReviewWhereInput, orderBy: ProductReviewOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ProductReview!]
+  cartItems: Cart
 }
 
 type UserConnection {
@@ -2359,19 +2714,26 @@ type UserConnection {
 }
 
 input UserCreateInput {
-  email: String!
-  password: String!
-  name: String!
-  username: String!
+  email: String
+  password: String
+  name: String
+  username: String
   profilePic: String
+  isAnonymous: Boolean
   shops: ShopCreateManyWithoutOwnersInput
   images: UserImageCreateManyWithoutUserInput
   productReviews: ProductReviewCreateManyWithoutUserInput
+  cartItems: CartCreateOneWithoutUserInput
 }
 
 input UserCreateManyWithoutShopsInput {
   create: [UserCreateWithoutShopsInput!]
   connect: [UserWhereUniqueInput!]
+}
+
+input UserCreateOneWithoutCartItemsInput {
+  create: UserCreateWithoutCartItemsInput
+  connect: UserWhereUniqueInput
 }
 
 input UserCreateOneWithoutImagesInput {
@@ -2384,34 +2746,52 @@ input UserCreateOneWithoutProductReviewsInput {
   connect: UserWhereUniqueInput
 }
 
-input UserCreateWithoutImagesInput {
-  email: String!
-  password: String!
-  name: String!
-  username: String!
+input UserCreateWithoutCartItemsInput {
+  email: String
+  password: String
+  name: String
+  username: String
   profilePic: String
+  isAnonymous: Boolean
+  shops: ShopCreateManyWithoutOwnersInput
+  images: UserImageCreateManyWithoutUserInput
+  productReviews: ProductReviewCreateManyWithoutUserInput
+}
+
+input UserCreateWithoutImagesInput {
+  email: String
+  password: String
+  name: String
+  username: String
+  profilePic: String
+  isAnonymous: Boolean
   shops: ShopCreateManyWithoutOwnersInput
   productReviews: ProductReviewCreateManyWithoutUserInput
+  cartItems: CartCreateOneWithoutUserInput
 }
 
 input UserCreateWithoutProductReviewsInput {
-  email: String!
-  password: String!
-  name: String!
-  username: String!
+  email: String
+  password: String
+  name: String
+  username: String
   profilePic: String
+  isAnonymous: Boolean
   shops: ShopCreateManyWithoutOwnersInput
   images: UserImageCreateManyWithoutUserInput
+  cartItems: CartCreateOneWithoutUserInput
 }
 
 input UserCreateWithoutShopsInput {
-  email: String!
-  password: String!
-  name: String!
-  username: String!
+  email: String
+  password: String
+  name: String
+  username: String
   profilePic: String
+  isAnonymous: Boolean
   images: UserImageCreateManyWithoutUserInput
   productReviews: ProductReviewCreateManyWithoutUserInput
+  cartItems: CartCreateOneWithoutUserInput
 }
 
 type UserEdge {
@@ -2615,6 +2995,8 @@ enum UserOrderByInput {
   username_DESC
   profilePic_ASC
   profilePic_DESC
+  isAnonymous_ASC
+  isAnonymous_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -2623,11 +3005,12 @@ enum UserOrderByInput {
 
 type UserPreviousValues {
   id: ID!
-  email: String!
-  password: String!
-  name: String!
-  username: String!
+  email: String
+  password: String
+  name: String
+  username: String
   profilePic: String
+  isAnonymous: Boolean!
 }
 
 input UserScalarWhereInput {
@@ -2715,6 +3098,8 @@ input UserScalarWhereInput {
   profilePic_not_starts_with: String
   profilePic_ends_with: String
   profilePic_not_ends_with: String
+  isAnonymous: Boolean
+  isAnonymous_not: Boolean
   AND: [UserScalarWhereInput!]
   OR: [UserScalarWhereInput!]
   NOT: [UserScalarWhereInput!]
@@ -2744,9 +3129,11 @@ input UserUpdateInput {
   name: String
   username: String
   profilePic: String
+  isAnonymous: Boolean
   shops: ShopUpdateManyWithoutOwnersInput
   images: UserImageUpdateManyWithoutUserInput
   productReviews: ProductReviewUpdateManyWithoutUserInput
+  cartItems: CartUpdateOneWithoutUserInput
 }
 
 input UserUpdateManyDataInput {
@@ -2755,6 +3142,7 @@ input UserUpdateManyDataInput {
   name: String
   username: String
   profilePic: String
+  isAnonymous: Boolean
 }
 
 input UserUpdateManyMutationInput {
@@ -2763,6 +3151,7 @@ input UserUpdateManyMutationInput {
   name: String
   username: String
   profilePic: String
+  isAnonymous: Boolean
 }
 
 input UserUpdateManyWithoutShopsInput {
@@ -2782,6 +3171,13 @@ input UserUpdateManyWithWhereNestedInput {
   data: UserUpdateManyDataInput!
 }
 
+input UserUpdateOneRequiredWithoutCartItemsInput {
+  create: UserCreateWithoutCartItemsInput
+  update: UserUpdateWithoutCartItemsDataInput
+  upsert: UserUpsertWithoutCartItemsInput
+  connect: UserWhereUniqueInput
+}
+
 input UserUpdateOneRequiredWithoutProductReviewsInput {
   create: UserCreateWithoutProductReviewsInput
   update: UserUpdateWithoutProductReviewsDataInput
@@ -2798,14 +3194,28 @@ input UserUpdateOneWithoutImagesInput {
   connect: UserWhereUniqueInput
 }
 
+input UserUpdateWithoutCartItemsDataInput {
+  email: String
+  password: String
+  name: String
+  username: String
+  profilePic: String
+  isAnonymous: Boolean
+  shops: ShopUpdateManyWithoutOwnersInput
+  images: UserImageUpdateManyWithoutUserInput
+  productReviews: ProductReviewUpdateManyWithoutUserInput
+}
+
 input UserUpdateWithoutImagesDataInput {
   email: String
   password: String
   name: String
   username: String
   profilePic: String
+  isAnonymous: Boolean
   shops: ShopUpdateManyWithoutOwnersInput
   productReviews: ProductReviewUpdateManyWithoutUserInput
+  cartItems: CartUpdateOneWithoutUserInput
 }
 
 input UserUpdateWithoutProductReviewsDataInput {
@@ -2814,8 +3224,10 @@ input UserUpdateWithoutProductReviewsDataInput {
   name: String
   username: String
   profilePic: String
+  isAnonymous: Boolean
   shops: ShopUpdateManyWithoutOwnersInput
   images: UserImageUpdateManyWithoutUserInput
+  cartItems: CartUpdateOneWithoutUserInput
 }
 
 input UserUpdateWithoutShopsDataInput {
@@ -2824,13 +3236,20 @@ input UserUpdateWithoutShopsDataInput {
   name: String
   username: String
   profilePic: String
+  isAnonymous: Boolean
   images: UserImageUpdateManyWithoutUserInput
   productReviews: ProductReviewUpdateManyWithoutUserInput
+  cartItems: CartUpdateOneWithoutUserInput
 }
 
 input UserUpdateWithWhereUniqueWithoutShopsInput {
   where: UserWhereUniqueInput!
   data: UserUpdateWithoutShopsDataInput!
+}
+
+input UserUpsertWithoutCartItemsInput {
+  update: UserUpdateWithoutCartItemsDataInput!
+  create: UserCreateWithoutCartItemsInput!
 }
 
 input UserUpsertWithoutImagesInput {
@@ -2934,6 +3353,8 @@ input UserWhereInput {
   profilePic_not_starts_with: String
   profilePic_ends_with: String
   profilePic_not_ends_with: String
+  isAnonymous: Boolean
+  isAnonymous_not: Boolean
   shops_every: ShopWhereInput
   shops_some: ShopWhereInput
   shops_none: ShopWhereInput
@@ -2943,6 +3364,7 @@ input UserWhereInput {
   productReviews_every: ProductReviewWhereInput
   productReviews_some: ProductReviewWhereInput
   productReviews_none: ProductReviewWhereInput
+  cartItems: CartWhereInput
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]

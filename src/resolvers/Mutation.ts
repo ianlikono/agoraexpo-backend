@@ -267,5 +267,76 @@ export const Mutation = mutationType({
               })
             },
           })
+
+          t.field('addItemToCart', {
+            type: 'Cart',
+            args: {
+              productId: idArg({required: true}),
+              quantity: intArg({required: true}),
+              variants: stringArg({ list: true})
+            },
+            resolve: async (parent, { productId, quantity, variants }, ctx) => {
+              const userId = getUserId(ctx)
+              let cartId = null;
+              const availableCartItems = await ctx.prisma.carts({
+                where: {
+                  user: {
+                    id: userId,
+                  }
+                }
+              });
+              if(availableCartItems.length <= 0) {
+                return ctx.prisma.createCart({
+                  user: { connect : {id: userId}},
+                  items: {
+                    create: {
+                      quantity,
+                      product: {connect: {id: productId}},
+                      variants: { set: variants}
+                    }
+                  }
+                })
+              } else {
+                cartId = availableCartItems[0].id;
+                const availableQuantity = await ctx.prisma.cartItems({
+                  where: { product: {id: productId}}
+                })
+                if(availableQuantity.length <= 0) {
+                  return ctx.prisma.updateCart({
+                    data: {
+                      items: {
+                        create: {
+                          quantity,
+                          product: {connect: {id: productId}},
+                          variants: { set: variants}
+                        }
+                      }
+                    },
+                    where: {
+                      id: cartId
+                    }
+                  })
+                } else {
+                  return ctx.prisma.updateCart({
+                    data: {
+                      items: {
+                        update: {
+                          where : {
+                            id: availableQuantity[0].id,
+                          },
+                          data: {
+                            quantity,
+                          }
+                        }
+                      }
+                    },
+                    where: {
+                      id: cartId
+                    }
+                  })
+                }
+              }
+            },
+          })
     }
 })

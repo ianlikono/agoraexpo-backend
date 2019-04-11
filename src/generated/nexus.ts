@@ -47,6 +47,57 @@ export interface NexusGenInputs {
     products_none?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     products_some?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
   }
+  CartItemWhereInput: { // input type
+    AND?: NexusGenInputs['CartItemWhereInput'][] | null; // [CartItemWhereInput!]
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    NOT?: NexusGenInputs['CartItemWhereInput'][] | null; // [CartItemWhereInput!]
+    OR?: NexusGenInputs['CartItemWhereInput'][] | null; // [CartItemWhereInput!]
+    product?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
+    quantity?: number | null; // Int
+    quantity_gt?: number | null; // Int
+    quantity_gte?: number | null; // Int
+    quantity_in?: number[] | null; // [Int!]
+    quantity_lt?: number | null; // Int
+    quantity_lte?: number | null; // Int
+    quantity_not?: number | null; // Int
+    quantity_not_in?: number[] | null; // [Int!]
+  }
+  CartWhereInput: { // input type
+    AND?: NexusGenInputs['CartWhereInput'][] | null; // [CartWhereInput!]
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    items_every?: NexusGenInputs['CartItemWhereInput'] | null; // CartItemWhereInput
+    items_none?: NexusGenInputs['CartItemWhereInput'] | null; // CartItemWhereInput
+    items_some?: NexusGenInputs['CartItemWhereInput'] | null; // CartItemWhereInput
+    NOT?: NexusGenInputs['CartWhereInput'][] | null; // [CartWhereInput!]
+    OR?: NexusGenInputs['CartWhereInput'][] | null; // [CartWhereInput!]
+    user?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+  }
   CategoryWhereInput: { // input type
     AND?: NexusGenInputs['CategoryWhereInput'][] | null; // [CategoryWhereInput!]
     id?: string | null; // ID
@@ -448,6 +499,7 @@ export interface NexusGenInputs {
   }
   UserWhereInput: { // input type
     AND?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
+    cartItems?: NexusGenInputs['CartWhereInput'] | null; // CartWhereInput
     email?: string | null; // String
     email_contains?: string | null; // String
     email_ends_with?: string | null; // String
@@ -479,6 +531,8 @@ export interface NexusGenInputs {
     images_every?: NexusGenInputs['UserImageWhereInput'] | null; // UserImageWhereInput
     images_none?: NexusGenInputs['UserImageWhereInput'] | null; // UserImageWhereInput
     images_some?: NexusGenInputs['UserImageWhereInput'] | null; // UserImageWhereInput
+    isAnonymous?: boolean | null; // Boolean
+    isAnonymous_not?: boolean | null; // Boolean
     name?: string | null; // String
     name_contains?: string | null; // String
     name_ends_with?: string | null; // String
@@ -581,6 +635,7 @@ export interface NexusGenInputs {
 }
 
 export interface NexusGenEnums {
+  CartItemOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "quantity_ASC" | "quantity_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   CategoryOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   ProductImageOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "imageUrl_ASC" | "imageUrl_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   ProductOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "price_ASC" | "price_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
@@ -588,7 +643,7 @@ export interface NexusGenEnums {
   ShopImageOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "imageUrl_ASC" | "imageUrl_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   TagOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   UserImageOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "imageUrl_ASC" | "imageUrl_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
-  UserOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "password_ASC" | "password_DESC" | "profilePic_ASC" | "profilePic_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "username_ASC" | "username_DESC"
+  UserOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "isAnonymous_ASC" | "isAnonymous_DESC" | "name_ASC" | "name_DESC" | "password_ASC" | "password_DESC" | "profilePic_ASC" | "profilePic_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "username_ASC" | "username_DESC"
   VariantOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
 }
 
@@ -600,6 +655,14 @@ export interface NexusGenRootTypes {
   Brand: { // root type
     id: string; // ID!
     name: string; // String!
+  }
+  Cart: { // root type
+    id: string; // ID!
+  }
+  CartItem: { // root type
+    id: string; // ID!
+    quantity: number; // Int!
+    variants: string[]; // [String!]!
   }
   Category: { // root type
     id: string; // ID!
@@ -642,11 +705,11 @@ export interface NexusGenRootTypes {
     name: string; // String!
   }
   User: { // root type
-    email: string; // String!
+    email?: string | null; // String
     id: string; // ID!
-    name: string; // String!
+    name?: string | null; // String
     profilePic?: string | null; // String
-    username: string; // String!
+    username?: string | null; // String
   }
   UserImage: { // root type
     id: string; // ID!
@@ -667,6 +730,8 @@ export interface NexusGenRootTypes {
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
   BrandWhereInput: NexusGenInputs['BrandWhereInput'];
+  CartItemWhereInput: NexusGenInputs['CartItemWhereInput'];
+  CartWhereInput: NexusGenInputs['CartWhereInput'];
   CategoryWhereInput: NexusGenInputs['CategoryWhereInput'];
   ProductImageWhereInput: NexusGenInputs['ProductImageWhereInput'];
   ProductReviewWhereInput: NexusGenInputs['ProductReviewWhereInput'];
@@ -677,6 +742,7 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   UserImageWhereInput: NexusGenInputs['UserImageWhereInput'];
   UserWhereInput: NexusGenInputs['UserWhereInput'];
   VariantWhereInput: NexusGenInputs['VariantWhereInput'];
+  CartItemOrderByInput: NexusGenEnums['CartItemOrderByInput'];
   CategoryOrderByInput: NexusGenEnums['CategoryOrderByInput'];
   ProductImageOrderByInput: NexusGenEnums['ProductImageOrderByInput'];
   ProductOrderByInput: NexusGenEnums['ProductOrderByInput'];
@@ -698,12 +764,24 @@ export interface NexusGenFieldTypes {
     name: string; // String!
     products: NexusGenRootTypes['Product'][] | null; // [Product!]
   }
+  Cart: { // field return type
+    id: string; // ID!
+    items: NexusGenRootTypes['CartItem'][] | null; // [CartItem!]
+    user: NexusGenRootTypes['User']; // User!
+  }
+  CartItem: { // field return type
+    id: string; // ID!
+    product: NexusGenRootTypes['Product']; // Product!
+    quantity: number; // Int!
+    variants: string[]; // [String!]!
+  }
   Category: { // field return type
     id: string; // ID!
     name: string; // String!
     product: NexusGenRootTypes['Product'][] | null; // [Product!]
   }
   Mutation: { // field return type
+    addItemToCart: NexusGenRootTypes['Cart'] | null; // Cart
     addVariant: NexusGenRootTypes['Variant'] | null; // Variant
     createProduct: NexusGenRootTypes['Product'] | null; // Product
     createProductReview: NexusGenRootTypes['ProductReview'] | null; // ProductReview
@@ -745,6 +823,7 @@ export interface NexusGenFieldTypes {
   Query: { // field return type
     filterCategories: NexusGenRootTypes['Category'][] | null; // [Category!]
     filterUsers: NexusGenRootTypes['User'][] | null; // [User!]
+    getMeCart: NexusGenRootTypes['Cart'][] | null; // [Cart!]
     me: NexusGenRootTypes['User'] | null; // User
     product: NexusGenRootTypes['Product'] | null; // Product
     productReviews: NexusGenRootTypes['ProductReview'][] | null; // [ProductReview!]
@@ -773,13 +852,13 @@ export interface NexusGenFieldTypes {
     products: NexusGenRootTypes['Product'][] | null; // [Product!]
   }
   User: { // field return type
-    email: string; // String!
+    email: string | null; // String
     id: string; // ID!
     images: NexusGenRootTypes['UserImage'][] | null; // [UserImage!]
-    name: string; // String!
+    name: string | null; // String
     profilePic: string | null; // String
     shops: NexusGenRootTypes['Shop'][] | null; // [Shop!]
-    username: string; // String!
+    username: string | null; // String
   }
   UserImage: { // field return type
     id: string; // ID!
@@ -806,6 +885,17 @@ export interface NexusGenArgTypes {
       where?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     }
   }
+  Cart: {
+    items: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['CartItemOrderByInput'] | null; // CartItemOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['CartItemWhereInput'] | null; // CartItemWhereInput
+    }
+  }
   Category: {
     product: { // args
       after?: string | null; // String
@@ -818,6 +908,11 @@ export interface NexusGenArgTypes {
     }
   }
   Mutation: {
+    addItemToCart: { // args
+      productId: string; // ID!
+      quantity: number; // Int!
+      variants?: string[] | null; // [String!]
+    }
     addVariant: { // args
       name: string; // String!
       productId: string; // ID!
@@ -998,11 +1093,11 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "AuthPayload" | "Brand" | "Category" | "Mutation" | "Product" | "ProductImage" | "ProductReview" | "Query" | "Shop" | "ShopImage" | "Tag" | "User" | "UserImage" | "Variant";
+export type NexusGenObjectNames = "AuthPayload" | "Brand" | "Cart" | "CartItem" | "Category" | "Mutation" | "Product" | "ProductImage" | "ProductReview" | "Query" | "Shop" | "ShopImage" | "Tag" | "User" | "UserImage" | "Variant";
 
-export type NexusGenInputNames = "BrandWhereInput" | "CategoryWhereInput" | "ProductImageWhereInput" | "ProductReviewWhereInput" | "ProductWhereInput" | "ShopImageWhereInput" | "ShopWhereInput" | "TagWhereInput" | "UserImageWhereInput" | "UserWhereInput" | "VariantWhereInput";
+export type NexusGenInputNames = "BrandWhereInput" | "CartItemWhereInput" | "CartWhereInput" | "CategoryWhereInput" | "ProductImageWhereInput" | "ProductReviewWhereInput" | "ProductWhereInput" | "ShopImageWhereInput" | "ShopWhereInput" | "TagWhereInput" | "UserImageWhereInput" | "UserWhereInput" | "VariantWhereInput";
 
-export type NexusGenEnumNames = "CategoryOrderByInput" | "ProductImageOrderByInput" | "ProductOrderByInput" | "ProductReviewOrderByInput" | "ShopImageOrderByInput" | "TagOrderByInput" | "UserImageOrderByInput" | "UserOrderByInput" | "VariantOrderByInput";
+export type NexusGenEnumNames = "CartItemOrderByInput" | "CategoryOrderByInput" | "ProductImageOrderByInput" | "ProductOrderByInput" | "ProductReviewOrderByInput" | "ShopImageOrderByInput" | "TagOrderByInput" | "UserImageOrderByInput" | "UserOrderByInput" | "VariantOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 

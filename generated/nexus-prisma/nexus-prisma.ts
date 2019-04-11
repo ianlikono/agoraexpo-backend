@@ -26,6 +26,8 @@ export interface NexusPrismaTypes {
       Variant: VariantObject
       ProductReview: ProductReviewObject
       UserImage: UserImageObject
+      Cart: CartObject
+      CartItem: CartItemObject
       UserConnection: UserConnectionObject
       PageInfo: PageInfoObject
       UserEdge: UserEdgeObject
@@ -42,6 +44,12 @@ export interface NexusPrismaTypes {
       ProductConnection: ProductConnectionObject
       ProductEdge: ProductEdgeObject
       AggregateProduct: AggregateProductObject
+      CartConnection: CartConnectionObject
+      CartEdge: CartEdgeObject
+      AggregateCart: AggregateCartObject
+      CartItemConnection: CartItemConnectionObject
+      CartItemEdge: CartItemEdgeObject
+      AggregateCartItem: AggregateCartItemObject
       BrandConnection: BrandConnectionObject
       BrandEdge: BrandEdgeObject
       AggregateBrand: AggregateBrandObject
@@ -73,6 +81,10 @@ export interface NexusPrismaTypes {
       UserImagePreviousValues: UserImagePreviousValuesObject
       ProductSubscriptionPayload: ProductSubscriptionPayloadObject
       ProductPreviousValues: ProductPreviousValuesObject
+      CartSubscriptionPayload: CartSubscriptionPayloadObject
+      CartPreviousValues: CartPreviousValuesObject
+      CartItemSubscriptionPayload: CartItemSubscriptionPayloadObject
+      CartItemPreviousValues: CartItemPreviousValuesObject
       BrandSubscriptionPayload: BrandSubscriptionPayloadObject
       BrandPreviousValues: BrandPreviousValuesObject
       TagSubscriptionPayload: TagSubscriptionPayloadObject
@@ -99,6 +111,8 @@ export interface NexusPrismaTypes {
       Variant: VariantFieldDetails
       ProductReview: ProductReviewFieldDetails
       UserImage: UserImageFieldDetails
+      Cart: CartFieldDetails
+      CartItem: CartItemFieldDetails
       UserConnection: UserConnectionFieldDetails
       PageInfo: PageInfoFieldDetails
       UserEdge: UserEdgeFieldDetails
@@ -115,6 +129,12 @@ export interface NexusPrismaTypes {
       ProductConnection: ProductConnectionFieldDetails
       ProductEdge: ProductEdgeFieldDetails
       AggregateProduct: AggregateProductFieldDetails
+      CartConnection: CartConnectionFieldDetails
+      CartEdge: CartEdgeFieldDetails
+      AggregateCart: AggregateCartFieldDetails
+      CartItemConnection: CartItemConnectionFieldDetails
+      CartItemEdge: CartItemEdgeFieldDetails
+      AggregateCartItem: AggregateCartItemFieldDetails
       BrandConnection: BrandConnectionFieldDetails
       BrandEdge: BrandEdgeFieldDetails
       AggregateBrand: AggregateBrandFieldDetails
@@ -146,6 +166,10 @@ export interface NexusPrismaTypes {
       UserImagePreviousValues: UserImagePreviousValuesFieldDetails
       ProductSubscriptionPayload: ProductSubscriptionPayloadFieldDetails
       ProductPreviousValues: ProductPreviousValuesFieldDetails
+      CartSubscriptionPayload: CartSubscriptionPayloadFieldDetails
+      CartPreviousValues: CartPreviousValuesFieldDetails
+      CartItemSubscriptionPayload: CartItemSubscriptionPayloadFieldDetails
+      CartItemPreviousValues: CartItemPreviousValuesFieldDetails
       BrandSubscriptionPayload: BrandSubscriptionPayloadFieldDetails
       BrandPreviousValues: BrandPreviousValuesFieldDetails
       TagSubscriptionPayload: TagSubscriptionPayloadFieldDetails
@@ -173,11 +197,15 @@ export interface NexusPrismaTypes {
       TagWhereInput: TagWhereInputInputObject
       ProductImageWhereInput: ProductImageWhereInputInputObject
       VariantWhereInput: VariantWhereInputInputObject
+      CartWhereInput: CartWhereInputInputObject
+      CartItemWhereInput: CartItemWhereInputInputObject
       ShopImageWhereInput: ShopImageWhereInputInputObject
       ShopWhereUniqueInput: ShopWhereUniqueInputInputObject
       ShopImageWhereUniqueInput: ShopImageWhereUniqueInputInputObject
       UserImageWhereUniqueInput: UserImageWhereUniqueInputInputObject
       ProductWhereUniqueInput: ProductWhereUniqueInputInputObject
+      CartWhereUniqueInput: CartWhereUniqueInputInputObject
+      CartItemWhereUniqueInput: CartItemWhereUniqueInputInputObject
       BrandWhereUniqueInput: BrandWhereUniqueInputInputObject
       TagWhereUniqueInput: TagWhereUniqueInputInputObject
       CategoryWhereUniqueInput: CategoryWhereUniqueInputInputObject
@@ -208,14 +236,21 @@ export interface NexusPrismaTypes {
       UserCreateWithoutProductReviewsInput: UserCreateWithoutProductReviewsInputInputObject
       UserImageCreateManyWithoutUserInput: UserImageCreateManyWithoutUserInputInputObject
       UserImageCreateWithoutUserInput: UserImageCreateWithoutUserInputInputObject
-      ProductReviewCreateManyWithoutUserInput: ProductReviewCreateManyWithoutUserInputInputObject
-      ProductReviewCreateWithoutUserInput: ProductReviewCreateWithoutUserInputInputObject
-      ProductCreateOneWithoutReviewsInput: ProductCreateOneWithoutReviewsInputInputObject
-      ProductCreateWithoutReviewsInput: ProductCreateWithoutReviewsInputInputObject
+      CartCreateOneWithoutUserInput: CartCreateOneWithoutUserInputInputObject
+      CartCreateWithoutUserInput: CartCreateWithoutUserInputInputObject
+      CartItemCreateManyInput: CartItemCreateManyInputInputObject
+      CartItemCreateInput: CartItemCreateInputInputObject
+      ProductCreateOneInput: ProductCreateOneInputInputObject
+      ProductCreateInput: ProductCreateInputInputObject
       ShopCreateOneWithoutProductsInput: ShopCreateOneWithoutProductsInputInputObject
       ShopCreateWithoutProductsInput: ShopCreateWithoutProductsInputInputObject
       UserCreateManyWithoutShopsInput: UserCreateManyWithoutShopsInputInputObject
       UserCreateWithoutShopsInput: UserCreateWithoutShopsInputInputObject
+      ProductReviewCreateManyWithoutUserInput: ProductReviewCreateManyWithoutUserInputInputObject
+      ProductReviewCreateWithoutUserInput: ProductReviewCreateWithoutUserInputInputObject
+      ProductCreateOneWithoutReviewsInput: ProductCreateOneWithoutReviewsInputInputObject
+      ProductCreateWithoutReviewsInput: ProductCreateWithoutReviewsInputInputObject
+      CartItemCreatevariantsInput: CartItemCreatevariantsInputInputObject
       UserUpdateInput: UserUpdateInputInputObject
       ShopUpdateManyWithoutOwnersInput: ShopUpdateManyWithoutOwnersInputInputObject
       ShopUpdateWithWhereUniqueWithoutOwnersInput: ShopUpdateWithWhereUniqueWithoutOwnersInputInputObject
@@ -274,11 +309,42 @@ export interface NexusPrismaTypes {
       UserImageScalarWhereInput: UserImageScalarWhereInputInputObject
       UserImageUpdateManyWithWhereNestedInput: UserImageUpdateManyWithWhereNestedInputInputObject
       UserImageUpdateManyDataInput: UserImageUpdateManyDataInputInputObject
-      UserUpsertWithoutProductReviewsInput: UserUpsertWithoutProductReviewsInputInputObject
-      ProductReviewUpsertWithWhereUniqueWithoutProductInput: ProductReviewUpsertWithWhereUniqueWithoutProductInputInputObject
+      CartUpdateOneWithoutUserInput: CartUpdateOneWithoutUserInputInputObject
+      CartUpdateWithoutUserDataInput: CartUpdateWithoutUserDataInputInputObject
+      CartItemUpdateManyInput: CartItemUpdateManyInputInputObject
+      CartItemUpdateWithWhereUniqueNestedInput: CartItemUpdateWithWhereUniqueNestedInputInputObject
+      CartItemUpdateDataInput: CartItemUpdateDataInputInputObject
+      ProductUpdateOneRequiredInput: ProductUpdateOneRequiredInputInputObject
+      ProductUpdateDataInput: ProductUpdateDataInputInputObject
+      ShopUpdateOneRequiredWithoutProductsInput: ShopUpdateOneRequiredWithoutProductsInputInputObject
+      ShopUpdateWithoutProductsDataInput: ShopUpdateWithoutProductsDataInputInputObject
+      UserUpdateManyWithoutShopsInput: UserUpdateManyWithoutShopsInputInputObject
+      UserUpdateWithWhereUniqueWithoutShopsInput: UserUpdateWithWhereUniqueWithoutShopsInputInputObject
+      UserUpdateWithoutShopsDataInput: UserUpdateWithoutShopsDataInputInputObject
+      ProductReviewUpdateManyWithoutUserInput: ProductReviewUpdateManyWithoutUserInputInputObject
+      ProductReviewUpdateWithWhereUniqueWithoutUserInput: ProductReviewUpdateWithWhereUniqueWithoutUserInputInputObject
+      ProductReviewUpdateWithoutUserDataInput: ProductReviewUpdateWithoutUserDataInputInputObject
+      ProductUpdateOneRequiredWithoutReviewsInput: ProductUpdateOneRequiredWithoutReviewsInputInputObject
+      ProductUpdateWithoutReviewsDataInput: ProductUpdateWithoutReviewsDataInputInputObject
+      ProductUpsertWithoutReviewsInput: ProductUpsertWithoutReviewsInputInputObject
+      ProductReviewUpsertWithWhereUniqueWithoutUserInput: ProductReviewUpsertWithWhereUniqueWithoutUserInputInputObject
       ProductReviewScalarWhereInput: ProductReviewScalarWhereInputInputObject
       ProductReviewUpdateManyWithWhereNestedInput: ProductReviewUpdateManyWithWhereNestedInputInputObject
       ProductReviewUpdateManyDataInput: ProductReviewUpdateManyDataInputInputObject
+      UserUpsertWithWhereUniqueWithoutShopsInput: UserUpsertWithWhereUniqueWithoutShopsInputInputObject
+      UserScalarWhereInput: UserScalarWhereInputInputObject
+      UserUpdateManyWithWhereNestedInput: UserUpdateManyWithWhereNestedInputInputObject
+      UserUpdateManyDataInput: UserUpdateManyDataInputInputObject
+      ShopUpsertWithoutProductsInput: ShopUpsertWithoutProductsInputInputObject
+      ProductUpsertNestedInput: ProductUpsertNestedInputInputObject
+      CartItemUpdatevariantsInput: CartItemUpdatevariantsInputInputObject
+      CartItemUpsertWithWhereUniqueNestedInput: CartItemUpsertWithWhereUniqueNestedInputInputObject
+      CartItemScalarWhereInput: CartItemScalarWhereInputInputObject
+      CartItemUpdateManyWithWhereNestedInput: CartItemUpdateManyWithWhereNestedInputInputObject
+      CartItemUpdateManyDataInput: CartItemUpdateManyDataInputInputObject
+      CartUpsertWithoutUserInput: CartUpsertWithoutUserInputInputObject
+      UserUpsertWithoutProductReviewsInput: UserUpsertWithoutProductReviewsInputInputObject
+      ProductReviewUpsertWithWhereUniqueWithoutProductInput: ProductReviewUpsertWithWhereUniqueWithoutProductInputInputObject
       ProductUpsertWithWhereUniqueWithoutShopInput: ProductUpsertWithWhereUniqueWithoutShopInputInputObject
       ProductScalarWhereInput: ProductScalarWhereInputInputObject
       ProductUpdateManyWithWhereNestedInput: ProductUpdateManyWithWhereNestedInputInputObject
@@ -287,23 +353,6 @@ export interface NexusPrismaTypes {
       ShopScalarWhereInput: ShopScalarWhereInputInputObject
       ShopUpdateManyWithWhereNestedInput: ShopUpdateManyWithWhereNestedInputInputObject
       ShopUpdateManyDataInput: ShopUpdateManyDataInputInputObject
-      ProductReviewUpdateManyWithoutUserInput: ProductReviewUpdateManyWithoutUserInputInputObject
-      ProductReviewUpdateWithWhereUniqueWithoutUserInput: ProductReviewUpdateWithWhereUniqueWithoutUserInputInputObject
-      ProductReviewUpdateWithoutUserDataInput: ProductReviewUpdateWithoutUserDataInputInputObject
-      ProductUpdateOneRequiredWithoutReviewsInput: ProductUpdateOneRequiredWithoutReviewsInputInputObject
-      ProductUpdateWithoutReviewsDataInput: ProductUpdateWithoutReviewsDataInputInputObject
-      ShopUpdateOneRequiredWithoutProductsInput: ShopUpdateOneRequiredWithoutProductsInputInputObject
-      ShopUpdateWithoutProductsDataInput: ShopUpdateWithoutProductsDataInputInputObject
-      UserUpdateManyWithoutShopsInput: UserUpdateManyWithoutShopsInputInputObject
-      UserUpdateWithWhereUniqueWithoutShopsInput: UserUpdateWithWhereUniqueWithoutShopsInputInputObject
-      UserUpdateWithoutShopsDataInput: UserUpdateWithoutShopsDataInputInputObject
-      UserUpsertWithWhereUniqueWithoutShopsInput: UserUpsertWithWhereUniqueWithoutShopsInputInputObject
-      UserScalarWhereInput: UserScalarWhereInputInputObject
-      UserUpdateManyWithWhereNestedInput: UserUpdateManyWithWhereNestedInputInputObject
-      UserUpdateManyDataInput: UserUpdateManyDataInputInputObject
-      ShopUpsertWithoutProductsInput: ShopUpsertWithoutProductsInputInputObject
-      ProductUpsertWithoutReviewsInput: ProductUpsertWithoutReviewsInputInputObject
-      ProductReviewUpsertWithWhereUniqueWithoutUserInput: ProductReviewUpsertWithWhereUniqueWithoutUserInputInputObject
       UserUpdateManyMutationInput: UserUpdateManyMutationInputInputObject
       ShopCreateInput: ShopCreateInputInputObject
       ShopUpdateInput: ShopUpdateInputInputObject
@@ -324,9 +373,17 @@ export interface NexusPrismaTypes {
       UserUpdateWithoutImagesDataInput: UserUpdateWithoutImagesDataInputInputObject
       UserUpsertWithoutImagesInput: UserUpsertWithoutImagesInputInputObject
       UserImageUpdateManyMutationInput: UserImageUpdateManyMutationInputInputObject
-      ProductCreateInput: ProductCreateInputInputObject
       ProductUpdateInput: ProductUpdateInputInputObject
       ProductUpdateManyMutationInput: ProductUpdateManyMutationInputInputObject
+      CartCreateInput: CartCreateInputInputObject
+      UserCreateOneWithoutCartItemsInput: UserCreateOneWithoutCartItemsInputInputObject
+      UserCreateWithoutCartItemsInput: UserCreateWithoutCartItemsInputInputObject
+      CartUpdateInput: CartUpdateInputInputObject
+      UserUpdateOneRequiredWithoutCartItemsInput: UserUpdateOneRequiredWithoutCartItemsInputInputObject
+      UserUpdateWithoutCartItemsDataInput: UserUpdateWithoutCartItemsDataInputInputObject
+      UserUpsertWithoutCartItemsInput: UserUpsertWithoutCartItemsInputInputObject
+      CartItemUpdateInput: CartItemUpdateInputInputObject
+      CartItemUpdateManyMutationInput: CartItemUpdateManyMutationInputInputObject
       BrandCreateInput: BrandCreateInputInputObject
       ProductCreateManyWithoutBrandInput: ProductCreateManyWithoutBrandInputInputObject
       ProductCreateWithoutBrandInput: ProductCreateWithoutBrandInputInputObject
@@ -378,6 +435,8 @@ export interface NexusPrismaTypes {
       ShopImageSubscriptionWhereInput: ShopImageSubscriptionWhereInputInputObject
       UserImageSubscriptionWhereInput: UserImageSubscriptionWhereInputInputObject
       ProductSubscriptionWhereInput: ProductSubscriptionWhereInputInputObject
+      CartSubscriptionWhereInput: CartSubscriptionWhereInputInputObject
+      CartItemSubscriptionWhereInput: CartItemSubscriptionWhereInputInputObject
       BrandSubscriptionWhereInput: BrandSubscriptionWhereInputInputObject
       TagSubscriptionWhereInput: TagSubscriptionWhereInputInputObject
       CategorySubscriptionWhereInput: CategorySubscriptionWhereInputInputObject
@@ -397,6 +456,8 @@ export interface NexusPrismaTypes {
     VariantOrderByInput: VariantOrderByInputValues,
     ProductReviewOrderByInput: ProductReviewOrderByInputValues,
     UserImageOrderByInput: UserImageOrderByInputValues,
+    CartItemOrderByInput: CartItemOrderByInputValues,
+    CartOrderByInput: CartOrderByInputValues,
     BrandOrderByInput: BrandOrderByInputValues,
     MutationType: MutationTypeValues,
   }
@@ -421,6 +482,12 @@ type QueryObject =
   | { name: 'product', args?: QueryProductArgs[] | false, alias?: string  } 
   | { name: 'products', args?: QueryProductsArgs[] | false, alias?: string  } 
   | { name: 'productsConnection', args?: QueryProductsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'cart', args?: QueryCartArgs[] | false, alias?: string  } 
+  | { name: 'carts', args?: QueryCartsArgs[] | false, alias?: string  } 
+  | { name: 'cartsConnection', args?: QueryCartsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'cartItem', args?: QueryCartItemArgs[] | false, alias?: string  } 
+  | { name: 'cartItems', args?: QueryCartItemsArgs[] | false, alias?: string  } 
+  | { name: 'cartItemsConnection', args?: QueryCartItemsConnectionArgs[] | false, alias?: string  } 
   | { name: 'brand', args?: QueryBrandArgs[] | false, alias?: string  } 
   | { name: 'brands', args?: QueryBrandsArgs[] | false, alias?: string  } 
   | { name: 'brandsConnection', args?: QueryBrandsConnectionArgs[] | false, alias?: string  } 
@@ -456,6 +523,12 @@ type QueryFields =
   | 'product'
   | 'products'
   | 'productsConnection'
+  | 'cart'
+  | 'carts'
+  | 'cartsConnection'
+  | 'cartItem'
+  | 'cartItems'
+  | 'cartItemsConnection'
   | 'brand'
   | 'brands'
   | 'brandsConnection'
@@ -559,6 +632,42 @@ type QueryProductsArgs =
   | 'first'
   | 'last'
 type QueryProductsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryCartArgs =
+  | 'where'
+type QueryCartsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryCartsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryCartItemArgs =
+  | 'where'
+type QueryCartItemsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryCartItemsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -872,6 +981,84 @@ export interface QueryFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ProductConnection> | prisma.ProductConnection
   }
+  cart: {
+    type: 'Cart'
+    args: Record<QueryCartArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: CartWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Cart | null> | prisma.Cart | null
+  }
+  carts: {
+    type: 'Cart'
+    args: Record<QueryCartsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: CartWhereInput | null, orderBy?: prisma.CartOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Cart[]> | prisma.Cart[]
+  }
+  cartsConnection: {
+    type: 'CartConnection'
+    args: Record<QueryCartsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: CartWhereInput | null, orderBy?: prisma.CartOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CartConnection> | prisma.CartConnection
+  }
+  cartItem: {
+    type: 'CartItem'
+    args: Record<QueryCartItemArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: CartItemWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CartItem | null> | prisma.CartItem | null
+  }
+  cartItems: {
+    type: 'CartItem'
+    args: Record<QueryCartItemsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: CartItemWhereInput | null, orderBy?: prisma.CartItemOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CartItem[]> | prisma.CartItem[]
+  }
+  cartItemsConnection: {
+    type: 'CartItemConnection'
+    args: Record<QueryCartItemsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: CartItemWhereInput | null, orderBy?: prisma.CartItemOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CartItemConnection> | prisma.CartItemConnection
+  }
   brand: {
     type: 'Brand'
     args: Record<QueryBrandArgs, core.NexusArgDef<string>>
@@ -1119,9 +1306,11 @@ type UserObject =
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'username', args?: [] | false, alias?: string  } 
   | { name: 'profilePic', args?: [] | false, alias?: string  } 
+  | { name: 'isAnonymous', args?: [] | false, alias?: string  } 
   | { name: 'shops', args?: UserShopsArgs[] | false, alias?: string  } 
   | { name: 'images', args?: UserImagesArgs[] | false, alias?: string  } 
   | { name: 'productReviews', args?: UserProductReviewsArgs[] | false, alias?: string  } 
+  | { name: 'cartItems', args?: [] | false, alias?: string  } 
 
 type UserFields =
   | 'id'
@@ -1130,9 +1319,11 @@ type UserFields =
   | 'name'
   | 'username'
   | 'profilePic'
+  | 'isAnonymous'
   | 'shops'
   | 'images'
   | 'productReviews'
+  | 'cartItems'
 
 
 type UserShopsArgs =
@@ -1175,7 +1366,7 @@ export interface UserFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: undefined
   }
   password: {
@@ -1183,7 +1374,7 @@ export interface UserFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: undefined
   }
   name: {
@@ -1191,7 +1382,7 @@ export interface UserFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: undefined
   }
   username: {
@@ -1199,7 +1390,7 @@ export interface UserFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: undefined
   }
   profilePic: {
@@ -1208,6 +1399,14 @@ export interface UserFieldDetails {
     description: string
     list: undefined
     nullable: true
+    resolve: undefined
+  }
+  isAnonymous: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
     resolve: undefined
   }
   shops: {
@@ -1248,6 +1447,19 @@ export interface UserFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ProductReview[]> | prisma.ProductReview[]
+  }
+  cartItems: {
+    type: 'Cart'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"User">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Cart | null> | prisma.Cart | null
   }
 }
   
@@ -2080,6 +2292,128 @@ export interface UserImageFieldDetails {
 }
   
 
+// Types for Cart
+
+type CartObject =
+  | CartFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'user', args?: [] | false, alias?: string  } 
+  | { name: 'items', args?: CartItemsArgs[] | false, alias?: string  } 
+
+type CartFields =
+  | 'id'
+  | 'user'
+  | 'items'
+
+
+type CartItemsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+  
+
+export interface CartFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  user: {
+    type: 'User'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Cart">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User> | prisma.User
+  }
+  items: {
+    type: 'CartItem'
+    args: Record<CartItemsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Cart">,
+      args: { where?: CartItemWhereInput | null, orderBy?: prisma.CartItemOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CartItem[]> | prisma.CartItem[]
+  }
+}
+  
+
+// Types for CartItem
+
+type CartItemObject =
+  | CartItemFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'product', args?: [] | false, alias?: string  } 
+  | { name: 'quantity', args?: [] | false, alias?: string  } 
+  | { name: 'variants', args?: [] | false, alias?: string  } 
+
+type CartItemFields =
+  | 'id'
+  | 'product'
+  | 'quantity'
+  | 'variants'
+
+
+
+  
+
+export interface CartItemFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  product: {
+    type: 'Product'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"CartItem">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Product> | prisma.Product
+  }
+  quantity: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  variants: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 // Types for UserConnection
 
 type UserConnectionObject =
@@ -2749,6 +3083,256 @@ type AggregateProductFields =
   
 
 export interface AggregateProductFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for CartConnection
+
+type CartConnectionObject =
+  | CartConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type CartConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface CartConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"CartConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'CartEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"CartConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CartEdge[]> | prisma.CartEdge[]
+  }
+  aggregate: {
+    type: 'AggregateCart'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"CartConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateCart> | prisma.AggregateCart
+  }
+}
+  
+
+// Types for CartEdge
+
+type CartEdgeObject =
+  | CartEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type CartEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface CartEdgeFieldDetails {
+  node: {
+    type: 'Cart'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"CartEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Cart> | prisma.Cart
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateCart
+
+type AggregateCartObject =
+  | AggregateCartFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateCartFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateCartFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for CartItemConnection
+
+type CartItemConnectionObject =
+  | CartItemConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type CartItemConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface CartItemConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"CartItemConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'CartItemEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"CartItemConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CartItemEdge[]> | prisma.CartItemEdge[]
+  }
+  aggregate: {
+    type: 'AggregateCartItem'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"CartItemConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateCartItem> | prisma.AggregateCartItem
+  }
+}
+  
+
+// Types for CartItemEdge
+
+type CartItemEdgeObject =
+  | CartItemEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type CartItemEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface CartItemEdgeFieldDetails {
+  node: {
+    type: 'CartItem'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"CartItemEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CartItem> | prisma.CartItem
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateCartItem
+
+type AggregateCartItemObject =
+  | AggregateCartItemFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateCartItemFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateCartItemFieldDetails {
   count: {
     type: 'Int'
     args: {}
@@ -3544,6 +4128,17 @@ type MutationObject =
   | { name: 'upsertProduct', args?: MutationUpsertProductArgs[] | false, alias?: string  } 
   | { name: 'deleteProduct', args?: MutationDeleteProductArgs[] | false, alias?: string  } 
   | { name: 'deleteManyProducts', args?: MutationDeleteManyProductsArgs[] | false, alias?: string  } 
+  | { name: 'createCart', args?: MutationCreateCartArgs[] | false, alias?: string  } 
+  | { name: 'updateCart', args?: MutationUpdateCartArgs[] | false, alias?: string  } 
+  | { name: 'upsertCart', args?: MutationUpsertCartArgs[] | false, alias?: string  } 
+  | { name: 'deleteCart', args?: MutationDeleteCartArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyCarts', args?: MutationDeleteManyCartsArgs[] | false, alias?: string  } 
+  | { name: 'createCartItem', args?: MutationCreateCartItemArgs[] | false, alias?: string  } 
+  | { name: 'updateCartItem', args?: MutationUpdateCartItemArgs[] | false, alias?: string  } 
+  | { name: 'updateManyCartItems', args?: MutationUpdateManyCartItemsArgs[] | false, alias?: string  } 
+  | { name: 'upsertCartItem', args?: MutationUpsertCartItemArgs[] | false, alias?: string  } 
+  | { name: 'deleteCartItem', args?: MutationDeleteCartItemArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyCartItems', args?: MutationDeleteManyCartItemsArgs[] | false, alias?: string  } 
   | { name: 'createBrand', args?: MutationCreateBrandArgs[] | false, alias?: string  } 
   | { name: 'updateBrand', args?: MutationUpdateBrandArgs[] | false, alias?: string  } 
   | { name: 'updateManyBrands', args?: MutationUpdateManyBrandsArgs[] | false, alias?: string  } 
@@ -3612,6 +4207,17 @@ type MutationFields =
   | 'upsertProduct'
   | 'deleteProduct'
   | 'deleteManyProducts'
+  | 'createCart'
+  | 'updateCart'
+  | 'upsertCart'
+  | 'deleteCart'
+  | 'deleteManyCarts'
+  | 'createCartItem'
+  | 'updateCartItem'
+  | 'updateManyCartItems'
+  | 'upsertCartItem'
+  | 'deleteCartItem'
+  | 'deleteManyCartItems'
   | 'createBrand'
   | 'updateBrand'
   | 'updateManyBrands'
@@ -3729,6 +4335,35 @@ type MutationUpsertProductArgs =
 type MutationDeleteProductArgs =
   | 'where'
 type MutationDeleteManyProductsArgs =
+  | 'where'
+type MutationCreateCartArgs =
+  | 'data'
+type MutationUpdateCartArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertCartArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteCartArgs =
+  | 'where'
+type MutationDeleteManyCartsArgs =
+  | 'where'
+type MutationCreateCartItemArgs =
+  | 'data'
+type MutationUpdateCartItemArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyCartItemsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertCartItemArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteCartItemArgs =
+  | 'where'
+type MutationDeleteManyCartItemsArgs =
   | 'where'
 type MutationCreateBrandArgs =
   | 'data'
@@ -4215,6 +4850,149 @@ export interface MutationFieldDetails {
     resolve: (
       root: core.RootValue<"Mutation">,
       args: { where?: ProductWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createCart: {
+    type: 'Cart'
+    args: Record<MutationCreateCartArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: CartCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Cart> | prisma.Cart
+  }
+  updateCart: {
+    type: 'Cart'
+    args: Record<MutationUpdateCartArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: CartUpdateInput, where: CartWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Cart | null> | prisma.Cart | null
+  }
+  upsertCart: {
+    type: 'Cart'
+    args: Record<MutationUpsertCartArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: CartWhereUniqueInput, create: CartCreateInput, update: CartUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Cart> | prisma.Cart
+  }
+  deleteCart: {
+    type: 'Cart'
+    args: Record<MutationDeleteCartArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: CartWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Cart | null> | prisma.Cart | null
+  }
+  deleteManyCarts: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyCartsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: CartWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createCartItem: {
+    type: 'CartItem'
+    args: Record<MutationCreateCartItemArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: CartItemCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CartItem> | prisma.CartItem
+  }
+  updateCartItem: {
+    type: 'CartItem'
+    args: Record<MutationUpdateCartItemArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: CartItemUpdateInput, where: CartItemWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CartItem | null> | prisma.CartItem | null
+  }
+  updateManyCartItems: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyCartItemsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: CartItemUpdateManyMutationInput, where?: CartItemWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertCartItem: {
+    type: 'CartItem'
+    args: Record<MutationUpsertCartItemArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: CartItemWhereUniqueInput, create: CartItemCreateInput, update: CartItemUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CartItem> | prisma.CartItem
+  }
+  deleteCartItem: {
+    type: 'CartItem'
+    args: Record<MutationDeleteCartItemArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: CartItemWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CartItem | null> | prisma.CartItem | null
+  }
+  deleteManyCartItems: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyCartItemsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: CartItemWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
@@ -4724,6 +5502,8 @@ type SubscriptionObject =
   | { name: 'shopImage', args?: SubscriptionShopImageArgs[] | false, alias?: string  } 
   | { name: 'userImage', args?: SubscriptionUserImageArgs[] | false, alias?: string  } 
   | { name: 'product', args?: SubscriptionProductArgs[] | false, alias?: string  } 
+  | { name: 'cart', args?: SubscriptionCartArgs[] | false, alias?: string  } 
+  | { name: 'cartItem', args?: SubscriptionCartItemArgs[] | false, alias?: string  } 
   | { name: 'brand', args?: SubscriptionBrandArgs[] | false, alias?: string  } 
   | { name: 'tag', args?: SubscriptionTagArgs[] | false, alias?: string  } 
   | { name: 'category', args?: SubscriptionCategoryArgs[] | false, alias?: string  } 
@@ -4737,6 +5517,8 @@ type SubscriptionFields =
   | 'shopImage'
   | 'userImage'
   | 'product'
+  | 'cart'
+  | 'cartItem'
   | 'brand'
   | 'tag'
   | 'category'
@@ -4754,6 +5536,10 @@ type SubscriptionShopImageArgs =
 type SubscriptionUserImageArgs =
   | 'where'
 type SubscriptionProductArgs =
+  | 'where'
+type SubscriptionCartArgs =
+  | 'where'
+type SubscriptionCartItemArgs =
   | 'where'
 type SubscriptionBrandArgs =
   | 'where'
@@ -4834,6 +5620,32 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ProductSubscriptionPayload | null> | prisma.ProductSubscriptionPayload | null
+  }
+  cart: {
+    type: 'CartSubscriptionPayload'
+    args: Record<SubscriptionCartArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: CartSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CartSubscriptionPayload | null> | prisma.CartSubscriptionPayload | null
+  }
+  cartItem: {
+    type: 'CartItemSubscriptionPayload'
+    args: Record<SubscriptionCartItemArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: CartItemSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CartItemSubscriptionPayload | null> | prisma.CartItemSubscriptionPayload | null
   }
   brand: {
     type: 'BrandSubscriptionPayload'
@@ -4996,6 +5808,7 @@ type UserPreviousValuesObject =
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'username', args?: [] | false, alias?: string  } 
   | { name: 'profilePic', args?: [] | false, alias?: string  } 
+  | { name: 'isAnonymous', args?: [] | false, alias?: string  } 
 
 type UserPreviousValuesFields =
   | 'id'
@@ -5004,6 +5817,7 @@ type UserPreviousValuesFields =
   | 'name'
   | 'username'
   | 'profilePic'
+  | 'isAnonymous'
 
 
 
@@ -5023,7 +5837,7 @@ export interface UserPreviousValuesFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: undefined
   }
   password: {
@@ -5031,7 +5845,7 @@ export interface UserPreviousValuesFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: undefined
   }
   name: {
@@ -5039,7 +5853,7 @@ export interface UserPreviousValuesFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: undefined
   }
   username: {
@@ -5047,7 +5861,7 @@ export interface UserPreviousValuesFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: undefined
   }
   profilePic: {
@@ -5056,6 +5870,14 @@ export interface UserPreviousValuesFieldDetails {
     description: string
     list: undefined
     nullable: true
+    resolve: undefined
+  }
+  isAnonymous: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
     resolve: undefined
   }
 }
@@ -5545,6 +6367,216 @@ export interface ProductPreviousValuesFieldDetails {
     args: {}
     description: string
     list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for CartSubscriptionPayload
+
+type CartSubscriptionPayloadObject =
+  | CartSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type CartSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface CartSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"CartSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Cart'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"CartSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Cart | null> | prisma.Cart | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'CartPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"CartSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CartPreviousValues | null> | prisma.CartPreviousValues | null
+  }
+}
+  
+
+// Types for CartPreviousValues
+
+type CartPreviousValuesObject =
+  | CartPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+
+type CartPreviousValuesFields =
+  | 'id'
+
+
+
+  
+
+export interface CartPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for CartItemSubscriptionPayload
+
+type CartItemSubscriptionPayloadObject =
+  | CartItemSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type CartItemSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface CartItemSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"CartItemSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'CartItem'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"CartItemSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CartItem | null> | prisma.CartItem | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'CartItemPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"CartItemSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CartItemPreviousValues | null> | prisma.CartItemPreviousValues | null
+  }
+}
+  
+
+// Types for CartItemPreviousValues
+
+type CartItemPreviousValuesObject =
+  | CartItemPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'quantity', args?: [] | false, alias?: string  } 
+  | { name: 'variants', args?: [] | false, alias?: string  } 
+
+type CartItemPreviousValuesFields =
+  | 'id'
+  | 'quantity'
+  | 'variants'
+
+
+
+  
+
+export interface CartItemPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  quantity: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  variants: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
     nullable: false
     resolve: undefined
   }
@@ -6495,6 +7527,8 @@ export interface UserWhereInput {
   profilePic_not_starts_with?: string | null
   profilePic_ends_with?: string | null
   profilePic_not_ends_with?: string | null
+  isAnonymous?: boolean | null
+  isAnonymous_not?: boolean | null
   shops_every?: ShopWhereInput | null
   shops_some?: ShopWhereInput | null
   shops_none?: ShopWhereInput | null
@@ -6504,6 +7538,7 @@ export interface UserWhereInput {
   productReviews_every?: ProductReviewWhereInput | null
   productReviews_some?: ProductReviewWhereInput | null
   productReviews_none?: ProductReviewWhereInput | null
+  cartItems?: CartWhereInput | null
   AND?: UserWhereInput[]
   OR?: UserWhereInput[]
   NOT?: UserWhereInput[]
@@ -6594,6 +7629,8 @@ export type UserWhereInputInputObject =
   | { name: 'profilePic_not_starts_with', alias?: string  } 
   | { name: 'profilePic_ends_with', alias?: string  } 
   | { name: 'profilePic_not_ends_with', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'isAnonymous_not', alias?: string  } 
   | { name: 'shops_every', alias?: string  } 
   | { name: 'shops_some', alias?: string  } 
   | { name: 'shops_none', alias?: string  } 
@@ -6603,6 +7640,7 @@ export type UserWhereInputInputObject =
   | { name: 'productReviews_every', alias?: string  } 
   | { name: 'productReviews_some', alias?: string  } 
   | { name: 'productReviews_none', alias?: string  } 
+  | { name: 'cartItems', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -7309,6 +8347,110 @@ export type VariantWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface CartWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  user?: UserWhereInput | null
+  items_every?: CartItemWhereInput | null
+  items_some?: CartItemWhereInput | null
+  items_none?: CartItemWhereInput | null
+  AND?: CartWhereInput[]
+  OR?: CartWhereInput[]
+  NOT?: CartWhereInput[]
+}
+export type CartWhereInputInputObject =
+  | Extract<keyof CartWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'user', alias?: string  } 
+  | { name: 'items_every', alias?: string  } 
+  | { name: 'items_some', alias?: string  } 
+  | { name: 'items_none', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface CartItemWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  product?: ProductWhereInput | null
+  quantity?: number | null
+  quantity_not?: number | null
+  quantity_in?: number[]
+  quantity_not_in?: number[]
+  quantity_lt?: number | null
+  quantity_lte?: number | null
+  quantity_gt?: number | null
+  quantity_gte?: number | null
+  AND?: CartItemWhereInput[]
+  OR?: CartItemWhereInput[]
+  NOT?: CartItemWhereInput[]
+}
+export type CartItemWhereInputInputObject =
+  | Extract<keyof CartItemWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'product', alias?: string  } 
+  | { name: 'quantity', alias?: string  } 
+  | { name: 'quantity_not', alias?: string  } 
+  | { name: 'quantity_in', alias?: string  } 
+  | { name: 'quantity_not_in', alias?: string  } 
+  | { name: 'quantity_lt', alias?: string  } 
+  | { name: 'quantity_lte', alias?: string  } 
+  | { name: 'quantity_gt', alias?: string  } 
+  | { name: 'quantity_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 export interface ShopImageWhereInput {
   id?: string | null
   id_not?: string | null
@@ -7408,6 +8550,20 @@ export type ProductWhereUniqueInputInputObject =
   | Extract<keyof ProductWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
   
+export interface CartWhereUniqueInput {
+  id?: string | null
+}
+export type CartWhereUniqueInputInputObject =
+  | Extract<keyof CartWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface CartItemWhereUniqueInput {
+  id?: string | null
+}
+export type CartItemWhereUniqueInputInputObject =
+  | Extract<keyof CartItemWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
 export interface BrandWhereUniqueInput {
   id?: string | null
   name?: string | null
@@ -7457,14 +8613,16 @@ export type ProductReviewWhereUniqueInputInputObject =
   | { name: 'id', alias?: string  } 
   
 export interface UserCreateInput {
-  email?: string
-  password?: string
-  name?: string
-  username?: string
+  email?: string | null
+  password?: string | null
+  name?: string | null
+  username?: string | null
   profilePic?: string | null
+  isAnonymous?: boolean | null
   shops?: ShopCreateManyWithoutOwnersInput | null
   images?: UserImageCreateManyWithoutUserInput | null
   productReviews?: ProductReviewCreateManyWithoutUserInput | null
+  cartItems?: CartCreateOneWithoutUserInput | null
 }
 export type UserCreateInputInputObject =
   | Extract<keyof UserCreateInput, string>
@@ -7473,9 +8631,11 @@ export type UserCreateInputInputObject =
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
   | { name: 'shops', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'productReviews', alias?: string  } 
+  | { name: 'cartItems', alias?: string  } 
   
 export interface ShopCreateManyWithoutOwnersInput {
   create?: ShopCreateWithoutOwnersInput[]
@@ -7670,13 +8830,15 @@ export type UserCreateOneWithoutProductReviewsInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface UserCreateWithoutProductReviewsInput {
-  email?: string
-  password?: string
-  name?: string
-  username?: string
+  email?: string | null
+  password?: string | null
+  name?: string | null
+  username?: string | null
   profilePic?: string | null
+  isAnonymous?: boolean | null
   shops?: ShopCreateManyWithoutOwnersInput | null
   images?: UserImageCreateManyWithoutUserInput | null
+  cartItems?: CartCreateOneWithoutUserInput | null
 }
 export type UserCreateWithoutProductReviewsInputInputObject =
   | Extract<keyof UserCreateWithoutProductReviewsInput, string>
@@ -7685,8 +8847,10 @@ export type UserCreateWithoutProductReviewsInputInputObject =
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
   | { name: 'shops', alias?: string  } 
   | { name: 'images', alias?: string  } 
+  | { name: 'cartItems', alias?: string  } 
   
 export interface UserImageCreateManyWithoutUserInput {
   create?: UserImageCreateWithoutUserInput[]
@@ -7703,6 +8867,134 @@ export interface UserImageCreateWithoutUserInput {
 export type UserImageCreateWithoutUserInputInputObject =
   | Extract<keyof UserImageCreateWithoutUserInput, string>
   | { name: 'imageUrl', alias?: string  } 
+  
+export interface CartCreateOneWithoutUserInput {
+  create?: CartCreateWithoutUserInput | null
+  connect?: CartWhereUniqueInput | null
+}
+export type CartCreateOneWithoutUserInputInputObject =
+  | Extract<keyof CartCreateOneWithoutUserInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface CartCreateWithoutUserInput {
+  items?: CartItemCreateManyInput | null
+}
+export type CartCreateWithoutUserInputInputObject =
+  | Extract<keyof CartCreateWithoutUserInput, string>
+  | { name: 'items', alias?: string  } 
+  
+export interface CartItemCreateManyInput {
+  create?: CartItemCreateInput[]
+  connect?: CartItemWhereUniqueInput[]
+}
+export type CartItemCreateManyInputInputObject =
+  | Extract<keyof CartItemCreateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface CartItemCreateInput {
+  product?: ProductCreateOneInput
+  quantity?: number
+  variants?: CartItemCreatevariantsInput | null
+}
+export type CartItemCreateInputInputObject =
+  | Extract<keyof CartItemCreateInput, string>
+  | { name: 'product', alias?: string  } 
+  | { name: 'quantity', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
+  
+export interface ProductCreateOneInput {
+  create?: ProductCreateInput | null
+  connect?: ProductWhereUniqueInput | null
+}
+export type ProductCreateOneInputInputObject =
+  | Extract<keyof ProductCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ProductCreateInput {
+  title?: string
+  description?: string
+  price?: string
+  categories?: CategoryCreateManyWithoutProductInput | null
+  brand?: BrandCreateOneWithoutProductsInput | null
+  tags?: TagCreateManyWithoutProductsInput | null
+  images?: ProductImageCreateManyWithoutProductInput | null
+  shop?: ShopCreateOneWithoutProductsInput
+  variants?: VariantCreateManyWithoutProductInput | null
+  reviews?: ProductReviewCreateManyWithoutProductInput | null
+}
+export type ProductCreateInputInputObject =
+  | Extract<keyof ProductCreateInput, string>
+  | { name: 'title', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'price', alias?: string  } 
+  | { name: 'categories', alias?: string  } 
+  | { name: 'brand', alias?: string  } 
+  | { name: 'tags', alias?: string  } 
+  | { name: 'images', alias?: string  } 
+  | { name: 'shop', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
+  | { name: 'reviews', alias?: string  } 
+  
+export interface ShopCreateOneWithoutProductsInput {
+  create?: ShopCreateWithoutProductsInput | null
+  connect?: ShopWhereUniqueInput | null
+}
+export type ShopCreateOneWithoutProductsInputInputObject =
+  | Extract<keyof ShopCreateOneWithoutProductsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ShopCreateWithoutProductsInput {
+  name?: string
+  description?: string
+  category?: string
+  live?: boolean | null
+  owners?: UserCreateManyWithoutShopsInput | null
+  images?: ShopImageCreateManyWithoutShopInput | null
+}
+export type ShopCreateWithoutProductsInputInputObject =
+  | Extract<keyof ShopCreateWithoutProductsInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'category', alias?: string  } 
+  | { name: 'live', alias?: string  } 
+  | { name: 'owners', alias?: string  } 
+  | { name: 'images', alias?: string  } 
+  
+export interface UserCreateManyWithoutShopsInput {
+  create?: UserCreateWithoutShopsInput[]
+  connect?: UserWhereUniqueInput[]
+}
+export type UserCreateManyWithoutShopsInputInputObject =
+  | Extract<keyof UserCreateManyWithoutShopsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserCreateWithoutShopsInput {
+  email?: string | null
+  password?: string | null
+  name?: string | null
+  username?: string | null
+  profilePic?: string | null
+  isAnonymous?: boolean | null
+  images?: UserImageCreateManyWithoutUserInput | null
+  productReviews?: ProductReviewCreateManyWithoutUserInput | null
+  cartItems?: CartCreateOneWithoutUserInput | null
+}
+export type UserCreateWithoutShopsInputInputObject =
+  | Extract<keyof UserCreateWithoutShopsInput, string>
+  | { name: 'email', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'profilePic', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'images', alias?: string  } 
+  | { name: 'productReviews', alias?: string  } 
+  | { name: 'cartItems', alias?: string  } 
   
 export interface ProductReviewCreateManyWithoutUserInput {
   create?: ProductReviewCreateWithoutUserInput[]
@@ -7756,59 +9048,12 @@ export type ProductCreateWithoutReviewsInputInputObject =
   | { name: 'shop', alias?: string  } 
   | { name: 'variants', alias?: string  } 
   
-export interface ShopCreateOneWithoutProductsInput {
-  create?: ShopCreateWithoutProductsInput | null
-  connect?: ShopWhereUniqueInput | null
+export interface CartItemCreatevariantsInput {
+  set?: string[]
 }
-export type ShopCreateOneWithoutProductsInputInputObject =
-  | Extract<keyof ShopCreateOneWithoutProductsInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface ShopCreateWithoutProductsInput {
-  name?: string
-  description?: string
-  category?: string
-  live?: boolean | null
-  owners?: UserCreateManyWithoutShopsInput | null
-  images?: ShopImageCreateManyWithoutShopInput | null
-}
-export type ShopCreateWithoutProductsInputInputObject =
-  | Extract<keyof ShopCreateWithoutProductsInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'category', alias?: string  } 
-  | { name: 'live', alias?: string  } 
-  | { name: 'owners', alias?: string  } 
-  | { name: 'images', alias?: string  } 
-  
-export interface UserCreateManyWithoutShopsInput {
-  create?: UserCreateWithoutShopsInput[]
-  connect?: UserWhereUniqueInput[]
-}
-export type UserCreateManyWithoutShopsInputInputObject =
-  | Extract<keyof UserCreateManyWithoutShopsInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface UserCreateWithoutShopsInput {
-  email?: string
-  password?: string
-  name?: string
-  username?: string
-  profilePic?: string | null
-  images?: UserImageCreateManyWithoutUserInput | null
-  productReviews?: ProductReviewCreateManyWithoutUserInput | null
-}
-export type UserCreateWithoutShopsInputInputObject =
-  | Extract<keyof UserCreateWithoutShopsInput, string>
-  | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'username', alias?: string  } 
-  | { name: 'profilePic', alias?: string  } 
-  | { name: 'images', alias?: string  } 
-  | { name: 'productReviews', alias?: string  } 
+export type CartItemCreatevariantsInputInputObject =
+  | Extract<keyof CartItemCreatevariantsInput, string>
+  | { name: 'set', alias?: string  } 
   
 export interface UserUpdateInput {
   email?: string | null
@@ -7816,9 +9061,11 @@ export interface UserUpdateInput {
   name?: string | null
   username?: string | null
   profilePic?: string | null
+  isAnonymous?: boolean | null
   shops?: ShopUpdateManyWithoutOwnersInput | null
   images?: UserImageUpdateManyWithoutUserInput | null
   productReviews?: ProductReviewUpdateManyWithoutUserInput | null
+  cartItems?: CartUpdateOneWithoutUserInput | null
 }
 export type UserUpdateInputInputObject =
   | Extract<keyof UserUpdateInput, string>
@@ -7827,9 +9074,11 @@ export type UserUpdateInputInputObject =
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
   | { name: 'shops', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'productReviews', alias?: string  } 
+  | { name: 'cartItems', alias?: string  } 
   
 export interface ShopUpdateManyWithoutOwnersInput {
   create?: ShopCreateWithoutOwnersInput[]
@@ -8706,8 +9955,10 @@ export interface UserUpdateWithoutProductReviewsDataInput {
   name?: string | null
   username?: string | null
   profilePic?: string | null
+  isAnonymous?: boolean | null
   shops?: ShopUpdateManyWithoutOwnersInput | null
   images?: UserImageUpdateManyWithoutUserInput | null
+  cartItems?: CartUpdateOneWithoutUserInput | null
 }
 export type UserUpdateWithoutProductReviewsDataInputInputObject =
   | Extract<keyof UserUpdateWithoutProductReviewsDataInput, string>
@@ -8716,8 +9967,10 @@ export type UserUpdateWithoutProductReviewsDataInputInputObject =
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
   | { name: 'shops', alias?: string  } 
   | { name: 'images', alias?: string  } 
+  | { name: 'cartItems', alias?: string  } 
   
 export interface UserImageUpdateManyWithoutUserInput {
   create?: UserImageCreateWithoutUserInput[]
@@ -8852,22 +10105,291 @@ export type UserImageUpdateManyDataInputInputObject =
   | Extract<keyof UserImageUpdateManyDataInput, string>
   | { name: 'imageUrl', alias?: string  } 
   
-export interface UserUpsertWithoutProductReviewsInput {
-  update?: UserUpdateWithoutProductReviewsDataInput
-  create?: UserCreateWithoutProductReviewsInput
+export interface CartUpdateOneWithoutUserInput {
+  create?: CartCreateWithoutUserInput | null
+  update?: CartUpdateWithoutUserDataInput | null
+  upsert?: CartUpsertWithoutUserInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: CartWhereUniqueInput | null
 }
-export type UserUpsertWithoutProductReviewsInputInputObject =
-  | Extract<keyof UserUpsertWithoutProductReviewsInput, string>
+export type CartUpdateOneWithoutUserInputInputObject =
+  | Extract<keyof CartUpdateOneWithoutUserInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface CartUpdateWithoutUserDataInput {
+  items?: CartItemUpdateManyInput | null
+}
+export type CartUpdateWithoutUserDataInputInputObject =
+  | Extract<keyof CartUpdateWithoutUserDataInput, string>
+  | { name: 'items', alias?: string  } 
+  
+export interface CartItemUpdateManyInput {
+  create?: CartItemCreateInput[]
+  update?: CartItemUpdateWithWhereUniqueNestedInput[]
+  upsert?: CartItemUpsertWithWhereUniqueNestedInput[]
+  delete?: CartItemWhereUniqueInput[]
+  connect?: CartItemWhereUniqueInput[]
+  set?: CartItemWhereUniqueInput[]
+  disconnect?: CartItemWhereUniqueInput[]
+  deleteMany?: CartItemScalarWhereInput[]
+  updateMany?: CartItemUpdateManyWithWhereNestedInput[]
+}
+export type CartItemUpdateManyInputInputObject =
+  | Extract<keyof CartItemUpdateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface CartItemUpdateWithWhereUniqueNestedInput {
+  where?: CartItemWhereUniqueInput
+  data?: CartItemUpdateDataInput
+}
+export type CartItemUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof CartItemUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface CartItemUpdateDataInput {
+  product?: ProductUpdateOneRequiredInput | null
+  quantity?: number | null
+  variants?: CartItemUpdatevariantsInput | null
+}
+export type CartItemUpdateDataInputInputObject =
+  | Extract<keyof CartItemUpdateDataInput, string>
+  | { name: 'product', alias?: string  } 
+  | { name: 'quantity', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
+  
+export interface ProductUpdateOneRequiredInput {
+  create?: ProductCreateInput | null
+  update?: ProductUpdateDataInput | null
+  upsert?: ProductUpsertNestedInput | null
+  connect?: ProductWhereUniqueInput | null
+}
+export type ProductUpdateOneRequiredInputInputObject =
+  | Extract<keyof ProductUpdateOneRequiredInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ProductUpdateDataInput {
+  title?: string | null
+  description?: string | null
+  price?: string | null
+  categories?: CategoryUpdateManyWithoutProductInput | null
+  brand?: BrandUpdateOneWithoutProductsInput | null
+  tags?: TagUpdateManyWithoutProductsInput | null
+  images?: ProductImageUpdateManyWithoutProductInput | null
+  shop?: ShopUpdateOneRequiredWithoutProductsInput | null
+  variants?: VariantUpdateManyWithoutProductInput | null
+  reviews?: ProductReviewUpdateManyWithoutProductInput | null
+}
+export type ProductUpdateDataInputInputObject =
+  | Extract<keyof ProductUpdateDataInput, string>
+  | { name: 'title', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'price', alias?: string  } 
+  | { name: 'categories', alias?: string  } 
+  | { name: 'brand', alias?: string  } 
+  | { name: 'tags', alias?: string  } 
+  | { name: 'images', alias?: string  } 
+  | { name: 'shop', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
+  | { name: 'reviews', alias?: string  } 
+  
+export interface ShopUpdateOneRequiredWithoutProductsInput {
+  create?: ShopCreateWithoutProductsInput | null
+  update?: ShopUpdateWithoutProductsDataInput | null
+  upsert?: ShopUpsertWithoutProductsInput | null
+  connect?: ShopWhereUniqueInput | null
+}
+export type ShopUpdateOneRequiredWithoutProductsInputInputObject =
+  | Extract<keyof ShopUpdateOneRequiredWithoutProductsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ShopUpdateWithoutProductsDataInput {
+  name?: string | null
+  description?: string | null
+  category?: string | null
+  live?: boolean | null
+  owners?: UserUpdateManyWithoutShopsInput | null
+  images?: ShopImageUpdateManyWithoutShopInput | null
+}
+export type ShopUpdateWithoutProductsDataInputInputObject =
+  | Extract<keyof ShopUpdateWithoutProductsDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'category', alias?: string  } 
+  | { name: 'live', alias?: string  } 
+  | { name: 'owners', alias?: string  } 
+  | { name: 'images', alias?: string  } 
+  
+export interface UserUpdateManyWithoutShopsInput {
+  create?: UserCreateWithoutShopsInput[]
+  delete?: UserWhereUniqueInput[]
+  connect?: UserWhereUniqueInput[]
+  set?: UserWhereUniqueInput[]
+  disconnect?: UserWhereUniqueInput[]
+  update?: UserUpdateWithWhereUniqueWithoutShopsInput[]
+  upsert?: UserUpsertWithWhereUniqueWithoutShopsInput[]
+  deleteMany?: UserScalarWhereInput[]
+  updateMany?: UserUpdateManyWithWhereNestedInput[]
+}
+export type UserUpdateManyWithoutShopsInputInputObject =
+  | Extract<keyof UserUpdateManyWithoutShopsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface UserUpdateWithWhereUniqueWithoutShopsInput {
+  where?: UserWhereUniqueInput
+  data?: UserUpdateWithoutShopsDataInput
+}
+export type UserUpdateWithWhereUniqueWithoutShopsInputInputObject =
+  | Extract<keyof UserUpdateWithWhereUniqueWithoutShopsInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface UserUpdateWithoutShopsDataInput {
+  email?: string | null
+  password?: string | null
+  name?: string | null
+  username?: string | null
+  profilePic?: string | null
+  isAnonymous?: boolean | null
+  images?: UserImageUpdateManyWithoutUserInput | null
+  productReviews?: ProductReviewUpdateManyWithoutUserInput | null
+  cartItems?: CartUpdateOneWithoutUserInput | null
+}
+export type UserUpdateWithoutShopsDataInputInputObject =
+  | Extract<keyof UserUpdateWithoutShopsDataInput, string>
+  | { name: 'email', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'profilePic', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'images', alias?: string  } 
+  | { name: 'productReviews', alias?: string  } 
+  | { name: 'cartItems', alias?: string  } 
+  
+export interface ProductReviewUpdateManyWithoutUserInput {
+  create?: ProductReviewCreateWithoutUserInput[]
+  delete?: ProductReviewWhereUniqueInput[]
+  connect?: ProductReviewWhereUniqueInput[]
+  set?: ProductReviewWhereUniqueInput[]
+  disconnect?: ProductReviewWhereUniqueInput[]
+  update?: ProductReviewUpdateWithWhereUniqueWithoutUserInput[]
+  upsert?: ProductReviewUpsertWithWhereUniqueWithoutUserInput[]
+  deleteMany?: ProductReviewScalarWhereInput[]
+  updateMany?: ProductReviewUpdateManyWithWhereNestedInput[]
+}
+export type ProductReviewUpdateManyWithoutUserInputInputObject =
+  | Extract<keyof ProductReviewUpdateManyWithoutUserInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface ProductReviewUpdateWithWhereUniqueWithoutUserInput {
+  where?: ProductReviewWhereUniqueInput
+  data?: ProductReviewUpdateWithoutUserDataInput
+}
+export type ProductReviewUpdateWithWhereUniqueWithoutUserInputInputObject =
+  | Extract<keyof ProductReviewUpdateWithWhereUniqueWithoutUserInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ProductReviewUpdateWithoutUserDataInput {
+  product?: ProductUpdateOneRequiredWithoutReviewsInput | null
+  rating?: number | null
+  review?: string | null
+}
+export type ProductReviewUpdateWithoutUserDataInputInputObject =
+  | Extract<keyof ProductReviewUpdateWithoutUserDataInput, string>
+  | { name: 'product', alias?: string  } 
+  | { name: 'rating', alias?: string  } 
+  | { name: 'review', alias?: string  } 
+  
+export interface ProductUpdateOneRequiredWithoutReviewsInput {
+  create?: ProductCreateWithoutReviewsInput | null
+  update?: ProductUpdateWithoutReviewsDataInput | null
+  upsert?: ProductUpsertWithoutReviewsInput | null
+  connect?: ProductWhereUniqueInput | null
+}
+export type ProductUpdateOneRequiredWithoutReviewsInputInputObject =
+  | Extract<keyof ProductUpdateOneRequiredWithoutReviewsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ProductUpdateWithoutReviewsDataInput {
+  title?: string | null
+  description?: string | null
+  price?: string | null
+  categories?: CategoryUpdateManyWithoutProductInput | null
+  brand?: BrandUpdateOneWithoutProductsInput | null
+  tags?: TagUpdateManyWithoutProductsInput | null
+  images?: ProductImageUpdateManyWithoutProductInput | null
+  shop?: ShopUpdateOneRequiredWithoutProductsInput | null
+  variants?: VariantUpdateManyWithoutProductInput | null
+}
+export type ProductUpdateWithoutReviewsDataInputInputObject =
+  | Extract<keyof ProductUpdateWithoutReviewsDataInput, string>
+  | { name: 'title', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'price', alias?: string  } 
+  | { name: 'categories', alias?: string  } 
+  | { name: 'brand', alias?: string  } 
+  | { name: 'tags', alias?: string  } 
+  | { name: 'images', alias?: string  } 
+  | { name: 'shop', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
+  
+export interface ProductUpsertWithoutReviewsInput {
+  update?: ProductUpdateWithoutReviewsDataInput
+  create?: ProductCreateWithoutReviewsInput
+}
+export type ProductUpsertWithoutReviewsInputInputObject =
+  | Extract<keyof ProductUpsertWithoutReviewsInput, string>
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface ProductReviewUpsertWithWhereUniqueWithoutProductInput {
+export interface ProductReviewUpsertWithWhereUniqueWithoutUserInput {
   where?: ProductReviewWhereUniqueInput
-  update?: ProductReviewUpdateWithoutProductDataInput
-  create?: ProductReviewCreateWithoutProductInput
+  update?: ProductReviewUpdateWithoutUserDataInput
+  create?: ProductReviewCreateWithoutUserInput
 }
-export type ProductReviewUpsertWithWhereUniqueWithoutProductInputInputObject =
-  | Extract<keyof ProductReviewUpsertWithWhereUniqueWithoutProductInput, string>
+export type ProductReviewUpsertWithWhereUniqueWithoutUserInputInputObject =
+  | Extract<keyof ProductReviewUpsertWithWhereUniqueWithoutUserInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
@@ -9004,6 +10526,364 @@ export type ProductReviewUpdateManyDataInputInputObject =
   | Extract<keyof ProductReviewUpdateManyDataInput, string>
   | { name: 'rating', alias?: string  } 
   | { name: 'review', alias?: string  } 
+  
+export interface UserUpsertWithWhereUniqueWithoutShopsInput {
+  where?: UserWhereUniqueInput
+  update?: UserUpdateWithoutShopsDataInput
+  create?: UserCreateWithoutShopsInput
+}
+export type UserUpsertWithWhereUniqueWithoutShopsInputInputObject =
+  | Extract<keyof UserUpsertWithWhereUniqueWithoutShopsInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface UserScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  email?: string | null
+  email_not?: string | null
+  email_in?: string[]
+  email_not_in?: string[]
+  email_lt?: string | null
+  email_lte?: string | null
+  email_gt?: string | null
+  email_gte?: string | null
+  email_contains?: string | null
+  email_not_contains?: string | null
+  email_starts_with?: string | null
+  email_not_starts_with?: string | null
+  email_ends_with?: string | null
+  email_not_ends_with?: string | null
+  password?: string | null
+  password_not?: string | null
+  password_in?: string[]
+  password_not_in?: string[]
+  password_lt?: string | null
+  password_lte?: string | null
+  password_gt?: string | null
+  password_gte?: string | null
+  password_contains?: string | null
+  password_not_contains?: string | null
+  password_starts_with?: string | null
+  password_not_starts_with?: string | null
+  password_ends_with?: string | null
+  password_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  username?: string | null
+  username_not?: string | null
+  username_in?: string[]
+  username_not_in?: string[]
+  username_lt?: string | null
+  username_lte?: string | null
+  username_gt?: string | null
+  username_gte?: string | null
+  username_contains?: string | null
+  username_not_contains?: string | null
+  username_starts_with?: string | null
+  username_not_starts_with?: string | null
+  username_ends_with?: string | null
+  username_not_ends_with?: string | null
+  profilePic?: string | null
+  profilePic_not?: string | null
+  profilePic_in?: string[]
+  profilePic_not_in?: string[]
+  profilePic_lt?: string | null
+  profilePic_lte?: string | null
+  profilePic_gt?: string | null
+  profilePic_gte?: string | null
+  profilePic_contains?: string | null
+  profilePic_not_contains?: string | null
+  profilePic_starts_with?: string | null
+  profilePic_not_starts_with?: string | null
+  profilePic_ends_with?: string | null
+  profilePic_not_ends_with?: string | null
+  isAnonymous?: boolean | null
+  isAnonymous_not?: boolean | null
+  AND?: UserScalarWhereInput[]
+  OR?: UserScalarWhereInput[]
+  NOT?: UserScalarWhereInput[]
+}
+export type UserScalarWhereInputInputObject =
+  | Extract<keyof UserScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'email_not', alias?: string  } 
+  | { name: 'email_in', alias?: string  } 
+  | { name: 'email_not_in', alias?: string  } 
+  | { name: 'email_lt', alias?: string  } 
+  | { name: 'email_lte', alias?: string  } 
+  | { name: 'email_gt', alias?: string  } 
+  | { name: 'email_gte', alias?: string  } 
+  | { name: 'email_contains', alias?: string  } 
+  | { name: 'email_not_contains', alias?: string  } 
+  | { name: 'email_starts_with', alias?: string  } 
+  | { name: 'email_not_starts_with', alias?: string  } 
+  | { name: 'email_ends_with', alias?: string  } 
+  | { name: 'email_not_ends_with', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'password_not', alias?: string  } 
+  | { name: 'password_in', alias?: string  } 
+  | { name: 'password_not_in', alias?: string  } 
+  | { name: 'password_lt', alias?: string  } 
+  | { name: 'password_lte', alias?: string  } 
+  | { name: 'password_gt', alias?: string  } 
+  | { name: 'password_gte', alias?: string  } 
+  | { name: 'password_contains', alias?: string  } 
+  | { name: 'password_not_contains', alias?: string  } 
+  | { name: 'password_starts_with', alias?: string  } 
+  | { name: 'password_not_starts_with', alias?: string  } 
+  | { name: 'password_ends_with', alias?: string  } 
+  | { name: 'password_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'username_not', alias?: string  } 
+  | { name: 'username_in', alias?: string  } 
+  | { name: 'username_not_in', alias?: string  } 
+  | { name: 'username_lt', alias?: string  } 
+  | { name: 'username_lte', alias?: string  } 
+  | { name: 'username_gt', alias?: string  } 
+  | { name: 'username_gte', alias?: string  } 
+  | { name: 'username_contains', alias?: string  } 
+  | { name: 'username_not_contains', alias?: string  } 
+  | { name: 'username_starts_with', alias?: string  } 
+  | { name: 'username_not_starts_with', alias?: string  } 
+  | { name: 'username_ends_with', alias?: string  } 
+  | { name: 'username_not_ends_with', alias?: string  } 
+  | { name: 'profilePic', alias?: string  } 
+  | { name: 'profilePic_not', alias?: string  } 
+  | { name: 'profilePic_in', alias?: string  } 
+  | { name: 'profilePic_not_in', alias?: string  } 
+  | { name: 'profilePic_lt', alias?: string  } 
+  | { name: 'profilePic_lte', alias?: string  } 
+  | { name: 'profilePic_gt', alias?: string  } 
+  | { name: 'profilePic_gte', alias?: string  } 
+  | { name: 'profilePic_contains', alias?: string  } 
+  | { name: 'profilePic_not_contains', alias?: string  } 
+  | { name: 'profilePic_starts_with', alias?: string  } 
+  | { name: 'profilePic_not_starts_with', alias?: string  } 
+  | { name: 'profilePic_ends_with', alias?: string  } 
+  | { name: 'profilePic_not_ends_with', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'isAnonymous_not', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface UserUpdateManyWithWhereNestedInput {
+  where?: UserScalarWhereInput
+  data?: UserUpdateManyDataInput
+}
+export type UserUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof UserUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface UserUpdateManyDataInput {
+  email?: string | null
+  password?: string | null
+  name?: string | null
+  username?: string | null
+  profilePic?: string | null
+  isAnonymous?: boolean | null
+}
+export type UserUpdateManyDataInputInputObject =
+  | Extract<keyof UserUpdateManyDataInput, string>
+  | { name: 'email', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'profilePic', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
+  
+export interface ShopUpsertWithoutProductsInput {
+  update?: ShopUpdateWithoutProductsDataInput
+  create?: ShopCreateWithoutProductsInput
+}
+export type ShopUpsertWithoutProductsInputInputObject =
+  | Extract<keyof ShopUpsertWithoutProductsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ProductUpsertNestedInput {
+  update?: ProductUpdateDataInput
+  create?: ProductCreateInput
+}
+export type ProductUpsertNestedInputInputObject =
+  | Extract<keyof ProductUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface CartItemUpdatevariantsInput {
+  set?: string[]
+}
+export type CartItemUpdatevariantsInputInputObject =
+  | Extract<keyof CartItemUpdatevariantsInput, string>
+  | { name: 'set', alias?: string  } 
+  
+export interface CartItemUpsertWithWhereUniqueNestedInput {
+  where?: CartItemWhereUniqueInput
+  update?: CartItemUpdateDataInput
+  create?: CartItemCreateInput
+}
+export type CartItemUpsertWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof CartItemUpsertWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface CartItemScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  quantity?: number | null
+  quantity_not?: number | null
+  quantity_in?: number[]
+  quantity_not_in?: number[]
+  quantity_lt?: number | null
+  quantity_lte?: number | null
+  quantity_gt?: number | null
+  quantity_gte?: number | null
+  AND?: CartItemScalarWhereInput[]
+  OR?: CartItemScalarWhereInput[]
+  NOT?: CartItemScalarWhereInput[]
+}
+export type CartItemScalarWhereInputInputObject =
+  | Extract<keyof CartItemScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'quantity', alias?: string  } 
+  | { name: 'quantity_not', alias?: string  } 
+  | { name: 'quantity_in', alias?: string  } 
+  | { name: 'quantity_not_in', alias?: string  } 
+  | { name: 'quantity_lt', alias?: string  } 
+  | { name: 'quantity_lte', alias?: string  } 
+  | { name: 'quantity_gt', alias?: string  } 
+  | { name: 'quantity_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface CartItemUpdateManyWithWhereNestedInput {
+  where?: CartItemScalarWhereInput
+  data?: CartItemUpdateManyDataInput
+}
+export type CartItemUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof CartItemUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface CartItemUpdateManyDataInput {
+  quantity?: number | null
+  variants?: CartItemUpdatevariantsInput | null
+}
+export type CartItemUpdateManyDataInputInputObject =
+  | Extract<keyof CartItemUpdateManyDataInput, string>
+  | { name: 'quantity', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
+  
+export interface CartUpsertWithoutUserInput {
+  update?: CartUpdateWithoutUserDataInput
+  create?: CartCreateWithoutUserInput
+}
+export type CartUpsertWithoutUserInputInputObject =
+  | Extract<keyof CartUpsertWithoutUserInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface UserUpsertWithoutProductReviewsInput {
+  update?: UserUpdateWithoutProductReviewsDataInput
+  create?: UserCreateWithoutProductReviewsInput
+}
+export type UserUpsertWithoutProductReviewsInputInputObject =
+  | Extract<keyof UserUpsertWithoutProductReviewsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ProductReviewUpsertWithWhereUniqueWithoutProductInput {
+  where?: ProductReviewWhereUniqueInput
+  update?: ProductReviewUpdateWithoutProductDataInput
+  create?: ProductReviewCreateWithoutProductInput
+}
+export type ProductReviewUpsertWithWhereUniqueWithoutProductInputInputObject =
+  | Extract<keyof ProductReviewUpsertWithWhereUniqueWithoutProductInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
   
 export interface ProductUpsertWithWhereUniqueWithoutShopInput {
   where?: ProductWhereUniqueInput
@@ -9351,415 +11231,13 @@ export type ShopUpdateManyDataInputInputObject =
   | { name: 'category', alias?: string  } 
   | { name: 'live', alias?: string  } 
   
-export interface ProductReviewUpdateManyWithoutUserInput {
-  create?: ProductReviewCreateWithoutUserInput[]
-  delete?: ProductReviewWhereUniqueInput[]
-  connect?: ProductReviewWhereUniqueInput[]
-  set?: ProductReviewWhereUniqueInput[]
-  disconnect?: ProductReviewWhereUniqueInput[]
-  update?: ProductReviewUpdateWithWhereUniqueWithoutUserInput[]
-  upsert?: ProductReviewUpsertWithWhereUniqueWithoutUserInput[]
-  deleteMany?: ProductReviewScalarWhereInput[]
-  updateMany?: ProductReviewUpdateManyWithWhereNestedInput[]
-}
-export type ProductReviewUpdateManyWithoutUserInputInputObject =
-  | Extract<keyof ProductReviewUpdateManyWithoutUserInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface ProductReviewUpdateWithWhereUniqueWithoutUserInput {
-  where?: ProductReviewWhereUniqueInput
-  data?: ProductReviewUpdateWithoutUserDataInput
-}
-export type ProductReviewUpdateWithWhereUniqueWithoutUserInputInputObject =
-  | Extract<keyof ProductReviewUpdateWithWhereUniqueWithoutUserInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface ProductReviewUpdateWithoutUserDataInput {
-  product?: ProductUpdateOneRequiredWithoutReviewsInput | null
-  rating?: number | null
-  review?: string | null
-}
-export type ProductReviewUpdateWithoutUserDataInputInputObject =
-  | Extract<keyof ProductReviewUpdateWithoutUserDataInput, string>
-  | { name: 'product', alias?: string  } 
-  | { name: 'rating', alias?: string  } 
-  | { name: 'review', alias?: string  } 
-  
-export interface ProductUpdateOneRequiredWithoutReviewsInput {
-  create?: ProductCreateWithoutReviewsInput | null
-  update?: ProductUpdateWithoutReviewsDataInput | null
-  upsert?: ProductUpsertWithoutReviewsInput | null
-  connect?: ProductWhereUniqueInput | null
-}
-export type ProductUpdateOneRequiredWithoutReviewsInputInputObject =
-  | Extract<keyof ProductUpdateOneRequiredWithoutReviewsInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface ProductUpdateWithoutReviewsDataInput {
-  title?: string | null
-  description?: string | null
-  price?: string | null
-  categories?: CategoryUpdateManyWithoutProductInput | null
-  brand?: BrandUpdateOneWithoutProductsInput | null
-  tags?: TagUpdateManyWithoutProductsInput | null
-  images?: ProductImageUpdateManyWithoutProductInput | null
-  shop?: ShopUpdateOneRequiredWithoutProductsInput | null
-  variants?: VariantUpdateManyWithoutProductInput | null
-}
-export type ProductUpdateWithoutReviewsDataInputInputObject =
-  | Extract<keyof ProductUpdateWithoutReviewsDataInput, string>
-  | { name: 'title', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'price', alias?: string  } 
-  | { name: 'categories', alias?: string  } 
-  | { name: 'brand', alias?: string  } 
-  | { name: 'tags', alias?: string  } 
-  | { name: 'images', alias?: string  } 
-  | { name: 'shop', alias?: string  } 
-  | { name: 'variants', alias?: string  } 
-  
-export interface ShopUpdateOneRequiredWithoutProductsInput {
-  create?: ShopCreateWithoutProductsInput | null
-  update?: ShopUpdateWithoutProductsDataInput | null
-  upsert?: ShopUpsertWithoutProductsInput | null
-  connect?: ShopWhereUniqueInput | null
-}
-export type ShopUpdateOneRequiredWithoutProductsInputInputObject =
-  | Extract<keyof ShopUpdateOneRequiredWithoutProductsInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface ShopUpdateWithoutProductsDataInput {
-  name?: string | null
-  description?: string | null
-  category?: string | null
-  live?: boolean | null
-  owners?: UserUpdateManyWithoutShopsInput | null
-  images?: ShopImageUpdateManyWithoutShopInput | null
-}
-export type ShopUpdateWithoutProductsDataInputInputObject =
-  | Extract<keyof ShopUpdateWithoutProductsDataInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'category', alias?: string  } 
-  | { name: 'live', alias?: string  } 
-  | { name: 'owners', alias?: string  } 
-  | { name: 'images', alias?: string  } 
-  
-export interface UserUpdateManyWithoutShopsInput {
-  create?: UserCreateWithoutShopsInput[]
-  delete?: UserWhereUniqueInput[]
-  connect?: UserWhereUniqueInput[]
-  set?: UserWhereUniqueInput[]
-  disconnect?: UserWhereUniqueInput[]
-  update?: UserUpdateWithWhereUniqueWithoutShopsInput[]
-  upsert?: UserUpsertWithWhereUniqueWithoutShopsInput[]
-  deleteMany?: UserScalarWhereInput[]
-  updateMany?: UserUpdateManyWithWhereNestedInput[]
-}
-export type UserUpdateManyWithoutShopsInputInputObject =
-  | Extract<keyof UserUpdateManyWithoutShopsInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface UserUpdateWithWhereUniqueWithoutShopsInput {
-  where?: UserWhereUniqueInput
-  data?: UserUpdateWithoutShopsDataInput
-}
-export type UserUpdateWithWhereUniqueWithoutShopsInputInputObject =
-  | Extract<keyof UserUpdateWithWhereUniqueWithoutShopsInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface UserUpdateWithoutShopsDataInput {
-  email?: string | null
-  password?: string | null
-  name?: string | null
-  username?: string | null
-  profilePic?: string | null
-  images?: UserImageUpdateManyWithoutUserInput | null
-  productReviews?: ProductReviewUpdateManyWithoutUserInput | null
-}
-export type UserUpdateWithoutShopsDataInputInputObject =
-  | Extract<keyof UserUpdateWithoutShopsDataInput, string>
-  | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'username', alias?: string  } 
-  | { name: 'profilePic', alias?: string  } 
-  | { name: 'images', alias?: string  } 
-  | { name: 'productReviews', alias?: string  } 
-  
-export interface UserUpsertWithWhereUniqueWithoutShopsInput {
-  where?: UserWhereUniqueInput
-  update?: UserUpdateWithoutShopsDataInput
-  create?: UserCreateWithoutShopsInput
-}
-export type UserUpsertWithWhereUniqueWithoutShopsInputInputObject =
-  | Extract<keyof UserUpsertWithWhereUniqueWithoutShopsInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface UserScalarWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  email?: string | null
-  email_not?: string | null
-  email_in?: string[]
-  email_not_in?: string[]
-  email_lt?: string | null
-  email_lte?: string | null
-  email_gt?: string | null
-  email_gte?: string | null
-  email_contains?: string | null
-  email_not_contains?: string | null
-  email_starts_with?: string | null
-  email_not_starts_with?: string | null
-  email_ends_with?: string | null
-  email_not_ends_with?: string | null
-  password?: string | null
-  password_not?: string | null
-  password_in?: string[]
-  password_not_in?: string[]
-  password_lt?: string | null
-  password_lte?: string | null
-  password_gt?: string | null
-  password_gte?: string | null
-  password_contains?: string | null
-  password_not_contains?: string | null
-  password_starts_with?: string | null
-  password_not_starts_with?: string | null
-  password_ends_with?: string | null
-  password_not_ends_with?: string | null
-  name?: string | null
-  name_not?: string | null
-  name_in?: string[]
-  name_not_in?: string[]
-  name_lt?: string | null
-  name_lte?: string | null
-  name_gt?: string | null
-  name_gte?: string | null
-  name_contains?: string | null
-  name_not_contains?: string | null
-  name_starts_with?: string | null
-  name_not_starts_with?: string | null
-  name_ends_with?: string | null
-  name_not_ends_with?: string | null
-  username?: string | null
-  username_not?: string | null
-  username_in?: string[]
-  username_not_in?: string[]
-  username_lt?: string | null
-  username_lte?: string | null
-  username_gt?: string | null
-  username_gte?: string | null
-  username_contains?: string | null
-  username_not_contains?: string | null
-  username_starts_with?: string | null
-  username_not_starts_with?: string | null
-  username_ends_with?: string | null
-  username_not_ends_with?: string | null
-  profilePic?: string | null
-  profilePic_not?: string | null
-  profilePic_in?: string[]
-  profilePic_not_in?: string[]
-  profilePic_lt?: string | null
-  profilePic_lte?: string | null
-  profilePic_gt?: string | null
-  profilePic_gte?: string | null
-  profilePic_contains?: string | null
-  profilePic_not_contains?: string | null
-  profilePic_starts_with?: string | null
-  profilePic_not_starts_with?: string | null
-  profilePic_ends_with?: string | null
-  profilePic_not_ends_with?: string | null
-  AND?: UserScalarWhereInput[]
-  OR?: UserScalarWhereInput[]
-  NOT?: UserScalarWhereInput[]
-}
-export type UserScalarWhereInputInputObject =
-  | Extract<keyof UserScalarWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'email_not', alias?: string  } 
-  | { name: 'email_in', alias?: string  } 
-  | { name: 'email_not_in', alias?: string  } 
-  | { name: 'email_lt', alias?: string  } 
-  | { name: 'email_lte', alias?: string  } 
-  | { name: 'email_gt', alias?: string  } 
-  | { name: 'email_gte', alias?: string  } 
-  | { name: 'email_contains', alias?: string  } 
-  | { name: 'email_not_contains', alias?: string  } 
-  | { name: 'email_starts_with', alias?: string  } 
-  | { name: 'email_not_starts_with', alias?: string  } 
-  | { name: 'email_ends_with', alias?: string  } 
-  | { name: 'email_not_ends_with', alias?: string  } 
-  | { name: 'password', alias?: string  } 
-  | { name: 'password_not', alias?: string  } 
-  | { name: 'password_in', alias?: string  } 
-  | { name: 'password_not_in', alias?: string  } 
-  | { name: 'password_lt', alias?: string  } 
-  | { name: 'password_lte', alias?: string  } 
-  | { name: 'password_gt', alias?: string  } 
-  | { name: 'password_gte', alias?: string  } 
-  | { name: 'password_contains', alias?: string  } 
-  | { name: 'password_not_contains', alias?: string  } 
-  | { name: 'password_starts_with', alias?: string  } 
-  | { name: 'password_not_starts_with', alias?: string  } 
-  | { name: 'password_ends_with', alias?: string  } 
-  | { name: 'password_not_ends_with', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'name_not', alias?: string  } 
-  | { name: 'name_in', alias?: string  } 
-  | { name: 'name_not_in', alias?: string  } 
-  | { name: 'name_lt', alias?: string  } 
-  | { name: 'name_lte', alias?: string  } 
-  | { name: 'name_gt', alias?: string  } 
-  | { name: 'name_gte', alias?: string  } 
-  | { name: 'name_contains', alias?: string  } 
-  | { name: 'name_not_contains', alias?: string  } 
-  | { name: 'name_starts_with', alias?: string  } 
-  | { name: 'name_not_starts_with', alias?: string  } 
-  | { name: 'name_ends_with', alias?: string  } 
-  | { name: 'name_not_ends_with', alias?: string  } 
-  | { name: 'username', alias?: string  } 
-  | { name: 'username_not', alias?: string  } 
-  | { name: 'username_in', alias?: string  } 
-  | { name: 'username_not_in', alias?: string  } 
-  | { name: 'username_lt', alias?: string  } 
-  | { name: 'username_lte', alias?: string  } 
-  | { name: 'username_gt', alias?: string  } 
-  | { name: 'username_gte', alias?: string  } 
-  | { name: 'username_contains', alias?: string  } 
-  | { name: 'username_not_contains', alias?: string  } 
-  | { name: 'username_starts_with', alias?: string  } 
-  | { name: 'username_not_starts_with', alias?: string  } 
-  | { name: 'username_ends_with', alias?: string  } 
-  | { name: 'username_not_ends_with', alias?: string  } 
-  | { name: 'profilePic', alias?: string  } 
-  | { name: 'profilePic_not', alias?: string  } 
-  | { name: 'profilePic_in', alias?: string  } 
-  | { name: 'profilePic_not_in', alias?: string  } 
-  | { name: 'profilePic_lt', alias?: string  } 
-  | { name: 'profilePic_lte', alias?: string  } 
-  | { name: 'profilePic_gt', alias?: string  } 
-  | { name: 'profilePic_gte', alias?: string  } 
-  | { name: 'profilePic_contains', alias?: string  } 
-  | { name: 'profilePic_not_contains', alias?: string  } 
-  | { name: 'profilePic_starts_with', alias?: string  } 
-  | { name: 'profilePic_not_starts_with', alias?: string  } 
-  | { name: 'profilePic_ends_with', alias?: string  } 
-  | { name: 'profilePic_not_ends_with', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface UserUpdateManyWithWhereNestedInput {
-  where?: UserScalarWhereInput
-  data?: UserUpdateManyDataInput
-}
-export type UserUpdateManyWithWhereNestedInputInputObject =
-  | Extract<keyof UserUpdateManyWithWhereNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface UserUpdateManyDataInput {
-  email?: string | null
-  password?: string | null
-  name?: string | null
-  username?: string | null
-  profilePic?: string | null
-}
-export type UserUpdateManyDataInputInputObject =
-  | Extract<keyof UserUpdateManyDataInput, string>
-  | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'username', alias?: string  } 
-  | { name: 'profilePic', alias?: string  } 
-  
-export interface ShopUpsertWithoutProductsInput {
-  update?: ShopUpdateWithoutProductsDataInput
-  create?: ShopCreateWithoutProductsInput
-}
-export type ShopUpsertWithoutProductsInputInputObject =
-  | Extract<keyof ShopUpsertWithoutProductsInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface ProductUpsertWithoutReviewsInput {
-  update?: ProductUpdateWithoutReviewsDataInput
-  create?: ProductCreateWithoutReviewsInput
-}
-export type ProductUpsertWithoutReviewsInputInputObject =
-  | Extract<keyof ProductUpsertWithoutReviewsInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface ProductReviewUpsertWithWhereUniqueWithoutUserInput {
-  where?: ProductReviewWhereUniqueInput
-  update?: ProductReviewUpdateWithoutUserDataInput
-  create?: ProductReviewCreateWithoutUserInput
-}
-export type ProductReviewUpsertWithWhereUniqueWithoutUserInputInputObject =
-  | Extract<keyof ProductReviewUpsertWithWhereUniqueWithoutUserInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
 export interface UserUpdateManyMutationInput {
   email?: string | null
   password?: string | null
   name?: string | null
   username?: string | null
   profilePic?: string | null
+  isAnonymous?: boolean | null
 }
 export type UserUpdateManyMutationInputInputObject =
   | Extract<keyof UserUpdateManyMutationInput, string>
@@ -9768,6 +11246,7 @@ export type UserUpdateManyMutationInputInputObject =
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
   
 export interface ShopCreateInput {
   name?: string
@@ -9933,13 +11412,15 @@ export type UserCreateOneWithoutImagesInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface UserCreateWithoutImagesInput {
-  email?: string
-  password?: string
-  name?: string
-  username?: string
+  email?: string | null
+  password?: string | null
+  name?: string | null
+  username?: string | null
   profilePic?: string | null
+  isAnonymous?: boolean | null
   shops?: ShopCreateManyWithoutOwnersInput | null
   productReviews?: ProductReviewCreateManyWithoutUserInput | null
+  cartItems?: CartCreateOneWithoutUserInput | null
 }
 export type UserCreateWithoutImagesInputInputObject =
   | Extract<keyof UserCreateWithoutImagesInput, string>
@@ -9948,8 +11429,10 @@ export type UserCreateWithoutImagesInputInputObject =
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
   | { name: 'shops', alias?: string  } 
   | { name: 'productReviews', alias?: string  } 
+  | { name: 'cartItems', alias?: string  } 
   
 export interface UserImageUpdateInput {
   imageUrl?: string | null
@@ -9983,8 +11466,10 @@ export interface UserUpdateWithoutImagesDataInput {
   name?: string | null
   username?: string | null
   profilePic?: string | null
+  isAnonymous?: boolean | null
   shops?: ShopUpdateManyWithoutOwnersInput | null
   productReviews?: ProductReviewUpdateManyWithoutUserInput | null
+  cartItems?: CartUpdateOneWithoutUserInput | null
 }
 export type UserUpdateWithoutImagesDataInputInputObject =
   | Extract<keyof UserUpdateWithoutImagesDataInput, string>
@@ -9993,8 +11478,10 @@ export type UserUpdateWithoutImagesDataInputInputObject =
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
   | { name: 'shops', alias?: string  } 
   | { name: 'productReviews', alias?: string  } 
+  | { name: 'cartItems', alias?: string  } 
   
 export interface UserUpsertWithoutImagesInput {
   update?: UserUpdateWithoutImagesDataInput
@@ -10011,31 +11498,6 @@ export interface UserImageUpdateManyMutationInput {
 export type UserImageUpdateManyMutationInputInputObject =
   | Extract<keyof UserImageUpdateManyMutationInput, string>
   | { name: 'imageUrl', alias?: string  } 
-  
-export interface ProductCreateInput {
-  title?: string
-  description?: string
-  price?: string
-  categories?: CategoryCreateManyWithoutProductInput | null
-  brand?: BrandCreateOneWithoutProductsInput | null
-  tags?: TagCreateManyWithoutProductsInput | null
-  images?: ProductImageCreateManyWithoutProductInput | null
-  shop?: ShopCreateOneWithoutProductsInput
-  variants?: VariantCreateManyWithoutProductInput | null
-  reviews?: ProductReviewCreateManyWithoutProductInput | null
-}
-export type ProductCreateInputInputObject =
-  | Extract<keyof ProductCreateInput, string>
-  | { name: 'title', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'price', alias?: string  } 
-  | { name: 'categories', alias?: string  } 
-  | { name: 'brand', alias?: string  } 
-  | { name: 'tags', alias?: string  } 
-  | { name: 'images', alias?: string  } 
-  | { name: 'shop', alias?: string  } 
-  | { name: 'variants', alias?: string  } 
-  | { name: 'reviews', alias?: string  } 
   
 export interface ProductUpdateInput {
   title?: string | null
@@ -10072,6 +11534,121 @@ export type ProductUpdateManyMutationInputInputObject =
   | { name: 'title', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'price', alias?: string  } 
+  
+export interface CartCreateInput {
+  user?: UserCreateOneWithoutCartItemsInput
+  items?: CartItemCreateManyInput | null
+}
+export type CartCreateInputInputObject =
+  | Extract<keyof CartCreateInput, string>
+  | { name: 'user', alias?: string  } 
+  | { name: 'items', alias?: string  } 
+  
+export interface UserCreateOneWithoutCartItemsInput {
+  create?: UserCreateWithoutCartItemsInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserCreateOneWithoutCartItemsInputInputObject =
+  | Extract<keyof UserCreateOneWithoutCartItemsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserCreateWithoutCartItemsInput {
+  email?: string | null
+  password?: string | null
+  name?: string | null
+  username?: string | null
+  profilePic?: string | null
+  isAnonymous?: boolean | null
+  shops?: ShopCreateManyWithoutOwnersInput | null
+  images?: UserImageCreateManyWithoutUserInput | null
+  productReviews?: ProductReviewCreateManyWithoutUserInput | null
+}
+export type UserCreateWithoutCartItemsInputInputObject =
+  | Extract<keyof UserCreateWithoutCartItemsInput, string>
+  | { name: 'email', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'profilePic', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'shops', alias?: string  } 
+  | { name: 'images', alias?: string  } 
+  | { name: 'productReviews', alias?: string  } 
+  
+export interface CartUpdateInput {
+  user?: UserUpdateOneRequiredWithoutCartItemsInput | null
+  items?: CartItemUpdateManyInput | null
+}
+export type CartUpdateInputInputObject =
+  | Extract<keyof CartUpdateInput, string>
+  | { name: 'user', alias?: string  } 
+  | { name: 'items', alias?: string  } 
+  
+export interface UserUpdateOneRequiredWithoutCartItemsInput {
+  create?: UserCreateWithoutCartItemsInput | null
+  update?: UserUpdateWithoutCartItemsDataInput | null
+  upsert?: UserUpsertWithoutCartItemsInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserUpdateOneRequiredWithoutCartItemsInputInputObject =
+  | Extract<keyof UserUpdateOneRequiredWithoutCartItemsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserUpdateWithoutCartItemsDataInput {
+  email?: string | null
+  password?: string | null
+  name?: string | null
+  username?: string | null
+  profilePic?: string | null
+  isAnonymous?: boolean | null
+  shops?: ShopUpdateManyWithoutOwnersInput | null
+  images?: UserImageUpdateManyWithoutUserInput | null
+  productReviews?: ProductReviewUpdateManyWithoutUserInput | null
+}
+export type UserUpdateWithoutCartItemsDataInputInputObject =
+  | Extract<keyof UserUpdateWithoutCartItemsDataInput, string>
+  | { name: 'email', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'profilePic', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'shops', alias?: string  } 
+  | { name: 'images', alias?: string  } 
+  | { name: 'productReviews', alias?: string  } 
+  
+export interface UserUpsertWithoutCartItemsInput {
+  update?: UserUpdateWithoutCartItemsDataInput
+  create?: UserCreateWithoutCartItemsInput
+}
+export type UserUpsertWithoutCartItemsInputInputObject =
+  | Extract<keyof UserUpsertWithoutCartItemsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface CartItemUpdateInput {
+  product?: ProductUpdateOneRequiredInput | null
+  quantity?: number | null
+  variants?: CartItemUpdatevariantsInput | null
+}
+export type CartItemUpdateInputInputObject =
+  | Extract<keyof CartItemUpdateInput, string>
+  | { name: 'product', alias?: string  } 
+  | { name: 'quantity', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
+  
+export interface CartItemUpdateManyMutationInput {
+  quantity?: number | null
+  variants?: CartItemUpdatevariantsInput | null
+}
+export type CartItemUpdateManyMutationInputInputObject =
+  | Extract<keyof CartItemUpdateManyMutationInput, string>
+  | { name: 'quantity', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
   
 export interface BrandCreateInput {
   name?: string
@@ -10796,6 +12373,48 @@ export type ProductSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface CartSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: CartWhereInput | null
+  AND?: CartSubscriptionWhereInput[]
+  OR?: CartSubscriptionWhereInput[]
+  NOT?: CartSubscriptionWhereInput[]
+}
+export type CartSubscriptionWhereInputInputObject =
+  | Extract<keyof CartSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface CartItemSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: CartItemWhereInput | null
+  AND?: CartItemSubscriptionWhereInput[]
+  OR?: CartItemSubscriptionWhereInput[]
+  NOT?: CartItemSubscriptionWhereInput[]
+}
+export type CartItemSubscriptionWhereInputInputObject =
+  | Extract<keyof CartItemSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 export interface BrandSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
   updatedFields_contains?: string | null
@@ -10952,6 +12571,8 @@ export type UserOrderByInputValues =
   | 'username_DESC'
   | 'profilePic_ASC'
   | 'profilePic_DESC'
+  | 'isAnonymous_ASC'
+  | 'isAnonymous_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
@@ -11038,6 +12659,24 @@ export type UserImageOrderByInputValues =
   | 'id_DESC'
   | 'imageUrl_ASC'
   | 'imageUrl_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type CartItemOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'quantity_ASC'
+  | 'quantity_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type CartOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
