@@ -786,6 +786,7 @@ export interface NexusGenFieldTypes {
     createProduct: NexusGenRootTypes['Product'] | null; // Product
     createProductReview: NexusGenRootTypes['ProductReview'] | null; // ProductReview
     createShopDraft: NexusGenRootTypes['Shop'] | null; // Shop
+    deleteCartItem: NexusGenRootTypes['CartItem'] | null; // CartItem
     login: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
     publishShop: NexusGenRootTypes['Shop'] | null; // Shop
     signUp: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
@@ -939,6 +940,9 @@ export interface NexusGenArgTypes {
       live?: boolean | null; // Boolean
       name: string; // String!
       ownersIds?: string[] | null; // [ID!]
+    }
+    deleteCartItem: { // args
+      itemId: string; // ID!
     }
     login: { // args
       email: string; // String!

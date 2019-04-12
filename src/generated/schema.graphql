@@ -189,6 +189,7 @@ type Mutation {
   createProduct(brand: String!, categories: [String!], description: String!, id: ID!, images: [String!], price: String!, tags: [String!], title: String!): Product
   createProductReview(productId: ID!, rating: Int!, review: String): ProductReview
   createShopDraft(category: String!, description: String!, live: Boolean, name: String!, ownersIds: [ID!]): Shop
+  deleteCartItem(itemId: ID!): CartItem
   login(email: String!, password: String!): AuthPayload
   publishShop(id: ID): Shop
   signUp(email: String!, name: String!, password: String!): AuthPayload

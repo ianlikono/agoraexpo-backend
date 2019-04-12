@@ -301,6 +301,7 @@ export const Mutation = mutationType({
                 const availableQuantity = await ctx.prisma.cartItems({
                   where: { product: {id: productId}}
                 })
+
                 if(availableQuantity.length <= 0) {
                   return ctx.prisma.updateCart({
                     data: {
@@ -335,7 +336,22 @@ export const Mutation = mutationType({
                     }
                   })
                 }
+
+
               }
+            },
+          })
+
+          t.field('deleteCartItem', {
+            type: 'CartItem',
+            args: {
+              itemId: idArg({required: true}),
+            },
+            resolve: async (parent, { itemId }, ctx) => {
+              const deletedItem = await ctx.prisma.deleteCartItem({
+                id: itemId,
+              })
+              return deletedItem;
             },
           })
     }
