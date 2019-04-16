@@ -1301,12 +1301,13 @@ export interface QueryFieldDetails {
 type UserObject =
   | UserFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'firebaseId', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
-  | { name: 'password', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'username', args?: [] | false, alias?: string  } 
   | { name: 'profilePic', args?: [] | false, alias?: string  } 
   | { name: 'isAnonymous', args?: [] | false, alias?: string  } 
+  | { name: 'emailVerified', args?: [] | false, alias?: string  } 
   | { name: 'shops', args?: UserShopsArgs[] | false, alias?: string  } 
   | { name: 'images', args?: UserImagesArgs[] | false, alias?: string  } 
   | { name: 'productReviews', args?: UserProductReviewsArgs[] | false, alias?: string  } 
@@ -1314,12 +1315,13 @@ type UserObject =
 
 type UserFields =
   | 'id'
+  | 'firebaseId'
   | 'email'
-  | 'password'
   | 'name'
   | 'username'
   | 'profilePic'
   | 'isAnonymous'
+  | 'emailVerified'
   | 'shops'
   | 'images'
   | 'productReviews'
@@ -1361,15 +1363,15 @@ export interface UserFieldDetails {
     nullable: false
     resolve: undefined
   }
-  email: {
+  firebaseId: {
     type: 'String'
     args: {}
     description: string
     list: undefined
-    nullable: true
+    nullable: false
     resolve: undefined
   }
-  password: {
+  email: {
     type: 'String'
     args: {}
     description: string
@@ -1407,6 +1409,14 @@ export interface UserFieldDetails {
     description: string
     list: undefined
     nullable: false
+    resolve: undefined
+  }
+  emailVerified: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
     resolve: undefined
   }
   shops: {
@@ -5803,21 +5813,23 @@ export interface UserSubscriptionPayloadFieldDetails {
 type UserPreviousValuesObject =
   | UserPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'firebaseId', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
-  | { name: 'password', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'username', args?: [] | false, alias?: string  } 
   | { name: 'profilePic', args?: [] | false, alias?: string  } 
   | { name: 'isAnonymous', args?: [] | false, alias?: string  } 
+  | { name: 'emailVerified', args?: [] | false, alias?: string  } 
 
 type UserPreviousValuesFields =
   | 'id'
+  | 'firebaseId'
   | 'email'
-  | 'password'
   | 'name'
   | 'username'
   | 'profilePic'
   | 'isAnonymous'
+  | 'emailVerified'
 
 
 
@@ -5832,15 +5844,15 @@ export interface UserPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
-  email: {
+  firebaseId: {
     type: 'String'
     args: {}
     description: string
     list: undefined
-    nullable: true
+    nullable: false
     resolve: undefined
   }
-  password: {
+  email: {
     type: 'String'
     args: {}
     description: string
@@ -5878,6 +5890,14 @@ export interface UserPreviousValuesFieldDetails {
     description: string
     list: undefined
     nullable: false
+    resolve: undefined
+  }
+  emailVerified: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
     resolve: undefined
   }
 }
@@ -7256,12 +7276,14 @@ export interface ProductReviewPreviousValuesFieldDetails {
 
 export interface UserWhereUniqueInput {
   id?: string | null
+  firebaseId?: string | null
   email?: string | null
   username?: string | null
 }
 export type UserWhereUniqueInputInputObject =
   | Extract<keyof UserWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
+  | { name: 'firebaseId', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'username', alias?: string  } 
   
@@ -7457,6 +7479,20 @@ export interface UserWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
+  firebaseId?: string | null
+  firebaseId_not?: string | null
+  firebaseId_in?: string[]
+  firebaseId_not_in?: string[]
+  firebaseId_lt?: string | null
+  firebaseId_lte?: string | null
+  firebaseId_gt?: string | null
+  firebaseId_gte?: string | null
+  firebaseId_contains?: string | null
+  firebaseId_not_contains?: string | null
+  firebaseId_starts_with?: string | null
+  firebaseId_not_starts_with?: string | null
+  firebaseId_ends_with?: string | null
+  firebaseId_not_ends_with?: string | null
   email?: string | null
   email_not?: string | null
   email_in?: string[]
@@ -7471,20 +7507,6 @@ export interface UserWhereInput {
   email_not_starts_with?: string | null
   email_ends_with?: string | null
   email_not_ends_with?: string | null
-  password?: string | null
-  password_not?: string | null
-  password_in?: string[]
-  password_not_in?: string[]
-  password_lt?: string | null
-  password_lte?: string | null
-  password_gt?: string | null
-  password_gte?: string | null
-  password_contains?: string | null
-  password_not_contains?: string | null
-  password_starts_with?: string | null
-  password_not_starts_with?: string | null
-  password_ends_with?: string | null
-  password_not_ends_with?: string | null
   name?: string | null
   name_not?: string | null
   name_in?: string[]
@@ -7529,6 +7551,8 @@ export interface UserWhereInput {
   profilePic_not_ends_with?: string | null
   isAnonymous?: boolean | null
   isAnonymous_not?: boolean | null
+  emailVerified?: boolean | null
+  emailVerified_not?: boolean | null
   shops_every?: ShopWhereInput | null
   shops_some?: ShopWhereInput | null
   shops_none?: ShopWhereInput | null
@@ -7559,6 +7583,20 @@ export type UserWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'firebaseId', alias?: string  } 
+  | { name: 'firebaseId_not', alias?: string  } 
+  | { name: 'firebaseId_in', alias?: string  } 
+  | { name: 'firebaseId_not_in', alias?: string  } 
+  | { name: 'firebaseId_lt', alias?: string  } 
+  | { name: 'firebaseId_lte', alias?: string  } 
+  | { name: 'firebaseId_gt', alias?: string  } 
+  | { name: 'firebaseId_gte', alias?: string  } 
+  | { name: 'firebaseId_contains', alias?: string  } 
+  | { name: 'firebaseId_not_contains', alias?: string  } 
+  | { name: 'firebaseId_starts_with', alias?: string  } 
+  | { name: 'firebaseId_not_starts_with', alias?: string  } 
+  | { name: 'firebaseId_ends_with', alias?: string  } 
+  | { name: 'firebaseId_not_ends_with', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'email_not', alias?: string  } 
   | { name: 'email_in', alias?: string  } 
@@ -7573,20 +7611,6 @@ export type UserWhereInputInputObject =
   | { name: 'email_not_starts_with', alias?: string  } 
   | { name: 'email_ends_with', alias?: string  } 
   | { name: 'email_not_ends_with', alias?: string  } 
-  | { name: 'password', alias?: string  } 
-  | { name: 'password_not', alias?: string  } 
-  | { name: 'password_in', alias?: string  } 
-  | { name: 'password_not_in', alias?: string  } 
-  | { name: 'password_lt', alias?: string  } 
-  | { name: 'password_lte', alias?: string  } 
-  | { name: 'password_gt', alias?: string  } 
-  | { name: 'password_gte', alias?: string  } 
-  | { name: 'password_contains', alias?: string  } 
-  | { name: 'password_not_contains', alias?: string  } 
-  | { name: 'password_starts_with', alias?: string  } 
-  | { name: 'password_not_starts_with', alias?: string  } 
-  | { name: 'password_ends_with', alias?: string  } 
-  | { name: 'password_not_ends_with', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'name_not', alias?: string  } 
   | { name: 'name_in', alias?: string  } 
@@ -7631,6 +7655,8 @@ export type UserWhereInputInputObject =
   | { name: 'profilePic_not_ends_with', alias?: string  } 
   | { name: 'isAnonymous', alias?: string  } 
   | { name: 'isAnonymous_not', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
+  | { name: 'emailVerified_not', alias?: string  } 
   | { name: 'shops_every', alias?: string  } 
   | { name: 'shops_some', alias?: string  } 
   | { name: 'shops_none', alias?: string  } 
@@ -8613,12 +8639,13 @@ export type ProductReviewWhereUniqueInputInputObject =
   | { name: 'id', alias?: string  } 
   
 export interface UserCreateInput {
+  firebaseId?: string
   email?: string | null
-  password?: string | null
   name?: string | null
   username?: string | null
   profilePic?: string | null
   isAnonymous?: boolean | null
+  emailVerified?: boolean | null
   shops?: ShopCreateManyWithoutOwnersInput | null
   images?: UserImageCreateManyWithoutUserInput | null
   productReviews?: ProductReviewCreateManyWithoutUserInput | null
@@ -8626,12 +8653,13 @@ export interface UserCreateInput {
 }
 export type UserCreateInputInputObject =
   | Extract<keyof UserCreateInput, string>
+  | { name: 'firebaseId', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
   | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
   | { name: 'shops', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'productReviews', alias?: string  } 
@@ -8830,24 +8858,26 @@ export type UserCreateOneWithoutProductReviewsInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface UserCreateWithoutProductReviewsInput {
+  firebaseId?: string
   email?: string | null
-  password?: string | null
   name?: string | null
   username?: string | null
   profilePic?: string | null
   isAnonymous?: boolean | null
+  emailVerified?: boolean | null
   shops?: ShopCreateManyWithoutOwnersInput | null
   images?: UserImageCreateManyWithoutUserInput | null
   cartItems?: CartCreateOneWithoutUserInput | null
 }
 export type UserCreateWithoutProductReviewsInputInputObject =
   | Extract<keyof UserCreateWithoutProductReviewsInput, string>
+  | { name: 'firebaseId', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
   | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
   | { name: 'shops', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'cartItems', alias?: string  } 
@@ -8974,24 +9004,26 @@ export type UserCreateManyWithoutShopsInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface UserCreateWithoutShopsInput {
+  firebaseId?: string
   email?: string | null
-  password?: string | null
   name?: string | null
   username?: string | null
   profilePic?: string | null
   isAnonymous?: boolean | null
+  emailVerified?: boolean | null
   images?: UserImageCreateManyWithoutUserInput | null
   productReviews?: ProductReviewCreateManyWithoutUserInput | null
   cartItems?: CartCreateOneWithoutUserInput | null
 }
 export type UserCreateWithoutShopsInputInputObject =
   | Extract<keyof UserCreateWithoutShopsInput, string>
+  | { name: 'firebaseId', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
   | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'productReviews', alias?: string  } 
   | { name: 'cartItems', alias?: string  } 
@@ -9056,12 +9088,13 @@ export type CartItemCreatevariantsInputInputObject =
   | { name: 'set', alias?: string  } 
   
 export interface UserUpdateInput {
+  firebaseId?: string | null
   email?: string | null
-  password?: string | null
   name?: string | null
   username?: string | null
   profilePic?: string | null
   isAnonymous?: boolean | null
+  emailVerified?: boolean | null
   shops?: ShopUpdateManyWithoutOwnersInput | null
   images?: UserImageUpdateManyWithoutUserInput | null
   productReviews?: ProductReviewUpdateManyWithoutUserInput | null
@@ -9069,12 +9102,13 @@ export interface UserUpdateInput {
 }
 export type UserUpdateInputInputObject =
   | Extract<keyof UserUpdateInput, string>
+  | { name: 'firebaseId', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
   | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
   | { name: 'shops', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'productReviews', alias?: string  } 
@@ -9950,24 +9984,26 @@ export type UserUpdateOneRequiredWithoutProductReviewsInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface UserUpdateWithoutProductReviewsDataInput {
+  firebaseId?: string | null
   email?: string | null
-  password?: string | null
   name?: string | null
   username?: string | null
   profilePic?: string | null
   isAnonymous?: boolean | null
+  emailVerified?: boolean | null
   shops?: ShopUpdateManyWithoutOwnersInput | null
   images?: UserImageUpdateManyWithoutUserInput | null
   cartItems?: CartUpdateOneWithoutUserInput | null
 }
 export type UserUpdateWithoutProductReviewsDataInputInputObject =
   | Extract<keyof UserUpdateWithoutProductReviewsDataInput, string>
+  | { name: 'firebaseId', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
   | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
   | { name: 'shops', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'cartItems', alias?: string  } 
@@ -10273,24 +10309,26 @@ export type UserUpdateWithWhereUniqueWithoutShopsInputInputObject =
   | { name: 'data', alias?: string  } 
   
 export interface UserUpdateWithoutShopsDataInput {
+  firebaseId?: string | null
   email?: string | null
-  password?: string | null
   name?: string | null
   username?: string | null
   profilePic?: string | null
   isAnonymous?: boolean | null
+  emailVerified?: boolean | null
   images?: UserImageUpdateManyWithoutUserInput | null
   productReviews?: ProductReviewUpdateManyWithoutUserInput | null
   cartItems?: CartUpdateOneWithoutUserInput | null
 }
 export type UserUpdateWithoutShopsDataInputInputObject =
   | Extract<keyof UserUpdateWithoutShopsDataInput, string>
+  | { name: 'firebaseId', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
   | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'productReviews', alias?: string  } 
   | { name: 'cartItems', alias?: string  } 
@@ -10553,6 +10591,20 @@ export interface UserScalarWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
+  firebaseId?: string | null
+  firebaseId_not?: string | null
+  firebaseId_in?: string[]
+  firebaseId_not_in?: string[]
+  firebaseId_lt?: string | null
+  firebaseId_lte?: string | null
+  firebaseId_gt?: string | null
+  firebaseId_gte?: string | null
+  firebaseId_contains?: string | null
+  firebaseId_not_contains?: string | null
+  firebaseId_starts_with?: string | null
+  firebaseId_not_starts_with?: string | null
+  firebaseId_ends_with?: string | null
+  firebaseId_not_ends_with?: string | null
   email?: string | null
   email_not?: string | null
   email_in?: string[]
@@ -10567,20 +10619,6 @@ export interface UserScalarWhereInput {
   email_not_starts_with?: string | null
   email_ends_with?: string | null
   email_not_ends_with?: string | null
-  password?: string | null
-  password_not?: string | null
-  password_in?: string[]
-  password_not_in?: string[]
-  password_lt?: string | null
-  password_lte?: string | null
-  password_gt?: string | null
-  password_gte?: string | null
-  password_contains?: string | null
-  password_not_contains?: string | null
-  password_starts_with?: string | null
-  password_not_starts_with?: string | null
-  password_ends_with?: string | null
-  password_not_ends_with?: string | null
   name?: string | null
   name_not?: string | null
   name_in?: string[]
@@ -10625,6 +10663,8 @@ export interface UserScalarWhereInput {
   profilePic_not_ends_with?: string | null
   isAnonymous?: boolean | null
   isAnonymous_not?: boolean | null
+  emailVerified?: boolean | null
+  emailVerified_not?: boolean | null
   AND?: UserScalarWhereInput[]
   OR?: UserScalarWhereInput[]
   NOT?: UserScalarWhereInput[]
@@ -10645,6 +10685,20 @@ export type UserScalarWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'firebaseId', alias?: string  } 
+  | { name: 'firebaseId_not', alias?: string  } 
+  | { name: 'firebaseId_in', alias?: string  } 
+  | { name: 'firebaseId_not_in', alias?: string  } 
+  | { name: 'firebaseId_lt', alias?: string  } 
+  | { name: 'firebaseId_lte', alias?: string  } 
+  | { name: 'firebaseId_gt', alias?: string  } 
+  | { name: 'firebaseId_gte', alias?: string  } 
+  | { name: 'firebaseId_contains', alias?: string  } 
+  | { name: 'firebaseId_not_contains', alias?: string  } 
+  | { name: 'firebaseId_starts_with', alias?: string  } 
+  | { name: 'firebaseId_not_starts_with', alias?: string  } 
+  | { name: 'firebaseId_ends_with', alias?: string  } 
+  | { name: 'firebaseId_not_ends_with', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'email_not', alias?: string  } 
   | { name: 'email_in', alias?: string  } 
@@ -10659,20 +10713,6 @@ export type UserScalarWhereInputInputObject =
   | { name: 'email_not_starts_with', alias?: string  } 
   | { name: 'email_ends_with', alias?: string  } 
   | { name: 'email_not_ends_with', alias?: string  } 
-  | { name: 'password', alias?: string  } 
-  | { name: 'password_not', alias?: string  } 
-  | { name: 'password_in', alias?: string  } 
-  | { name: 'password_not_in', alias?: string  } 
-  | { name: 'password_lt', alias?: string  } 
-  | { name: 'password_lte', alias?: string  } 
-  | { name: 'password_gt', alias?: string  } 
-  | { name: 'password_gte', alias?: string  } 
-  | { name: 'password_contains', alias?: string  } 
-  | { name: 'password_not_contains', alias?: string  } 
-  | { name: 'password_starts_with', alias?: string  } 
-  | { name: 'password_not_starts_with', alias?: string  } 
-  | { name: 'password_ends_with', alias?: string  } 
-  | { name: 'password_not_ends_with', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'name_not', alias?: string  } 
   | { name: 'name_in', alias?: string  } 
@@ -10717,6 +10757,8 @@ export type UserScalarWhereInputInputObject =
   | { name: 'profilePic_not_ends_with', alias?: string  } 
   | { name: 'isAnonymous', alias?: string  } 
   | { name: 'isAnonymous_not', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
+  | { name: 'emailVerified_not', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -10731,21 +10773,23 @@ export type UserUpdateManyWithWhereNestedInputInputObject =
   | { name: 'data', alias?: string  } 
   
 export interface UserUpdateManyDataInput {
+  firebaseId?: string | null
   email?: string | null
-  password?: string | null
   name?: string | null
   username?: string | null
   profilePic?: string | null
   isAnonymous?: boolean | null
+  emailVerified?: boolean | null
 }
 export type UserUpdateManyDataInputInputObject =
   | Extract<keyof UserUpdateManyDataInput, string>
+  | { name: 'firebaseId', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
   | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
   
 export interface ShopUpsertWithoutProductsInput {
   update?: ShopUpdateWithoutProductsDataInput
@@ -11232,21 +11276,23 @@ export type ShopUpdateManyDataInputInputObject =
   | { name: 'live', alias?: string  } 
   
 export interface UserUpdateManyMutationInput {
+  firebaseId?: string | null
   email?: string | null
-  password?: string | null
   name?: string | null
   username?: string | null
   profilePic?: string | null
   isAnonymous?: boolean | null
+  emailVerified?: boolean | null
 }
 export type UserUpdateManyMutationInputInputObject =
   | Extract<keyof UserUpdateManyMutationInput, string>
+  | { name: 'firebaseId', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
   | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
   
 export interface ShopCreateInput {
   name?: string
@@ -11412,24 +11458,26 @@ export type UserCreateOneWithoutImagesInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface UserCreateWithoutImagesInput {
+  firebaseId?: string
   email?: string | null
-  password?: string | null
   name?: string | null
   username?: string | null
   profilePic?: string | null
   isAnonymous?: boolean | null
+  emailVerified?: boolean | null
   shops?: ShopCreateManyWithoutOwnersInput | null
   productReviews?: ProductReviewCreateManyWithoutUserInput | null
   cartItems?: CartCreateOneWithoutUserInput | null
 }
 export type UserCreateWithoutImagesInputInputObject =
   | Extract<keyof UserCreateWithoutImagesInput, string>
+  | { name: 'firebaseId', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
   | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
   | { name: 'shops', alias?: string  } 
   | { name: 'productReviews', alias?: string  } 
   | { name: 'cartItems', alias?: string  } 
@@ -11461,24 +11509,26 @@ export type UserUpdateOneWithoutImagesInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface UserUpdateWithoutImagesDataInput {
+  firebaseId?: string | null
   email?: string | null
-  password?: string | null
   name?: string | null
   username?: string | null
   profilePic?: string | null
   isAnonymous?: boolean | null
+  emailVerified?: boolean | null
   shops?: ShopUpdateManyWithoutOwnersInput | null
   productReviews?: ProductReviewUpdateManyWithoutUserInput | null
   cartItems?: CartUpdateOneWithoutUserInput | null
 }
 export type UserUpdateWithoutImagesDataInputInputObject =
   | Extract<keyof UserUpdateWithoutImagesDataInput, string>
+  | { name: 'firebaseId', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
   | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
   | { name: 'shops', alias?: string  } 
   | { name: 'productReviews', alias?: string  } 
   | { name: 'cartItems', alias?: string  } 
@@ -11554,24 +11604,26 @@ export type UserCreateOneWithoutCartItemsInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface UserCreateWithoutCartItemsInput {
+  firebaseId?: string
   email?: string | null
-  password?: string | null
   name?: string | null
   username?: string | null
   profilePic?: string | null
   isAnonymous?: boolean | null
+  emailVerified?: boolean | null
   shops?: ShopCreateManyWithoutOwnersInput | null
   images?: UserImageCreateManyWithoutUserInput | null
   productReviews?: ProductReviewCreateManyWithoutUserInput | null
 }
 export type UserCreateWithoutCartItemsInputInputObject =
   | Extract<keyof UserCreateWithoutCartItemsInput, string>
+  | { name: 'firebaseId', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
   | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
   | { name: 'shops', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'productReviews', alias?: string  } 
@@ -11599,24 +11651,26 @@ export type UserUpdateOneRequiredWithoutCartItemsInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface UserUpdateWithoutCartItemsDataInput {
+  firebaseId?: string | null
   email?: string | null
-  password?: string | null
   name?: string | null
   username?: string | null
   profilePic?: string | null
   isAnonymous?: boolean | null
+  emailVerified?: boolean | null
   shops?: ShopUpdateManyWithoutOwnersInput | null
   images?: UserImageUpdateManyWithoutUserInput | null
   productReviews?: ProductReviewUpdateManyWithoutUserInput | null
 }
 export type UserUpdateWithoutCartItemsDataInputInputObject =
   | Extract<keyof UserUpdateWithoutCartItemsDataInput, string>
+  | { name: 'firebaseId', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'password', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'profilePic', alias?: string  } 
   | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
   | { name: 'shops', alias?: string  } 
   | { name: 'images', alias?: string  } 
   | { name: 'productReviews', alias?: string  } 
@@ -12561,10 +12615,10 @@ export type ShopOrderByInputValues =
 export type UserOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
+  | 'firebaseId_ASC'
+  | 'firebaseId_DESC'
   | 'email_ASC'
   | 'email_DESC'
-  | 'password_ASC'
-  | 'password_DESC'
   | 'name_ASC'
   | 'name_DESC'
   | 'username_ASC'
@@ -12573,6 +12627,8 @@ export type UserOrderByInputValues =
   | 'profilePic_DESC'
   | 'isAnonymous_ASC'
   | 'isAnonymous_DESC'
+  | 'emailVerified_ASC'
+  | 'emailVerified_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'

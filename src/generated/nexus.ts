@@ -514,6 +514,22 @@ export interface NexusGenInputs {
     email_not_in?: string[] | null; // [String!]
     email_not_starts_with?: string | null; // String
     email_starts_with?: string | null; // String
+    emailVerified?: boolean | null; // Boolean
+    emailVerified_not?: boolean | null; // Boolean
+    firebaseId?: string | null; // String
+    firebaseId_contains?: string | null; // String
+    firebaseId_ends_with?: string | null; // String
+    firebaseId_gt?: string | null; // String
+    firebaseId_gte?: string | null; // String
+    firebaseId_in?: string[] | null; // [String!]
+    firebaseId_lt?: string | null; // String
+    firebaseId_lte?: string | null; // String
+    firebaseId_not?: string | null; // String
+    firebaseId_not_contains?: string | null; // String
+    firebaseId_not_ends_with?: string | null; // String
+    firebaseId_not_in?: string[] | null; // [String!]
+    firebaseId_not_starts_with?: string | null; // String
+    firebaseId_starts_with?: string | null; // String
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -549,20 +565,6 @@ export interface NexusGenInputs {
     name_starts_with?: string | null; // String
     NOT?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
     OR?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
-    password?: string | null; // String
-    password_contains?: string | null; // String
-    password_ends_with?: string | null; // String
-    password_gt?: string | null; // String
-    password_gte?: string | null; // String
-    password_in?: string[] | null; // [String!]
-    password_lt?: string | null; // String
-    password_lte?: string | null; // String
-    password_not?: string | null; // String
-    password_not_contains?: string | null; // String
-    password_not_ends_with?: string | null; // String
-    password_not_in?: string[] | null; // [String!]
-    password_not_starts_with?: string | null; // String
-    password_starts_with?: string | null; // String
     productReviews_every?: NexusGenInputs['ProductReviewWhereInput'] | null; // ProductReviewWhereInput
     productReviews_none?: NexusGenInputs['ProductReviewWhereInput'] | null; // ProductReviewWhereInput
     productReviews_some?: NexusGenInputs['ProductReviewWhereInput'] | null; // ProductReviewWhereInput
@@ -643,13 +645,12 @@ export interface NexusGenEnums {
   ShopImageOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "imageUrl_ASC" | "imageUrl_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   TagOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   UserImageOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "imageUrl_ASC" | "imageUrl_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
-  UserOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "isAnonymous_ASC" | "isAnonymous_DESC" | "name_ASC" | "name_DESC" | "password_ASC" | "password_DESC" | "profilePic_ASC" | "profilePic_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "username_ASC" | "username_DESC"
+  UserOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "emailVerified_ASC" | "emailVerified_DESC" | "firebaseId_ASC" | "firebaseId_DESC" | "id_ASC" | "id_DESC" | "isAnonymous_ASC" | "isAnonymous_DESC" | "name_ASC" | "name_DESC" | "profilePic_ASC" | "profilePic_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "username_ASC" | "username_DESC"
   VariantOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
 }
 
 export interface NexusGenRootTypes {
   AuthPayload: { // root type
-    token?: string | null; // String
     user?: NexusGenRootTypes['User'] | null; // User
   }
   Brand: { // root type
@@ -706,7 +707,10 @@ export interface NexusGenRootTypes {
   }
   User: { // root type
     email?: string | null; // String
+    emailVerified?: boolean | null; // Boolean
+    firebaseId: string; // String!
     id: string; // ID!
+    isAnonymous: boolean; // Boolean!
     name?: string | null; // String
     profilePic?: string | null; // String
     username?: string | null; // String
@@ -756,7 +760,6 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
 
 export interface NexusGenFieldTypes {
   AuthPayload: { // field return type
-    token: string | null; // String
     user: NexusGenRootTypes['User'] | null; // User
   }
   Brand: { // field return type
@@ -854,8 +857,11 @@ export interface NexusGenFieldTypes {
   }
   User: { // field return type
     email: string | null; // String
+    emailVerified: boolean | null; // Boolean
+    firebaseId: string; // String!
     id: string; // ID!
     images: NexusGenRootTypes['UserImage'][] | null; // [UserImage!]
+    isAnonymous: boolean; // Boolean!
     name: string | null; // String
     profilePic: string | null; // String
     shops: NexusGenRootTypes['Shop'][] | null; // [Shop!]
@@ -945,16 +951,18 @@ export interface NexusGenArgTypes {
       itemId: string; // ID!
     }
     login: { // args
-      email: string; // String!
-      password: string; // String!
+      idToken: string; // String!
     }
     publishShop: { // args
       id?: string | null; // ID
     }
     signUp: { // args
-      email: string; // String!
-      name: string; // String!
-      password: string; // String!
+      email?: string | null; // String
+      emailVerified?: boolean | null; // Boolean
+      idToken: string; // String!
+      isAnonymous: boolean; // Boolean!
+      name?: string | null; // String
+      profilePic?: string | null; // String
     }
     updateShop: { // args
       description?: string | null; // String

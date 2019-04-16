@@ -5,7 +5,7 @@
 
 export default {
   uniqueFieldsByModel: {
-    User: ['id', 'email', 'username'],
+    User: ['id', 'firebaseId', 'email', 'username'],
     Shop: ['id', 'name'],
     ShopImage: ['id'],
     UserImage: ['id'],
@@ -20,7 +20,7 @@ export default {
     ProductReview: ['id']
   },
   embeddedTypes: [],
-  clientPath: 'generated/prisma-client',
+  clientPath: 'generated\\prisma-client',
   schema: {
   "__schema": {
     "queryType": {
@@ -2753,6 +2753,16 @@ export default {
             "defaultValue": null
           },
           {
+            "name": "firebaseId",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "email",
             "description": null,
             "type": {
@@ -2819,19 +2829,23 @@ export default {
             "deprecationReason": null
           },
           {
-            "name": "email",
+            "name": "firebaseId",
             "description": null,
             "args": [],
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "password",
+            "name": "email",
             "description": null,
             "args": [],
             "type": {
@@ -2890,6 +2904,18 @@ export default {
                 "name": "Boolean",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "emailVerified",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -4349,6 +4375,162 @@ export default {
             "defaultValue": null
           },
           {
+            "name": "firebaseId",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_not",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_in",
+            "description": null,
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_not_in",
+            "description": null,
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_lt",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_lte",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_gt",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_gte",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_contains",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_not_contains",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_starts_with",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_not_starts_with",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_ends_with",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_not_ends_with",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "email",
             "description": null,
             "type": {
@@ -4496,162 +4678,6 @@ export default {
           },
           {
             "name": "email_not_ends_with",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_not",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_in",
-            "description": null,
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_not_in",
-            "description": null,
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_lt",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_lte",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_gt",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_gte",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_contains",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_not_contains",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_starts_with",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_not_starts_with",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_ends_with",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_not_ends_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -5140,6 +5166,26 @@ export default {
           },
           {
             "name": "isAnonymous_not",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "emailVerified",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "emailVerified_not",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -10740,6 +10786,18 @@ export default {
             "deprecationReason": null
           },
           {
+            "name": "firebaseId_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "firebaseId_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "email_ASC",
             "description": null,
             "isDeprecated": false,
@@ -10747,18 +10805,6 @@ export default {
           },
           {
             "name": "email_DESC",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "password_ASC",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "password_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -10807,6 +10853,18 @@ export default {
           },
           {
             "name": "isAnonymous_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "emailVerified_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "emailVerified_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -18085,17 +18143,21 @@ export default {
         "fields": null,
         "inputFields": [
           {
-            "name": "email",
+            "name": "firebaseId",
             "description": null,
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "defaultValue": null
           },
           {
-            "name": "password",
+            "name": "email",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -18136,6 +18198,16 @@ export default {
           },
           {
             "name": "isAnonymous",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "emailVerified",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -19068,17 +19140,21 @@ export default {
         "fields": null,
         "inputFields": [
           {
-            "name": "email",
+            "name": "firebaseId",
             "description": null,
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "defaultValue": null
           },
           {
-            "name": "password",
+            "name": "email",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -19119,6 +19195,16 @@ export default {
           },
           {
             "name": "isAnonymous",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "emailVerified",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -19708,17 +19794,21 @@ export default {
         "fields": null,
         "inputFields": [
           {
-            "name": "email",
+            "name": "firebaseId",
             "description": null,
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "defaultValue": null
           },
           {
-            "name": "password",
+            "name": "email",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -19759,6 +19849,16 @@ export default {
           },
           {
             "name": "isAnonymous",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "emailVerified",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -20082,7 +20182,7 @@ export default {
         "fields": null,
         "inputFields": [
           {
-            "name": "email",
+            "name": "firebaseId",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -20092,7 +20192,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "password",
+            "name": "email",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -20133,6 +20233,16 @@ export default {
           },
           {
             "name": "isAnonymous",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "emailVerified",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24888,7 +24998,7 @@ export default {
         "fields": null,
         "inputFields": [
           {
-            "name": "email",
+            "name": "firebaseId",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24898,7 +25008,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "password",
+            "name": "email",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -24939,6 +25049,16 @@ export default {
           },
           {
             "name": "isAnonymous",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "emailVerified",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -26553,7 +26673,7 @@ export default {
         "fields": null,
         "inputFields": [
           {
-            "name": "email",
+            "name": "firebaseId",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -26563,7 +26683,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "password",
+            "name": "email",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -26604,6 +26724,16 @@ export default {
           },
           {
             "name": "isAnonymous",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "emailVerified",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -28095,6 +28225,162 @@ export default {
             "defaultValue": null
           },
           {
+            "name": "firebaseId",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_not",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_in",
+            "description": null,
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_not_in",
+            "description": null,
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_lt",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_lte",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_gt",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_gte",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_contains",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_not_contains",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_starts_with",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_not_starts_with",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_ends_with",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "firebaseId_not_ends_with",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "email",
             "description": null,
             "type": {
@@ -28242,162 +28528,6 @@ export default {
           },
           {
             "name": "email_not_ends_with",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_not",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_in",
-            "description": null,
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_not_in",
-            "description": null,
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_lt",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_lte",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_gt",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_gte",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_contains",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_not_contains",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_starts_with",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_not_starts_with",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_ends_with",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password_not_ends_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -28895,6 +29025,26 @@ export default {
             "defaultValue": null
           },
           {
+            "name": "emailVerified",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "emailVerified_not",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "AND",
             "description": null,
             "type": {
@@ -28999,7 +29149,7 @@ export default {
         "fields": null,
         "inputFields": [
           {
-            "name": "email",
+            "name": "firebaseId",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -29009,7 +29159,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "password",
+            "name": "email",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -29050,6 +29200,16 @@ export default {
           },
           {
             "name": "isAnonymous",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "emailVerified",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -31614,7 +31774,7 @@ export default {
         "fields": null,
         "inputFields": [
           {
-            "name": "email",
+            "name": "firebaseId",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -31624,7 +31784,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "password",
+            "name": "email",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -31665,6 +31825,16 @@ export default {
           },
           {
             "name": "isAnonymous",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "emailVerified",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -32395,17 +32565,21 @@ export default {
         "fields": null,
         "inputFields": [
           {
-            "name": "email",
+            "name": "firebaseId",
             "description": null,
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "defaultValue": null
           },
           {
-            "name": "password",
+            "name": "email",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -32446,6 +32620,16 @@ export default {
           },
           {
             "name": "isAnonymous",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "emailVerified",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -32598,7 +32782,7 @@ export default {
         "fields": null,
         "inputFields": [
           {
-            "name": "email",
+            "name": "firebaseId",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -32608,7 +32792,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "password",
+            "name": "email",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -32649,6 +32833,16 @@ export default {
           },
           {
             "name": "isAnonymous",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "emailVerified",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -32977,17 +33171,21 @@ export default {
         "fields": null,
         "inputFields": [
           {
-            "name": "email",
+            "name": "firebaseId",
             "description": null,
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "defaultValue": null
           },
           {
-            "name": "password",
+            "name": "email",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -33028,6 +33226,16 @@ export default {
           },
           {
             "name": "isAnonymous",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "emailVerified",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -33160,7 +33368,7 @@ export default {
         "fields": null,
         "inputFields": [
           {
-            "name": "email",
+            "name": "firebaseId",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -33170,7 +33378,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "password",
+            "name": "email",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -33211,6 +33419,16 @@ export default {
           },
           {
             "name": "isAnonymous",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "emailVerified",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -36838,19 +37056,23 @@ export default {
             "deprecationReason": null
           },
           {
-            "name": "email",
+            "name": "firebaseId",
             "description": null,
             "args": [],
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "password",
+            "name": "email",
             "description": null,
             "args": [],
             "type": {
@@ -36909,6 +37131,18 @@ export default {
                 "name": "Boolean",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "emailVerified",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null

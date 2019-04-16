@@ -3,7 +3,6 @@
 
 
 type AuthPayload {
-  token: String
   user: User
 }
 
@@ -190,9 +189,9 @@ type Mutation {
   createProductReview(productId: ID!, rating: Int!, review: String): ProductReview
   createShopDraft(category: String!, description: String!, live: Boolean, name: String!, ownersIds: [ID!]): Shop
   deleteCartItem(itemId: ID!): CartItem
-  login(email: String!, password: String!): AuthPayload
+  login(idToken: String!): AuthPayload
   publishShop(id: ID): Shop
-  signUp(email: String!, name: String!, password: String!): AuthPayload
+  signUp(email: String, emailVerified: Boolean, idToken: String!, isAnonymous: Boolean!, name: String, profilePic: String): AuthPayload
   updateShop(description: String, id: ID, images: [String!], name: String): Shop
   updateUser(email: String, images: [String!], name: String, password: String, username: String): User
   updateVariant(name: String, values: [String!], variantId: ID!): Variant
@@ -661,8 +660,11 @@ input TagWhereInput {
 
 type User {
   email: String
+  emailVerified: Boolean
+  firebaseId: String!
   id: ID!
   images(after: String, before: String, first: Int, last: Int, orderBy: UserImageOrderByInput, skip: Int, where: UserImageWhereInput): [UserImage!]
+  isAnonymous: Boolean!
   name: String
   profilePic: String
   shops: [Shop!]
@@ -726,14 +728,16 @@ enum UserOrderByInput {
   createdAt_DESC
   email_ASC
   email_DESC
+  emailVerified_ASC
+  emailVerified_DESC
+  firebaseId_ASC
+  firebaseId_DESC
   id_ASC
   id_DESC
   isAnonymous_ASC
   isAnonymous_DESC
   name_ASC
   name_DESC
-  password_ASC
-  password_DESC
   profilePic_ASC
   profilePic_DESC
   updatedAt_ASC
@@ -759,6 +763,22 @@ input UserWhereInput {
   email_not_in: [String!]
   email_not_starts_with: String
   email_starts_with: String
+  emailVerified: Boolean
+  emailVerified_not: Boolean
+  firebaseId: String
+  firebaseId_contains: String
+  firebaseId_ends_with: String
+  firebaseId_gt: String
+  firebaseId_gte: String
+  firebaseId_in: [String!]
+  firebaseId_lt: String
+  firebaseId_lte: String
+  firebaseId_not: String
+  firebaseId_not_contains: String
+  firebaseId_not_ends_with: String
+  firebaseId_not_in: [String!]
+  firebaseId_not_starts_with: String
+  firebaseId_starts_with: String
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -794,20 +814,6 @@ input UserWhereInput {
   name_starts_with: String
   NOT: [UserWhereInput!]
   OR: [UserWhereInput!]
-  password: String
-  password_contains: String
-  password_ends_with: String
-  password_gt: String
-  password_gte: String
-  password_in: [String!]
-  password_lt: String
-  password_lte: String
-  password_not: String
-  password_not_contains: String
-  password_not_ends_with: String
-  password_not_in: [String!]
-  password_not_starts_with: String
-  password_starts_with: String
   productReviews_every: ProductReviewWhereInput
   productReviews_none: ProductReviewWhereInput
   productReviews_some: ProductReviewWhereInput

@@ -1,11 +1,12 @@
 type User {
   id: ID! @unique
+  firebaseId: String! @unique
   email: String @unique
-  password: String
   name: String
   username: String @unique
   profilePic: String
   isAnonymous: Boolean! @default(value: "false")
+  emailVerified: Boolean @default(value: "false")
   shops: [Shop] @relation(name: "ShopOwners")
   images: [UserImage] @relation(name: "UserImages")
   productReviews: [ProductReview] @relation(name: "UserProductReview")
