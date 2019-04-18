@@ -17,7 +17,7 @@
     "firebase-admin": "^7.2.0",
     "graphql": "^14.2.1",
     "graphql-request": "^1.8.2",
-    "graphql-shield": "^5.3.1",
+    "graphql-shield": "^5.3.4",
     "graphql-yoga": "^1.17.4",
     "ioredis": "^4.9.0",
     "jsonwebtoken": "^8.5.1",
