@@ -190,6 +190,7 @@ type Mutation {
   createShopDraft(category: String!, description: String!, live: Boolean, name: String!, ownersIds: [ID!]): Shop
   deleteCartItem(itemId: ID!): CartItem
   login(idToken: String!): AuthPayload
+  logout: AuthPayload
   publishShop(id: ID): Shop
   signUp(email: String, emailVerified: Boolean, idToken: String!, isAnonymous: Boolean!, name: String, profilePic: String): AuthPayload
   updateShop(description: String, id: ID, images: [String!], name: String): Shop

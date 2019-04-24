@@ -1,14 +1,14 @@
+import * as connectRedis from "connect-redis";
+import * as session from "express-session";
 import { GraphQLServer } from "graphql-yoga";
 import { makePrismaSchema } from "nexus-prisma";
 import * as path from "path";
-import * as session from "express-session";
-import * as connectRedis from "connect-redis";
 import datamodelInfo from "../generated/nexus-prisma";
 import { prisma } from "../generated/prisma-client";
-import { permissions } from "./permisions";
-import * as allTypes from "./resolvers";
-import { redis } from "./redis";
 import { redisSessionPrefix } from "./constants/sessions";
+import { permissions } from "./permisions";
+import { redis } from "./redis";
+import * as allTypes from "./resolvers";
 require("dotenv").config();
 
 const SESSION_SECRET = process.env.SESSION_SECRET;
@@ -51,9 +51,11 @@ const schema = makePrismaSchema({
 const server = new GraphQLServer({
   schema,
   middlewares: [permissions],
-  context: request => {
+  //@ts-ignore
+  context: (request, response) => {
     return {
       ...request,
+      ...response,
       prisma,
       redis
     };

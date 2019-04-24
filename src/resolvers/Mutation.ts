@@ -1,10 +1,9 @@
-import { sign } from "jsonwebtoken";
+import * as admin from "firebase-admin";
 import { booleanArg, idArg, intArg, mutationType, stringArg } from "nexus";
 import * as shortid from "shortid";
-import * as admin from "firebase-admin";
-import { APP_SECRET, getUserId } from "../utils/getUser";
-import { redis } from "../redis";
 import { userSessionIdPrefix } from "../constants/sessions";
+import { redis } from "../redis";
+import { getUserId } from "../utils/getUser";
 
 const firebase = admin.initializeApp(
   {
@@ -90,6 +89,23 @@ export const Mutation = mutationType({
             user
           };
         }
+      }
+    });
+
+    t.field("logout", {
+      type: "AuthPayload",
+      resolve: async (parent, args, context) => {
+        return new Promise((res, rej) =>
+          context.request.session.destroy((err: any) => {
+            if (err) {
+              console.log(err);
+              return rej(false);
+            }
+            //@ts-ignore
+            context.response.clearCookie("qid");
+            res(true);
+          })
+        );
       }
     });
 

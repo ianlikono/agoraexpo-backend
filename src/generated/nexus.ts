@@ -791,6 +791,7 @@ export interface NexusGenFieldTypes {
     createShopDraft: NexusGenRootTypes['Shop'] | null; // Shop
     deleteCartItem: NexusGenRootTypes['CartItem'] | null; // CartItem
     login: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
+    logout: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
     publishShop: NexusGenRootTypes['Shop'] | null; // Shop
     signUp: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
     updateShop: NexusGenRootTypes['Shop'] | null; // Shop
