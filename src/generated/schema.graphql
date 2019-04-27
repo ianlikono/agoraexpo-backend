@@ -254,6 +254,44 @@ input CategoryWhereInput {
 
 scalar DateTime
 
+type Forum {
+  avatarPic: String!
+  coverPic: String!
+  createdAt: DateTime!
+  description: String
+  id: ID!
+  members(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): [User!]
+  name: String!
+  posts(after: String, before: String, first: Int, last: Int, orderBy: ForumPostOrderByInput, skip: Int, where: ForumPostWhereInput): [ForumPost!]
+  updatedAt: DateTime!
+}
+
+type ForumPost {
+  content: String
+  createdAt: DateTime!
+  forum: Forum!
+  id: ID!
+  postedBy: User!
+  title: String!
+  type: ForumPostType!
+  updatedAt: DateTime!
+}
+
+enum ForumPostOrderByInput {
+  content_ASC
+  content_DESC
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  type_ASC
+  type_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
 enum ForumPostType {
   LINK
   MEDIA
@@ -431,6 +469,7 @@ input ForumWhereInput {
 type Mutation {
   addItemToCart(productId: ID!, quantity: Int!, variants: [String!]): Cart
   addVariant(name: String!, productId: ID!, values: [String!]): Variant
+  createForum(avatarPic: String, coverPic: String, description: String, name: String!): Forum
   createProduct(brand: String!, categories: [String!], description: String!, id: ID!, images: [String!], price: String!, tags: [String!], title: String!): Product
   createProductReview(productId: ID!, rating: Int!, review: String): ProductReview
   createShopDraft(category: String!, description: String!, live: Boolean, name: String!, ownersIds: [ID!]): Shop

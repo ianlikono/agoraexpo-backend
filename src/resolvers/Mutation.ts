@@ -137,6 +137,39 @@ export const Mutation = mutationType({
       }
     });
 
+    t.field("createForum", {
+      type: "Forum",
+      args: {
+        name: stringArg({ required: true }),
+        description: stringArg({ required: false }),
+        avatarPic: stringArg({ required: false }),
+        coverPic: stringArg({ required: false })
+      },
+      resolve: async (
+        parent,
+        { description, name, avatarPic, coverPic },
+        ctx
+      ) => {
+        const userId = getUserId(ctx);
+        let forumName = name.replace(/[^A-Z0-9]+/gi, "");
+        const presentForums = await ctx.prisma.forums({
+          where: {
+            name: forumName
+          }
+        });
+        if (presentForums.length > 0) {
+          forumName = forumName + "-" + shortid.generate();
+        }
+        return ctx.prisma.createForum({
+          avatarPic: avatarPic,
+          coverPic: coverPic,
+          members: { connect: [{ id: userId }] },
+          name: forumName,
+          description: description
+        });
+      }
+    });
+
     t.field("createShopDraft", {
       type: "Shop",
       args: {

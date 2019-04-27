@@ -987,6 +987,7 @@ export interface NexusGenInputs {
 export interface NexusGenEnums {
   CartItemOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "quantity_ASC" | "quantity_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   CategoryOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  ForumPostOrderByInput: "content_ASC" | "content_DESC" | "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "title_ASC" | "title_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   ForumPostType: "LINK" | "MEDIA" | "POST"
   ProductImageOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "imageUrl_ASC" | "imageUrl_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   ProductOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "price_ASC" | "price_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
@@ -1024,6 +1025,22 @@ export interface NexusGenRootTypes {
     createdAt: any; // DateTime!
     id: string; // ID!
     name: string; // String!
+    updatedAt: any; // DateTime!
+  }
+  Forum: { // root type
+    avatarPic: string; // String!
+    coverPic: string; // String!
+    createdAt: any; // DateTime!
+    description?: string | null; // String
+    id: string; // ID!
+    name: string; // String!
+    updatedAt: any; // DateTime!
+  }
+  ForumPost: { // root type
+    content?: string | null; // String
+    createdAt: any; // DateTime!
+    id: string; // ID!
+    title: string; // String!
     updatedAt: any; // DateTime!
   }
   Mutation: {};
@@ -1119,6 +1136,7 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   VariantWhereInput: NexusGenInputs['VariantWhereInput'];
   CartItemOrderByInput: NexusGenEnums['CartItemOrderByInput'];
   CategoryOrderByInput: NexusGenEnums['CategoryOrderByInput'];
+  ForumPostOrderByInput: NexusGenEnums['ForumPostOrderByInput'];
   ForumPostType: NexusGenEnums['ForumPostType'];
   ProductImageOrderByInput: NexusGenEnums['ProductImageOrderByInput'];
   ProductOrderByInput: NexusGenEnums['ProductOrderByInput'];
@@ -1163,9 +1181,31 @@ export interface NexusGenFieldTypes {
     product: NexusGenRootTypes['Product'][] | null; // [Product!]
     updatedAt: any; // DateTime!
   }
+  Forum: { // field return type
+    avatarPic: string; // String!
+    coverPic: string; // String!
+    createdAt: any; // DateTime!
+    description: string | null; // String
+    id: string; // ID!
+    members: NexusGenRootTypes['User'][] | null; // [User!]
+    name: string; // String!
+    posts: NexusGenRootTypes['ForumPost'][] | null; // [ForumPost!]
+    updatedAt: any; // DateTime!
+  }
+  ForumPost: { // field return type
+    content: string | null; // String
+    createdAt: any; // DateTime!
+    forum: NexusGenRootTypes['Forum']; // Forum!
+    id: string; // ID!
+    postedBy: NexusGenRootTypes['User']; // User!
+    title: string; // String!
+    type: NexusGenEnums['ForumPostType']; // ForumPostType!
+    updatedAt: any; // DateTime!
+  }
   Mutation: { // field return type
     addItemToCart: NexusGenRootTypes['Cart'] | null; // Cart
     addVariant: NexusGenRootTypes['Variant'] | null; // Variant
+    createForum: NexusGenRootTypes['Forum'] | null; // Forum
     createProduct: NexusGenRootTypes['Product'] | null; // Product
     createProductReview: NexusGenRootTypes['ProductReview'] | null; // ProductReview
     createShopDraft: NexusGenRootTypes['Shop'] | null; // Shop
@@ -1307,6 +1347,26 @@ export interface NexusGenArgTypes {
       where?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     }
   }
+  Forum: {
+    members: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['UserOrderByInput'] | null; // UserOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    }
+    posts: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['ForumPostOrderByInput'] | null; // ForumPostOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['ForumPostWhereInput'] | null; // ForumPostWhereInput
+    }
+  }
   Mutation: {
     addItemToCart: { // args
       productId: string; // ID!
@@ -1317,6 +1377,12 @@ export interface NexusGenArgTypes {
       name: string; // String!
       productId: string; // ID!
       values?: string[] | null; // [String!]
+    }
+    createForum: { // args
+      avatarPic?: string | null; // String
+      coverPic?: string | null; // String
+      description?: string | null; // String
+      name: string; // String!
     }
     createProduct: { // args
       brand: string; // String!
@@ -1498,11 +1564,11 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "AuthPayload" | "Brand" | "Cart" | "CartItem" | "Category" | "Mutation" | "Product" | "ProductImage" | "ProductReview" | "Query" | "Shop" | "ShopImage" | "Tag" | "User" | "UserImage" | "Variant";
+export type NexusGenObjectNames = "AuthPayload" | "Brand" | "Cart" | "CartItem" | "Category" | "Forum" | "ForumPost" | "Mutation" | "Product" | "ProductImage" | "ProductReview" | "Query" | "Shop" | "ShopImage" | "Tag" | "User" | "UserImage" | "Variant";
 
 export type NexusGenInputNames = "BrandWhereInput" | "CartItemWhereInput" | "CartWhereInput" | "CategoryWhereInput" | "ForumPostWhereInput" | "ForumWhereInput" | "ProductImageWhereInput" | "ProductReviewWhereInput" | "ProductWhereInput" | "ShopImageWhereInput" | "ShopWhereInput" | "TagWhereInput" | "UserImageWhereInput" | "UserWhereInput" | "VariantWhereInput";
 
-export type NexusGenEnumNames = "CartItemOrderByInput" | "CategoryOrderByInput" | "ForumPostType" | "ProductImageOrderByInput" | "ProductOrderByInput" | "ProductReviewOrderByInput" | "ShopImageOrderByInput" | "TagOrderByInput" | "UserImageOrderByInput" | "UserOrderByInput" | "VariantOrderByInput";
+export type NexusGenEnumNames = "CartItemOrderByInput" | "CategoryOrderByInput" | "ForumPostOrderByInput" | "ForumPostType" | "ProductImageOrderByInput" | "ProductOrderByInput" | "ProductReviewOrderByInput" | "ShopImageOrderByInput" | "TagOrderByInput" | "UserImageOrderByInput" | "UserOrderByInput" | "VariantOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 

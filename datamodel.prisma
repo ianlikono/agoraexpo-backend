@@ -19,8 +19,14 @@ type User {
 
 type Forum {
   id: ID! @id
-  avatarPic: String
-  coverPic: String
+  avatarPic: String!
+    @default(
+      value: "https://res.cloudinary.com/doelo01na/image/upload/c_scale,h_500,q_auto,w_500/v1556402297/defaults/no-image.webp"
+    )
+  coverPic: String!
+    @default(
+      value: "https://res.cloudinary.com/doelo01na/image/upload/c_scale,h_600,q_auto,w_1500/v1556402297/defaults/no-image.webp"
+    )
   members: [User] @relation(name: "UserForums")
   posts: [ForumPost] @relation(name: "ForumPosts")
   name: String!

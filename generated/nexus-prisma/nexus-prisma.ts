@@ -3063,7 +3063,7 @@ export interface ForumFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: true
+    nullable: false
     resolve: undefined
   }
   coverPic: {
@@ -3071,7 +3071,7 @@ export interface ForumFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: true
+    nullable: false
     resolve: undefined
   }
   members: {
@@ -7239,7 +7239,7 @@ export interface ForumPreviousValuesFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: true
+    nullable: false
     resolve: undefined
   }
   coverPic: {
@@ -7247,7 +7247,7 @@ export interface ForumPreviousValuesFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: true
+    nullable: false
     resolve: undefined
   }
   name: {
