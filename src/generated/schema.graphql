@@ -7,13 +7,23 @@ type AuthPayload {
 }
 
 type Brand {
+  createdAt: DateTime!
   id: ID!
   name: String!
   products(after: String, before: String, first: Int, last: Int, orderBy: ProductOrderByInput, skip: Int, where: ProductWhereInput): [Product!]
+  updatedAt: DateTime!
 }
 
 input BrandWhereInput {
   AND: [BrandWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -47,18 +57,30 @@ input BrandWhereInput {
   products_every: ProductWhereInput
   products_none: ProductWhereInput
   products_some: ProductWhereInput
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 type Cart {
+  createdAt: DateTime!
   id: ID!
   items(after: String, before: String, first: Int, last: Int, orderBy: CartItemOrderByInput, skip: Int, where: CartItemWhereInput): [CartItem!]
+  updatedAt: DateTime!
   user: User!
 }
 
 type CartItem {
+  createdAt: DateTime!
   id: ID!
   product: Product!
   quantity: Int!
+  updatedAt: DateTime!
   variants: [String!]!
 }
 
@@ -75,6 +97,14 @@ enum CartItemOrderByInput {
 
 input CartItemWhereInput {
   AND: [CartItemWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -100,10 +130,26 @@ input CartItemWhereInput {
   quantity_lte: Int
   quantity_not: Int
   quantity_not_in: [Int!]
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 input CartWhereInput {
   AND: [CartWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -123,13 +169,23 @@ input CartWhereInput {
   items_some: CartItemWhereInput
   NOT: [CartWhereInput!]
   OR: [CartWhereInput!]
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
   user: UserWhereInput
 }
 
 type Category {
+  createdAt: DateTime!
   id: ID!
   name: String!
   product(after: String, before: String, first: Int, last: Int, orderBy: ProductOrderByInput, skip: Int, where: ProductWhereInput): [Product!]
+  updatedAt: DateTime!
 }
 
 enum CategoryOrderByInput {
@@ -145,6 +201,14 @@ enum CategoryOrderByInput {
 
 input CategoryWhereInput {
   AND: [CategoryWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -178,9 +242,191 @@ input CategoryWhereInput {
   product_every: ProductWhereInput
   product_none: ProductWhereInput
   product_some: ProductWhereInput
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 scalar DateTime
+
+enum ForumPostType {
+  LINK
+  MEDIA
+  POST
+}
+
+input ForumPostWhereInput {
+  AND: [ForumPostWhereInput!]
+  content: String
+  content_contains: String
+  content_ends_with: String
+  content_gt: String
+  content_gte: String
+  content_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_not: String
+  content_not_contains: String
+  content_not_ends_with: String
+  content_not_in: [String!]
+  content_not_starts_with: String
+  content_starts_with: String
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
+  forum: ForumWhereInput
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  NOT: [ForumPostWhereInput!]
+  OR: [ForumPostWhereInput!]
+  postedBy: UserWhereInput
+  title: String
+  title_contains: String
+  title_ends_with: String
+  title_gt: String
+  title_gte: String
+  title_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_not: String
+  title_not_contains: String
+  title_not_ends_with: String
+  title_not_in: [String!]
+  title_not_starts_with: String
+  title_starts_with: String
+  type: ForumPostType
+  type_in: [ForumPostType!]
+  type_not: ForumPostType
+  type_not_in: [ForumPostType!]
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
+}
+
+input ForumWhereInput {
+  AND: [ForumWhereInput!]
+  avatarPic: String
+  avatarPic_contains: String
+  avatarPic_ends_with: String
+  avatarPic_gt: String
+  avatarPic_gte: String
+  avatarPic_in: [String!]
+  avatarPic_lt: String
+  avatarPic_lte: String
+  avatarPic_not: String
+  avatarPic_not_contains: String
+  avatarPic_not_ends_with: String
+  avatarPic_not_in: [String!]
+  avatarPic_not_starts_with: String
+  avatarPic_starts_with: String
+  coverPic: String
+  coverPic_contains: String
+  coverPic_ends_with: String
+  coverPic_gt: String
+  coverPic_gte: String
+  coverPic_in: [String!]
+  coverPic_lt: String
+  coverPic_lte: String
+  coverPic_not: String
+  coverPic_not_contains: String
+  coverPic_not_ends_with: String
+  coverPic_not_in: [String!]
+  coverPic_not_starts_with: String
+  coverPic_starts_with: String
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  members_every: UserWhereInput
+  members_none: UserWhereInput
+  members_some: UserWhereInput
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [ForumWhereInput!]
+  OR: [ForumWhereInput!]
+  posts_every: ForumPostWhereInput
+  posts_none: ForumPostWhereInput
+  posts_some: ForumPostWhereInput
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
+}
 
 type Mutation {
   addItemToCart(productId: ID!, quantity: Int!, variants: [String!]): Cart
@@ -201,6 +447,7 @@ type Mutation {
 type Product {
   brand: Brand
   categories(after: String, before: String, first: Int, last: Int, orderBy: CategoryOrderByInput, skip: Int, where: CategoryWhereInput): [Category!]
+  createdAt: DateTime!
   description: String!
   id: ID!
   images(after: String, before: String, first: Int, last: Int, orderBy: ProductImageOrderByInput, skip: Int, where: ProductImageWhereInput): [ProductImage!]
@@ -209,13 +456,16 @@ type Product {
   shop: Shop!
   tags(after: String, before: String, first: Int, last: Int, orderBy: TagOrderByInput, skip: Int, where: TagWhereInput): [Tag!]
   title: String!
+  updatedAt: DateTime!
   variants(after: String, before: String, first: Int, last: Int, orderBy: VariantOrderByInput, skip: Int, where: VariantWhereInput): [Variant!]
 }
 
 type ProductImage {
+  createdAt: DateTime!
   id: ID!
   imageUrl: String!
   product: Product
+  updatedAt: DateTime!
 }
 
 enum ProductImageOrderByInput {
@@ -231,6 +481,14 @@ enum ProductImageOrderByInput {
 
 input ProductImageWhereInput {
   AND: [ProductImageWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -262,6 +520,14 @@ input ProductImageWhereInput {
   NOT: [ProductImageWhereInput!]
   OR: [ProductImageWhereInput!]
   product: ProductWhereInput
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 enum ProductOrderByInput {
@@ -368,6 +634,14 @@ input ProductWhereInput {
   categories_every: CategoryWhereInput
   categories_none: CategoryWhereInput
   categories_some: CategoryWhereInput
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   description: String
   description_contains: String
   description_ends_with: String
@@ -436,6 +710,14 @@ input ProductWhereInput {
   title_not_in: [String!]
   title_not_starts_with: String
   title_starts_with: String
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
   variants_every: VariantWhereInput
   variants_none: VariantWhereInput
   variants_some: VariantWhereInput
@@ -465,9 +747,11 @@ type Shop {
 }
 
 type ShopImage {
+  createdAt: DateTime!
   id: ID!
   imageUrl: String!
   shop: Shop
+  updatedAt: DateTime!
 }
 
 enum ShopImageOrderByInput {
@@ -483,6 +767,14 @@ enum ShopImageOrderByInput {
 
 input ShopImageWhereInput {
   AND: [ShopImageWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -514,6 +806,14 @@ input ShopImageWhereInput {
   NOT: [ShopImageWhereInput!]
   OR: [ShopImageWhereInput!]
   shop: ShopWhereInput
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 input ShopWhereInput {
@@ -606,9 +906,11 @@ input ShopWhereInput {
 }
 
 type Tag {
+  createdAt: DateTime!
   id: ID!
   name: String!
   products(after: String, before: String, first: Int, last: Int, orderBy: ProductOrderByInput, skip: Int, where: ProductWhereInput): [Product!]
+  updatedAt: DateTime!
 }
 
 enum TagOrderByInput {
@@ -624,6 +926,14 @@ enum TagOrderByInput {
 
 input TagWhereInput {
   AND: [TagWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -657,6 +967,14 @@ input TagWhereInput {
   products_every: ProductWhereInput
   products_none: ProductWhereInput
   products_some: ProductWhereInput
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 type User {
@@ -673,8 +991,10 @@ type User {
 }
 
 type UserImage {
+  createdAt: DateTime!
   id: ID!
   imageUrl: String!
+  updatedAt: DateTime!
   user: User
 }
 
@@ -691,6 +1011,14 @@ enum UserImageOrderByInput {
 
 input UserImageWhereInput {
   AND: [UserImageWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -721,6 +1049,14 @@ input UserImageWhereInput {
   imageUrl_starts_with: String
   NOT: [UserImageWhereInput!]
   OR: [UserImageWhereInput!]
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
   user: UserWhereInput
 }
 
@@ -750,6 +1086,14 @@ enum UserOrderByInput {
 input UserWhereInput {
   AND: [UserWhereInput!]
   cartItems: CartWhereInput
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   email: String
   email_contains: String
   email_ends_with: String
@@ -780,6 +1124,12 @@ input UserWhereInput {
   firebaseId_not_in: [String!]
   firebaseId_not_starts_with: String
   firebaseId_starts_with: String
+  forumposts_every: ForumPostWhereInput
+  forumposts_none: ForumPostWhereInput
+  forumposts_some: ForumPostWhereInput
+  forums_every: ForumWhereInput
+  forums_none: ForumWhereInput
+  forums_some: ForumWhereInput
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -835,6 +1185,14 @@ input UserWhereInput {
   shops_every: ShopWhereInput
   shops_none: ShopWhereInput
   shops_some: ShopWhereInput
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
   username: String
   username_contains: String
   username_ends_with: String
@@ -852,9 +1210,11 @@ input UserWhereInput {
 }
 
 type Variant {
+  createdAt: DateTime!
   id: ID!
   name: String!
   product: Product!
+  updatedAt: DateTime!
   values: [String!]!
 }
 
@@ -871,6 +1231,14 @@ enum VariantOrderByInput {
 
 input VariantWhereInput {
   AND: [VariantWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -902,4 +1270,12 @@ input VariantWhereInput {
   NOT: [VariantWhereInput!]
   OR: [VariantWhereInput!]
   product: ProductWhereInput
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }

@@ -1,45 +1,82 @@
 type User {
-  id: ID! @unique
+  id: ID! @id
   firebaseId: String! @unique
   email: String @unique
   name: String
   username: String @unique
   profilePic: String
-  isAnonymous: Boolean! @default(value: "false")
-  emailVerified: Boolean @default(value: "false")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  isAnonymous: Boolean! @default(value: false)
+  emailVerified: Boolean @default(value: false)
   shops: [Shop] @relation(name: "ShopOwners")
   images: [UserImage] @relation(name: "UserImages")
   productReviews: [ProductReview] @relation(name: "UserProductReview")
-  cartItems: Cart @relation(name: "UserCart")
+  cartItems: Cart @relation(link: INLINE)
+  forumposts: [ForumPost] @relation(name: "UserForumPost")
+  forums: [Forum] @relation(name: "UserForums")
+}
+
+type Forum {
+  id: ID! @id
+  avatarPic: String
+  coverPic: String
+  members: [User] @relation(name: "UserForums")
+  posts: [ForumPost] @relation(name: "ForumPosts")
+  name: String!
+  description: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+enum ForumPostType {
+  POST
+  MEDIA
+  LINK
+}
+
+type ForumPost {
+  id: ID! @id
+  postedBy: User! @relation(name: "UserForumPost")
+  forum: Forum! @relation(name: "ForumPosts")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  title: String!
+  content: String
+  type: ForumPostType!
 }
 
 type Shop {
-  id: ID! @unique
+  id: ID! @id
   name: String! @unique
   description: String!
   category: String!
-  live: Boolean! @default(value: "false")
+  live: Boolean! @default(value: false)
   owners: [User!] @relation(name: "ShopOwners")
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
   images: [ShopImage] @relation(name: "ShopImages")
   products: [Product] @relation(name: "ShopProducts")
 }
 
 type ShopImage {
-  id: ID! @unique
+  id: ID! @id
   imageUrl: String!
   shop: Shop @relation(name: "ShopImages")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type UserImage {
-  id: ID! @unique
+  id: ID! @id
   imageUrl: String!
   user: User @relation(name: "UserImages")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Product {
-  id: ID! @unique
+  id: ID! @id
   title: String!
   description: String!
   price: String!
@@ -50,58 +87,74 @@ type Product {
   shop: Shop! @relation(name: "ShopProducts")
   variants: [Variant] @relation(name: "ProductVariants")
   reviews: [ProductReview] @relation(name: "ProductReview")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Cart {
-  id: ID! @unique
-  user: User! @relation(name: "UserCart")
+  id: ID! @id
+  user: User!
   items: [CartItem]
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type CartItem {
-  id: ID! @unique
-  product: Product!
+  id: ID! @id
+  product: Product! @relation(link: INLINE)
   quantity: Int!
-  variants: [String]
+  variants: [String] @scalarList(strategy: RELATION)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Brand {
-  id: ID! @unique
+  id: ID! @id
   name: String! @unique
   products: [Product] @relation(name: "BrandProducts")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Tag {
-  id: ID! @unique
+  id: ID! @id
   name: String! @unique
   products: [Product] @relation(name: "ProductTags")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Category {
-  id: ID! @unique
+  id: ID! @id
   name: String! @unique
   product: [Product] @relation(name: "ProductCategories")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type ProductImage {
-  id: ID! @unique
+  id: ID! @id
   imageUrl: String!
   product: Product @relation(name: "ProductImages")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Variant {
-  id: ID! @unique
+  id: ID! @id
   product: Product! @relation(name: "ProductVariants")
   name: String!
-  values: [String]
+  values: [String] @scalarList(strategy: RELATION)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type ProductReview {
-  id: ID! @unique
+  id: ID! @id
   user: User! @relation(name: "UserProductReview")
   product: Product! @relation(name: "ProductReview")
   rating: Int!
   review: String
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }

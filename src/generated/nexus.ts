@@ -13,6 +13,14 @@ declare global {
 export interface NexusGenInputs {
   BrandWhereInput: { // input type
     AND?: NexusGenInputs['BrandWhereInput'][] | null; // [BrandWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -46,9 +54,25 @@ export interface NexusGenInputs {
     products_every?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     products_none?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     products_some?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   CartItemWhereInput: { // input type
     AND?: NexusGenInputs['CartItemWhereInput'][] | null; // [CartItemWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -74,9 +98,25 @@ export interface NexusGenInputs {
     quantity_lte?: number | null; // Int
     quantity_not?: number | null; // Int
     quantity_not_in?: number[] | null; // [Int!]
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   CartWhereInput: { // input type
     AND?: NexusGenInputs['CartWhereInput'][] | null; // [CartWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -96,10 +136,26 @@ export interface NexusGenInputs {
     items_some?: NexusGenInputs['CartItemWhereInput'] | null; // CartItemWhereInput
     NOT?: NexusGenInputs['CartWhereInput'][] | null; // [CartWhereInput!]
     OR?: NexusGenInputs['CartWhereInput'][] | null; // [CartWhereInput!]
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
     user?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
   }
   CategoryWhereInput: { // input type
     AND?: NexusGenInputs['CategoryWhereInput'][] | null; // [CategoryWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -133,9 +189,191 @@ export interface NexusGenInputs {
     product_every?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     product_none?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     product_some?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
+  }
+  ForumPostWhereInput: { // input type
+    AND?: NexusGenInputs['ForumPostWhereInput'][] | null; // [ForumPostWhereInput!]
+    content?: string | null; // String
+    content_contains?: string | null; // String
+    content_ends_with?: string | null; // String
+    content_gt?: string | null; // String
+    content_gte?: string | null; // String
+    content_in?: string[] | null; // [String!]
+    content_lt?: string | null; // String
+    content_lte?: string | null; // String
+    content_not?: string | null; // String
+    content_not_contains?: string | null; // String
+    content_not_ends_with?: string | null; // String
+    content_not_in?: string[] | null; // [String!]
+    content_not_starts_with?: string | null; // String
+    content_starts_with?: string | null; // String
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
+    forum?: NexusGenInputs['ForumWhereInput'] | null; // ForumWhereInput
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    NOT?: NexusGenInputs['ForumPostWhereInput'][] | null; // [ForumPostWhereInput!]
+    OR?: NexusGenInputs['ForumPostWhereInput'][] | null; // [ForumPostWhereInput!]
+    postedBy?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    title?: string | null; // String
+    title_contains?: string | null; // String
+    title_ends_with?: string | null; // String
+    title_gt?: string | null; // String
+    title_gte?: string | null; // String
+    title_in?: string[] | null; // [String!]
+    title_lt?: string | null; // String
+    title_lte?: string | null; // String
+    title_not?: string | null; // String
+    title_not_contains?: string | null; // String
+    title_not_ends_with?: string | null; // String
+    title_not_in?: string[] | null; // [String!]
+    title_not_starts_with?: string | null; // String
+    title_starts_with?: string | null; // String
+    type?: NexusGenEnums['ForumPostType'] | null; // ForumPostType
+    type_in?: NexusGenEnums['ForumPostType'][] | null; // [ForumPostType!]
+    type_not?: NexusGenEnums['ForumPostType'] | null; // ForumPostType
+    type_not_in?: NexusGenEnums['ForumPostType'][] | null; // [ForumPostType!]
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
+  }
+  ForumWhereInput: { // input type
+    AND?: NexusGenInputs['ForumWhereInput'][] | null; // [ForumWhereInput!]
+    avatarPic?: string | null; // String
+    avatarPic_contains?: string | null; // String
+    avatarPic_ends_with?: string | null; // String
+    avatarPic_gt?: string | null; // String
+    avatarPic_gte?: string | null; // String
+    avatarPic_in?: string[] | null; // [String!]
+    avatarPic_lt?: string | null; // String
+    avatarPic_lte?: string | null; // String
+    avatarPic_not?: string | null; // String
+    avatarPic_not_contains?: string | null; // String
+    avatarPic_not_ends_with?: string | null; // String
+    avatarPic_not_in?: string[] | null; // [String!]
+    avatarPic_not_starts_with?: string | null; // String
+    avatarPic_starts_with?: string | null; // String
+    coverPic?: string | null; // String
+    coverPic_contains?: string | null; // String
+    coverPic_ends_with?: string | null; // String
+    coverPic_gt?: string | null; // String
+    coverPic_gte?: string | null; // String
+    coverPic_in?: string[] | null; // [String!]
+    coverPic_lt?: string | null; // String
+    coverPic_lte?: string | null; // String
+    coverPic_not?: string | null; // String
+    coverPic_not_contains?: string | null; // String
+    coverPic_not_ends_with?: string | null; // String
+    coverPic_not_in?: string[] | null; // [String!]
+    coverPic_not_starts_with?: string | null; // String
+    coverPic_starts_with?: string | null; // String
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    members_every?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    members_none?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    members_some?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['ForumWhereInput'][] | null; // [ForumWhereInput!]
+    OR?: NexusGenInputs['ForumWhereInput'][] | null; // [ForumWhereInput!]
+    posts_every?: NexusGenInputs['ForumPostWhereInput'] | null; // ForumPostWhereInput
+    posts_none?: NexusGenInputs['ForumPostWhereInput'] | null; // ForumPostWhereInput
+    posts_some?: NexusGenInputs['ForumPostWhereInput'] | null; // ForumPostWhereInput
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   ProductImageWhereInput: { // input type
     AND?: NexusGenInputs['ProductImageWhereInput'][] | null; // [ProductImageWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -167,6 +405,14 @@ export interface NexusGenInputs {
     NOT?: NexusGenInputs['ProductImageWhereInput'][] | null; // [ProductImageWhereInput!]
     OR?: NexusGenInputs['ProductImageWhereInput'][] | null; // [ProductImageWhereInput!]
     product?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   ProductReviewWhereInput: { // input type
     AND?: NexusGenInputs['ProductReviewWhereInput'][] | null; // [ProductReviewWhereInput!]
@@ -233,6 +479,14 @@ export interface NexusGenInputs {
     categories_every?: NexusGenInputs['CategoryWhereInput'] | null; // CategoryWhereInput
     categories_none?: NexusGenInputs['CategoryWhereInput'] | null; // CategoryWhereInput
     categories_some?: NexusGenInputs['CategoryWhereInput'] | null; // CategoryWhereInput
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     description?: string | null; // String
     description_contains?: string | null; // String
     description_ends_with?: string | null; // String
@@ -301,12 +555,28 @@ export interface NexusGenInputs {
     title_not_in?: string[] | null; // [String!]
     title_not_starts_with?: string | null; // String
     title_starts_with?: string | null; // String
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
     variants_every?: NexusGenInputs['VariantWhereInput'] | null; // VariantWhereInput
     variants_none?: NexusGenInputs['VariantWhereInput'] | null; // VariantWhereInput
     variants_some?: NexusGenInputs['VariantWhereInput'] | null; // VariantWhereInput
   }
   ShopImageWhereInput: { // input type
     AND?: NexusGenInputs['ShopImageWhereInput'][] | null; // [ShopImageWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -338,6 +608,14 @@ export interface NexusGenInputs {
     NOT?: NexusGenInputs['ShopImageWhereInput'][] | null; // [ShopImageWhereInput!]
     OR?: NexusGenInputs['ShopImageWhereInput'][] | null; // [ShopImageWhereInput!]
     shop?: NexusGenInputs['ShopWhereInput'] | null; // ShopWhereInput
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   ShopWhereInput: { // input type
     AND?: NexusGenInputs['ShopWhereInput'][] | null; // [ShopWhereInput!]
@@ -429,6 +707,14 @@ export interface NexusGenInputs {
   }
   TagWhereInput: { // input type
     AND?: NexusGenInputs['TagWhereInput'][] | null; // [TagWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -462,9 +748,25 @@ export interface NexusGenInputs {
     products_every?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     products_none?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     products_some?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   UserImageWhereInput: { // input type
     AND?: NexusGenInputs['UserImageWhereInput'][] | null; // [UserImageWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -495,11 +797,27 @@ export interface NexusGenInputs {
     imageUrl_starts_with?: string | null; // String
     NOT?: NexusGenInputs['UserImageWhereInput'][] | null; // [UserImageWhereInput!]
     OR?: NexusGenInputs['UserImageWhereInput'][] | null; // [UserImageWhereInput!]
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
     user?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
   }
   UserWhereInput: { // input type
     AND?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
     cartItems?: NexusGenInputs['CartWhereInput'] | null; // CartWhereInput
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     email?: string | null; // String
     email_contains?: string | null; // String
     email_ends_with?: string | null; // String
@@ -530,6 +848,12 @@ export interface NexusGenInputs {
     firebaseId_not_in?: string[] | null; // [String!]
     firebaseId_not_starts_with?: string | null; // String
     firebaseId_starts_with?: string | null; // String
+    forumposts_every?: NexusGenInputs['ForumPostWhereInput'] | null; // ForumPostWhereInput
+    forumposts_none?: NexusGenInputs['ForumPostWhereInput'] | null; // ForumPostWhereInput
+    forumposts_some?: NexusGenInputs['ForumPostWhereInput'] | null; // ForumPostWhereInput
+    forums_every?: NexusGenInputs['ForumWhereInput'] | null; // ForumWhereInput
+    forums_none?: NexusGenInputs['ForumWhereInput'] | null; // ForumWhereInput
+    forums_some?: NexusGenInputs['ForumWhereInput'] | null; // ForumWhereInput
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -585,6 +909,14 @@ export interface NexusGenInputs {
     shops_every?: NexusGenInputs['ShopWhereInput'] | null; // ShopWhereInput
     shops_none?: NexusGenInputs['ShopWhereInput'] | null; // ShopWhereInput
     shops_some?: NexusGenInputs['ShopWhereInput'] | null; // ShopWhereInput
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
     username?: string | null; // String
     username_contains?: string | null; // String
     username_ends_with?: string | null; // String
@@ -602,6 +934,14 @@ export interface NexusGenInputs {
   }
   VariantWhereInput: { // input type
     AND?: NexusGenInputs['VariantWhereInput'][] | null; // [VariantWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -633,12 +973,21 @@ export interface NexusGenInputs {
     NOT?: NexusGenInputs['VariantWhereInput'][] | null; // [VariantWhereInput!]
     OR?: NexusGenInputs['VariantWhereInput'][] | null; // [VariantWhereInput!]
     product?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
 }
 
 export interface NexusGenEnums {
   CartItemOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "quantity_ASC" | "quantity_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   CategoryOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  ForumPostType: "LINK" | "MEDIA" | "POST"
   ProductImageOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "imageUrl_ASC" | "imageUrl_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   ProductOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "price_ASC" | "price_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   ProductReviewOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "rating_ASC" | "rating_DESC" | "review_ASC" | "review_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
@@ -654,31 +1003,43 @@ export interface NexusGenRootTypes {
     user?: NexusGenRootTypes['User'] | null; // User
   }
   Brand: { // root type
+    createdAt: any; // DateTime!
     id: string; // ID!
     name: string; // String!
+    updatedAt: any; // DateTime!
   }
   Cart: { // root type
+    createdAt: any; // DateTime!
     id: string; // ID!
+    updatedAt: any; // DateTime!
   }
   CartItem: { // root type
+    createdAt: any; // DateTime!
     id: string; // ID!
     quantity: number; // Int!
+    updatedAt: any; // DateTime!
     variants: string[]; // [String!]!
   }
   Category: { // root type
+    createdAt: any; // DateTime!
     id: string; // ID!
     name: string; // String!
+    updatedAt: any; // DateTime!
   }
   Mutation: {};
   Product: { // root type
+    createdAt: any; // DateTime!
     description: string; // String!
     id: string; // ID!
     price: string; // String!
     title: string; // String!
+    updatedAt: any; // DateTime!
   }
   ProductImage: { // root type
+    createdAt: any; // DateTime!
     id: string; // ID!
     imageUrl: string; // String!
+    updatedAt: any; // DateTime!
   }
   ProductReview: { // root type
     createdAt: any; // DateTime!
@@ -698,12 +1059,16 @@ export interface NexusGenRootTypes {
     updatedAt: any; // DateTime!
   }
   ShopImage: { // root type
+    createdAt: any; // DateTime!
     id: string; // ID!
     imageUrl: string; // String!
+    updatedAt: any; // DateTime!
   }
   Tag: { // root type
+    createdAt: any; // DateTime!
     id: string; // ID!
     name: string; // String!
+    updatedAt: any; // DateTime!
   }
   User: { // root type
     email?: string | null; // String
@@ -716,12 +1081,16 @@ export interface NexusGenRootTypes {
     username?: string | null; // String
   }
   UserImage: { // root type
+    createdAt: any; // DateTime!
     id: string; // ID!
     imageUrl: string; // String!
+    updatedAt: any; // DateTime!
   }
   Variant: { // root type
+    createdAt: any; // DateTime!
     id: string; // ID!
     name: string; // String!
+    updatedAt: any; // DateTime!
     values: string[]; // [String!]!
   }
   String: string;
@@ -737,6 +1106,8 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   CartItemWhereInput: NexusGenInputs['CartItemWhereInput'];
   CartWhereInput: NexusGenInputs['CartWhereInput'];
   CategoryWhereInput: NexusGenInputs['CategoryWhereInput'];
+  ForumPostWhereInput: NexusGenInputs['ForumPostWhereInput'];
+  ForumWhereInput: NexusGenInputs['ForumWhereInput'];
   ProductImageWhereInput: NexusGenInputs['ProductImageWhereInput'];
   ProductReviewWhereInput: NexusGenInputs['ProductReviewWhereInput'];
   ProductWhereInput: NexusGenInputs['ProductWhereInput'];
@@ -748,6 +1119,7 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   VariantWhereInput: NexusGenInputs['VariantWhereInput'];
   CartItemOrderByInput: NexusGenEnums['CartItemOrderByInput'];
   CategoryOrderByInput: NexusGenEnums['CategoryOrderByInput'];
+  ForumPostType: NexusGenEnums['ForumPostType'];
   ProductImageOrderByInput: NexusGenEnums['ProductImageOrderByInput'];
   ProductOrderByInput: NexusGenEnums['ProductOrderByInput'];
   ProductReviewOrderByInput: NexusGenEnums['ProductReviewOrderByInput'];
@@ -763,25 +1135,33 @@ export interface NexusGenFieldTypes {
     user: NexusGenRootTypes['User'] | null; // User
   }
   Brand: { // field return type
+    createdAt: any; // DateTime!
     id: string; // ID!
     name: string; // String!
     products: NexusGenRootTypes['Product'][] | null; // [Product!]
+    updatedAt: any; // DateTime!
   }
   Cart: { // field return type
+    createdAt: any; // DateTime!
     id: string; // ID!
     items: NexusGenRootTypes['CartItem'][] | null; // [CartItem!]
+    updatedAt: any; // DateTime!
     user: NexusGenRootTypes['User']; // User!
   }
   CartItem: { // field return type
+    createdAt: any; // DateTime!
     id: string; // ID!
     product: NexusGenRootTypes['Product']; // Product!
     quantity: number; // Int!
+    updatedAt: any; // DateTime!
     variants: string[]; // [String!]!
   }
   Category: { // field return type
+    createdAt: any; // DateTime!
     id: string; // ID!
     name: string; // String!
     product: NexusGenRootTypes['Product'][] | null; // [Product!]
+    updatedAt: any; // DateTime!
   }
   Mutation: { // field return type
     addItemToCart: NexusGenRootTypes['Cart'] | null; // Cart
@@ -801,6 +1181,7 @@ export interface NexusGenFieldTypes {
   Product: { // field return type
     brand: NexusGenRootTypes['Brand'] | null; // Brand
     categories: NexusGenRootTypes['Category'][] | null; // [Category!]
+    createdAt: any; // DateTime!
     description: string; // String!
     id: string; // ID!
     images: NexusGenRootTypes['ProductImage'][] | null; // [ProductImage!]
@@ -809,12 +1190,15 @@ export interface NexusGenFieldTypes {
     shop: NexusGenRootTypes['Shop']; // Shop!
     tags: NexusGenRootTypes['Tag'][] | null; // [Tag!]
     title: string; // String!
+    updatedAt: any; // DateTime!
     variants: NexusGenRootTypes['Variant'][] | null; // [Variant!]
   }
   ProductImage: { // field return type
+    createdAt: any; // DateTime!
     id: string; // ID!
     imageUrl: string; // String!
     product: NexusGenRootTypes['Product'] | null; // Product
+    updatedAt: any; // DateTime!
   }
   ProductReview: { // field return type
     createdAt: any; // DateTime!
@@ -847,14 +1231,18 @@ export interface NexusGenFieldTypes {
     updatedAt: any; // DateTime!
   }
   ShopImage: { // field return type
+    createdAt: any; // DateTime!
     id: string; // ID!
     imageUrl: string; // String!
     shop: NexusGenRootTypes['Shop'] | null; // Shop
+    updatedAt: any; // DateTime!
   }
   Tag: { // field return type
+    createdAt: any; // DateTime!
     id: string; // ID!
     name: string; // String!
     products: NexusGenRootTypes['Product'][] | null; // [Product!]
+    updatedAt: any; // DateTime!
   }
   User: { // field return type
     email: string | null; // String
@@ -869,14 +1257,18 @@ export interface NexusGenFieldTypes {
     username: string | null; // String
   }
   UserImage: { // field return type
+    createdAt: any; // DateTime!
     id: string; // ID!
     imageUrl: string; // String!
+    updatedAt: any; // DateTime!
     user: NexusGenRootTypes['User'] | null; // User
   }
   Variant: { // field return type
+    createdAt: any; // DateTime!
     id: string; // ID!
     name: string; // String!
     product: NexusGenRootTypes['Product']; // Product!
+    updatedAt: any; // DateTime!
     values: string[]; // [String!]!
   }
 }
@@ -1108,9 +1500,9 @@ export interface NexusGenInheritedFields {}
 
 export type NexusGenObjectNames = "AuthPayload" | "Brand" | "Cart" | "CartItem" | "Category" | "Mutation" | "Product" | "ProductImage" | "ProductReview" | "Query" | "Shop" | "ShopImage" | "Tag" | "User" | "UserImage" | "Variant";
 
-export type NexusGenInputNames = "BrandWhereInput" | "CartItemWhereInput" | "CartWhereInput" | "CategoryWhereInput" | "ProductImageWhereInput" | "ProductReviewWhereInput" | "ProductWhereInput" | "ShopImageWhereInput" | "ShopWhereInput" | "TagWhereInput" | "UserImageWhereInput" | "UserWhereInput" | "VariantWhereInput";
+export type NexusGenInputNames = "BrandWhereInput" | "CartItemWhereInput" | "CartWhereInput" | "CategoryWhereInput" | "ForumPostWhereInput" | "ForumWhereInput" | "ProductImageWhereInput" | "ProductReviewWhereInput" | "ProductWhereInput" | "ShopImageWhereInput" | "ShopWhereInput" | "TagWhereInput" | "UserImageWhereInput" | "UserWhereInput" | "VariantWhereInput";
 
-export type NexusGenEnumNames = "CartItemOrderByInput" | "CategoryOrderByInput" | "ProductImageOrderByInput" | "ProductOrderByInput" | "ProductReviewOrderByInput" | "ShopImageOrderByInput" | "TagOrderByInput" | "UserImageOrderByInput" | "UserOrderByInput" | "VariantOrderByInput";
+export type NexusGenEnumNames = "CartItemOrderByInput" | "CategoryOrderByInput" | "ForumPostType" | "ProductImageOrderByInput" | "ProductOrderByInput" | "ProductReviewOrderByInput" | "ShopImageOrderByInput" | "TagOrderByInput" | "UserImageOrderByInput" | "UserOrderByInput" | "VariantOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 
