@@ -767,6 +767,7 @@ type Query {
   filterCategories(searchString: String): [Category!]
   filterForums(searchString: String): [Forum!]
   filterUsers(searchString: String): [User!]
+  forumPost(id: ID): ForumPost
   getMeCart: [Cart!]
   me: User
   product(id: ID): Product

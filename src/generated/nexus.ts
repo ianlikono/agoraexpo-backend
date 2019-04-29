@@ -1254,6 +1254,7 @@ export interface NexusGenFieldTypes {
     filterCategories: NexusGenRootTypes['Category'][] | null; // [Category!]
     filterForums: NexusGenRootTypes['Forum'][] | null; // [Forum!]
     filterUsers: NexusGenRootTypes['User'][] | null; // [User!]
+    forumPost: NexusGenRootTypes['ForumPost'] | null; // ForumPost
     getMeCart: NexusGenRootTypes['Cart'][] | null; // [Cart!]
     me: NexusGenRootTypes['User'] | null; // User
     product: NexusGenRootTypes['Product'] | null; // Product
@@ -1506,6 +1507,9 @@ export interface NexusGenArgTypes {
     }
     filterUsers: { // args
       searchString?: string | null; // String
+    }
+    forumPost: { // args
+      id?: string | null; // ID
     }
     product: { // args
       id?: string | null; // ID

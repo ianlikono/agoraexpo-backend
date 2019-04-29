@@ -98,5 +98,12 @@ export const Query = queryType({
         });
       }
     });
+    t.field("forumPost", {
+      type: "ForumPost",
+      args: { id: idArg() },
+      resolve: (parent, { id }, ctx) => {
+        return ctx.prisma.forumPost({ id });
+      }
+    });
   }
 });
