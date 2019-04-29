@@ -85,5 +85,18 @@ export const Query = queryType({
         });
       }
     });
+    t.list.field("filterForums", {
+      type: "Forum",
+      args: {
+        searchString: stringArg()
+      },
+      resolve: (parent, { searchString }, ctx) => {
+        return ctx.prisma.forums({
+          where: {
+            OR: [{ name_contains: searchString }]
+          }
+        });
+      }
+    });
   }
 });

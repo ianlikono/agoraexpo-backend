@@ -1206,6 +1206,7 @@ export interface NexusGenFieldTypes {
     addItemToCart: NexusGenRootTypes['Cart'] | null; // Cart
     addVariant: NexusGenRootTypes['Variant'] | null; // Variant
     createForum: NexusGenRootTypes['Forum'] | null; // Forum
+    createForumPost: NexusGenRootTypes['ForumPost'] | null; // ForumPost
     createProduct: NexusGenRootTypes['Product'] | null; // Product
     createProductReview: NexusGenRootTypes['ProductReview'] | null; // ProductReview
     createShopDraft: NexusGenRootTypes['Shop'] | null; // Shop
@@ -1251,6 +1252,7 @@ export interface NexusGenFieldTypes {
   }
   Query: { // field return type
     filterCategories: NexusGenRootTypes['Category'][] | null; // [Category!]
+    filterForums: NexusGenRootTypes['Forum'][] | null; // [Forum!]
     filterUsers: NexusGenRootTypes['User'][] | null; // [User!]
     getMeCart: NexusGenRootTypes['Cart'][] | null; // [Cart!]
     me: NexusGenRootTypes['User'] | null; // User
@@ -1384,6 +1386,12 @@ export interface NexusGenArgTypes {
       description?: string | null; // String
       name: string; // String!
     }
+    createForumPost: { // args
+      content?: string | null; // String
+      forumId: string; // String!
+      title: string; // String!
+      type: string; // String!
+    }
     createProduct: { // args
       brand: string; // String!
       categories?: string[] | null; // [String!]
@@ -1491,6 +1499,9 @@ export interface NexusGenArgTypes {
   }
   Query: {
     filterCategories: { // args
+      searchString?: string | null; // String
+    }
+    filterForums: { // args
       searchString?: string | null; // String
     }
     filterUsers: { // args

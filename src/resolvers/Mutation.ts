@@ -170,6 +170,27 @@ export const Mutation = mutationType({
       }
     });
 
+    t.field("createForumPost", {
+      type: "ForumPost",
+      args: {
+        title: stringArg({ required: true }),
+        content: stringArg({ required: false }),
+        type: stringArg({ required: true }),
+        forumId: stringArg({ required: true })
+      },
+      resolve: async (parent, { title, content, type, forumId }, ctx) => {
+        const userId = getUserId(ctx);
+        return ctx.prisma.createForumPost({
+          title,
+          content,
+          //@ts-ignore
+          type,
+          postedBy: { connect: { id: userId } },
+          forum: { connect: { id: forumId } }
+        });
+      }
+    });
+
     t.field("createShopDraft", {
       type: "Shop",
       args: {
