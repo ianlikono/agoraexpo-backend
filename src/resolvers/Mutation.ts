@@ -191,6 +191,22 @@ export const Mutation = mutationType({
       }
     });
 
+    t.field("createPostForumComment", {
+      type: "ForumPostComment",
+      args: {
+        postId: idArg({ required: true }),
+        comment: stringArg({ required: true })
+      },
+      resolve: async (parent, { postId, comment }, ctx) => {
+        const userId = getUserId(ctx);
+        return ctx.prisma.createForumPostComment({
+          comment,
+          forumPost: { connect: { id: postId } },
+          user: { connect: { id: userId } }
+        });
+      }
+    });
+
     t.field("createShopDraft", {
       type: "Shop",
       args: {

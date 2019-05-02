@@ -1,4 +1,4 @@
-import { idArg, queryType, stringArg } from "nexus";
+import { idArg, intArg, queryType, stringArg } from "nexus";
 import { getUserId } from "../utils/getUser";
 
 export const Query = queryType({
@@ -103,6 +103,57 @@ export const Query = queryType({
       args: { id: idArg() },
       resolve: (parent, { id }, ctx) => {
         return ctx.prisma.forumPost({ id });
+      }
+    });
+
+    t.list.field("forumPostComments", {
+      type: "ForumPostComment",
+      args: {
+        postId: idArg({ required: true })
+      },
+      resolve: (parent, { postId }, ctx) => {
+        return ctx.prisma.forumPostComments({
+          where: {
+            forumPost: { id: postId }
+          }
+        });
+      }
+    });
+
+    t.list.field("forums", {
+      type: "ForumPost",
+      args: {
+        limit: intArg({ required: false })
+      },
+      resolve: (parent, { limit }, ctx) => {
+        return ctx.prisma.forumPosts({
+          first: limit
+        });
+      }
+    });
+
+    t.list.field("forumPosts", {
+      type: "ForumPost",
+      args: {
+        forumName: stringArg({ required: true })
+      },
+      resolve: (parent, { forumName }, ctx) => {
+        return ctx.prisma.forumPosts({
+          where: { forum: { name: forumName } }
+        });
+      }
+    });
+
+    t.list.field("getShopProducts", {
+      type: "Product",
+      args: {
+        shopId: idArg({ required: true })
+      },
+      resolve: async (_, { shopId }, ctx) => {
+        const products = await ctx.prisma.products({
+          where: { shop: { id: shopId } }
+        });
+        return products;
       }
     });
   }

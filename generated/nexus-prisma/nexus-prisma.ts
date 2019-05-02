@@ -30,6 +30,7 @@ export interface NexusPrismaTypes {
       CartItem: CartItemObject
       ForumPost: ForumPostObject
       Forum: ForumObject
+      ForumPostComment: ForumPostCommentObject
       UserConnection: UserConnectionObject
       PageInfo: PageInfoObject
       UserEdge: UserEdgeObject
@@ -40,6 +41,9 @@ export interface NexusPrismaTypes {
       ForumPostConnection: ForumPostConnectionObject
       ForumPostEdge: ForumPostEdgeObject
       AggregateForumPost: AggregateForumPostObject
+      ForumPostCommentConnection: ForumPostCommentConnectionObject
+      ForumPostCommentEdge: ForumPostCommentEdgeObject
+      AggregateForumPostComment: AggregateForumPostCommentObject
       ShopConnection: ShopConnectionObject
       ShopEdge: ShopEdgeObject
       AggregateShop: AggregateShopObject
@@ -58,6 +62,10 @@ export interface NexusPrismaTypes {
       CartItemConnection: CartItemConnectionObject
       CartItemEdge: CartItemEdgeObject
       AggregateCartItem: AggregateCartItemObject
+      Order: OrderObject
+      OrderConnection: OrderConnectionObject
+      OrderEdge: OrderEdgeObject
+      AggregateOrder: AggregateOrderObject
       BrandConnection: BrandConnectionObject
       BrandEdge: BrandEdgeObject
       AggregateBrand: AggregateBrandObject
@@ -85,6 +93,8 @@ export interface NexusPrismaTypes {
       ForumPreviousValues: ForumPreviousValuesObject
       ForumPostSubscriptionPayload: ForumPostSubscriptionPayloadObject
       ForumPostPreviousValues: ForumPostPreviousValuesObject
+      ForumPostCommentSubscriptionPayload: ForumPostCommentSubscriptionPayloadObject
+      ForumPostCommentPreviousValues: ForumPostCommentPreviousValuesObject
       ShopSubscriptionPayload: ShopSubscriptionPayloadObject
       ShopPreviousValues: ShopPreviousValuesObject
       ShopImageSubscriptionPayload: ShopImageSubscriptionPayloadObject
@@ -97,6 +107,8 @@ export interface NexusPrismaTypes {
       CartPreviousValues: CartPreviousValuesObject
       CartItemSubscriptionPayload: CartItemSubscriptionPayloadObject
       CartItemPreviousValues: CartItemPreviousValuesObject
+      OrderSubscriptionPayload: OrderSubscriptionPayloadObject
+      OrderPreviousValues: OrderPreviousValuesObject
       BrandSubscriptionPayload: BrandSubscriptionPayloadObject
       BrandPreviousValues: BrandPreviousValuesObject
       TagSubscriptionPayload: TagSubscriptionPayloadObject
@@ -127,6 +139,7 @@ export interface NexusPrismaTypes {
       CartItem: CartItemFieldDetails
       ForumPost: ForumPostFieldDetails
       Forum: ForumFieldDetails
+      ForumPostComment: ForumPostCommentFieldDetails
       UserConnection: UserConnectionFieldDetails
       PageInfo: PageInfoFieldDetails
       UserEdge: UserEdgeFieldDetails
@@ -137,6 +150,9 @@ export interface NexusPrismaTypes {
       ForumPostConnection: ForumPostConnectionFieldDetails
       ForumPostEdge: ForumPostEdgeFieldDetails
       AggregateForumPost: AggregateForumPostFieldDetails
+      ForumPostCommentConnection: ForumPostCommentConnectionFieldDetails
+      ForumPostCommentEdge: ForumPostCommentEdgeFieldDetails
+      AggregateForumPostComment: AggregateForumPostCommentFieldDetails
       ShopConnection: ShopConnectionFieldDetails
       ShopEdge: ShopEdgeFieldDetails
       AggregateShop: AggregateShopFieldDetails
@@ -155,6 +171,10 @@ export interface NexusPrismaTypes {
       CartItemConnection: CartItemConnectionFieldDetails
       CartItemEdge: CartItemEdgeFieldDetails
       AggregateCartItem: AggregateCartItemFieldDetails
+      Order: OrderFieldDetails
+      OrderConnection: OrderConnectionFieldDetails
+      OrderEdge: OrderEdgeFieldDetails
+      AggregateOrder: AggregateOrderFieldDetails
       BrandConnection: BrandConnectionFieldDetails
       BrandEdge: BrandEdgeFieldDetails
       AggregateBrand: AggregateBrandFieldDetails
@@ -182,6 +202,8 @@ export interface NexusPrismaTypes {
       ForumPreviousValues: ForumPreviousValuesFieldDetails
       ForumPostSubscriptionPayload: ForumPostSubscriptionPayloadFieldDetails
       ForumPostPreviousValues: ForumPostPreviousValuesFieldDetails
+      ForumPostCommentSubscriptionPayload: ForumPostCommentSubscriptionPayloadFieldDetails
+      ForumPostCommentPreviousValues: ForumPostCommentPreviousValuesFieldDetails
       ShopSubscriptionPayload: ShopSubscriptionPayloadFieldDetails
       ShopPreviousValues: ShopPreviousValuesFieldDetails
       ShopImageSubscriptionPayload: ShopImageSubscriptionPayloadFieldDetails
@@ -194,6 +216,8 @@ export interface NexusPrismaTypes {
       CartPreviousValues: CartPreviousValuesFieldDetails
       CartItemSubscriptionPayload: CartItemSubscriptionPayloadFieldDetails
       CartItemPreviousValues: CartItemPreviousValuesFieldDetails
+      OrderSubscriptionPayload: OrderSubscriptionPayloadFieldDetails
+      OrderPreviousValues: OrderPreviousValuesFieldDetails
       BrandSubscriptionPayload: BrandSubscriptionPayloadFieldDetails
       BrandPreviousValues: BrandPreviousValuesFieldDetails
       TagSubscriptionPayload: TagSubscriptionPayloadFieldDetails
@@ -225,15 +249,19 @@ export interface NexusPrismaTypes {
       CartItemWhereInput: CartItemWhereInputInputObject
       ForumPostWhereInput: ForumPostWhereInputInputObject
       ForumWhereInput: ForumWhereInputInputObject
+      ForumPostCommentWhereInput: ForumPostCommentWhereInputInputObject
       ShopImageWhereInput: ShopImageWhereInputInputObject
       ForumWhereUniqueInput: ForumWhereUniqueInputInputObject
       ForumPostWhereUniqueInput: ForumPostWhereUniqueInputInputObject
+      ForumPostCommentWhereUniqueInput: ForumPostCommentWhereUniqueInputInputObject
       ShopWhereUniqueInput: ShopWhereUniqueInputInputObject
       ShopImageWhereUniqueInput: ShopImageWhereUniqueInputInputObject
       UserImageWhereUniqueInput: UserImageWhereUniqueInputInputObject
       ProductWhereUniqueInput: ProductWhereUniqueInputInputObject
       CartWhereUniqueInput: CartWhereUniqueInputInputObject
       CartItemWhereUniqueInput: CartItemWhereUniqueInputInputObject
+      OrderWhereUniqueInput: OrderWhereUniqueInputInputObject
+      OrderWhereInput: OrderWhereInputInputObject
       BrandWhereUniqueInput: BrandWhereUniqueInputInputObject
       TagWhereUniqueInput: TagWhereUniqueInputInputObject
       CategoryWhereUniqueInput: CategoryWhereUniqueInputInputObject
@@ -284,12 +312,20 @@ export interface NexusPrismaTypes {
       ForumCreateWithoutPostsInput: ForumCreateWithoutPostsInputInputObject
       UserCreateManyWithoutForumsInput: UserCreateManyWithoutForumsInputInputObject
       UserCreateWithoutForumsInput: UserCreateWithoutForumsInputInputObject
+      ForumPostCommentCreateManyWithoutUserInput: ForumPostCommentCreateManyWithoutUserInputInputObject
+      ForumPostCommentCreateWithoutUserInput: ForumPostCommentCreateWithoutUserInputInputObject
+      ForumPostCreateOneWithoutCommentsInput: ForumPostCreateOneWithoutCommentsInputInputObject
+      ForumPostCreateWithoutCommentsInput: ForumPostCreateWithoutCommentsInputInputObject
+      UserCreateOneWithoutForumpostsInput: UserCreateOneWithoutForumpostsInputInputObject
+      UserCreateWithoutForumpostsInput: UserCreateWithoutForumpostsInputInputObject
       ForumCreateManyWithoutMembersInput: ForumCreateManyWithoutMembersInputInputObject
       ForumCreateWithoutMembersInput: ForumCreateWithoutMembersInputInputObject
       ForumPostCreateManyWithoutForumInput: ForumPostCreateManyWithoutForumInputInputObject
       ForumPostCreateWithoutForumInput: ForumPostCreateWithoutForumInputInputObject
-      UserCreateOneWithoutForumpostsInput: UserCreateOneWithoutForumpostsInputInputObject
-      UserCreateWithoutForumpostsInput: UserCreateWithoutForumpostsInputInputObject
+      ForumPostCommentCreateManyWithoutForumPostInput: ForumPostCommentCreateManyWithoutForumPostInputInputObject
+      ForumPostCommentCreateWithoutForumPostInput: ForumPostCommentCreateWithoutForumPostInputInputObject
+      UserCreateOneWithoutPostCommentsInput: UserCreateOneWithoutPostCommentsInputInputObject
+      UserCreateWithoutPostCommentsInput: UserCreateWithoutPostCommentsInputInputObject
       CartItemCreatevariantsInput: CartItemCreatevariantsInputInputObject
       UserUpdateInput: UserUpdateInputInputObject
       ShopUpdateManyWithoutOwnersInput: ShopUpdateManyWithoutOwnersInputInputObject
@@ -379,29 +415,46 @@ export interface NexusPrismaTypes {
       UserUpdateManyWithoutForumsInput: UserUpdateManyWithoutForumsInputInputObject
       UserUpdateWithWhereUniqueWithoutForumsInput: UserUpdateWithWhereUniqueWithoutForumsInputInputObject
       UserUpdateWithoutForumsDataInput: UserUpdateWithoutForumsDataInputInputObject
-      UserUpsertWithWhereUniqueWithoutForumsInput: UserUpsertWithWhereUniqueWithoutForumsInputInputObject
-      UserScalarWhereInput: UserScalarWhereInputInputObject
-      UserUpdateManyWithWhereNestedInput: UserUpdateManyWithWhereNestedInputInputObject
-      UserUpdateManyDataInput: UserUpdateManyDataInputInputObject
-      ForumUpsertWithoutPostsInput: ForumUpsertWithoutPostsInputInputObject
-      ForumPostUpsertWithWhereUniqueWithoutPostedByInput: ForumPostUpsertWithWhereUniqueWithoutPostedByInputInputObject
-      ForumPostScalarWhereInput: ForumPostScalarWhereInputInputObject
-      ForumPostUpdateManyWithWhereNestedInput: ForumPostUpdateManyWithWhereNestedInputInputObject
-      ForumPostUpdateManyDataInput: ForumPostUpdateManyDataInputInputObject
+      ForumPostCommentUpdateManyWithoutUserInput: ForumPostCommentUpdateManyWithoutUserInputInputObject
+      ForumPostCommentUpdateWithWhereUniqueWithoutUserInput: ForumPostCommentUpdateWithWhereUniqueWithoutUserInputInputObject
+      ForumPostCommentUpdateWithoutUserDataInput: ForumPostCommentUpdateWithoutUserDataInputInputObject
+      ForumPostUpdateOneRequiredWithoutCommentsInput: ForumPostUpdateOneRequiredWithoutCommentsInputInputObject
+      ForumPostUpdateWithoutCommentsDataInput: ForumPostUpdateWithoutCommentsDataInputInputObject
+      UserUpdateOneRequiredWithoutForumpostsInput: UserUpdateOneRequiredWithoutForumpostsInputInputObject
+      UserUpdateWithoutForumpostsDataInput: UserUpdateWithoutForumpostsDataInputInputObject
       ForumUpdateManyWithoutMembersInput: ForumUpdateManyWithoutMembersInputInputObject
       ForumUpdateWithWhereUniqueWithoutMembersInput: ForumUpdateWithWhereUniqueWithoutMembersInputInputObject
       ForumUpdateWithoutMembersDataInput: ForumUpdateWithoutMembersDataInputInputObject
       ForumPostUpdateManyWithoutForumInput: ForumPostUpdateManyWithoutForumInputInputObject
       ForumPostUpdateWithWhereUniqueWithoutForumInput: ForumPostUpdateWithWhereUniqueWithoutForumInputInputObject
       ForumPostUpdateWithoutForumDataInput: ForumPostUpdateWithoutForumDataInputInputObject
-      UserUpdateOneRequiredWithoutForumpostsInput: UserUpdateOneRequiredWithoutForumpostsInputInputObject
-      UserUpdateWithoutForumpostsDataInput: UserUpdateWithoutForumpostsDataInputInputObject
-      UserUpsertWithoutForumpostsInput: UserUpsertWithoutForumpostsInputInputObject
+      ForumPostCommentUpdateManyWithoutForumPostInput: ForumPostCommentUpdateManyWithoutForumPostInputInputObject
+      ForumPostCommentUpdateWithWhereUniqueWithoutForumPostInput: ForumPostCommentUpdateWithWhereUniqueWithoutForumPostInputInputObject
+      ForumPostCommentUpdateWithoutForumPostDataInput: ForumPostCommentUpdateWithoutForumPostDataInputInputObject
+      UserUpdateOneRequiredWithoutPostCommentsInput: UserUpdateOneRequiredWithoutPostCommentsInputInputObject
+      UserUpdateWithoutPostCommentsDataInput: UserUpdateWithoutPostCommentsDataInputInputObject
+      UserUpsertWithoutPostCommentsInput: UserUpsertWithoutPostCommentsInputInputObject
+      ForumPostCommentUpsertWithWhereUniqueWithoutForumPostInput: ForumPostCommentUpsertWithWhereUniqueWithoutForumPostInputInputObject
+      ForumPostCommentScalarWhereInput: ForumPostCommentScalarWhereInputInputObject
+      ForumPostCommentUpdateManyWithWhereNestedInput: ForumPostCommentUpdateManyWithWhereNestedInputInputObject
+      ForumPostCommentUpdateManyDataInput: ForumPostCommentUpdateManyDataInputInputObject
       ForumPostUpsertWithWhereUniqueWithoutForumInput: ForumPostUpsertWithWhereUniqueWithoutForumInputInputObject
+      ForumPostScalarWhereInput: ForumPostScalarWhereInputInputObject
+      ForumPostUpdateManyWithWhereNestedInput: ForumPostUpdateManyWithWhereNestedInputInputObject
+      ForumPostUpdateManyDataInput: ForumPostUpdateManyDataInputInputObject
       ForumUpsertWithWhereUniqueWithoutMembersInput: ForumUpsertWithWhereUniqueWithoutMembersInputInputObject
       ForumScalarWhereInput: ForumScalarWhereInputInputObject
       ForumUpdateManyWithWhereNestedInput: ForumUpdateManyWithWhereNestedInputInputObject
       ForumUpdateManyDataInput: ForumUpdateManyDataInputInputObject
+      UserUpsertWithoutForumpostsInput: UserUpsertWithoutForumpostsInputInputObject
+      ForumPostUpsertWithoutCommentsInput: ForumPostUpsertWithoutCommentsInputInputObject
+      ForumPostCommentUpsertWithWhereUniqueWithoutUserInput: ForumPostCommentUpsertWithWhereUniqueWithoutUserInputInputObject
+      UserUpsertWithWhereUniqueWithoutForumsInput: UserUpsertWithWhereUniqueWithoutForumsInputInputObject
+      UserScalarWhereInput: UserScalarWhereInputInputObject
+      UserUpdateManyWithWhereNestedInput: UserUpdateManyWithWhereNestedInputInputObject
+      UserUpdateManyDataInput: UserUpdateManyDataInputInputObject
+      ForumUpsertWithoutPostsInput: ForumUpsertWithoutPostsInputInputObject
+      ForumPostUpsertWithWhereUniqueWithoutPostedByInput: ForumPostUpsertWithWhereUniqueWithoutPostedByInputInputObject
       UserUpsertWithWhereUniqueWithoutShopsInput: UserUpsertWithWhereUniqueWithoutShopsInputInputObject
       ShopUpsertWithoutProductsInput: ShopUpsertWithoutProductsInputInputObject
       ProductUpsertNestedInput: ProductUpsertNestedInputInputObject
@@ -428,6 +481,9 @@ export interface NexusPrismaTypes {
       ForumPostCreateInput: ForumPostCreateInputInputObject
       ForumPostUpdateInput: ForumPostUpdateInputInputObject
       ForumPostUpdateManyMutationInput: ForumPostUpdateManyMutationInputInputObject
+      ForumPostCommentCreateInput: ForumPostCommentCreateInputInputObject
+      ForumPostCommentUpdateInput: ForumPostCommentUpdateInputInputObject
+      ForumPostCommentUpdateManyMutationInput: ForumPostCommentUpdateManyMutationInputInputObject
       ShopCreateInput: ShopCreateInputInputObject
       ShopUpdateInput: ShopUpdateInputInputObject
       ShopUpdateManyMutationInput: ShopUpdateManyMutationInputInputObject
@@ -458,6 +514,17 @@ export interface NexusPrismaTypes {
       UserUpsertWithoutCartItemsInput: UserUpsertWithoutCartItemsInputInputObject
       CartItemUpdateInput: CartItemUpdateInputInputObject
       CartItemUpdateManyMutationInput: CartItemUpdateManyMutationInputInputObject
+      OrderCreateInput: OrderCreateInputInputObject
+      UserCreateOneInput: UserCreateOneInputInputObject
+      CartCreateOneInput: CartCreateOneInputInputObject
+      OrderUpdateInput: OrderUpdateInputInputObject
+      UserUpdateOneRequiredInput: UserUpdateOneRequiredInputInputObject
+      UserUpdateDataInput: UserUpdateDataInputInputObject
+      UserUpsertNestedInput: UserUpsertNestedInputInputObject
+      CartUpdateOneRequiredInput: CartUpdateOneRequiredInputInputObject
+      CartUpdateDataInput: CartUpdateDataInputInputObject
+      CartUpsertNestedInput: CartUpsertNestedInputInputObject
+      OrderUpdateManyMutationInput: OrderUpdateManyMutationInputInputObject
       BrandCreateInput: BrandCreateInputInputObject
       ProductCreateManyWithoutBrandInput: ProductCreateManyWithoutBrandInputInputObject
       ProductCreateWithoutBrandInput: ProductCreateWithoutBrandInputInputObject
@@ -507,12 +574,14 @@ export interface NexusPrismaTypes {
       UserSubscriptionWhereInput: UserSubscriptionWhereInputInputObject
       ForumSubscriptionWhereInput: ForumSubscriptionWhereInputInputObject
       ForumPostSubscriptionWhereInput: ForumPostSubscriptionWhereInputInputObject
+      ForumPostCommentSubscriptionWhereInput: ForumPostCommentSubscriptionWhereInputInputObject
       ShopSubscriptionWhereInput: ShopSubscriptionWhereInputInputObject
       ShopImageSubscriptionWhereInput: ShopImageSubscriptionWhereInputInputObject
       UserImageSubscriptionWhereInput: UserImageSubscriptionWhereInputInputObject
       ProductSubscriptionWhereInput: ProductSubscriptionWhereInputInputObject
       CartSubscriptionWhereInput: CartSubscriptionWhereInputInputObject
       CartItemSubscriptionWhereInput: CartItemSubscriptionWhereInputInputObject
+      OrderSubscriptionWhereInput: OrderSubscriptionWhereInputInputObject
       BrandSubscriptionWhereInput: BrandSubscriptionWhereInputInputObject
       TagSubscriptionWhereInput: TagSubscriptionWhereInputInputObject
       CategorySubscriptionWhereInput: CategorySubscriptionWhereInputInputObject
@@ -535,8 +604,10 @@ export interface NexusPrismaTypes {
     UserImageOrderByInput: UserImageOrderByInputValues,
     CartItemOrderByInput: CartItemOrderByInputValues,
     ForumPostOrderByInput: ForumPostOrderByInputValues,
+    ForumPostCommentOrderByInput: ForumPostCommentOrderByInputValues,
     ForumOrderByInput: ForumOrderByInputValues,
     CartOrderByInput: CartOrderByInputValues,
+    OrderOrderByInput: OrderOrderByInputValues,
     BrandOrderByInput: BrandOrderByInputValues,
     MutationType: MutationTypeValues,
   }
@@ -555,6 +626,9 @@ type QueryObject =
   | { name: 'forumPost', args?: QueryForumPostArgs[] | false, alias?: string  } 
   | { name: 'forumPosts', args?: QueryForumPostsArgs[] | false, alias?: string  } 
   | { name: 'forumPostsConnection', args?: QueryForumPostsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'forumPostComment', args?: QueryForumPostCommentArgs[] | false, alias?: string  } 
+  | { name: 'forumPostComments', args?: QueryForumPostCommentsArgs[] | false, alias?: string  } 
+  | { name: 'forumPostCommentsConnection', args?: QueryForumPostCommentsConnectionArgs[] | false, alias?: string  } 
   | { name: 'shop', args?: QueryShopArgs[] | false, alias?: string  } 
   | { name: 'shops', args?: QueryShopsArgs[] | false, alias?: string  } 
   | { name: 'shopsConnection', args?: QueryShopsConnectionArgs[] | false, alias?: string  } 
@@ -573,6 +647,9 @@ type QueryObject =
   | { name: 'cartItem', args?: QueryCartItemArgs[] | false, alias?: string  } 
   | { name: 'cartItems', args?: QueryCartItemsArgs[] | false, alias?: string  } 
   | { name: 'cartItemsConnection', args?: QueryCartItemsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'order', args?: QueryOrderArgs[] | false, alias?: string  } 
+  | { name: 'orders', args?: QueryOrdersArgs[] | false, alias?: string  } 
+  | { name: 'ordersConnection', args?: QueryOrdersConnectionArgs[] | false, alias?: string  } 
   | { name: 'brand', args?: QueryBrandArgs[] | false, alias?: string  } 
   | { name: 'brands', args?: QueryBrandsArgs[] | false, alias?: string  } 
   | { name: 'brandsConnection', args?: QueryBrandsConnectionArgs[] | false, alias?: string  } 
@@ -602,6 +679,9 @@ type QueryFields =
   | 'forumPost'
   | 'forumPosts'
   | 'forumPostsConnection'
+  | 'forumPostComment'
+  | 'forumPostComments'
+  | 'forumPostCommentsConnection'
   | 'shop'
   | 'shops'
   | 'shopsConnection'
@@ -620,6 +700,9 @@ type QueryFields =
   | 'cartItem'
   | 'cartItems'
   | 'cartItemsConnection'
+  | 'order'
+  | 'orders'
+  | 'ordersConnection'
   | 'brand'
   | 'brands'
   | 'brandsConnection'
@@ -687,6 +770,24 @@ type QueryForumPostsArgs =
   | 'first'
   | 'last'
 type QueryForumPostsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryForumPostCommentArgs =
+  | 'where'
+type QueryForumPostCommentsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryForumPostCommentsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -795,6 +896,24 @@ type QueryCartItemsArgs =
   | 'first'
   | 'last'
 type QueryCartItemsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryOrderArgs =
+  | 'where'
+type QueryOrdersArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryOrdersConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -1030,6 +1149,45 @@ export interface QueryFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ForumPostConnection> | prisma.ForumPostConnection
   }
+  forumPostComment: {
+    type: 'ForumPostComment'
+    args: Record<QueryForumPostCommentArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: ForumPostCommentWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumPostComment | null> | prisma.ForumPostComment | null
+  }
+  forumPostComments: {
+    type: 'ForumPostComment'
+    args: Record<QueryForumPostCommentsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: ForumPostCommentWhereInput | null, orderBy?: prisma.ForumPostCommentOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumPostComment[]> | prisma.ForumPostComment[]
+  }
+  forumPostCommentsConnection: {
+    type: 'ForumPostCommentConnection'
+    args: Record<QueryForumPostCommentsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: ForumPostCommentWhereInput | null, orderBy?: prisma.ForumPostCommentOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumPostCommentConnection> | prisma.ForumPostCommentConnection
+  }
   shop: {
     type: 'Shop'
     args: Record<QueryShopArgs, core.NexusArgDef<string>>
@@ -1263,6 +1421,45 @@ export interface QueryFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.CartItemConnection> | prisma.CartItemConnection
+  }
+  order: {
+    type: 'Order'
+    args: Record<QueryOrderArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: OrderWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Order | null> | prisma.Order | null
+  }
+  orders: {
+    type: 'Order'
+    args: Record<QueryOrdersArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: OrderWhereInput | null, orderBy?: prisma.OrderOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Order[]> | prisma.Order[]
+  }
+  ordersConnection: {
+    type: 'OrderConnection'
+    args: Record<QueryOrdersConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: OrderWhereInput | null, orderBy?: prisma.OrderOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.OrderConnection> | prisma.OrderConnection
   }
   brand: {
     type: 'Brand'
@@ -1521,6 +1718,7 @@ type UserObject =
   | { name: 'cartItems', args?: [] | false, alias?: string  } 
   | { name: 'forumposts', args?: UserForumpostsArgs[] | false, alias?: string  } 
   | { name: 'forums', args?: UserForumsArgs[] | false, alias?: string  } 
+  | { name: 'postComments', args?: UserPostCommentsArgs[] | false, alias?: string  } 
 
 type UserFields =
   | 'id'
@@ -1539,6 +1737,7 @@ type UserFields =
   | 'cartItems'
   | 'forumposts'
   | 'forums'
+  | 'postComments'
 
 
 type UserShopsArgs =
@@ -1574,6 +1773,14 @@ type UserForumpostsArgs =
   | 'first'
   | 'last'
 type UserForumsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type UserPostCommentsArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -1741,6 +1948,19 @@ export interface UserFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Forum[]> | prisma.Forum[]
+  }
+  postComments: {
+    type: 'ForumPostComment'
+    args: Record<UserPostCommentsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"User">,
+      args: { where?: ForumPostCommentWhereInput | null, orderBy?: prisma.ForumPostCommentOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumPostComment[]> | prisma.ForumPostComment[]
   }
 }
   
@@ -2907,6 +3127,7 @@ type ForumPostObject =
   | { name: 'title', args?: [] | false, alias?: string  } 
   | { name: 'content', args?: [] | false, alias?: string  } 
   | { name: 'type', args?: [] | false, alias?: string  } 
+  | { name: 'comments', args?: ForumPostCommentsArgs[] | false, alias?: string  } 
 
 type ForumPostFields =
   | 'id'
@@ -2917,9 +3138,17 @@ type ForumPostFields =
   | 'title'
   | 'content'
   | 'type'
+  | 'comments'
 
 
-
+type ForumPostCommentsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
   
 
 export interface ForumPostFieldDetails {
@@ -3001,6 +3230,19 @@ export interface ForumPostFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ForumPostType> | prisma.ForumPostType
+  }
+  comments: {
+    type: 'ForumPostComment'
+    args: Record<ForumPostCommentsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ForumPost">,
+      args: { where?: ForumPostCommentWhereInput | null, orderBy?: prisma.ForumPostCommentOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumPostComment[]> | prisma.ForumPostComment[]
   }
 }
   
@@ -3114,6 +3356,91 @@ export interface ForumFieldDetails {
     description: string
     list: undefined
     nullable: true
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for ForumPostComment
+
+type ForumPostCommentObject =
+  | ForumPostCommentFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'user', args?: [] | false, alias?: string  } 
+  | { name: 'forumPost', args?: [] | false, alias?: string  } 
+  | { name: 'comment', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+
+type ForumPostCommentFields =
+  | 'id'
+  | 'user'
+  | 'forumPost'
+  | 'comment'
+  | 'createdAt'
+  | 'updatedAt'
+
+
+
+  
+
+export interface ForumPostCommentFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  user: {
+    type: 'User'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ForumPostComment">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User> | prisma.User
+  }
+  forumPost: {
+    type: 'ForumPost'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ForumPostComment">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumPost> | prisma.ForumPost
+  }
+  comment: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
     resolve: undefined
   }
   createdAt: {
@@ -3554,6 +3881,131 @@ type AggregateForumPostFields =
   
 
 export interface AggregateForumPostFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for ForumPostCommentConnection
+
+type ForumPostCommentConnectionObject =
+  | ForumPostCommentConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type ForumPostCommentConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface ForumPostCommentConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ForumPostCommentConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'ForumPostCommentEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ForumPostCommentConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumPostCommentEdge[]> | prisma.ForumPostCommentEdge[]
+  }
+  aggregate: {
+    type: 'AggregateForumPostComment'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ForumPostCommentConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateForumPostComment> | prisma.AggregateForumPostComment
+  }
+}
+  
+
+// Types for ForumPostCommentEdge
+
+type ForumPostCommentEdgeObject =
+  | ForumPostCommentEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type ForumPostCommentEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface ForumPostCommentEdgeFieldDetails {
+  node: {
+    type: 'ForumPostComment'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ForumPostCommentEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumPostComment> | prisma.ForumPostComment
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateForumPostComment
+
+type AggregateForumPostCommentObject =
+  | AggregateForumPostCommentFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateForumPostCommentFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateForumPostCommentFieldDetails {
   count: {
     type: 'Int'
     args: {}
@@ -4304,6 +4756,216 @@ type AggregateCartItemFields =
   
 
 export interface AggregateCartItemFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for Order
+
+type OrderObject =
+  | OrderFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'user', args?: [] | false, alias?: string  } 
+  | { name: 'cart', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+  | { name: 'total', args?: [] | false, alias?: string  } 
+
+type OrderFields =
+  | 'id'
+  | 'user'
+  | 'cart'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'total'
+
+
+
+  
+
+export interface OrderFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  user: {
+    type: 'User'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Order">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User> | prisma.User
+  }
+  cart: {
+    type: 'Cart'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Order">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Cart> | prisma.Cart
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  total: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for OrderConnection
+
+type OrderConnectionObject =
+  | OrderConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type OrderConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface OrderConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"OrderConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'OrderEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"OrderConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.OrderEdge[]> | prisma.OrderEdge[]
+  }
+  aggregate: {
+    type: 'AggregateOrder'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"OrderConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateOrder> | prisma.AggregateOrder
+  }
+}
+  
+
+// Types for OrderEdge
+
+type OrderEdgeObject =
+  | OrderEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type OrderEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface OrderEdgeFieldDetails {
+  node: {
+    type: 'Order'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"OrderEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Order> | prisma.Order
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateOrder
+
+type AggregateOrderObject =
+  | AggregateOrderFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateOrderFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateOrderFieldDetails {
   count: {
     type: 'Int'
     args: {}
@@ -5087,6 +5749,12 @@ type MutationObject =
   | { name: 'upsertForumPost', args?: MutationUpsertForumPostArgs[] | false, alias?: string  } 
   | { name: 'deleteForumPost', args?: MutationDeleteForumPostArgs[] | false, alias?: string  } 
   | { name: 'deleteManyForumPosts', args?: MutationDeleteManyForumPostsArgs[] | false, alias?: string  } 
+  | { name: 'createForumPostComment', args?: MutationCreateForumPostCommentArgs[] | false, alias?: string  } 
+  | { name: 'updateForumPostComment', args?: MutationUpdateForumPostCommentArgs[] | false, alias?: string  } 
+  | { name: 'updateManyForumPostComments', args?: MutationUpdateManyForumPostCommentsArgs[] | false, alias?: string  } 
+  | { name: 'upsertForumPostComment', args?: MutationUpsertForumPostCommentArgs[] | false, alias?: string  } 
+  | { name: 'deleteForumPostComment', args?: MutationDeleteForumPostCommentArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyForumPostComments', args?: MutationDeleteManyForumPostCommentsArgs[] | false, alias?: string  } 
   | { name: 'createShop', args?: MutationCreateShopArgs[] | false, alias?: string  } 
   | { name: 'updateShop', args?: MutationUpdateShopArgs[] | false, alias?: string  } 
   | { name: 'updateManyShops', args?: MutationUpdateManyShopsArgs[] | false, alias?: string  } 
@@ -5122,6 +5790,12 @@ type MutationObject =
   | { name: 'upsertCartItem', args?: MutationUpsertCartItemArgs[] | false, alias?: string  } 
   | { name: 'deleteCartItem', args?: MutationDeleteCartItemArgs[] | false, alias?: string  } 
   | { name: 'deleteManyCartItems', args?: MutationDeleteManyCartItemsArgs[] | false, alias?: string  } 
+  | { name: 'createOrder', args?: MutationCreateOrderArgs[] | false, alias?: string  } 
+  | { name: 'updateOrder', args?: MutationUpdateOrderArgs[] | false, alias?: string  } 
+  | { name: 'updateManyOrders', args?: MutationUpdateManyOrdersArgs[] | false, alias?: string  } 
+  | { name: 'upsertOrder', args?: MutationUpsertOrderArgs[] | false, alias?: string  } 
+  | { name: 'deleteOrder', args?: MutationDeleteOrderArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyOrders', args?: MutationDeleteManyOrdersArgs[] | false, alias?: string  } 
   | { name: 'createBrand', args?: MutationCreateBrandArgs[] | false, alias?: string  } 
   | { name: 'updateBrand', args?: MutationUpdateBrandArgs[] | false, alias?: string  } 
   | { name: 'updateManyBrands', args?: MutationUpdateManyBrandsArgs[] | false, alias?: string  } 
@@ -5178,6 +5852,12 @@ type MutationFields =
   | 'upsertForumPost'
   | 'deleteForumPost'
   | 'deleteManyForumPosts'
+  | 'createForumPostComment'
+  | 'updateForumPostComment'
+  | 'updateManyForumPostComments'
+  | 'upsertForumPostComment'
+  | 'deleteForumPostComment'
+  | 'deleteManyForumPostComments'
   | 'createShop'
   | 'updateShop'
   | 'updateManyShops'
@@ -5213,6 +5893,12 @@ type MutationFields =
   | 'upsertCartItem'
   | 'deleteCartItem'
   | 'deleteManyCartItems'
+  | 'createOrder'
+  | 'updateOrder'
+  | 'updateManyOrders'
+  | 'upsertOrder'
+  | 'deleteOrder'
+  | 'deleteManyOrders'
   | 'createBrand'
   | 'updateBrand'
   | 'updateManyBrands'
@@ -5298,6 +5984,22 @@ type MutationUpsertForumPostArgs =
 type MutationDeleteForumPostArgs =
   | 'where'
 type MutationDeleteManyForumPostsArgs =
+  | 'where'
+type MutationCreateForumPostCommentArgs =
+  | 'data'
+type MutationUpdateForumPostCommentArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyForumPostCommentsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertForumPostCommentArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteForumPostCommentArgs =
+  | 'where'
+type MutationDeleteManyForumPostCommentsArgs =
   | 'where'
 type MutationCreateShopArgs =
   | 'data'
@@ -5391,6 +6093,22 @@ type MutationUpsertCartItemArgs =
 type MutationDeleteCartItemArgs =
   | 'where'
 type MutationDeleteManyCartItemsArgs =
+  | 'where'
+type MutationCreateOrderArgs =
+  | 'data'
+type MutationUpdateOrderArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyOrdersArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertOrderArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteOrderArgs =
+  | 'where'
+type MutationDeleteManyOrdersArgs =
   | 'where'
 type MutationCreateBrandArgs =
   | 'data'
@@ -5721,6 +6439,84 @@ export interface MutationFieldDetails {
     resolve: (
       root: core.RootValue<"Mutation">,
       args: { where?: ForumPostWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createForumPostComment: {
+    type: 'ForumPostComment'
+    args: Record<MutationCreateForumPostCommentArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: ForumPostCommentCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumPostComment> | prisma.ForumPostComment
+  }
+  updateForumPostComment: {
+    type: 'ForumPostComment'
+    args: Record<MutationUpdateForumPostCommentArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: ForumPostCommentUpdateInput, where: ForumPostCommentWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumPostComment | null> | prisma.ForumPostComment | null
+  }
+  updateManyForumPostComments: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyForumPostCommentsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: ForumPostCommentUpdateManyMutationInput, where?: ForumPostCommentWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertForumPostComment: {
+    type: 'ForumPostComment'
+    args: Record<MutationUpsertForumPostCommentArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: ForumPostCommentWhereUniqueInput, create: ForumPostCommentCreateInput, update: ForumPostCommentUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumPostComment> | prisma.ForumPostComment
+  }
+  deleteForumPostComment: {
+    type: 'ForumPostComment'
+    args: Record<MutationDeleteForumPostCommentArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: ForumPostCommentWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumPostComment | null> | prisma.ForumPostComment | null
+  }
+  deleteManyForumPostComments: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyForumPostCommentsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: ForumPostCommentWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
@@ -6176,6 +6972,84 @@ export interface MutationFieldDetails {
     resolve: (
       root: core.RootValue<"Mutation">,
       args: { where?: CartItemWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createOrder: {
+    type: 'Order'
+    args: Record<MutationCreateOrderArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: OrderCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Order> | prisma.Order
+  }
+  updateOrder: {
+    type: 'Order'
+    args: Record<MutationUpdateOrderArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: OrderUpdateInput, where: OrderWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Order | null> | prisma.Order | null
+  }
+  updateManyOrders: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyOrdersArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: OrderUpdateManyMutationInput, where?: OrderWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertOrder: {
+    type: 'Order'
+    args: Record<MutationUpsertOrderArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: OrderWhereUniqueInput, create: OrderCreateInput, update: OrderUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Order> | prisma.Order
+  }
+  deleteOrder: {
+    type: 'Order'
+    args: Record<MutationDeleteOrderArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: OrderWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Order | null> | prisma.Order | null
+  }
+  deleteManyOrders: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyOrdersArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: OrderWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
@@ -6683,12 +7557,14 @@ type SubscriptionObject =
   | { name: 'user', args?: SubscriptionUserArgs[] | false, alias?: string  } 
   | { name: 'forum', args?: SubscriptionForumArgs[] | false, alias?: string  } 
   | { name: 'forumPost', args?: SubscriptionForumPostArgs[] | false, alias?: string  } 
+  | { name: 'forumPostComment', args?: SubscriptionForumPostCommentArgs[] | false, alias?: string  } 
   | { name: 'shop', args?: SubscriptionShopArgs[] | false, alias?: string  } 
   | { name: 'shopImage', args?: SubscriptionShopImageArgs[] | false, alias?: string  } 
   | { name: 'userImage', args?: SubscriptionUserImageArgs[] | false, alias?: string  } 
   | { name: 'product', args?: SubscriptionProductArgs[] | false, alias?: string  } 
   | { name: 'cart', args?: SubscriptionCartArgs[] | false, alias?: string  } 
   | { name: 'cartItem', args?: SubscriptionCartItemArgs[] | false, alias?: string  } 
+  | { name: 'order', args?: SubscriptionOrderArgs[] | false, alias?: string  } 
   | { name: 'brand', args?: SubscriptionBrandArgs[] | false, alias?: string  } 
   | { name: 'tag', args?: SubscriptionTagArgs[] | false, alias?: string  } 
   | { name: 'category', args?: SubscriptionCategoryArgs[] | false, alias?: string  } 
@@ -6700,12 +7576,14 @@ type SubscriptionFields =
   | 'user'
   | 'forum'
   | 'forumPost'
+  | 'forumPostComment'
   | 'shop'
   | 'shopImage'
   | 'userImage'
   | 'product'
   | 'cart'
   | 'cartItem'
+  | 'order'
   | 'brand'
   | 'tag'
   | 'category'
@@ -6720,6 +7598,8 @@ type SubscriptionForumArgs =
   | 'where'
 type SubscriptionForumPostArgs =
   | 'where'
+type SubscriptionForumPostCommentArgs =
+  | 'where'
 type SubscriptionShopArgs =
   | 'where'
 type SubscriptionShopImageArgs =
@@ -6731,6 +7611,8 @@ type SubscriptionProductArgs =
 type SubscriptionCartArgs =
   | 'where'
 type SubscriptionCartItemArgs =
+  | 'where'
+type SubscriptionOrderArgs =
   | 'where'
 type SubscriptionBrandArgs =
   | 'where'
@@ -6785,6 +7667,19 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ForumPostSubscriptionPayload | null> | prisma.ForumPostSubscriptionPayload | null
+  }
+  forumPostComment: {
+    type: 'ForumPostCommentSubscriptionPayload'
+    args: Record<SubscriptionForumPostCommentArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: ForumPostCommentSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumPostCommentSubscriptionPayload | null> | prisma.ForumPostCommentSubscriptionPayload | null
   }
   shop: {
     type: 'ShopSubscriptionPayload'
@@ -6863,6 +7758,19 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.CartItemSubscriptionPayload | null> | prisma.CartItemSubscriptionPayload | null
+  }
+  order: {
+    type: 'OrderSubscriptionPayload'
+    args: Record<SubscriptionOrderArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: OrderSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.OrderSubscriptionPayload | null> | prisma.OrderSubscriptionPayload | null
   }
   brand: {
     type: 'BrandSubscriptionPayload'
@@ -7431,6 +8339,131 @@ export interface ForumPostPreviousValuesFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ForumPostType> | prisma.ForumPostType
+  }
+}
+  
+
+// Types for ForumPostCommentSubscriptionPayload
+
+type ForumPostCommentSubscriptionPayloadObject =
+  | ForumPostCommentSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type ForumPostCommentSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface ForumPostCommentSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ForumPostCommentSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'ForumPostComment'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"ForumPostCommentSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumPostComment | null> | prisma.ForumPostComment | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'ForumPostCommentPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"ForumPostCommentSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ForumPostCommentPreviousValues | null> | prisma.ForumPostCommentPreviousValues | null
+  }
+}
+  
+
+// Types for ForumPostCommentPreviousValues
+
+type ForumPostCommentPreviousValuesObject =
+  | ForumPostCommentPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'comment', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+
+type ForumPostCommentPreviousValuesFields =
+  | 'id'
+  | 'comment'
+  | 'createdAt'
+  | 'updatedAt'
+
+
+
+  
+
+export interface ForumPostCommentPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  comment: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
   }
 }
   
@@ -8226,6 +9259,131 @@ export interface CartItemPreviousValuesFieldDetails {
   }
   updatedAt: {
     type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for OrderSubscriptionPayload
+
+type OrderSubscriptionPayloadObject =
+  | OrderSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type OrderSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface OrderSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"OrderSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Order'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"OrderSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Order | null> | prisma.Order | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'OrderPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"OrderSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.OrderPreviousValues | null> | prisma.OrderPreviousValues | null
+  }
+}
+  
+
+// Types for OrderPreviousValues
+
+type OrderPreviousValuesObject =
+  | OrderPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+  | { name: 'total', args?: [] | false, alias?: string  } 
+
+type OrderPreviousValuesFields =
+  | 'id'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'total'
+
+
+
+  
+
+export interface OrderPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  total: {
+    type: 'Int'
     args: {}
     description: string
     list: undefined
@@ -9317,6 +10475,9 @@ export interface UserWhereInput {
   forums_every?: ForumWhereInput | null
   forums_some?: ForumWhereInput | null
   forums_none?: ForumWhereInput | null
+  postComments_every?: ForumPostCommentWhereInput | null
+  postComments_some?: ForumPostCommentWhereInput | null
+  postComments_none?: ForumPostCommentWhereInput | null
   AND?: UserWhereInput[]
   OR?: UserWhereInput[]
   NOT?: UserWhereInput[]
@@ -9443,6 +10604,9 @@ export type UserWhereInputInputObject =
   | { name: 'forums_every', alias?: string  } 
   | { name: 'forums_some', alias?: string  } 
   | { name: 'forums_none', alias?: string  } 
+  | { name: 'postComments_every', alias?: string  } 
+  | { name: 'postComments_some', alias?: string  } 
+  | { name: 'postComments_none', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -10606,6 +11770,9 @@ export interface ForumPostWhereInput {
   type_not?: prisma.ForumPostType | null
   type_in?: prisma.ForumPostType[]
   type_not_in?: prisma.ForumPostType[]
+  comments_every?: ForumPostCommentWhereInput | null
+  comments_some?: ForumPostCommentWhereInput | null
+  comments_none?: ForumPostCommentWhereInput | null
   AND?: ForumPostWhereInput[]
   OR?: ForumPostWhereInput[]
   NOT?: ForumPostWhereInput[]
@@ -10676,6 +11843,9 @@ export type ForumPostWhereInputInputObject =
   | { name: 'type_not', alias?: string  } 
   | { name: 'type_in', alias?: string  } 
   | { name: 'type_not_in', alias?: string  } 
+  | { name: 'comments_every', alias?: string  } 
+  | { name: 'comments_some', alias?: string  } 
+  | { name: 'comments_none', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -10875,6 +12045,109 @@ export type ForumWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface ForumPostCommentWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  user?: UserWhereInput | null
+  forumPost?: ForumPostWhereInput | null
+  comment?: string | null
+  comment_not?: string | null
+  comment_in?: string[]
+  comment_not_in?: string[]
+  comment_lt?: string | null
+  comment_lte?: string | null
+  comment_gt?: string | null
+  comment_gte?: string | null
+  comment_contains?: string | null
+  comment_not_contains?: string | null
+  comment_starts_with?: string | null
+  comment_not_starts_with?: string | null
+  comment_ends_with?: string | null
+  comment_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: ForumPostCommentWhereInput[]
+  OR?: ForumPostCommentWhereInput[]
+  NOT?: ForumPostCommentWhereInput[]
+}
+export type ForumPostCommentWhereInputInputObject =
+  | Extract<keyof ForumPostCommentWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'user', alias?: string  } 
+  | { name: 'forumPost', alias?: string  } 
+  | { name: 'comment', alias?: string  } 
+  | { name: 'comment_not', alias?: string  } 
+  | { name: 'comment_in', alias?: string  } 
+  | { name: 'comment_not_in', alias?: string  } 
+  | { name: 'comment_lt', alias?: string  } 
+  | { name: 'comment_lte', alias?: string  } 
+  | { name: 'comment_gt', alias?: string  } 
+  | { name: 'comment_gte', alias?: string  } 
+  | { name: 'comment_contains', alias?: string  } 
+  | { name: 'comment_not_contains', alias?: string  } 
+  | { name: 'comment_starts_with', alias?: string  } 
+  | { name: 'comment_not_starts_with', alias?: string  } 
+  | { name: 'comment_ends_with', alias?: string  } 
+  | { name: 'comment_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 export interface ShopImageWhereInput {
   id?: string | null
   id_not?: string | null
@@ -10990,6 +12263,13 @@ export type ForumPostWhereUniqueInputInputObject =
   | Extract<keyof ForumPostWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
   
+export interface ForumPostCommentWhereUniqueInput {
+  id?: string | null
+}
+export type ForumPostCommentWhereUniqueInputInputObject =
+  | Extract<keyof ForumPostCommentWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
 export interface ShopWhereUniqueInput {
   id?: string | null
   name?: string | null
@@ -11033,6 +12313,104 @@ export interface CartItemWhereUniqueInput {
 export type CartItemWhereUniqueInputInputObject =
   | Extract<keyof CartItemWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
+  
+export interface OrderWhereUniqueInput {
+  id?: string | null
+}
+export type OrderWhereUniqueInputInputObject =
+  | Extract<keyof OrderWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface OrderWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  user?: UserWhereInput | null
+  cart?: CartWhereInput | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  total?: number | null
+  total_not?: number | null
+  total_in?: number[]
+  total_not_in?: number[]
+  total_lt?: number | null
+  total_lte?: number | null
+  total_gt?: number | null
+  total_gte?: number | null
+  AND?: OrderWhereInput[]
+  OR?: OrderWhereInput[]
+  NOT?: OrderWhereInput[]
+}
+export type OrderWhereInputInputObject =
+  | Extract<keyof OrderWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'user', alias?: string  } 
+  | { name: 'cart', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'total', alias?: string  } 
+  | { name: 'total_not', alias?: string  } 
+  | { name: 'total_in', alias?: string  } 
+  | { name: 'total_not_in', alias?: string  } 
+  | { name: 'total_lt', alias?: string  } 
+  | { name: 'total_lte', alias?: string  } 
+  | { name: 'total_gt', alias?: string  } 
+  | { name: 'total_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
   
 export interface BrandWhereUniqueInput {
   id?: string | null
@@ -11097,6 +12475,7 @@ export interface UserCreateInput {
   cartItems?: CartCreateOneWithoutUserInput | null
   forumposts?: ForumPostCreateManyWithoutPostedByInput | null
   forums?: ForumCreateManyWithoutMembersInput | null
+  postComments?: ForumPostCommentCreateManyWithoutUserInput | null
 }
 export type UserCreateInputInputObject =
   | Extract<keyof UserCreateInput, string>
@@ -11114,6 +12493,7 @@ export type UserCreateInputInputObject =
   | { name: 'cartItems', alias?: string  } 
   | { name: 'forumposts', alias?: string  } 
   | { name: 'forums', alias?: string  } 
+  | { name: 'postComments', alias?: string  } 
   
 export interface ShopCreateManyWithoutOwnersInput {
   create?: ShopCreateWithoutOwnersInput[]
@@ -11339,6 +12719,7 @@ export interface UserCreateWithoutProductReviewsInput {
   cartItems?: CartCreateOneWithoutUserInput | null
   forumposts?: ForumPostCreateManyWithoutPostedByInput | null
   forums?: ForumCreateManyWithoutMembersInput | null
+  postComments?: ForumPostCommentCreateManyWithoutUserInput | null
 }
 export type UserCreateWithoutProductReviewsInputInputObject =
   | Extract<keyof UserCreateWithoutProductReviewsInput, string>
@@ -11355,6 +12736,7 @@ export type UserCreateWithoutProductReviewsInputInputObject =
   | { name: 'cartItems', alias?: string  } 
   | { name: 'forumposts', alias?: string  } 
   | { name: 'forums', alias?: string  } 
+  | { name: 'postComments', alias?: string  } 
   
 export interface UserImageCreateManyWithoutUserInput {
   create?: UserImageCreateWithoutUserInput[]
@@ -11501,6 +12883,7 @@ export interface UserCreateWithoutShopsInput {
   cartItems?: CartCreateOneWithoutUserInput | null
   forumposts?: ForumPostCreateManyWithoutPostedByInput | null
   forums?: ForumCreateManyWithoutMembersInput | null
+  postComments?: ForumPostCommentCreateManyWithoutUserInput | null
 }
 export type UserCreateWithoutShopsInputInputObject =
   | Extract<keyof UserCreateWithoutShopsInput, string>
@@ -11517,6 +12900,7 @@ export type UserCreateWithoutShopsInputInputObject =
   | { name: 'cartItems', alias?: string  } 
   | { name: 'forumposts', alias?: string  } 
   | { name: 'forums', alias?: string  } 
+  | { name: 'postComments', alias?: string  } 
   
 export interface ProductReviewCreateManyWithoutUserInput {
   create?: ProductReviewCreateWithoutUserInput[]
@@ -11589,6 +12973,7 @@ export interface ForumPostCreateWithoutPostedByInput {
   title?: string
   content?: string | null
   type?: prisma.ForumPostType
+  comments?: ForumPostCommentCreateManyWithoutForumPostInput | null
 }
 export type ForumPostCreateWithoutPostedByInputInputObject =
   | Extract<keyof ForumPostCreateWithoutPostedByInput, string>
@@ -11597,6 +12982,7 @@ export type ForumPostCreateWithoutPostedByInputInputObject =
   | { name: 'title', alias?: string  } 
   | { name: 'content', alias?: string  } 
   | { name: 'type', alias?: string  } 
+  | { name: 'comments', alias?: string  } 
   
 export interface ForumCreateOneWithoutPostsInput {
   create?: ForumCreateWithoutPostsInput | null
@@ -11647,6 +13033,7 @@ export interface UserCreateWithoutForumsInput {
   productReviews?: ProductReviewCreateManyWithoutUserInput | null
   cartItems?: CartCreateOneWithoutUserInput | null
   forumposts?: ForumPostCreateManyWithoutPostedByInput | null
+  postComments?: ForumPostCommentCreateManyWithoutUserInput | null
 }
 export type UserCreateWithoutForumsInputInputObject =
   | Extract<keyof UserCreateWithoutForumsInput, string>
@@ -11663,6 +13050,95 @@ export type UserCreateWithoutForumsInputInputObject =
   | { name: 'productReviews', alias?: string  } 
   | { name: 'cartItems', alias?: string  } 
   | { name: 'forumposts', alias?: string  } 
+  | { name: 'postComments', alias?: string  } 
+  
+export interface ForumPostCommentCreateManyWithoutUserInput {
+  create?: ForumPostCommentCreateWithoutUserInput[]
+  connect?: ForumPostCommentWhereUniqueInput[]
+}
+export type ForumPostCommentCreateManyWithoutUserInputInputObject =
+  | Extract<keyof ForumPostCommentCreateManyWithoutUserInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ForumPostCommentCreateWithoutUserInput {
+  id?: string | null
+  forumPost?: ForumPostCreateOneWithoutCommentsInput
+  comment?: string
+}
+export type ForumPostCommentCreateWithoutUserInputInputObject =
+  | Extract<keyof ForumPostCommentCreateWithoutUserInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'forumPost', alias?: string  } 
+  | { name: 'comment', alias?: string  } 
+  
+export interface ForumPostCreateOneWithoutCommentsInput {
+  create?: ForumPostCreateWithoutCommentsInput | null
+  connect?: ForumPostWhereUniqueInput | null
+}
+export type ForumPostCreateOneWithoutCommentsInputInputObject =
+  | Extract<keyof ForumPostCreateOneWithoutCommentsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ForumPostCreateWithoutCommentsInput {
+  id?: string | null
+  postedBy?: UserCreateOneWithoutForumpostsInput
+  forum?: ForumCreateOneWithoutPostsInput
+  title?: string
+  content?: string | null
+  type?: prisma.ForumPostType
+}
+export type ForumPostCreateWithoutCommentsInputInputObject =
+  | Extract<keyof ForumPostCreateWithoutCommentsInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'postedBy', alias?: string  } 
+  | { name: 'forum', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  
+export interface UserCreateOneWithoutForumpostsInput {
+  create?: UserCreateWithoutForumpostsInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserCreateOneWithoutForumpostsInputInputObject =
+  | Extract<keyof UserCreateOneWithoutForumpostsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserCreateWithoutForumpostsInput {
+  id?: string | null
+  firebaseId?: string
+  email?: string | null
+  name?: string | null
+  username?: string | null
+  profilePic?: string | null
+  isAnonymous?: boolean | null
+  emailVerified?: boolean | null
+  shops?: ShopCreateManyWithoutOwnersInput | null
+  images?: UserImageCreateManyWithoutUserInput | null
+  productReviews?: ProductReviewCreateManyWithoutUserInput | null
+  cartItems?: CartCreateOneWithoutUserInput | null
+  forums?: ForumCreateManyWithoutMembersInput | null
+  postComments?: ForumPostCommentCreateManyWithoutUserInput | null
+}
+export type UserCreateWithoutForumpostsInputInputObject =
+  | Extract<keyof UserCreateWithoutForumpostsInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'firebaseId', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'profilePic', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
+  | { name: 'shops', alias?: string  } 
+  | { name: 'images', alias?: string  } 
+  | { name: 'productReviews', alias?: string  } 
+  | { name: 'cartItems', alias?: string  } 
+  | { name: 'forums', alias?: string  } 
+  | { name: 'postComments', alias?: string  } 
   
 export interface ForumCreateManyWithoutMembersInput {
   create?: ForumCreateWithoutMembersInput[]
@@ -11705,6 +13181,7 @@ export interface ForumPostCreateWithoutForumInput {
   title?: string
   content?: string | null
   type?: prisma.ForumPostType
+  comments?: ForumPostCommentCreateManyWithoutForumPostInput | null
 }
 export type ForumPostCreateWithoutForumInputInputObject =
   | Extract<keyof ForumPostCreateWithoutForumInput, string>
@@ -11713,17 +13190,38 @@ export type ForumPostCreateWithoutForumInputInputObject =
   | { name: 'title', alias?: string  } 
   | { name: 'content', alias?: string  } 
   | { name: 'type', alias?: string  } 
+  | { name: 'comments', alias?: string  } 
   
-export interface UserCreateOneWithoutForumpostsInput {
-  create?: UserCreateWithoutForumpostsInput | null
-  connect?: UserWhereUniqueInput | null
+export interface ForumPostCommentCreateManyWithoutForumPostInput {
+  create?: ForumPostCommentCreateWithoutForumPostInput[]
+  connect?: ForumPostCommentWhereUniqueInput[]
 }
-export type UserCreateOneWithoutForumpostsInputInputObject =
-  | Extract<keyof UserCreateOneWithoutForumpostsInput, string>
+export type ForumPostCommentCreateManyWithoutForumPostInputInputObject =
+  | Extract<keyof ForumPostCommentCreateManyWithoutForumPostInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface UserCreateWithoutForumpostsInput {
+export interface ForumPostCommentCreateWithoutForumPostInput {
+  id?: string | null
+  user?: UserCreateOneWithoutPostCommentsInput
+  comment?: string
+}
+export type ForumPostCommentCreateWithoutForumPostInputInputObject =
+  | Extract<keyof ForumPostCommentCreateWithoutForumPostInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'user', alias?: string  } 
+  | { name: 'comment', alias?: string  } 
+  
+export interface UserCreateOneWithoutPostCommentsInput {
+  create?: UserCreateWithoutPostCommentsInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserCreateOneWithoutPostCommentsInputInputObject =
+  | Extract<keyof UserCreateOneWithoutPostCommentsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserCreateWithoutPostCommentsInput {
   id?: string | null
   firebaseId?: string
   email?: string | null
@@ -11736,10 +13234,11 @@ export interface UserCreateWithoutForumpostsInput {
   images?: UserImageCreateManyWithoutUserInput | null
   productReviews?: ProductReviewCreateManyWithoutUserInput | null
   cartItems?: CartCreateOneWithoutUserInput | null
+  forumposts?: ForumPostCreateManyWithoutPostedByInput | null
   forums?: ForumCreateManyWithoutMembersInput | null
 }
-export type UserCreateWithoutForumpostsInputInputObject =
-  | Extract<keyof UserCreateWithoutForumpostsInput, string>
+export type UserCreateWithoutPostCommentsInputInputObject =
+  | Extract<keyof UserCreateWithoutPostCommentsInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'firebaseId', alias?: string  } 
   | { name: 'email', alias?: string  } 
@@ -11752,6 +13251,7 @@ export type UserCreateWithoutForumpostsInputInputObject =
   | { name: 'images', alias?: string  } 
   | { name: 'productReviews', alias?: string  } 
   | { name: 'cartItems', alias?: string  } 
+  | { name: 'forumposts', alias?: string  } 
   | { name: 'forums', alias?: string  } 
   
 export interface CartItemCreatevariantsInput {
@@ -11775,6 +13275,7 @@ export interface UserUpdateInput {
   cartItems?: CartUpdateOneWithoutUserInput | null
   forumposts?: ForumPostUpdateManyWithoutPostedByInput | null
   forums?: ForumUpdateManyWithoutMembersInput | null
+  postComments?: ForumPostCommentUpdateManyWithoutUserInput | null
 }
 export type UserUpdateInputInputObject =
   | Extract<keyof UserUpdateInput, string>
@@ -11791,6 +13292,7 @@ export type UserUpdateInputInputObject =
   | { name: 'cartItems', alias?: string  } 
   | { name: 'forumposts', alias?: string  } 
   | { name: 'forums', alias?: string  } 
+  | { name: 'postComments', alias?: string  } 
   
 export interface ShopUpdateManyWithoutOwnersInput {
   create?: ShopCreateWithoutOwnersInput[]
@@ -12834,6 +14336,7 @@ export interface UserUpdateWithoutProductReviewsDataInput {
   cartItems?: CartUpdateOneWithoutUserInput | null
   forumposts?: ForumPostUpdateManyWithoutPostedByInput | null
   forums?: ForumUpdateManyWithoutMembersInput | null
+  postComments?: ForumPostCommentUpdateManyWithoutUserInput | null
 }
 export type UserUpdateWithoutProductReviewsDataInputInputObject =
   | Extract<keyof UserUpdateWithoutProductReviewsDataInput, string>
@@ -12849,6 +14352,7 @@ export type UserUpdateWithoutProductReviewsDataInputInputObject =
   | { name: 'cartItems', alias?: string  } 
   | { name: 'forumposts', alias?: string  } 
   | { name: 'forums', alias?: string  } 
+  | { name: 'postComments', alias?: string  } 
   
 export interface UserImageUpdateManyWithoutUserInput {
   create?: UserImageCreateWithoutUserInput[]
@@ -13195,6 +14699,7 @@ export interface UserUpdateWithoutShopsDataInput {
   cartItems?: CartUpdateOneWithoutUserInput | null
   forumposts?: ForumPostUpdateManyWithoutPostedByInput | null
   forums?: ForumUpdateManyWithoutMembersInput | null
+  postComments?: ForumPostCommentUpdateManyWithoutUserInput | null
 }
 export type UserUpdateWithoutShopsDataInputInputObject =
   | Extract<keyof UserUpdateWithoutShopsDataInput, string>
@@ -13210,6 +14715,7 @@ export type UserUpdateWithoutShopsDataInputInputObject =
   | { name: 'cartItems', alias?: string  } 
   | { name: 'forumposts', alias?: string  } 
   | { name: 'forums', alias?: string  } 
+  | { name: 'postComments', alias?: string  } 
   
 export interface ProductReviewUpdateManyWithoutUserInput {
   create?: ProductReviewCreateWithoutUserInput[]
@@ -13480,6 +14986,7 @@ export interface ForumPostUpdateWithoutPostedByDataInput {
   title?: string | null
   content?: string | null
   type?: prisma.ForumPostType | null
+  comments?: ForumPostCommentUpdateManyWithoutForumPostInput | null
 }
 export type ForumPostUpdateWithoutPostedByDataInputInputObject =
   | Extract<keyof ForumPostUpdateWithoutPostedByDataInput, string>
@@ -13487,6 +14994,7 @@ export type ForumPostUpdateWithoutPostedByDataInputInputObject =
   | { name: 'title', alias?: string  } 
   | { name: 'content', alias?: string  } 
   | { name: 'type', alias?: string  } 
+  | { name: 'comments', alias?: string  } 
   
 export interface ForumUpdateOneRequiredWithoutPostsInput {
   create?: ForumCreateWithoutPostsInput | null
@@ -13561,6 +15069,7 @@ export interface UserUpdateWithoutForumsDataInput {
   productReviews?: ProductReviewUpdateManyWithoutUserInput | null
   cartItems?: CartUpdateOneWithoutUserInput | null
   forumposts?: ForumPostUpdateManyWithoutPostedByInput | null
+  postComments?: ForumPostCommentUpdateManyWithoutUserInput | null
 }
 export type UserUpdateWithoutForumsDataInputInputObject =
   | Extract<keyof UserUpdateWithoutForumsDataInput, string>
@@ -13576,6 +15085,845 @@ export type UserUpdateWithoutForumsDataInputInputObject =
   | { name: 'productReviews', alias?: string  } 
   | { name: 'cartItems', alias?: string  } 
   | { name: 'forumposts', alias?: string  } 
+  | { name: 'postComments', alias?: string  } 
+  
+export interface ForumPostCommentUpdateManyWithoutUserInput {
+  create?: ForumPostCommentCreateWithoutUserInput[]
+  delete?: ForumPostCommentWhereUniqueInput[]
+  connect?: ForumPostCommentWhereUniqueInput[]
+  set?: ForumPostCommentWhereUniqueInput[]
+  disconnect?: ForumPostCommentWhereUniqueInput[]
+  update?: ForumPostCommentUpdateWithWhereUniqueWithoutUserInput[]
+  upsert?: ForumPostCommentUpsertWithWhereUniqueWithoutUserInput[]
+  deleteMany?: ForumPostCommentScalarWhereInput[]
+  updateMany?: ForumPostCommentUpdateManyWithWhereNestedInput[]
+}
+export type ForumPostCommentUpdateManyWithoutUserInputInputObject =
+  | Extract<keyof ForumPostCommentUpdateManyWithoutUserInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface ForumPostCommentUpdateWithWhereUniqueWithoutUserInput {
+  where?: ForumPostCommentWhereUniqueInput
+  data?: ForumPostCommentUpdateWithoutUserDataInput
+}
+export type ForumPostCommentUpdateWithWhereUniqueWithoutUserInputInputObject =
+  | Extract<keyof ForumPostCommentUpdateWithWhereUniqueWithoutUserInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ForumPostCommentUpdateWithoutUserDataInput {
+  forumPost?: ForumPostUpdateOneRequiredWithoutCommentsInput | null
+  comment?: string | null
+}
+export type ForumPostCommentUpdateWithoutUserDataInputInputObject =
+  | Extract<keyof ForumPostCommentUpdateWithoutUserDataInput, string>
+  | { name: 'forumPost', alias?: string  } 
+  | { name: 'comment', alias?: string  } 
+  
+export interface ForumPostUpdateOneRequiredWithoutCommentsInput {
+  create?: ForumPostCreateWithoutCommentsInput | null
+  update?: ForumPostUpdateWithoutCommentsDataInput | null
+  upsert?: ForumPostUpsertWithoutCommentsInput | null
+  connect?: ForumPostWhereUniqueInput | null
+}
+export type ForumPostUpdateOneRequiredWithoutCommentsInputInputObject =
+  | Extract<keyof ForumPostUpdateOneRequiredWithoutCommentsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ForumPostUpdateWithoutCommentsDataInput {
+  postedBy?: UserUpdateOneRequiredWithoutForumpostsInput | null
+  forum?: ForumUpdateOneRequiredWithoutPostsInput | null
+  title?: string | null
+  content?: string | null
+  type?: prisma.ForumPostType | null
+}
+export type ForumPostUpdateWithoutCommentsDataInputInputObject =
+  | Extract<keyof ForumPostUpdateWithoutCommentsDataInput, string>
+  | { name: 'postedBy', alias?: string  } 
+  | { name: 'forum', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  
+export interface UserUpdateOneRequiredWithoutForumpostsInput {
+  create?: UserCreateWithoutForumpostsInput | null
+  update?: UserUpdateWithoutForumpostsDataInput | null
+  upsert?: UserUpsertWithoutForumpostsInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserUpdateOneRequiredWithoutForumpostsInputInputObject =
+  | Extract<keyof UserUpdateOneRequiredWithoutForumpostsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserUpdateWithoutForumpostsDataInput {
+  firebaseId?: string | null
+  email?: string | null
+  name?: string | null
+  username?: string | null
+  profilePic?: string | null
+  isAnonymous?: boolean | null
+  emailVerified?: boolean | null
+  shops?: ShopUpdateManyWithoutOwnersInput | null
+  images?: UserImageUpdateManyWithoutUserInput | null
+  productReviews?: ProductReviewUpdateManyWithoutUserInput | null
+  cartItems?: CartUpdateOneWithoutUserInput | null
+  forums?: ForumUpdateManyWithoutMembersInput | null
+  postComments?: ForumPostCommentUpdateManyWithoutUserInput | null
+}
+export type UserUpdateWithoutForumpostsDataInputInputObject =
+  | Extract<keyof UserUpdateWithoutForumpostsDataInput, string>
+  | { name: 'firebaseId', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'profilePic', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
+  | { name: 'shops', alias?: string  } 
+  | { name: 'images', alias?: string  } 
+  | { name: 'productReviews', alias?: string  } 
+  | { name: 'cartItems', alias?: string  } 
+  | { name: 'forums', alias?: string  } 
+  | { name: 'postComments', alias?: string  } 
+  
+export interface ForumUpdateManyWithoutMembersInput {
+  create?: ForumCreateWithoutMembersInput[]
+  delete?: ForumWhereUniqueInput[]
+  connect?: ForumWhereUniqueInput[]
+  set?: ForumWhereUniqueInput[]
+  disconnect?: ForumWhereUniqueInput[]
+  update?: ForumUpdateWithWhereUniqueWithoutMembersInput[]
+  upsert?: ForumUpsertWithWhereUniqueWithoutMembersInput[]
+  deleteMany?: ForumScalarWhereInput[]
+  updateMany?: ForumUpdateManyWithWhereNestedInput[]
+}
+export type ForumUpdateManyWithoutMembersInputInputObject =
+  | Extract<keyof ForumUpdateManyWithoutMembersInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface ForumUpdateWithWhereUniqueWithoutMembersInput {
+  where?: ForumWhereUniqueInput
+  data?: ForumUpdateWithoutMembersDataInput
+}
+export type ForumUpdateWithWhereUniqueWithoutMembersInputInputObject =
+  | Extract<keyof ForumUpdateWithWhereUniqueWithoutMembersInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ForumUpdateWithoutMembersDataInput {
+  avatarPic?: string | null
+  coverPic?: string | null
+  posts?: ForumPostUpdateManyWithoutForumInput | null
+  name?: string | null
+  description?: string | null
+}
+export type ForumUpdateWithoutMembersDataInputInputObject =
+  | Extract<keyof ForumUpdateWithoutMembersDataInput, string>
+  | { name: 'avatarPic', alias?: string  } 
+  | { name: 'coverPic', alias?: string  } 
+  | { name: 'posts', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface ForumPostUpdateManyWithoutForumInput {
+  create?: ForumPostCreateWithoutForumInput[]
+  delete?: ForumPostWhereUniqueInput[]
+  connect?: ForumPostWhereUniqueInput[]
+  set?: ForumPostWhereUniqueInput[]
+  disconnect?: ForumPostWhereUniqueInput[]
+  update?: ForumPostUpdateWithWhereUniqueWithoutForumInput[]
+  upsert?: ForumPostUpsertWithWhereUniqueWithoutForumInput[]
+  deleteMany?: ForumPostScalarWhereInput[]
+  updateMany?: ForumPostUpdateManyWithWhereNestedInput[]
+}
+export type ForumPostUpdateManyWithoutForumInputInputObject =
+  | Extract<keyof ForumPostUpdateManyWithoutForumInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface ForumPostUpdateWithWhereUniqueWithoutForumInput {
+  where?: ForumPostWhereUniqueInput
+  data?: ForumPostUpdateWithoutForumDataInput
+}
+export type ForumPostUpdateWithWhereUniqueWithoutForumInputInputObject =
+  | Extract<keyof ForumPostUpdateWithWhereUniqueWithoutForumInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ForumPostUpdateWithoutForumDataInput {
+  postedBy?: UserUpdateOneRequiredWithoutForumpostsInput | null
+  title?: string | null
+  content?: string | null
+  type?: prisma.ForumPostType | null
+  comments?: ForumPostCommentUpdateManyWithoutForumPostInput | null
+}
+export type ForumPostUpdateWithoutForumDataInputInputObject =
+  | Extract<keyof ForumPostUpdateWithoutForumDataInput, string>
+  | { name: 'postedBy', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'comments', alias?: string  } 
+  
+export interface ForumPostCommentUpdateManyWithoutForumPostInput {
+  create?: ForumPostCommentCreateWithoutForumPostInput[]
+  delete?: ForumPostCommentWhereUniqueInput[]
+  connect?: ForumPostCommentWhereUniqueInput[]
+  set?: ForumPostCommentWhereUniqueInput[]
+  disconnect?: ForumPostCommentWhereUniqueInput[]
+  update?: ForumPostCommentUpdateWithWhereUniqueWithoutForumPostInput[]
+  upsert?: ForumPostCommentUpsertWithWhereUniqueWithoutForumPostInput[]
+  deleteMany?: ForumPostCommentScalarWhereInput[]
+  updateMany?: ForumPostCommentUpdateManyWithWhereNestedInput[]
+}
+export type ForumPostCommentUpdateManyWithoutForumPostInputInputObject =
+  | Extract<keyof ForumPostCommentUpdateManyWithoutForumPostInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface ForumPostCommentUpdateWithWhereUniqueWithoutForumPostInput {
+  where?: ForumPostCommentWhereUniqueInput
+  data?: ForumPostCommentUpdateWithoutForumPostDataInput
+}
+export type ForumPostCommentUpdateWithWhereUniqueWithoutForumPostInputInputObject =
+  | Extract<keyof ForumPostCommentUpdateWithWhereUniqueWithoutForumPostInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ForumPostCommentUpdateWithoutForumPostDataInput {
+  user?: UserUpdateOneRequiredWithoutPostCommentsInput | null
+  comment?: string | null
+}
+export type ForumPostCommentUpdateWithoutForumPostDataInputInputObject =
+  | Extract<keyof ForumPostCommentUpdateWithoutForumPostDataInput, string>
+  | { name: 'user', alias?: string  } 
+  | { name: 'comment', alias?: string  } 
+  
+export interface UserUpdateOneRequiredWithoutPostCommentsInput {
+  create?: UserCreateWithoutPostCommentsInput | null
+  update?: UserUpdateWithoutPostCommentsDataInput | null
+  upsert?: UserUpsertWithoutPostCommentsInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserUpdateOneRequiredWithoutPostCommentsInputInputObject =
+  | Extract<keyof UserUpdateOneRequiredWithoutPostCommentsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserUpdateWithoutPostCommentsDataInput {
+  firebaseId?: string | null
+  email?: string | null
+  name?: string | null
+  username?: string | null
+  profilePic?: string | null
+  isAnonymous?: boolean | null
+  emailVerified?: boolean | null
+  shops?: ShopUpdateManyWithoutOwnersInput | null
+  images?: UserImageUpdateManyWithoutUserInput | null
+  productReviews?: ProductReviewUpdateManyWithoutUserInput | null
+  cartItems?: CartUpdateOneWithoutUserInput | null
+  forumposts?: ForumPostUpdateManyWithoutPostedByInput | null
+  forums?: ForumUpdateManyWithoutMembersInput | null
+}
+export type UserUpdateWithoutPostCommentsDataInputInputObject =
+  | Extract<keyof UserUpdateWithoutPostCommentsDataInput, string>
+  | { name: 'firebaseId', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'profilePic', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
+  | { name: 'shops', alias?: string  } 
+  | { name: 'images', alias?: string  } 
+  | { name: 'productReviews', alias?: string  } 
+  | { name: 'cartItems', alias?: string  } 
+  | { name: 'forumposts', alias?: string  } 
+  | { name: 'forums', alias?: string  } 
+  
+export interface UserUpsertWithoutPostCommentsInput {
+  update?: UserUpdateWithoutPostCommentsDataInput
+  create?: UserCreateWithoutPostCommentsInput
+}
+export type UserUpsertWithoutPostCommentsInputInputObject =
+  | Extract<keyof UserUpsertWithoutPostCommentsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ForumPostCommentUpsertWithWhereUniqueWithoutForumPostInput {
+  where?: ForumPostCommentWhereUniqueInput
+  update?: ForumPostCommentUpdateWithoutForumPostDataInput
+  create?: ForumPostCommentCreateWithoutForumPostInput
+}
+export type ForumPostCommentUpsertWithWhereUniqueWithoutForumPostInputInputObject =
+  | Extract<keyof ForumPostCommentUpsertWithWhereUniqueWithoutForumPostInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ForumPostCommentScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  comment?: string | null
+  comment_not?: string | null
+  comment_in?: string[]
+  comment_not_in?: string[]
+  comment_lt?: string | null
+  comment_lte?: string | null
+  comment_gt?: string | null
+  comment_gte?: string | null
+  comment_contains?: string | null
+  comment_not_contains?: string | null
+  comment_starts_with?: string | null
+  comment_not_starts_with?: string | null
+  comment_ends_with?: string | null
+  comment_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: ForumPostCommentScalarWhereInput[]
+  OR?: ForumPostCommentScalarWhereInput[]
+  NOT?: ForumPostCommentScalarWhereInput[]
+}
+export type ForumPostCommentScalarWhereInputInputObject =
+  | Extract<keyof ForumPostCommentScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'comment', alias?: string  } 
+  | { name: 'comment_not', alias?: string  } 
+  | { name: 'comment_in', alias?: string  } 
+  | { name: 'comment_not_in', alias?: string  } 
+  | { name: 'comment_lt', alias?: string  } 
+  | { name: 'comment_lte', alias?: string  } 
+  | { name: 'comment_gt', alias?: string  } 
+  | { name: 'comment_gte', alias?: string  } 
+  | { name: 'comment_contains', alias?: string  } 
+  | { name: 'comment_not_contains', alias?: string  } 
+  | { name: 'comment_starts_with', alias?: string  } 
+  | { name: 'comment_not_starts_with', alias?: string  } 
+  | { name: 'comment_ends_with', alias?: string  } 
+  | { name: 'comment_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface ForumPostCommentUpdateManyWithWhereNestedInput {
+  where?: ForumPostCommentScalarWhereInput
+  data?: ForumPostCommentUpdateManyDataInput
+}
+export type ForumPostCommentUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof ForumPostCommentUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ForumPostCommentUpdateManyDataInput {
+  comment?: string | null
+}
+export type ForumPostCommentUpdateManyDataInputInputObject =
+  | Extract<keyof ForumPostCommentUpdateManyDataInput, string>
+  | { name: 'comment', alias?: string  } 
+  
+export interface ForumPostUpsertWithWhereUniqueWithoutForumInput {
+  where?: ForumPostWhereUniqueInput
+  update?: ForumPostUpdateWithoutForumDataInput
+  create?: ForumPostCreateWithoutForumInput
+}
+export type ForumPostUpsertWithWhereUniqueWithoutForumInputInputObject =
+  | Extract<keyof ForumPostUpsertWithWhereUniqueWithoutForumInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ForumPostScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  title?: string | null
+  title_not?: string | null
+  title_in?: string[]
+  title_not_in?: string[]
+  title_lt?: string | null
+  title_lte?: string | null
+  title_gt?: string | null
+  title_gte?: string | null
+  title_contains?: string | null
+  title_not_contains?: string | null
+  title_starts_with?: string | null
+  title_not_starts_with?: string | null
+  title_ends_with?: string | null
+  title_not_ends_with?: string | null
+  content?: string | null
+  content_not?: string | null
+  content_in?: string[]
+  content_not_in?: string[]
+  content_lt?: string | null
+  content_lte?: string | null
+  content_gt?: string | null
+  content_gte?: string | null
+  content_contains?: string | null
+  content_not_contains?: string | null
+  content_starts_with?: string | null
+  content_not_starts_with?: string | null
+  content_ends_with?: string | null
+  content_not_ends_with?: string | null
+  type?: prisma.ForumPostType | null
+  type_not?: prisma.ForumPostType | null
+  type_in?: prisma.ForumPostType[]
+  type_not_in?: prisma.ForumPostType[]
+  AND?: ForumPostScalarWhereInput[]
+  OR?: ForumPostScalarWhereInput[]
+  NOT?: ForumPostScalarWhereInput[]
+}
+export type ForumPostScalarWhereInputInputObject =
+  | Extract<keyof ForumPostScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'title_not', alias?: string  } 
+  | { name: 'title_in', alias?: string  } 
+  | { name: 'title_not_in', alias?: string  } 
+  | { name: 'title_lt', alias?: string  } 
+  | { name: 'title_lte', alias?: string  } 
+  | { name: 'title_gt', alias?: string  } 
+  | { name: 'title_gte', alias?: string  } 
+  | { name: 'title_contains', alias?: string  } 
+  | { name: 'title_not_contains', alias?: string  } 
+  | { name: 'title_starts_with', alias?: string  } 
+  | { name: 'title_not_starts_with', alias?: string  } 
+  | { name: 'title_ends_with', alias?: string  } 
+  | { name: 'title_not_ends_with', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  | { name: 'content_not', alias?: string  } 
+  | { name: 'content_in', alias?: string  } 
+  | { name: 'content_not_in', alias?: string  } 
+  | { name: 'content_lt', alias?: string  } 
+  | { name: 'content_lte', alias?: string  } 
+  | { name: 'content_gt', alias?: string  } 
+  | { name: 'content_gte', alias?: string  } 
+  | { name: 'content_contains', alias?: string  } 
+  | { name: 'content_not_contains', alias?: string  } 
+  | { name: 'content_starts_with', alias?: string  } 
+  | { name: 'content_not_starts_with', alias?: string  } 
+  | { name: 'content_ends_with', alias?: string  } 
+  | { name: 'content_not_ends_with', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'type_not', alias?: string  } 
+  | { name: 'type_in', alias?: string  } 
+  | { name: 'type_not_in', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface ForumPostUpdateManyWithWhereNestedInput {
+  where?: ForumPostScalarWhereInput
+  data?: ForumPostUpdateManyDataInput
+}
+export type ForumPostUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof ForumPostUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ForumPostUpdateManyDataInput {
+  title?: string | null
+  content?: string | null
+  type?: prisma.ForumPostType | null
+}
+export type ForumPostUpdateManyDataInputInputObject =
+  | Extract<keyof ForumPostUpdateManyDataInput, string>
+  | { name: 'title', alias?: string  } 
+  | { name: 'content', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  
+export interface ForumUpsertWithWhereUniqueWithoutMembersInput {
+  where?: ForumWhereUniqueInput
+  update?: ForumUpdateWithoutMembersDataInput
+  create?: ForumCreateWithoutMembersInput
+}
+export type ForumUpsertWithWhereUniqueWithoutMembersInputInputObject =
+  | Extract<keyof ForumUpsertWithWhereUniqueWithoutMembersInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ForumScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  avatarPic?: string | null
+  avatarPic_not?: string | null
+  avatarPic_in?: string[]
+  avatarPic_not_in?: string[]
+  avatarPic_lt?: string | null
+  avatarPic_lte?: string | null
+  avatarPic_gt?: string | null
+  avatarPic_gte?: string | null
+  avatarPic_contains?: string | null
+  avatarPic_not_contains?: string | null
+  avatarPic_starts_with?: string | null
+  avatarPic_not_starts_with?: string | null
+  avatarPic_ends_with?: string | null
+  avatarPic_not_ends_with?: string | null
+  coverPic?: string | null
+  coverPic_not?: string | null
+  coverPic_in?: string[]
+  coverPic_not_in?: string[]
+  coverPic_lt?: string | null
+  coverPic_lte?: string | null
+  coverPic_gt?: string | null
+  coverPic_gte?: string | null
+  coverPic_contains?: string | null
+  coverPic_not_contains?: string | null
+  coverPic_starts_with?: string | null
+  coverPic_not_starts_with?: string | null
+  coverPic_ends_with?: string | null
+  coverPic_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: ForumScalarWhereInput[]
+  OR?: ForumScalarWhereInput[]
+  NOT?: ForumScalarWhereInput[]
+}
+export type ForumScalarWhereInputInputObject =
+  | Extract<keyof ForumScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'avatarPic', alias?: string  } 
+  | { name: 'avatarPic_not', alias?: string  } 
+  | { name: 'avatarPic_in', alias?: string  } 
+  | { name: 'avatarPic_not_in', alias?: string  } 
+  | { name: 'avatarPic_lt', alias?: string  } 
+  | { name: 'avatarPic_lte', alias?: string  } 
+  | { name: 'avatarPic_gt', alias?: string  } 
+  | { name: 'avatarPic_gte', alias?: string  } 
+  | { name: 'avatarPic_contains', alias?: string  } 
+  | { name: 'avatarPic_not_contains', alias?: string  } 
+  | { name: 'avatarPic_starts_with', alias?: string  } 
+  | { name: 'avatarPic_not_starts_with', alias?: string  } 
+  | { name: 'avatarPic_ends_with', alias?: string  } 
+  | { name: 'avatarPic_not_ends_with', alias?: string  } 
+  | { name: 'coverPic', alias?: string  } 
+  | { name: 'coverPic_not', alias?: string  } 
+  | { name: 'coverPic_in', alias?: string  } 
+  | { name: 'coverPic_not_in', alias?: string  } 
+  | { name: 'coverPic_lt', alias?: string  } 
+  | { name: 'coverPic_lte', alias?: string  } 
+  | { name: 'coverPic_gt', alias?: string  } 
+  | { name: 'coverPic_gte', alias?: string  } 
+  | { name: 'coverPic_contains', alias?: string  } 
+  | { name: 'coverPic_not_contains', alias?: string  } 
+  | { name: 'coverPic_starts_with', alias?: string  } 
+  | { name: 'coverPic_not_starts_with', alias?: string  } 
+  | { name: 'coverPic_ends_with', alias?: string  } 
+  | { name: 'coverPic_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface ForumUpdateManyWithWhereNestedInput {
+  where?: ForumScalarWhereInput
+  data?: ForumUpdateManyDataInput
+}
+export type ForumUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof ForumUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ForumUpdateManyDataInput {
+  avatarPic?: string | null
+  coverPic?: string | null
+  name?: string | null
+  description?: string | null
+}
+export type ForumUpdateManyDataInputInputObject =
+  | Extract<keyof ForumUpdateManyDataInput, string>
+  | { name: 'avatarPic', alias?: string  } 
+  | { name: 'coverPic', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface UserUpsertWithoutForumpostsInput {
+  update?: UserUpdateWithoutForumpostsDataInput
+  create?: UserCreateWithoutForumpostsInput
+}
+export type UserUpsertWithoutForumpostsInputInputObject =
+  | Extract<keyof UserUpsertWithoutForumpostsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ForumPostUpsertWithoutCommentsInput {
+  update?: ForumPostUpdateWithoutCommentsDataInput
+  create?: ForumPostCreateWithoutCommentsInput
+}
+export type ForumPostUpsertWithoutCommentsInputInputObject =
+  | Extract<keyof ForumPostUpsertWithoutCommentsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ForumPostCommentUpsertWithWhereUniqueWithoutUserInput {
+  where?: ForumPostCommentWhereUniqueInput
+  update?: ForumPostCommentUpdateWithoutUserDataInput
+  create?: ForumPostCommentCreateWithoutUserInput
+}
+export type ForumPostCommentUpsertWithWhereUniqueWithoutUserInputInputObject =
+  | Extract<keyof ForumPostCommentUpsertWithWhereUniqueWithoutUserInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
   
 export interface UserUpsertWithWhereUniqueWithoutForumsInput {
   where?: UserWhereUniqueInput
@@ -13854,531 +16202,6 @@ export type ForumPostUpsertWithWhereUniqueWithoutPostedByInputInputObject =
   | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
-  
-export interface ForumPostScalarWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  createdAt?: string | null
-  createdAt_not?: string | null
-  createdAt_in?: string[]
-  createdAt_not_in?: string[]
-  createdAt_lt?: string | null
-  createdAt_lte?: string | null
-  createdAt_gt?: string | null
-  createdAt_gte?: string | null
-  updatedAt?: string | null
-  updatedAt_not?: string | null
-  updatedAt_in?: string[]
-  updatedAt_not_in?: string[]
-  updatedAt_lt?: string | null
-  updatedAt_lte?: string | null
-  updatedAt_gt?: string | null
-  updatedAt_gte?: string | null
-  title?: string | null
-  title_not?: string | null
-  title_in?: string[]
-  title_not_in?: string[]
-  title_lt?: string | null
-  title_lte?: string | null
-  title_gt?: string | null
-  title_gte?: string | null
-  title_contains?: string | null
-  title_not_contains?: string | null
-  title_starts_with?: string | null
-  title_not_starts_with?: string | null
-  title_ends_with?: string | null
-  title_not_ends_with?: string | null
-  content?: string | null
-  content_not?: string | null
-  content_in?: string[]
-  content_not_in?: string[]
-  content_lt?: string | null
-  content_lte?: string | null
-  content_gt?: string | null
-  content_gte?: string | null
-  content_contains?: string | null
-  content_not_contains?: string | null
-  content_starts_with?: string | null
-  content_not_starts_with?: string | null
-  content_ends_with?: string | null
-  content_not_ends_with?: string | null
-  type?: prisma.ForumPostType | null
-  type_not?: prisma.ForumPostType | null
-  type_in?: prisma.ForumPostType[]
-  type_not_in?: prisma.ForumPostType[]
-  AND?: ForumPostScalarWhereInput[]
-  OR?: ForumPostScalarWhereInput[]
-  NOT?: ForumPostScalarWhereInput[]
-}
-export type ForumPostScalarWhereInputInputObject =
-  | Extract<keyof ForumPostScalarWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'createdAt', alias?: string  } 
-  | { name: 'createdAt_not', alias?: string  } 
-  | { name: 'createdAt_in', alias?: string  } 
-  | { name: 'createdAt_not_in', alias?: string  } 
-  | { name: 'createdAt_lt', alias?: string  } 
-  | { name: 'createdAt_lte', alias?: string  } 
-  | { name: 'createdAt_gt', alias?: string  } 
-  | { name: 'createdAt_gte', alias?: string  } 
-  | { name: 'updatedAt', alias?: string  } 
-  | { name: 'updatedAt_not', alias?: string  } 
-  | { name: 'updatedAt_in', alias?: string  } 
-  | { name: 'updatedAt_not_in', alias?: string  } 
-  | { name: 'updatedAt_lt', alias?: string  } 
-  | { name: 'updatedAt_lte', alias?: string  } 
-  | { name: 'updatedAt_gt', alias?: string  } 
-  | { name: 'updatedAt_gte', alias?: string  } 
-  | { name: 'title', alias?: string  } 
-  | { name: 'title_not', alias?: string  } 
-  | { name: 'title_in', alias?: string  } 
-  | { name: 'title_not_in', alias?: string  } 
-  | { name: 'title_lt', alias?: string  } 
-  | { name: 'title_lte', alias?: string  } 
-  | { name: 'title_gt', alias?: string  } 
-  | { name: 'title_gte', alias?: string  } 
-  | { name: 'title_contains', alias?: string  } 
-  | { name: 'title_not_contains', alias?: string  } 
-  | { name: 'title_starts_with', alias?: string  } 
-  | { name: 'title_not_starts_with', alias?: string  } 
-  | { name: 'title_ends_with', alias?: string  } 
-  | { name: 'title_not_ends_with', alias?: string  } 
-  | { name: 'content', alias?: string  } 
-  | { name: 'content_not', alias?: string  } 
-  | { name: 'content_in', alias?: string  } 
-  | { name: 'content_not_in', alias?: string  } 
-  | { name: 'content_lt', alias?: string  } 
-  | { name: 'content_lte', alias?: string  } 
-  | { name: 'content_gt', alias?: string  } 
-  | { name: 'content_gte', alias?: string  } 
-  | { name: 'content_contains', alias?: string  } 
-  | { name: 'content_not_contains', alias?: string  } 
-  | { name: 'content_starts_with', alias?: string  } 
-  | { name: 'content_not_starts_with', alias?: string  } 
-  | { name: 'content_ends_with', alias?: string  } 
-  | { name: 'content_not_ends_with', alias?: string  } 
-  | { name: 'type', alias?: string  } 
-  | { name: 'type_not', alias?: string  } 
-  | { name: 'type_in', alias?: string  } 
-  | { name: 'type_not_in', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface ForumPostUpdateManyWithWhereNestedInput {
-  where?: ForumPostScalarWhereInput
-  data?: ForumPostUpdateManyDataInput
-}
-export type ForumPostUpdateManyWithWhereNestedInputInputObject =
-  | Extract<keyof ForumPostUpdateManyWithWhereNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface ForumPostUpdateManyDataInput {
-  title?: string | null
-  content?: string | null
-  type?: prisma.ForumPostType | null
-}
-export type ForumPostUpdateManyDataInputInputObject =
-  | Extract<keyof ForumPostUpdateManyDataInput, string>
-  | { name: 'title', alias?: string  } 
-  | { name: 'content', alias?: string  } 
-  | { name: 'type', alias?: string  } 
-  
-export interface ForumUpdateManyWithoutMembersInput {
-  create?: ForumCreateWithoutMembersInput[]
-  delete?: ForumWhereUniqueInput[]
-  connect?: ForumWhereUniqueInput[]
-  set?: ForumWhereUniqueInput[]
-  disconnect?: ForumWhereUniqueInput[]
-  update?: ForumUpdateWithWhereUniqueWithoutMembersInput[]
-  upsert?: ForumUpsertWithWhereUniqueWithoutMembersInput[]
-  deleteMany?: ForumScalarWhereInput[]
-  updateMany?: ForumUpdateManyWithWhereNestedInput[]
-}
-export type ForumUpdateManyWithoutMembersInputInputObject =
-  | Extract<keyof ForumUpdateManyWithoutMembersInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface ForumUpdateWithWhereUniqueWithoutMembersInput {
-  where?: ForumWhereUniqueInput
-  data?: ForumUpdateWithoutMembersDataInput
-}
-export type ForumUpdateWithWhereUniqueWithoutMembersInputInputObject =
-  | Extract<keyof ForumUpdateWithWhereUniqueWithoutMembersInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface ForumUpdateWithoutMembersDataInput {
-  avatarPic?: string | null
-  coverPic?: string | null
-  posts?: ForumPostUpdateManyWithoutForumInput | null
-  name?: string | null
-  description?: string | null
-}
-export type ForumUpdateWithoutMembersDataInputInputObject =
-  | Extract<keyof ForumUpdateWithoutMembersDataInput, string>
-  | { name: 'avatarPic', alias?: string  } 
-  | { name: 'coverPic', alias?: string  } 
-  | { name: 'posts', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  
-export interface ForumPostUpdateManyWithoutForumInput {
-  create?: ForumPostCreateWithoutForumInput[]
-  delete?: ForumPostWhereUniqueInput[]
-  connect?: ForumPostWhereUniqueInput[]
-  set?: ForumPostWhereUniqueInput[]
-  disconnect?: ForumPostWhereUniqueInput[]
-  update?: ForumPostUpdateWithWhereUniqueWithoutForumInput[]
-  upsert?: ForumPostUpsertWithWhereUniqueWithoutForumInput[]
-  deleteMany?: ForumPostScalarWhereInput[]
-  updateMany?: ForumPostUpdateManyWithWhereNestedInput[]
-}
-export type ForumPostUpdateManyWithoutForumInputInputObject =
-  | Extract<keyof ForumPostUpdateManyWithoutForumInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface ForumPostUpdateWithWhereUniqueWithoutForumInput {
-  where?: ForumPostWhereUniqueInput
-  data?: ForumPostUpdateWithoutForumDataInput
-}
-export type ForumPostUpdateWithWhereUniqueWithoutForumInputInputObject =
-  | Extract<keyof ForumPostUpdateWithWhereUniqueWithoutForumInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface ForumPostUpdateWithoutForumDataInput {
-  postedBy?: UserUpdateOneRequiredWithoutForumpostsInput | null
-  title?: string | null
-  content?: string | null
-  type?: prisma.ForumPostType | null
-}
-export type ForumPostUpdateWithoutForumDataInputInputObject =
-  | Extract<keyof ForumPostUpdateWithoutForumDataInput, string>
-  | { name: 'postedBy', alias?: string  } 
-  | { name: 'title', alias?: string  } 
-  | { name: 'content', alias?: string  } 
-  | { name: 'type', alias?: string  } 
-  
-export interface UserUpdateOneRequiredWithoutForumpostsInput {
-  create?: UserCreateWithoutForumpostsInput | null
-  update?: UserUpdateWithoutForumpostsDataInput | null
-  upsert?: UserUpsertWithoutForumpostsInput | null
-  connect?: UserWhereUniqueInput | null
-}
-export type UserUpdateOneRequiredWithoutForumpostsInputInputObject =
-  | Extract<keyof UserUpdateOneRequiredWithoutForumpostsInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface UserUpdateWithoutForumpostsDataInput {
-  firebaseId?: string | null
-  email?: string | null
-  name?: string | null
-  username?: string | null
-  profilePic?: string | null
-  isAnonymous?: boolean | null
-  emailVerified?: boolean | null
-  shops?: ShopUpdateManyWithoutOwnersInput | null
-  images?: UserImageUpdateManyWithoutUserInput | null
-  productReviews?: ProductReviewUpdateManyWithoutUserInput | null
-  cartItems?: CartUpdateOneWithoutUserInput | null
-  forums?: ForumUpdateManyWithoutMembersInput | null
-}
-export type UserUpdateWithoutForumpostsDataInputInputObject =
-  | Extract<keyof UserUpdateWithoutForumpostsDataInput, string>
-  | { name: 'firebaseId', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'username', alias?: string  } 
-  | { name: 'profilePic', alias?: string  } 
-  | { name: 'isAnonymous', alias?: string  } 
-  | { name: 'emailVerified', alias?: string  } 
-  | { name: 'shops', alias?: string  } 
-  | { name: 'images', alias?: string  } 
-  | { name: 'productReviews', alias?: string  } 
-  | { name: 'cartItems', alias?: string  } 
-  | { name: 'forums', alias?: string  } 
-  
-export interface UserUpsertWithoutForumpostsInput {
-  update?: UserUpdateWithoutForumpostsDataInput
-  create?: UserCreateWithoutForumpostsInput
-}
-export type UserUpsertWithoutForumpostsInputInputObject =
-  | Extract<keyof UserUpsertWithoutForumpostsInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface ForumPostUpsertWithWhereUniqueWithoutForumInput {
-  where?: ForumPostWhereUniqueInput
-  update?: ForumPostUpdateWithoutForumDataInput
-  create?: ForumPostCreateWithoutForumInput
-}
-export type ForumPostUpsertWithWhereUniqueWithoutForumInputInputObject =
-  | Extract<keyof ForumPostUpsertWithWhereUniqueWithoutForumInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface ForumUpsertWithWhereUniqueWithoutMembersInput {
-  where?: ForumWhereUniqueInput
-  update?: ForumUpdateWithoutMembersDataInput
-  create?: ForumCreateWithoutMembersInput
-}
-export type ForumUpsertWithWhereUniqueWithoutMembersInputInputObject =
-  | Extract<keyof ForumUpsertWithWhereUniqueWithoutMembersInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface ForumScalarWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  avatarPic?: string | null
-  avatarPic_not?: string | null
-  avatarPic_in?: string[]
-  avatarPic_not_in?: string[]
-  avatarPic_lt?: string | null
-  avatarPic_lte?: string | null
-  avatarPic_gt?: string | null
-  avatarPic_gte?: string | null
-  avatarPic_contains?: string | null
-  avatarPic_not_contains?: string | null
-  avatarPic_starts_with?: string | null
-  avatarPic_not_starts_with?: string | null
-  avatarPic_ends_with?: string | null
-  avatarPic_not_ends_with?: string | null
-  coverPic?: string | null
-  coverPic_not?: string | null
-  coverPic_in?: string[]
-  coverPic_not_in?: string[]
-  coverPic_lt?: string | null
-  coverPic_lte?: string | null
-  coverPic_gt?: string | null
-  coverPic_gte?: string | null
-  coverPic_contains?: string | null
-  coverPic_not_contains?: string | null
-  coverPic_starts_with?: string | null
-  coverPic_not_starts_with?: string | null
-  coverPic_ends_with?: string | null
-  coverPic_not_ends_with?: string | null
-  name?: string | null
-  name_not?: string | null
-  name_in?: string[]
-  name_not_in?: string[]
-  name_lt?: string | null
-  name_lte?: string | null
-  name_gt?: string | null
-  name_gte?: string | null
-  name_contains?: string | null
-  name_not_contains?: string | null
-  name_starts_with?: string | null
-  name_not_starts_with?: string | null
-  name_ends_with?: string | null
-  name_not_ends_with?: string | null
-  description?: string | null
-  description_not?: string | null
-  description_in?: string[]
-  description_not_in?: string[]
-  description_lt?: string | null
-  description_lte?: string | null
-  description_gt?: string | null
-  description_gte?: string | null
-  description_contains?: string | null
-  description_not_contains?: string | null
-  description_starts_with?: string | null
-  description_not_starts_with?: string | null
-  description_ends_with?: string | null
-  description_not_ends_with?: string | null
-  createdAt?: string | null
-  createdAt_not?: string | null
-  createdAt_in?: string[]
-  createdAt_not_in?: string[]
-  createdAt_lt?: string | null
-  createdAt_lte?: string | null
-  createdAt_gt?: string | null
-  createdAt_gte?: string | null
-  updatedAt?: string | null
-  updatedAt_not?: string | null
-  updatedAt_in?: string[]
-  updatedAt_not_in?: string[]
-  updatedAt_lt?: string | null
-  updatedAt_lte?: string | null
-  updatedAt_gt?: string | null
-  updatedAt_gte?: string | null
-  AND?: ForumScalarWhereInput[]
-  OR?: ForumScalarWhereInput[]
-  NOT?: ForumScalarWhereInput[]
-}
-export type ForumScalarWhereInputInputObject =
-  | Extract<keyof ForumScalarWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'avatarPic', alias?: string  } 
-  | { name: 'avatarPic_not', alias?: string  } 
-  | { name: 'avatarPic_in', alias?: string  } 
-  | { name: 'avatarPic_not_in', alias?: string  } 
-  | { name: 'avatarPic_lt', alias?: string  } 
-  | { name: 'avatarPic_lte', alias?: string  } 
-  | { name: 'avatarPic_gt', alias?: string  } 
-  | { name: 'avatarPic_gte', alias?: string  } 
-  | { name: 'avatarPic_contains', alias?: string  } 
-  | { name: 'avatarPic_not_contains', alias?: string  } 
-  | { name: 'avatarPic_starts_with', alias?: string  } 
-  | { name: 'avatarPic_not_starts_with', alias?: string  } 
-  | { name: 'avatarPic_ends_with', alias?: string  } 
-  | { name: 'avatarPic_not_ends_with', alias?: string  } 
-  | { name: 'coverPic', alias?: string  } 
-  | { name: 'coverPic_not', alias?: string  } 
-  | { name: 'coverPic_in', alias?: string  } 
-  | { name: 'coverPic_not_in', alias?: string  } 
-  | { name: 'coverPic_lt', alias?: string  } 
-  | { name: 'coverPic_lte', alias?: string  } 
-  | { name: 'coverPic_gt', alias?: string  } 
-  | { name: 'coverPic_gte', alias?: string  } 
-  | { name: 'coverPic_contains', alias?: string  } 
-  | { name: 'coverPic_not_contains', alias?: string  } 
-  | { name: 'coverPic_starts_with', alias?: string  } 
-  | { name: 'coverPic_not_starts_with', alias?: string  } 
-  | { name: 'coverPic_ends_with', alias?: string  } 
-  | { name: 'coverPic_not_ends_with', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'name_not', alias?: string  } 
-  | { name: 'name_in', alias?: string  } 
-  | { name: 'name_not_in', alias?: string  } 
-  | { name: 'name_lt', alias?: string  } 
-  | { name: 'name_lte', alias?: string  } 
-  | { name: 'name_gt', alias?: string  } 
-  | { name: 'name_gte', alias?: string  } 
-  | { name: 'name_contains', alias?: string  } 
-  | { name: 'name_not_contains', alias?: string  } 
-  | { name: 'name_starts_with', alias?: string  } 
-  | { name: 'name_not_starts_with', alias?: string  } 
-  | { name: 'name_ends_with', alias?: string  } 
-  | { name: 'name_not_ends_with', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'description_not', alias?: string  } 
-  | { name: 'description_in', alias?: string  } 
-  | { name: 'description_not_in', alias?: string  } 
-  | { name: 'description_lt', alias?: string  } 
-  | { name: 'description_lte', alias?: string  } 
-  | { name: 'description_gt', alias?: string  } 
-  | { name: 'description_gte', alias?: string  } 
-  | { name: 'description_contains', alias?: string  } 
-  | { name: 'description_not_contains', alias?: string  } 
-  | { name: 'description_starts_with', alias?: string  } 
-  | { name: 'description_not_starts_with', alias?: string  } 
-  | { name: 'description_ends_with', alias?: string  } 
-  | { name: 'description_not_ends_with', alias?: string  } 
-  | { name: 'createdAt', alias?: string  } 
-  | { name: 'createdAt_not', alias?: string  } 
-  | { name: 'createdAt_in', alias?: string  } 
-  | { name: 'createdAt_not_in', alias?: string  } 
-  | { name: 'createdAt_lt', alias?: string  } 
-  | { name: 'createdAt_lte', alias?: string  } 
-  | { name: 'createdAt_gt', alias?: string  } 
-  | { name: 'createdAt_gte', alias?: string  } 
-  | { name: 'updatedAt', alias?: string  } 
-  | { name: 'updatedAt_not', alias?: string  } 
-  | { name: 'updatedAt_in', alias?: string  } 
-  | { name: 'updatedAt_not_in', alias?: string  } 
-  | { name: 'updatedAt_lt', alias?: string  } 
-  | { name: 'updatedAt_lte', alias?: string  } 
-  | { name: 'updatedAt_gt', alias?: string  } 
-  | { name: 'updatedAt_gte', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface ForumUpdateManyWithWhereNestedInput {
-  where?: ForumScalarWhereInput
-  data?: ForumUpdateManyDataInput
-}
-export type ForumUpdateManyWithWhereNestedInputInputObject =
-  | Extract<keyof ForumUpdateManyWithWhereNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface ForumUpdateManyDataInput {
-  avatarPic?: string | null
-  coverPic?: string | null
-  name?: string | null
-  description?: string | null
-}
-export type ForumUpdateManyDataInputInputObject =
-  | Extract<keyof ForumUpdateManyDataInput, string>
-  | { name: 'avatarPic', alias?: string  } 
-  | { name: 'coverPic', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
   
 export interface UserUpsertWithWhereUniqueWithoutShopsInput {
   where?: UserWhereUniqueInput
@@ -15014,6 +16837,7 @@ export interface ForumPostCreateInput {
   title?: string
   content?: string | null
   type?: prisma.ForumPostType
+  comments?: ForumPostCommentCreateManyWithoutForumPostInput | null
 }
 export type ForumPostCreateInputInputObject =
   | Extract<keyof ForumPostCreateInput, string>
@@ -15023,6 +16847,7 @@ export type ForumPostCreateInputInputObject =
   | { name: 'title', alias?: string  } 
   | { name: 'content', alias?: string  } 
   | { name: 'type', alias?: string  } 
+  | { name: 'comments', alias?: string  } 
   
 export interface ForumPostUpdateInput {
   postedBy?: UserUpdateOneRequiredWithoutForumpostsInput | null
@@ -15030,6 +16855,7 @@ export interface ForumPostUpdateInput {
   title?: string | null
   content?: string | null
   type?: prisma.ForumPostType | null
+  comments?: ForumPostCommentUpdateManyWithoutForumPostInput | null
 }
 export type ForumPostUpdateInputInputObject =
   | Extract<keyof ForumPostUpdateInput, string>
@@ -15038,6 +16864,7 @@ export type ForumPostUpdateInputInputObject =
   | { name: 'title', alias?: string  } 
   | { name: 'content', alias?: string  } 
   | { name: 'type', alias?: string  } 
+  | { name: 'comments', alias?: string  } 
   
 export interface ForumPostUpdateManyMutationInput {
   title?: string | null
@@ -15049,6 +16876,37 @@ export type ForumPostUpdateManyMutationInputInputObject =
   | { name: 'title', alias?: string  } 
   | { name: 'content', alias?: string  } 
   | { name: 'type', alias?: string  } 
+  
+export interface ForumPostCommentCreateInput {
+  id?: string | null
+  user?: UserCreateOneWithoutPostCommentsInput
+  forumPost?: ForumPostCreateOneWithoutCommentsInput
+  comment?: string
+}
+export type ForumPostCommentCreateInputInputObject =
+  | Extract<keyof ForumPostCommentCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'user', alias?: string  } 
+  | { name: 'forumPost', alias?: string  } 
+  | { name: 'comment', alias?: string  } 
+  
+export interface ForumPostCommentUpdateInput {
+  user?: UserUpdateOneRequiredWithoutPostCommentsInput | null
+  forumPost?: ForumPostUpdateOneRequiredWithoutCommentsInput | null
+  comment?: string | null
+}
+export type ForumPostCommentUpdateInputInputObject =
+  | Extract<keyof ForumPostCommentUpdateInput, string>
+  | { name: 'user', alias?: string  } 
+  | { name: 'forumPost', alias?: string  } 
+  | { name: 'comment', alias?: string  } 
+  
+export interface ForumPostCommentUpdateManyMutationInput {
+  comment?: string | null
+}
+export type ForumPostCommentUpdateManyMutationInputInputObject =
+  | Extract<keyof ForumPostCommentUpdateManyMutationInput, string>
+  | { name: 'comment', alias?: string  } 
   
 export interface ShopCreateInput {
   id?: string | null
@@ -15235,6 +17093,7 @@ export interface UserCreateWithoutImagesInput {
   cartItems?: CartCreateOneWithoutUserInput | null
   forumposts?: ForumPostCreateManyWithoutPostedByInput | null
   forums?: ForumCreateManyWithoutMembersInput | null
+  postComments?: ForumPostCommentCreateManyWithoutUserInput | null
 }
 export type UserCreateWithoutImagesInputInputObject =
   | Extract<keyof UserCreateWithoutImagesInput, string>
@@ -15251,6 +17110,7 @@ export type UserCreateWithoutImagesInputInputObject =
   | { name: 'cartItems', alias?: string  } 
   | { name: 'forumposts', alias?: string  } 
   | { name: 'forums', alias?: string  } 
+  | { name: 'postComments', alias?: string  } 
   
 export interface UserImageUpdateInput {
   imageUrl?: string | null
@@ -15291,6 +17151,7 @@ export interface UserUpdateWithoutImagesDataInput {
   cartItems?: CartUpdateOneWithoutUserInput | null
   forumposts?: ForumPostUpdateManyWithoutPostedByInput | null
   forums?: ForumUpdateManyWithoutMembersInput | null
+  postComments?: ForumPostCommentUpdateManyWithoutUserInput | null
 }
 export type UserUpdateWithoutImagesDataInputInputObject =
   | Extract<keyof UserUpdateWithoutImagesDataInput, string>
@@ -15306,6 +17167,7 @@ export type UserUpdateWithoutImagesDataInputInputObject =
   | { name: 'cartItems', alias?: string  } 
   | { name: 'forumposts', alias?: string  } 
   | { name: 'forums', alias?: string  } 
+  | { name: 'postComments', alias?: string  } 
   
 export interface UserUpsertWithoutImagesInput {
   update?: UserUpdateWithoutImagesDataInput
@@ -15393,6 +17255,7 @@ export interface UserCreateWithoutCartItemsInput {
   productReviews?: ProductReviewCreateManyWithoutUserInput | null
   forumposts?: ForumPostCreateManyWithoutPostedByInput | null
   forums?: ForumCreateManyWithoutMembersInput | null
+  postComments?: ForumPostCommentCreateManyWithoutUserInput | null
 }
 export type UserCreateWithoutCartItemsInputInputObject =
   | Extract<keyof UserCreateWithoutCartItemsInput, string>
@@ -15409,6 +17272,7 @@ export type UserCreateWithoutCartItemsInputInputObject =
   | { name: 'productReviews', alias?: string  } 
   | { name: 'forumposts', alias?: string  } 
   | { name: 'forums', alias?: string  } 
+  | { name: 'postComments', alias?: string  } 
   
 export interface CartUpdateInput {
   user?: UserUpdateOneRequiredWithoutCartItemsInput | null
@@ -15445,6 +17309,7 @@ export interface UserUpdateWithoutCartItemsDataInput {
   productReviews?: ProductReviewUpdateManyWithoutUserInput | null
   forumposts?: ForumPostUpdateManyWithoutPostedByInput | null
   forums?: ForumUpdateManyWithoutMembersInput | null
+  postComments?: ForumPostCommentUpdateManyWithoutUserInput | null
 }
 export type UserUpdateWithoutCartItemsDataInputInputObject =
   | Extract<keyof UserUpdateWithoutCartItemsDataInput, string>
@@ -15460,6 +17325,7 @@ export type UserUpdateWithoutCartItemsDataInputInputObject =
   | { name: 'productReviews', alias?: string  } 
   | { name: 'forumposts', alias?: string  } 
   | { name: 'forums', alias?: string  } 
+  | { name: 'postComments', alias?: string  } 
   
 export interface UserUpsertWithoutCartItemsInput {
   update?: UserUpdateWithoutCartItemsDataInput
@@ -15489,6 +17355,141 @@ export type CartItemUpdateManyMutationInputInputObject =
   | Extract<keyof CartItemUpdateManyMutationInput, string>
   | { name: 'quantity', alias?: string  } 
   | { name: 'variants', alias?: string  } 
+  
+export interface OrderCreateInput {
+  id?: string | null
+  user?: UserCreateOneInput
+  cart?: CartCreateOneInput
+  total?: number
+}
+export type OrderCreateInputInputObject =
+  | Extract<keyof OrderCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'user', alias?: string  } 
+  | { name: 'cart', alias?: string  } 
+  | { name: 'total', alias?: string  } 
+  
+export interface UserCreateOneInput {
+  create?: UserCreateInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserCreateOneInputInputObject =
+  | Extract<keyof UserCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface CartCreateOneInput {
+  create?: CartCreateInput | null
+  connect?: CartWhereUniqueInput | null
+}
+export type CartCreateOneInputInputObject =
+  | Extract<keyof CartCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface OrderUpdateInput {
+  user?: UserUpdateOneRequiredInput | null
+  cart?: CartUpdateOneRequiredInput | null
+  total?: number | null
+}
+export type OrderUpdateInputInputObject =
+  | Extract<keyof OrderUpdateInput, string>
+  | { name: 'user', alias?: string  } 
+  | { name: 'cart', alias?: string  } 
+  | { name: 'total', alias?: string  } 
+  
+export interface UserUpdateOneRequiredInput {
+  create?: UserCreateInput | null
+  update?: UserUpdateDataInput | null
+  upsert?: UserUpsertNestedInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserUpdateOneRequiredInputInputObject =
+  | Extract<keyof UserUpdateOneRequiredInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserUpdateDataInput {
+  firebaseId?: string | null
+  email?: string | null
+  name?: string | null
+  username?: string | null
+  profilePic?: string | null
+  isAnonymous?: boolean | null
+  emailVerified?: boolean | null
+  shops?: ShopUpdateManyWithoutOwnersInput | null
+  images?: UserImageUpdateManyWithoutUserInput | null
+  productReviews?: ProductReviewUpdateManyWithoutUserInput | null
+  cartItems?: CartUpdateOneWithoutUserInput | null
+  forumposts?: ForumPostUpdateManyWithoutPostedByInput | null
+  forums?: ForumUpdateManyWithoutMembersInput | null
+  postComments?: ForumPostCommentUpdateManyWithoutUserInput | null
+}
+export type UserUpdateDataInputInputObject =
+  | Extract<keyof UserUpdateDataInput, string>
+  | { name: 'firebaseId', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'profilePic', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
+  | { name: 'shops', alias?: string  } 
+  | { name: 'images', alias?: string  } 
+  | { name: 'productReviews', alias?: string  } 
+  | { name: 'cartItems', alias?: string  } 
+  | { name: 'forumposts', alias?: string  } 
+  | { name: 'forums', alias?: string  } 
+  | { name: 'postComments', alias?: string  } 
+  
+export interface UserUpsertNestedInput {
+  update?: UserUpdateDataInput
+  create?: UserCreateInput
+}
+export type UserUpsertNestedInputInputObject =
+  | Extract<keyof UserUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface CartUpdateOneRequiredInput {
+  create?: CartCreateInput | null
+  update?: CartUpdateDataInput | null
+  upsert?: CartUpsertNestedInput | null
+  connect?: CartWhereUniqueInput | null
+}
+export type CartUpdateOneRequiredInputInputObject =
+  | Extract<keyof CartUpdateOneRequiredInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface CartUpdateDataInput {
+  user?: UserUpdateOneRequiredWithoutCartItemsInput | null
+  items?: CartItemUpdateManyInput | null
+}
+export type CartUpdateDataInputInputObject =
+  | Extract<keyof CartUpdateDataInput, string>
+  | { name: 'user', alias?: string  } 
+  | { name: 'items', alias?: string  } 
+  
+export interface CartUpsertNestedInput {
+  update?: CartUpdateDataInput
+  create?: CartCreateInput
+}
+export type CartUpsertNestedInputInputObject =
+  | Extract<keyof CartUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface OrderUpdateManyMutationInput {
+  total?: number | null
+}
+export type OrderUpdateManyMutationInputInputObject =
+  | Extract<keyof OrderUpdateManyMutationInput, string>
+  | { name: 'total', alias?: string  } 
   
 export interface BrandCreateInput {
   id?: string | null
@@ -16193,6 +18194,27 @@ export type ForumPostSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface ForumPostCommentSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: ForumPostCommentWhereInput | null
+  AND?: ForumPostCommentSubscriptionWhereInput[]
+  OR?: ForumPostCommentSubscriptionWhereInput[]
+  NOT?: ForumPostCommentSubscriptionWhereInput[]
+}
+export type ForumPostCommentSubscriptionWhereInputInputObject =
+  | Extract<keyof ForumPostCommentSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 export interface ShopSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
   updatedFields_contains?: string | null
@@ -16310,6 +18332,27 @@ export interface CartItemSubscriptionWhereInput {
 }
 export type CartItemSubscriptionWhereInputInputObject =
   | Extract<keyof CartItemSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface OrderSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: OrderWhereInput | null
+  AND?: OrderSubscriptionWhereInput[]
+  OR?: OrderSubscriptionWhereInput[]
+  NOT?: OrderSubscriptionWhereInput[]
+}
+export type OrderSubscriptionWhereInputInputObject =
+  | Extract<keyof OrderSubscriptionWhereInput, string>
   | { name: 'mutation_in', alias?: string  } 
   | { name: 'updatedFields_contains', alias?: string  } 
   | { name: 'updatedFields_contains_every', alias?: string  } 
@@ -16599,6 +18642,16 @@ export type ForumPostOrderByInputValues =
   | 'type_ASC'
   | 'type_DESC'
   
+export type ForumPostCommentOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'comment_ASC'
+  | 'comment_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
 export type ForumOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
@@ -16622,6 +18675,16 @@ export type CartOrderByInputValues =
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
+  
+export type OrderOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'total_ASC'
+  | 'total_DESC'
   
 export type BrandOrderByInputValues =
   | 'id_ASC'

@@ -15,6 +15,7 @@ type User {
   cartItems: Cart @relation(link: INLINE)
   forumposts: [ForumPost] @relation(name: "UserForumPost")
   forums: [Forum] @relation(name: "UserForums")
+  postComments: [ForumPostComment] @relation(name: "UserPostComments")
 }
 
 type Forum {
@@ -50,6 +51,15 @@ type ForumPost {
   title: String!
   content: String
   type: ForumPostType!
+  comments: [ForumPostComment] @relation(name: "PostComment")
+}
+type ForumPostComment {
+  id: ID! @id
+  user: User! @relation(name: "UserPostComments")
+  forumPost: ForumPost! @relation(name: "PostComment")
+  comment: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Shop {
@@ -112,6 +122,15 @@ type CartItem {
   variants: [String] @scalarList(strategy: RELATION)
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
+}
+
+type Order {
+  id: ID! @id
+  user: User!
+  cart: Cart!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  total: Int!
 }
 
 type Brand {
