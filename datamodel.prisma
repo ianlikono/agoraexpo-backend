@@ -125,13 +125,26 @@ type CartItem {
   updatedAt: DateTime! @updatedAt
 }
 
-type Order {
+type orderItem {
   id: ID! @id
+  title: String!
+  description: String!
+  price: String!
+  quantity: Int!
+  variants: [String] @scalarList(strategy: RELATION)
   user: User!
-  cart: Cart!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
+}
+
+type Order {
+  id: ID! @id
+  items: [orderItem!]!
   total: Int!
+  user: User!
+  charge: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Brand {

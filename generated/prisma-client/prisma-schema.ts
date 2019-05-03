@@ -34,6 +34,10 @@ type AggregateOrder {
   count: Int!
 }
 
+type AggregateorderItem {
+  count: Int!
+}
+
 type AggregateProduct {
   count: Int!
 }
@@ -248,11 +252,6 @@ input CartCreateInput {
   id: ID
   user: UserCreateOneWithoutCartItemsInput!
   items: CartItemCreateManyInput
-}
-
-input CartCreateOneInput {
-  create: CartCreateInput
-  connect: CartWhereUniqueInput
 }
 
 input CartCreateOneWithoutUserInput {
@@ -523,21 +522,9 @@ input CartSubscriptionWhereInput {
   NOT: [CartSubscriptionWhereInput!]
 }
 
-input CartUpdateDataInput {
-  user: UserUpdateOneRequiredWithoutCartItemsInput
-  items: CartItemUpdateManyInput
-}
-
 input CartUpdateInput {
   user: UserUpdateOneRequiredWithoutCartItemsInput
   items: CartItemUpdateManyInput
-}
-
-input CartUpdateOneRequiredInput {
-  create: CartCreateInput
-  update: CartUpdateDataInput
-  upsert: CartUpsertNestedInput
-  connect: CartWhereUniqueInput
 }
 
 input CartUpdateOneWithoutUserInput {
@@ -551,11 +538,6 @@ input CartUpdateOneWithoutUserInput {
 
 input CartUpdateWithoutUserDataInput {
   items: CartItemUpdateManyInput
-}
-
-input CartUpsertNestedInput {
-  update: CartUpdateDataInput!
-  create: CartCreateInput!
 }
 
 input CartUpsertWithoutUserInput {
@@ -1958,6 +1940,12 @@ type Mutation {
   upsertVariant(where: VariantWhereUniqueInput!, create: VariantCreateInput!, update: VariantUpdateInput!): Variant!
   deleteVariant(where: VariantWhereUniqueInput!): Variant
   deleteManyVariants(where: VariantWhereInput): BatchPayload!
+  createorderItem(data: orderItemCreateInput!): orderItem!
+  updateorderItem(data: orderItemUpdateInput!, where: orderItemWhereUniqueInput!): orderItem
+  updateManyorderItems(data: orderItemUpdateManyMutationInput!, where: orderItemWhereInput): BatchPayload!
+  upsertorderItem(where: orderItemWhereUniqueInput!, create: orderItemCreateInput!, update: orderItemUpdateInput!): orderItem!
+  deleteorderItem(where: orderItemWhereUniqueInput!): orderItem
+  deleteManyorderItems(where: orderItemWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -1972,11 +1960,12 @@ interface Node {
 
 type Order {
   id: ID!
+  items(where: orderItemWhereInput, orderBy: orderItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [orderItem!]
+  total: Int!
   user: User!
-  cart: Cart!
+  charge: String!
   createdAt: DateTime!
   updatedAt: DateTime!
-  total: Int!
 }
 
 type OrderConnection {
@@ -1987,9 +1976,10 @@ type OrderConnection {
 
 input OrderCreateInput {
   id: ID
-  user: UserCreateOneInput!
-  cart: CartCreateOneInput!
+  items: orderItemCreateManyInput
   total: Int!
+  user: UserCreateOneInput!
+  charge: String!
 }
 
 type OrderEdge {
@@ -1997,22 +1987,356 @@ type OrderEdge {
   cursor: String!
 }
 
-enum OrderOrderByInput {
+type orderItem {
+  id: ID!
+  title: String!
+  description: String!
+  price: String!
+  quantity: Int!
+  variants: [String!]!
+  user: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type orderItemConnection {
+  pageInfo: PageInfo!
+  edges: [orderItemEdge]!
+  aggregate: AggregateorderItem!
+}
+
+input orderItemCreateInput {
+  id: ID
+  title: String!
+  description: String!
+  price: String!
+  quantity: Int!
+  variants: orderItemCreatevariantsInput
+  user: UserCreateOneInput!
+}
+
+input orderItemCreateManyInput {
+  create: [orderItemCreateInput!]
+  connect: [orderItemWhereUniqueInput!]
+}
+
+input orderItemCreatevariantsInput {
+  set: [String!]
+}
+
+type orderItemEdge {
+  node: orderItem!
+  cursor: String!
+}
+
+enum orderItemOrderByInput {
   id_ASC
   id_DESC
+  title_ASC
+  title_DESC
+  description_ASC
+  description_DESC
+  price_ASC
+  price_DESC
+  quantity_ASC
+  quantity_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
   updatedAt_DESC
+}
+
+type orderItemPreviousValues {
+  id: ID!
+  title: String!
+  description: String!
+  price: String!
+  quantity: Int!
+  variants: [String!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input orderItemScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  price: String
+  price_not: String
+  price_in: [String!]
+  price_not_in: [String!]
+  price_lt: String
+  price_lte: String
+  price_gt: String
+  price_gte: String
+  price_contains: String
+  price_not_contains: String
+  price_starts_with: String
+  price_not_starts_with: String
+  price_ends_with: String
+  price_not_ends_with: String
+  quantity: Int
+  quantity_not: Int
+  quantity_in: [Int!]
+  quantity_not_in: [Int!]
+  quantity_lt: Int
+  quantity_lte: Int
+  quantity_gt: Int
+  quantity_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [orderItemScalarWhereInput!]
+  OR: [orderItemScalarWhereInput!]
+  NOT: [orderItemScalarWhereInput!]
+}
+
+type orderItemSubscriptionPayload {
+  mutation: MutationType!
+  node: orderItem
+  updatedFields: [String!]
+  previousValues: orderItemPreviousValues
+}
+
+input orderItemSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: orderItemWhereInput
+  AND: [orderItemSubscriptionWhereInput!]
+  OR: [orderItemSubscriptionWhereInput!]
+  NOT: [orderItemSubscriptionWhereInput!]
+}
+
+input orderItemUpdateDataInput {
+  title: String
+  description: String
+  price: String
+  quantity: Int
+  variants: orderItemUpdatevariantsInput
+  user: UserUpdateOneRequiredInput
+}
+
+input orderItemUpdateInput {
+  title: String
+  description: String
+  price: String
+  quantity: Int
+  variants: orderItemUpdatevariantsInput
+  user: UserUpdateOneRequiredInput
+}
+
+input orderItemUpdateManyDataInput {
+  title: String
+  description: String
+  price: String
+  quantity: Int
+  variants: orderItemUpdatevariantsInput
+}
+
+input orderItemUpdateManyInput {
+  create: [orderItemCreateInput!]
+  update: [orderItemUpdateWithWhereUniqueNestedInput!]
+  upsert: [orderItemUpsertWithWhereUniqueNestedInput!]
+  delete: [orderItemWhereUniqueInput!]
+  connect: [orderItemWhereUniqueInput!]
+  set: [orderItemWhereUniqueInput!]
+  disconnect: [orderItemWhereUniqueInput!]
+  deleteMany: [orderItemScalarWhereInput!]
+  updateMany: [orderItemUpdateManyWithWhereNestedInput!]
+}
+
+input orderItemUpdateManyMutationInput {
+  title: String
+  description: String
+  price: String
+  quantity: Int
+  variants: orderItemUpdatevariantsInput
+}
+
+input orderItemUpdateManyWithWhereNestedInput {
+  where: orderItemScalarWhereInput!
+  data: orderItemUpdateManyDataInput!
+}
+
+input orderItemUpdatevariantsInput {
+  set: [String!]
+}
+
+input orderItemUpdateWithWhereUniqueNestedInput {
+  where: orderItemWhereUniqueInput!
+  data: orderItemUpdateDataInput!
+}
+
+input orderItemUpsertWithWhereUniqueNestedInput {
+  where: orderItemWhereUniqueInput!
+  update: orderItemUpdateDataInput!
+  create: orderItemCreateInput!
+}
+
+input orderItemWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  price: String
+  price_not: String
+  price_in: [String!]
+  price_not_in: [String!]
+  price_lt: String
+  price_lte: String
+  price_gt: String
+  price_gte: String
+  price_contains: String
+  price_not_contains: String
+  price_starts_with: String
+  price_not_starts_with: String
+  price_ends_with: String
+  price_not_ends_with: String
+  quantity: Int
+  quantity_not: Int
+  quantity_in: [Int!]
+  quantity_not_in: [Int!]
+  quantity_lt: Int
+  quantity_lte: Int
+  quantity_gt: Int
+  quantity_gte: Int
+  user: UserWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [orderItemWhereInput!]
+  OR: [orderItemWhereInput!]
+  NOT: [orderItemWhereInput!]
+}
+
+input orderItemWhereUniqueInput {
+  id: ID
+}
+
+enum OrderOrderByInput {
+  id_ASC
+  id_DESC
   total_ASC
   total_DESC
+  charge_ASC
+  charge_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type OrderPreviousValues {
   id: ID!
+  total: Int!
+  charge: String!
   createdAt: DateTime!
   updatedAt: DateTime!
-  total: Int!
 }
 
 type OrderSubscriptionPayload {
@@ -2034,13 +2358,15 @@ input OrderSubscriptionWhereInput {
 }
 
 input OrderUpdateInput {
-  user: UserUpdateOneRequiredInput
-  cart: CartUpdateOneRequiredInput
+  items: orderItemUpdateManyInput
   total: Int
+  user: UserUpdateOneRequiredInput
+  charge: String
 }
 
 input OrderUpdateManyMutationInput {
   total: Int
+  charge: String
 }
 
 input OrderWhereInput {
@@ -2058,8 +2384,32 @@ input OrderWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  items_every: orderItemWhereInput
+  items_some: orderItemWhereInput
+  items_none: orderItemWhereInput
+  total: Int
+  total_not: Int
+  total_in: [Int!]
+  total_not_in: [Int!]
+  total_lt: Int
+  total_lte: Int
+  total_gt: Int
+  total_gte: Int
   user: UserWhereInput
-  cart: CartWhereInput
+  charge: String
+  charge_not: String
+  charge_in: [String!]
+  charge_not_in: [String!]
+  charge_lt: String
+  charge_lte: String
+  charge_gt: String
+  charge_gte: String
+  charge_contains: String
+  charge_not_contains: String
+  charge_starts_with: String
+  charge_not_starts_with: String
+  charge_ends_with: String
+  charge_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -2076,14 +2426,6 @@ input OrderWhereInput {
   updatedAt_lte: DateTime
   updatedAt_gt: DateTime
   updatedAt_gte: DateTime
-  total: Int
-  total_not: Int
-  total_in: [Int!]
-  total_not_in: [Int!]
-  total_lt: Int
-  total_lte: Int
-  total_gt: Int
-  total_gte: Int
   AND: [OrderWhereInput!]
   OR: [OrderWhereInput!]
   NOT: [OrderWhereInput!]
@@ -3365,6 +3707,9 @@ type Query {
   variant(where: VariantWhereUniqueInput!): Variant
   variants(where: VariantWhereInput, orderBy: VariantOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Variant]!
   variantsConnection(where: VariantWhereInput, orderBy: VariantOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): VariantConnection!
+  orderItem(where: orderItemWhereUniqueInput!): orderItem
+  orderItems(where: orderItemWhereInput, orderBy: orderItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [orderItem]!
+  orderItemsConnection(where: orderItemWhereInput, orderBy: orderItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): orderItemConnection!
   node(id: ID!): Node
 }
 
@@ -4049,6 +4394,7 @@ type Subscription {
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
   userImage(where: UserImageSubscriptionWhereInput): UserImageSubscriptionPayload
   variant(where: VariantSubscriptionWhereInput): VariantSubscriptionPayload
+  orderItem(where: orderItemSubscriptionWhereInput): orderItemSubscriptionPayload
 }
 
 type Tag {

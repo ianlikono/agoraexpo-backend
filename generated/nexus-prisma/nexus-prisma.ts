@@ -62,6 +62,10 @@ export interface NexusPrismaTypes {
       CartItemConnection: CartItemConnectionObject
       CartItemEdge: CartItemEdgeObject
       AggregateCartItem: AggregateCartItemObject
+      orderItem: orderItemObject
+      orderItemConnection: orderItemConnectionObject
+      orderItemEdge: orderItemEdgeObject
+      AggregateorderItem: AggregateorderItemObject
       Order: OrderObject
       OrderConnection: OrderConnectionObject
       OrderEdge: OrderEdgeObject
@@ -107,6 +111,8 @@ export interface NexusPrismaTypes {
       CartPreviousValues: CartPreviousValuesObject
       CartItemSubscriptionPayload: CartItemSubscriptionPayloadObject
       CartItemPreviousValues: CartItemPreviousValuesObject
+      orderItemSubscriptionPayload: orderItemSubscriptionPayloadObject
+      orderItemPreviousValues: orderItemPreviousValuesObject
       OrderSubscriptionPayload: OrderSubscriptionPayloadObject
       OrderPreviousValues: OrderPreviousValuesObject
       BrandSubscriptionPayload: BrandSubscriptionPayloadObject
@@ -171,6 +177,10 @@ export interface NexusPrismaTypes {
       CartItemConnection: CartItemConnectionFieldDetails
       CartItemEdge: CartItemEdgeFieldDetails
       AggregateCartItem: AggregateCartItemFieldDetails
+      orderItem: orderItemFieldDetails
+      orderItemConnection: orderItemConnectionFieldDetails
+      orderItemEdge: orderItemEdgeFieldDetails
+      AggregateorderItem: AggregateorderItemFieldDetails
       Order: OrderFieldDetails
       OrderConnection: OrderConnectionFieldDetails
       OrderEdge: OrderEdgeFieldDetails
@@ -216,6 +226,8 @@ export interface NexusPrismaTypes {
       CartPreviousValues: CartPreviousValuesFieldDetails
       CartItemSubscriptionPayload: CartItemSubscriptionPayloadFieldDetails
       CartItemPreviousValues: CartItemPreviousValuesFieldDetails
+      orderItemSubscriptionPayload: orderItemSubscriptionPayloadFieldDetails
+      orderItemPreviousValues: orderItemPreviousValuesFieldDetails
       OrderSubscriptionPayload: OrderSubscriptionPayloadFieldDetails
       OrderPreviousValues: OrderPreviousValuesFieldDetails
       BrandSubscriptionPayload: BrandSubscriptionPayloadFieldDetails
@@ -260,6 +272,8 @@ export interface NexusPrismaTypes {
       ProductWhereUniqueInput: ProductWhereUniqueInputInputObject
       CartWhereUniqueInput: CartWhereUniqueInputInputObject
       CartItemWhereUniqueInput: CartItemWhereUniqueInputInputObject
+      orderItemWhereUniqueInput: orderItemWhereUniqueInputInputObject
+      orderItemWhereInput: orderItemWhereInputInputObject
       OrderWhereUniqueInput: OrderWhereUniqueInputInputObject
       OrderWhereInput: OrderWhereInputInputObject
       BrandWhereUniqueInput: BrandWhereUniqueInputInputObject
@@ -514,16 +528,25 @@ export interface NexusPrismaTypes {
       UserUpsertWithoutCartItemsInput: UserUpsertWithoutCartItemsInputInputObject
       CartItemUpdateInput: CartItemUpdateInputInputObject
       CartItemUpdateManyMutationInput: CartItemUpdateManyMutationInputInputObject
-      OrderCreateInput: OrderCreateInputInputObject
+      orderItemCreateInput: orderItemCreateInputInputObject
+      orderItemCreatevariantsInput: orderItemCreatevariantsInputInputObject
       UserCreateOneInput: UserCreateOneInputInputObject
-      CartCreateOneInput: CartCreateOneInputInputObject
-      OrderUpdateInput: OrderUpdateInputInputObject
+      orderItemUpdateInput: orderItemUpdateInputInputObject
+      orderItemUpdatevariantsInput: orderItemUpdatevariantsInputInputObject
       UserUpdateOneRequiredInput: UserUpdateOneRequiredInputInputObject
       UserUpdateDataInput: UserUpdateDataInputInputObject
       UserUpsertNestedInput: UserUpsertNestedInputInputObject
-      CartUpdateOneRequiredInput: CartUpdateOneRequiredInputInputObject
-      CartUpdateDataInput: CartUpdateDataInputInputObject
-      CartUpsertNestedInput: CartUpsertNestedInputInputObject
+      orderItemUpdateManyMutationInput: orderItemUpdateManyMutationInputInputObject
+      OrderCreateInput: OrderCreateInputInputObject
+      orderItemCreateManyInput: orderItemCreateManyInputInputObject
+      OrderUpdateInput: OrderUpdateInputInputObject
+      orderItemUpdateManyInput: orderItemUpdateManyInputInputObject
+      orderItemUpdateWithWhereUniqueNestedInput: orderItemUpdateWithWhereUniqueNestedInputInputObject
+      orderItemUpdateDataInput: orderItemUpdateDataInputInputObject
+      orderItemUpsertWithWhereUniqueNestedInput: orderItemUpsertWithWhereUniqueNestedInputInputObject
+      orderItemScalarWhereInput: orderItemScalarWhereInputInputObject
+      orderItemUpdateManyWithWhereNestedInput: orderItemUpdateManyWithWhereNestedInputInputObject
+      orderItemUpdateManyDataInput: orderItemUpdateManyDataInputInputObject
       OrderUpdateManyMutationInput: OrderUpdateManyMutationInputInputObject
       BrandCreateInput: BrandCreateInputInputObject
       ProductCreateManyWithoutBrandInput: ProductCreateManyWithoutBrandInputInputObject
@@ -581,6 +604,7 @@ export interface NexusPrismaTypes {
       ProductSubscriptionWhereInput: ProductSubscriptionWhereInputInputObject
       CartSubscriptionWhereInput: CartSubscriptionWhereInputInputObject
       CartItemSubscriptionWhereInput: CartItemSubscriptionWhereInputInputObject
+      orderItemSubscriptionWhereInput: orderItemSubscriptionWhereInputInputObject
       OrderSubscriptionWhereInput: OrderSubscriptionWhereInputInputObject
       BrandSubscriptionWhereInput: BrandSubscriptionWhereInputInputObject
       TagSubscriptionWhereInput: TagSubscriptionWhereInputInputObject
@@ -607,6 +631,7 @@ export interface NexusPrismaTypes {
     ForumPostCommentOrderByInput: ForumPostCommentOrderByInputValues,
     ForumOrderByInput: ForumOrderByInputValues,
     CartOrderByInput: CartOrderByInputValues,
+    orderItemOrderByInput: orderItemOrderByInputValues,
     OrderOrderByInput: OrderOrderByInputValues,
     BrandOrderByInput: BrandOrderByInputValues,
     MutationType: MutationTypeValues,
@@ -647,6 +672,9 @@ type QueryObject =
   | { name: 'cartItem', args?: QueryCartItemArgs[] | false, alias?: string  } 
   | { name: 'cartItems', args?: QueryCartItemsArgs[] | false, alias?: string  } 
   | { name: 'cartItemsConnection', args?: QueryCartItemsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'orderItem', args?: QueryOrderItemArgs[] | false, alias?: string  } 
+  | { name: 'orderItems', args?: QueryOrderItemsArgs[] | false, alias?: string  } 
+  | { name: 'orderItemsConnection', args?: QueryOrderItemsConnectionArgs[] | false, alias?: string  } 
   | { name: 'order', args?: QueryOrderArgs[] | false, alias?: string  } 
   | { name: 'orders', args?: QueryOrdersArgs[] | false, alias?: string  } 
   | { name: 'ordersConnection', args?: QueryOrdersConnectionArgs[] | false, alias?: string  } 
@@ -700,6 +728,9 @@ type QueryFields =
   | 'cartItem'
   | 'cartItems'
   | 'cartItemsConnection'
+  | 'orderItem'
+  | 'orderItems'
+  | 'orderItemsConnection'
   | 'order'
   | 'orders'
   | 'ordersConnection'
@@ -896,6 +927,24 @@ type QueryCartItemsArgs =
   | 'first'
   | 'last'
 type QueryCartItemsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryOrderItemArgs =
+  | 'where'
+type QueryOrderItemsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryOrderItemsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -1421,6 +1470,45 @@ export interface QueryFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.CartItemConnection> | prisma.CartItemConnection
+  }
+  orderItem: {
+    type: 'orderItem'
+    args: Record<QueryOrderItemArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: orderItemWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.orderItem | null> | prisma.orderItem | null
+  }
+  orderItems: {
+    type: 'orderItem'
+    args: Record<QueryOrderItemsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: orderItemWhereInput | null, orderBy?: prisma.orderItemOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.orderItem[]> | prisma.orderItem[]
+  }
+  orderItemsConnection: {
+    type: 'orderItemConnection'
+    args: Record<QueryOrderItemsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: orderItemWhereInput | null, orderBy?: prisma.orderItemOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.orderItemConnection> | prisma.orderItemConnection
   }
   order: {
     type: 'Order'
@@ -4787,32 +4875,297 @@ export interface AggregateCartItemFieldDetails {
 }
   
 
-// Types for Order
+// Types for orderItem
 
-type OrderObject =
-  | OrderFields
+type orderItemObject =
+  | orderItemFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'title', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+  | { name: 'price', args?: [] | false, alias?: string  } 
+  | { name: 'quantity', args?: [] | false, alias?: string  } 
+  | { name: 'variants', args?: [] | false, alias?: string  } 
   | { name: 'user', args?: [] | false, alias?: string  } 
-  | { name: 'cart', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
-  | { name: 'total', args?: [] | false, alias?: string  } 
 
-type OrderFields =
+type orderItemFields =
   | 'id'
+  | 'title'
+  | 'description'
+  | 'price'
+  | 'quantity'
+  | 'variants'
   | 'user'
-  | 'cart'
   | 'createdAt'
   | 'updatedAt'
-  | 'total'
 
 
 
   
 
+export interface orderItemFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  title: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  price: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  quantity: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  variants: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  user: {
+    type: 'User'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"orderItem">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User> | prisma.User
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for orderItemConnection
+
+type orderItemConnectionObject =
+  | orderItemConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type orderItemConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface orderItemConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"orderItemConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'orderItemEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"orderItemConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.orderItemEdge[]> | prisma.orderItemEdge[]
+  }
+  aggregate: {
+    type: 'AggregateorderItem'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"orderItemConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateorderItem> | prisma.AggregateorderItem
+  }
+}
+  
+
+// Types for orderItemEdge
+
+type orderItemEdgeObject =
+  | orderItemEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type orderItemEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface orderItemEdgeFieldDetails {
+  node: {
+    type: 'orderItem'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"orderItemEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.orderItem> | prisma.orderItem
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateorderItem
+
+type AggregateorderItemObject =
+  | AggregateorderItemFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateorderItemFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateorderItemFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for Order
+
+type OrderObject =
+  | OrderFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'items', args?: OrderItemsArgs[] | false, alias?: string  } 
+  | { name: 'total', args?: [] | false, alias?: string  } 
+  | { name: 'user', args?: [] | false, alias?: string  } 
+  | { name: 'charge', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+
+type OrderFields =
+  | 'id'
+  | 'items'
+  | 'total'
+  | 'user'
+  | 'charge'
+  | 'createdAt'
+  | 'updatedAt'
+
+
+type OrderItemsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+  
+
 export interface OrderFieldDetails {
   id: {
     type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  items: {
+    type: 'orderItem'
+    args: Record<OrderItemsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Order">,
+      args: { where?: orderItemWhereInput | null, orderBy?: prisma.orderItemOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.orderItem[]> | prisma.orderItem[]
+  }
+  total: {
+    type: 'Int'
     args: {}
     description: string
     list: undefined
@@ -4832,18 +5185,13 @@ export interface OrderFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.User> | prisma.User
   }
-  cart: {
-    type: 'Cart'
+  charge: {
+    type: 'String'
     args: {}
     description: string
     list: undefined
     nullable: false
-    resolve: (
-      root: core.RootValue<"Order">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Cart> | prisma.Cart
+    resolve: undefined
   }
   createdAt: {
     type: 'DateTime'
@@ -4855,14 +5203,6 @@ export interface OrderFieldDetails {
   }
   updatedAt: {
     type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  total: {
-    type: 'Int'
     args: {}
     description: string
     list: undefined
@@ -5810,6 +6150,12 @@ type MutationObject =
   | { name: 'upsertCartItem', args?: MutationUpsertCartItemArgs[] | false, alias?: string  } 
   | { name: 'deleteCartItem', args?: MutationDeleteCartItemArgs[] | false, alias?: string  } 
   | { name: 'deleteManyCartItems', args?: MutationDeleteManyCartItemsArgs[] | false, alias?: string  } 
+  | { name: 'createorderItem', args?: MutationCreateorderItemArgs[] | false, alias?: string  } 
+  | { name: 'updateorderItem', args?: MutationUpdateorderItemArgs[] | false, alias?: string  } 
+  | { name: 'updateManyorderItems', args?: MutationUpdateManyorderItemsArgs[] | false, alias?: string  } 
+  | { name: 'upsertorderItem', args?: MutationUpsertorderItemArgs[] | false, alias?: string  } 
+  | { name: 'deleteorderItem', args?: MutationDeleteorderItemArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyorderItems', args?: MutationDeleteManyorderItemsArgs[] | false, alias?: string  } 
   | { name: 'createOrder', args?: MutationCreateOrderArgs[] | false, alias?: string  } 
   | { name: 'updateOrder', args?: MutationUpdateOrderArgs[] | false, alias?: string  } 
   | { name: 'updateManyOrders', args?: MutationUpdateManyOrdersArgs[] | false, alias?: string  } 
@@ -5913,6 +6259,12 @@ type MutationFields =
   | 'upsertCartItem'
   | 'deleteCartItem'
   | 'deleteManyCartItems'
+  | 'createorderItem'
+  | 'updateorderItem'
+  | 'updateManyorderItems'
+  | 'upsertorderItem'
+  | 'deleteorderItem'
+  | 'deleteManyorderItems'
   | 'createOrder'
   | 'updateOrder'
   | 'updateManyOrders'
@@ -6113,6 +6465,22 @@ type MutationUpsertCartItemArgs =
 type MutationDeleteCartItemArgs =
   | 'where'
 type MutationDeleteManyCartItemsArgs =
+  | 'where'
+type MutationCreateorderItemArgs =
+  | 'data'
+type MutationUpdateorderItemArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyorderItemsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertorderItemArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteorderItemArgs =
+  | 'where'
+type MutationDeleteManyorderItemsArgs =
   | 'where'
 type MutationCreateOrderArgs =
   | 'data'
@@ -6996,6 +7364,84 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
+  createorderItem: {
+    type: 'orderItem'
+    args: Record<MutationCreateorderItemArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: orderItemCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.orderItem> | prisma.orderItem
+  }
+  updateorderItem: {
+    type: 'orderItem'
+    args: Record<MutationUpdateorderItemArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: orderItemUpdateInput, where: orderItemWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.orderItem | null> | prisma.orderItem | null
+  }
+  updateManyorderItems: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyorderItemsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: orderItemUpdateManyMutationInput, where?: orderItemWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertorderItem: {
+    type: 'orderItem'
+    args: Record<MutationUpsertorderItemArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: orderItemWhereUniqueInput, create: orderItemCreateInput, update: orderItemUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.orderItem> | prisma.orderItem
+  }
+  deleteorderItem: {
+    type: 'orderItem'
+    args: Record<MutationDeleteorderItemArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: orderItemWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.orderItem | null> | prisma.orderItem | null
+  }
+  deleteManyorderItems: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyorderItemsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: orderItemWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
   createOrder: {
     type: 'Order'
     args: Record<MutationCreateOrderArgs, core.NexusArgDef<string>>
@@ -7584,6 +8030,7 @@ type SubscriptionObject =
   | { name: 'product', args?: SubscriptionProductArgs[] | false, alias?: string  } 
   | { name: 'cart', args?: SubscriptionCartArgs[] | false, alias?: string  } 
   | { name: 'cartItem', args?: SubscriptionCartItemArgs[] | false, alias?: string  } 
+  | { name: 'orderItem', args?: SubscriptionOrderItemArgs[] | false, alias?: string  } 
   | { name: 'order', args?: SubscriptionOrderArgs[] | false, alias?: string  } 
   | { name: 'brand', args?: SubscriptionBrandArgs[] | false, alias?: string  } 
   | { name: 'tag', args?: SubscriptionTagArgs[] | false, alias?: string  } 
@@ -7603,6 +8050,7 @@ type SubscriptionFields =
   | 'product'
   | 'cart'
   | 'cartItem'
+  | 'orderItem'
   | 'order'
   | 'brand'
   | 'tag'
@@ -7631,6 +8079,8 @@ type SubscriptionProductArgs =
 type SubscriptionCartArgs =
   | 'where'
 type SubscriptionCartItemArgs =
+  | 'where'
+type SubscriptionOrderItemArgs =
   | 'where'
 type SubscriptionOrderArgs =
   | 'where'
@@ -7778,6 +8228,19 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.CartItemSubscriptionPayload | null> | prisma.CartItemSubscriptionPayload | null
+  }
+  orderItem: {
+    type: 'orderItemSubscriptionPayload'
+    args: Record<SubscriptionOrderItemArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: orderItemSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.orderItemSubscriptionPayload | null> | prisma.orderItemSubscriptionPayload | null
   }
   order: {
     type: 'OrderSubscriptionPayload'
@@ -9298,6 +9761,171 @@ export interface CartItemPreviousValuesFieldDetails {
 }
   
 
+// Types for orderItemSubscriptionPayload
+
+type orderItemSubscriptionPayloadObject =
+  | orderItemSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type orderItemSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface orderItemSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"orderItemSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'orderItem'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"orderItemSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.orderItem | null> | prisma.orderItem | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'orderItemPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"orderItemSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.orderItemPreviousValues | null> | prisma.orderItemPreviousValues | null
+  }
+}
+  
+
+// Types for orderItemPreviousValues
+
+type orderItemPreviousValuesObject =
+  | orderItemPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'title', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+  | { name: 'price', args?: [] | false, alias?: string  } 
+  | { name: 'quantity', args?: [] | false, alias?: string  } 
+  | { name: 'variants', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+
+type orderItemPreviousValuesFields =
+  | 'id'
+  | 'title'
+  | 'description'
+  | 'price'
+  | 'quantity'
+  | 'variants'
+  | 'createdAt'
+  | 'updatedAt'
+
+
+
+  
+
+export interface orderItemPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  title: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  price: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  quantity: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  variants: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 // Types for OrderSubscriptionPayload
 
 type OrderSubscriptionPayloadObject =
@@ -9373,15 +10001,17 @@ export interface OrderSubscriptionPayloadFieldDetails {
 type OrderPreviousValuesObject =
   | OrderPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'total', args?: [] | false, alias?: string  } 
+  | { name: 'charge', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
-  | { name: 'total', args?: [] | false, alias?: string  } 
 
 type OrderPreviousValuesFields =
   | 'id'
+  | 'total'
+  | 'charge'
   | 'createdAt'
   | 'updatedAt'
-  | 'total'
 
 
 
@@ -9390,6 +10020,22 @@ type OrderPreviousValuesFields =
 export interface OrderPreviousValuesFieldDetails {
   id: {
     type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  total: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  charge: {
+    type: 'String'
     args: {}
     description: string
     list: undefined
@@ -9406,14 +10052,6 @@ export interface OrderPreviousValuesFieldDetails {
   }
   updatedAt: {
     type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  total: {
-    type: 'Int'
     args: {}
     description: string
     list: undefined
@@ -12410,6 +13048,186 @@ export type CartItemWhereUniqueInputInputObject =
   | Extract<keyof CartItemWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
   
+export interface orderItemWhereUniqueInput {
+  id?: string | null
+}
+export type orderItemWhereUniqueInputInputObject =
+  | Extract<keyof orderItemWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface orderItemWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  title?: string | null
+  title_not?: string | null
+  title_in?: string[]
+  title_not_in?: string[]
+  title_lt?: string | null
+  title_lte?: string | null
+  title_gt?: string | null
+  title_gte?: string | null
+  title_contains?: string | null
+  title_not_contains?: string | null
+  title_starts_with?: string | null
+  title_not_starts_with?: string | null
+  title_ends_with?: string | null
+  title_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  price?: string | null
+  price_not?: string | null
+  price_in?: string[]
+  price_not_in?: string[]
+  price_lt?: string | null
+  price_lte?: string | null
+  price_gt?: string | null
+  price_gte?: string | null
+  price_contains?: string | null
+  price_not_contains?: string | null
+  price_starts_with?: string | null
+  price_not_starts_with?: string | null
+  price_ends_with?: string | null
+  price_not_ends_with?: string | null
+  quantity?: number | null
+  quantity_not?: number | null
+  quantity_in?: number[]
+  quantity_not_in?: number[]
+  quantity_lt?: number | null
+  quantity_lte?: number | null
+  quantity_gt?: number | null
+  quantity_gte?: number | null
+  user?: UserWhereInput | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: orderItemWhereInput[]
+  OR?: orderItemWhereInput[]
+  NOT?: orderItemWhereInput[]
+}
+export type orderItemWhereInputInputObject =
+  | Extract<keyof orderItemWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'title_not', alias?: string  } 
+  | { name: 'title_in', alias?: string  } 
+  | { name: 'title_not_in', alias?: string  } 
+  | { name: 'title_lt', alias?: string  } 
+  | { name: 'title_lte', alias?: string  } 
+  | { name: 'title_gt', alias?: string  } 
+  | { name: 'title_gte', alias?: string  } 
+  | { name: 'title_contains', alias?: string  } 
+  | { name: 'title_not_contains', alias?: string  } 
+  | { name: 'title_starts_with', alias?: string  } 
+  | { name: 'title_not_starts_with', alias?: string  } 
+  | { name: 'title_ends_with', alias?: string  } 
+  | { name: 'title_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'price', alias?: string  } 
+  | { name: 'price_not', alias?: string  } 
+  | { name: 'price_in', alias?: string  } 
+  | { name: 'price_not_in', alias?: string  } 
+  | { name: 'price_lt', alias?: string  } 
+  | { name: 'price_lte', alias?: string  } 
+  | { name: 'price_gt', alias?: string  } 
+  | { name: 'price_gte', alias?: string  } 
+  | { name: 'price_contains', alias?: string  } 
+  | { name: 'price_not_contains', alias?: string  } 
+  | { name: 'price_starts_with', alias?: string  } 
+  | { name: 'price_not_starts_with', alias?: string  } 
+  | { name: 'price_ends_with', alias?: string  } 
+  | { name: 'price_not_ends_with', alias?: string  } 
+  | { name: 'quantity', alias?: string  } 
+  | { name: 'quantity_not', alias?: string  } 
+  | { name: 'quantity_in', alias?: string  } 
+  | { name: 'quantity_not_in', alias?: string  } 
+  | { name: 'quantity_lt', alias?: string  } 
+  | { name: 'quantity_lte', alias?: string  } 
+  | { name: 'quantity_gt', alias?: string  } 
+  | { name: 'quantity_gte', alias?: string  } 
+  | { name: 'user', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 export interface OrderWhereUniqueInput {
   id?: string | null
 }
@@ -12432,8 +13250,32 @@ export interface OrderWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
+  items_every?: orderItemWhereInput | null
+  items_some?: orderItemWhereInput | null
+  items_none?: orderItemWhereInput | null
+  total?: number | null
+  total_not?: number | null
+  total_in?: number[]
+  total_not_in?: number[]
+  total_lt?: number | null
+  total_lte?: number | null
+  total_gt?: number | null
+  total_gte?: number | null
   user?: UserWhereInput | null
-  cart?: CartWhereInput | null
+  charge?: string | null
+  charge_not?: string | null
+  charge_in?: string[]
+  charge_not_in?: string[]
+  charge_lt?: string | null
+  charge_lte?: string | null
+  charge_gt?: string | null
+  charge_gte?: string | null
+  charge_contains?: string | null
+  charge_not_contains?: string | null
+  charge_starts_with?: string | null
+  charge_not_starts_with?: string | null
+  charge_ends_with?: string | null
+  charge_not_ends_with?: string | null
   createdAt?: string | null
   createdAt_not?: string | null
   createdAt_in?: string[]
@@ -12450,14 +13292,6 @@ export interface OrderWhereInput {
   updatedAt_lte?: string | null
   updatedAt_gt?: string | null
   updatedAt_gte?: string | null
-  total?: number | null
-  total_not?: number | null
-  total_in?: number[]
-  total_not_in?: number[]
-  total_lt?: number | null
-  total_lte?: number | null
-  total_gt?: number | null
-  total_gte?: number | null
   AND?: OrderWhereInput[]
   OR?: OrderWhereInput[]
   NOT?: OrderWhereInput[]
@@ -12478,8 +13312,32 @@ export type OrderWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'items_every', alias?: string  } 
+  | { name: 'items_some', alias?: string  } 
+  | { name: 'items_none', alias?: string  } 
+  | { name: 'total', alias?: string  } 
+  | { name: 'total_not', alias?: string  } 
+  | { name: 'total_in', alias?: string  } 
+  | { name: 'total_not_in', alias?: string  } 
+  | { name: 'total_lt', alias?: string  } 
+  | { name: 'total_lte', alias?: string  } 
+  | { name: 'total_gt', alias?: string  } 
+  | { name: 'total_gte', alias?: string  } 
   | { name: 'user', alias?: string  } 
-  | { name: 'cart', alias?: string  } 
+  | { name: 'charge', alias?: string  } 
+  | { name: 'charge_not', alias?: string  } 
+  | { name: 'charge_in', alias?: string  } 
+  | { name: 'charge_not_in', alias?: string  } 
+  | { name: 'charge_lt', alias?: string  } 
+  | { name: 'charge_lte', alias?: string  } 
+  | { name: 'charge_gt', alias?: string  } 
+  | { name: 'charge_gte', alias?: string  } 
+  | { name: 'charge_contains', alias?: string  } 
+  | { name: 'charge_not_contains', alias?: string  } 
+  | { name: 'charge_starts_with', alias?: string  } 
+  | { name: 'charge_not_starts_with', alias?: string  } 
+  | { name: 'charge_ends_with', alias?: string  } 
+  | { name: 'charge_not_ends_with', alias?: string  } 
   | { name: 'createdAt', alias?: string  } 
   | { name: 'createdAt_not', alias?: string  } 
   | { name: 'createdAt_in', alias?: string  } 
@@ -12496,14 +13354,6 @@ export type OrderWhereInputInputObject =
   | { name: 'updatedAt_lte', alias?: string  } 
   | { name: 'updatedAt_gt', alias?: string  } 
   | { name: 'updatedAt_gte', alias?: string  } 
-  | { name: 'total', alias?: string  } 
-  | { name: 'total_not', alias?: string  } 
-  | { name: 'total_in', alias?: string  } 
-  | { name: 'total_not_in', alias?: string  } 
-  | { name: 'total_lt', alias?: string  } 
-  | { name: 'total_lte', alias?: string  } 
-  | { name: 'total_gt', alias?: string  } 
-  | { name: 'total_gte', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -17526,18 +18376,31 @@ export type CartItemUpdateManyMutationInputInputObject =
   | { name: 'quantity', alias?: string  } 
   | { name: 'variants', alias?: string  } 
   
-export interface OrderCreateInput {
+export interface orderItemCreateInput {
   id?: string | null
+  title?: string
+  description?: string
+  price?: string
+  quantity?: number
+  variants?: orderItemCreatevariantsInput | null
   user?: UserCreateOneInput
-  cart?: CartCreateOneInput
-  total?: number
 }
-export type OrderCreateInputInputObject =
-  | Extract<keyof OrderCreateInput, string>
+export type orderItemCreateInputInputObject =
+  | Extract<keyof orderItemCreateInput, string>
   | { name: 'id', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'price', alias?: string  } 
+  | { name: 'quantity', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
   | { name: 'user', alias?: string  } 
-  | { name: 'cart', alias?: string  } 
-  | { name: 'total', alias?: string  } 
+  
+export interface orderItemCreatevariantsInput {
+  set?: string[]
+}
+export type orderItemCreatevariantsInputInputObject =
+  | Extract<keyof orderItemCreatevariantsInput, string>
+  | { name: 'set', alias?: string  } 
   
 export interface UserCreateOneInput {
   create?: UserCreateInput | null
@@ -17548,25 +18411,29 @@ export type UserCreateOneInputInputObject =
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface CartCreateOneInput {
-  create?: CartCreateInput | null
-  connect?: CartWhereUniqueInput | null
-}
-export type CartCreateOneInputInputObject =
-  | Extract<keyof CartCreateOneInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface OrderUpdateInput {
+export interface orderItemUpdateInput {
+  title?: string | null
+  description?: string | null
+  price?: string | null
+  quantity?: number | null
+  variants?: orderItemUpdatevariantsInput | null
   user?: UserUpdateOneRequiredInput | null
-  cart?: CartUpdateOneRequiredInput | null
-  total?: number | null
 }
-export type OrderUpdateInputInputObject =
-  | Extract<keyof OrderUpdateInput, string>
+export type orderItemUpdateInputInputObject =
+  | Extract<keyof orderItemUpdateInput, string>
+  | { name: 'title', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'price', alias?: string  } 
+  | { name: 'quantity', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
   | { name: 'user', alias?: string  } 
-  | { name: 'cart', alias?: string  } 
-  | { name: 'total', alias?: string  } 
+  
+export interface orderItemUpdatevariantsInput {
+  set?: string[]
+}
+export type orderItemUpdatevariantsInputInputObject =
+  | Extract<keyof orderItemUpdatevariantsInput, string>
+  | { name: 'set', alias?: string  } 
   
 export interface UserUpdateOneRequiredInput {
   create?: UserCreateInput | null
@@ -17623,43 +18490,321 @@ export type UserUpsertNestedInputInputObject =
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface CartUpdateOneRequiredInput {
-  create?: CartCreateInput | null
-  update?: CartUpdateDataInput | null
-  upsert?: CartUpsertNestedInput | null
-  connect?: CartWhereUniqueInput | null
+export interface orderItemUpdateManyMutationInput {
+  title?: string | null
+  description?: string | null
+  price?: string | null
+  quantity?: number | null
+  variants?: orderItemUpdatevariantsInput | null
 }
-export type CartUpdateOneRequiredInputInputObject =
-  | Extract<keyof CartUpdateOneRequiredInput, string>
+export type orderItemUpdateManyMutationInputInputObject =
+  | Extract<keyof orderItemUpdateManyMutationInput, string>
+  | { name: 'title', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'price', alias?: string  } 
+  | { name: 'quantity', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
+  
+export interface OrderCreateInput {
+  id?: string | null
+  items?: orderItemCreateManyInput | null
+  total?: number
+  user?: UserCreateOneInput
+  charge?: string
+}
+export type OrderCreateInputInputObject =
+  | Extract<keyof OrderCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'items', alias?: string  } 
+  | { name: 'total', alias?: string  } 
+  | { name: 'user', alias?: string  } 
+  | { name: 'charge', alias?: string  } 
+  
+export interface orderItemCreateManyInput {
+  create?: orderItemCreateInput[]
+  connect?: orderItemWhereUniqueInput[]
+}
+export type orderItemCreateManyInputInputObject =
+  | Extract<keyof orderItemCreateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface OrderUpdateInput {
+  items?: orderItemUpdateManyInput | null
+  total?: number | null
+  user?: UserUpdateOneRequiredInput | null
+  charge?: string | null
+}
+export type OrderUpdateInputInputObject =
+  | Extract<keyof OrderUpdateInput, string>
+  | { name: 'items', alias?: string  } 
+  | { name: 'total', alias?: string  } 
+  | { name: 'user', alias?: string  } 
+  | { name: 'charge', alias?: string  } 
+  
+export interface orderItemUpdateManyInput {
+  create?: orderItemCreateInput[]
+  update?: orderItemUpdateWithWhereUniqueNestedInput[]
+  upsert?: orderItemUpsertWithWhereUniqueNestedInput[]
+  delete?: orderItemWhereUniqueInput[]
+  connect?: orderItemWhereUniqueInput[]
+  set?: orderItemWhereUniqueInput[]
+  disconnect?: orderItemWhereUniqueInput[]
+  deleteMany?: orderItemScalarWhereInput[]
+  updateMany?: orderItemUpdateManyWithWhereNestedInput[]
+}
+export type orderItemUpdateManyInputInputObject =
+  | Extract<keyof orderItemUpdateManyInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
   | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
   
-export interface CartUpdateDataInput {
-  user?: UserUpdateOneRequiredWithoutCartItemsInput | null
-  items?: CartItemUpdateManyInput | null
+export interface orderItemUpdateWithWhereUniqueNestedInput {
+  where?: orderItemWhereUniqueInput
+  data?: orderItemUpdateDataInput
 }
-export type CartUpdateDataInputInputObject =
-  | Extract<keyof CartUpdateDataInput, string>
+export type orderItemUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof orderItemUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface orderItemUpdateDataInput {
+  title?: string | null
+  description?: string | null
+  price?: string | null
+  quantity?: number | null
+  variants?: orderItemUpdatevariantsInput | null
+  user?: UserUpdateOneRequiredInput | null
+}
+export type orderItemUpdateDataInputInputObject =
+  | Extract<keyof orderItemUpdateDataInput, string>
+  | { name: 'title', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'price', alias?: string  } 
+  | { name: 'quantity', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
   | { name: 'user', alias?: string  } 
-  | { name: 'items', alias?: string  } 
   
-export interface CartUpsertNestedInput {
-  update?: CartUpdateDataInput
-  create?: CartCreateInput
+export interface orderItemUpsertWithWhereUniqueNestedInput {
+  where?: orderItemWhereUniqueInput
+  update?: orderItemUpdateDataInput
+  create?: orderItemCreateInput
 }
-export type CartUpsertNestedInputInputObject =
-  | Extract<keyof CartUpsertNestedInput, string>
+export type orderItemUpsertWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof orderItemUpsertWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
+export interface orderItemScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  title?: string | null
+  title_not?: string | null
+  title_in?: string[]
+  title_not_in?: string[]
+  title_lt?: string | null
+  title_lte?: string | null
+  title_gt?: string | null
+  title_gte?: string | null
+  title_contains?: string | null
+  title_not_contains?: string | null
+  title_starts_with?: string | null
+  title_not_starts_with?: string | null
+  title_ends_with?: string | null
+  title_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  price?: string | null
+  price_not?: string | null
+  price_in?: string[]
+  price_not_in?: string[]
+  price_lt?: string | null
+  price_lte?: string | null
+  price_gt?: string | null
+  price_gte?: string | null
+  price_contains?: string | null
+  price_not_contains?: string | null
+  price_starts_with?: string | null
+  price_not_starts_with?: string | null
+  price_ends_with?: string | null
+  price_not_ends_with?: string | null
+  quantity?: number | null
+  quantity_not?: number | null
+  quantity_in?: number[]
+  quantity_not_in?: number[]
+  quantity_lt?: number | null
+  quantity_lte?: number | null
+  quantity_gt?: number | null
+  quantity_gte?: number | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: orderItemScalarWhereInput[]
+  OR?: orderItemScalarWhereInput[]
+  NOT?: orderItemScalarWhereInput[]
+}
+export type orderItemScalarWhereInputInputObject =
+  | Extract<keyof orderItemScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'title_not', alias?: string  } 
+  | { name: 'title_in', alias?: string  } 
+  | { name: 'title_not_in', alias?: string  } 
+  | { name: 'title_lt', alias?: string  } 
+  | { name: 'title_lte', alias?: string  } 
+  | { name: 'title_gt', alias?: string  } 
+  | { name: 'title_gte', alias?: string  } 
+  | { name: 'title_contains', alias?: string  } 
+  | { name: 'title_not_contains', alias?: string  } 
+  | { name: 'title_starts_with', alias?: string  } 
+  | { name: 'title_not_starts_with', alias?: string  } 
+  | { name: 'title_ends_with', alias?: string  } 
+  | { name: 'title_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'price', alias?: string  } 
+  | { name: 'price_not', alias?: string  } 
+  | { name: 'price_in', alias?: string  } 
+  | { name: 'price_not_in', alias?: string  } 
+  | { name: 'price_lt', alias?: string  } 
+  | { name: 'price_lte', alias?: string  } 
+  | { name: 'price_gt', alias?: string  } 
+  | { name: 'price_gte', alias?: string  } 
+  | { name: 'price_contains', alias?: string  } 
+  | { name: 'price_not_contains', alias?: string  } 
+  | { name: 'price_starts_with', alias?: string  } 
+  | { name: 'price_not_starts_with', alias?: string  } 
+  | { name: 'price_ends_with', alias?: string  } 
+  | { name: 'price_not_ends_with', alias?: string  } 
+  | { name: 'quantity', alias?: string  } 
+  | { name: 'quantity_not', alias?: string  } 
+  | { name: 'quantity_in', alias?: string  } 
+  | { name: 'quantity_not_in', alias?: string  } 
+  | { name: 'quantity_lt', alias?: string  } 
+  | { name: 'quantity_lte', alias?: string  } 
+  | { name: 'quantity_gt', alias?: string  } 
+  | { name: 'quantity_gte', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface orderItemUpdateManyWithWhereNestedInput {
+  where?: orderItemScalarWhereInput
+  data?: orderItemUpdateManyDataInput
+}
+export type orderItemUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof orderItemUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface orderItemUpdateManyDataInput {
+  title?: string | null
+  description?: string | null
+  price?: string | null
+  quantity?: number | null
+  variants?: orderItemUpdatevariantsInput | null
+}
+export type orderItemUpdateManyDataInputInputObject =
+  | Extract<keyof orderItemUpdateManyDataInput, string>
+  | { name: 'title', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'price', alias?: string  } 
+  | { name: 'quantity', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
+  
 export interface OrderUpdateManyMutationInput {
   total?: number | null
+  charge?: string | null
 }
 export type OrderUpdateManyMutationInputInputObject =
   | Extract<keyof OrderUpdateManyMutationInput, string>
   | { name: 'total', alias?: string  } 
+  | { name: 'charge', alias?: string  } 
   
 export interface BrandCreateInput {
   id?: string | null
@@ -18517,6 +19662,27 @@ export type CartItemSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface orderItemSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: orderItemWhereInput | null
+  AND?: orderItemSubscriptionWhereInput[]
+  OR?: orderItemSubscriptionWhereInput[]
+  NOT?: orderItemSubscriptionWhereInput[]
+}
+export type orderItemSubscriptionWhereInputInputObject =
+  | Extract<keyof orderItemSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 export interface OrderSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
   updatedFields_contains?: string | null
@@ -18856,15 +20022,33 @@ export type CartOrderByInputValues =
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
   
-export type OrderOrderByInputValues =
+export type orderItemOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
+  | 'title_ASC'
+  | 'title_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
+  | 'price_ASC'
+  | 'price_DESC'
+  | 'quantity_ASC'
+  | 'quantity_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
+  
+export type OrderOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
   | 'total_ASC'
   | 'total_DESC'
+  | 'charge_ASC'
+  | 'charge_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
   
 export type BrandOrderByInputValues =
   | 'id_ASC'
