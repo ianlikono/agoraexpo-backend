@@ -2275,6 +2275,7 @@ type ProductEdge {
 type ProductImage {
   id: ID!
   imageUrl: String!
+  largeImageUrl: String
   product: Product
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -2289,6 +2290,7 @@ type ProductImageConnection {
 input ProductImageCreateInput {
   id: ID
   imageUrl: String!
+  largeImageUrl: String
   product: ProductCreateOneWithoutImagesInput
 }
 
@@ -2300,6 +2302,7 @@ input ProductImageCreateManyWithoutProductInput {
 input ProductImageCreateWithoutProductInput {
   id: ID
   imageUrl: String!
+  largeImageUrl: String
 }
 
 type ProductImageEdge {
@@ -2312,6 +2315,8 @@ enum ProductImageOrderByInput {
   id_DESC
   imageUrl_ASC
   imageUrl_DESC
+  largeImageUrl_ASC
+  largeImageUrl_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -2321,6 +2326,7 @@ enum ProductImageOrderByInput {
 type ProductImagePreviousValues {
   id: ID!
   imageUrl: String!
+  largeImageUrl: String
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -2354,6 +2360,20 @@ input ProductImageScalarWhereInput {
   imageUrl_not_starts_with: String
   imageUrl_ends_with: String
   imageUrl_not_ends_with: String
+  largeImageUrl: String
+  largeImageUrl_not: String
+  largeImageUrl_in: [String!]
+  largeImageUrl_not_in: [String!]
+  largeImageUrl_lt: String
+  largeImageUrl_lte: String
+  largeImageUrl_gt: String
+  largeImageUrl_gte: String
+  largeImageUrl_contains: String
+  largeImageUrl_not_contains: String
+  largeImageUrl_starts_with: String
+  largeImageUrl_not_starts_with: String
+  largeImageUrl_ends_with: String
+  largeImageUrl_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -2395,15 +2415,18 @@ input ProductImageSubscriptionWhereInput {
 
 input ProductImageUpdateInput {
   imageUrl: String
+  largeImageUrl: String
   product: ProductUpdateOneWithoutImagesInput
 }
 
 input ProductImageUpdateManyDataInput {
   imageUrl: String
+  largeImageUrl: String
 }
 
 input ProductImageUpdateManyMutationInput {
   imageUrl: String
+  largeImageUrl: String
 }
 
 input ProductImageUpdateManyWithoutProductInput {
@@ -2425,6 +2448,7 @@ input ProductImageUpdateManyWithWhereNestedInput {
 
 input ProductImageUpdateWithoutProductDataInput {
   imageUrl: String
+  largeImageUrl: String
 }
 
 input ProductImageUpdateWithWhereUniqueWithoutProductInput {
@@ -2467,6 +2491,20 @@ input ProductImageWhereInput {
   imageUrl_not_starts_with: String
   imageUrl_ends_with: String
   imageUrl_not_ends_with: String
+  largeImageUrl: String
+  largeImageUrl_not: String
+  largeImageUrl_in: [String!]
+  largeImageUrl_not_in: [String!]
+  largeImageUrl_lt: String
+  largeImageUrl_lte: String
+  largeImageUrl_gt: String
+  largeImageUrl_gte: String
+  largeImageUrl_contains: String
+  largeImageUrl_not_contains: String
+  largeImageUrl_starts_with: String
+  largeImageUrl_not_starts_with: String
+  largeImageUrl_ends_with: String
+  largeImageUrl_not_ends_with: String
   product: ProductWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
@@ -3413,6 +3451,7 @@ type ShopEdge {
 type ShopImage {
   id: ID!
   imageUrl: String!
+  largeImageUrl: String
   shop: Shop
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -3427,6 +3466,7 @@ type ShopImageConnection {
 input ShopImageCreateInput {
   id: ID
   imageUrl: String!
+  largeImageUrl: String
   shop: ShopCreateOneWithoutImagesInput
 }
 
@@ -3438,6 +3478,7 @@ input ShopImageCreateManyWithoutShopInput {
 input ShopImageCreateWithoutShopInput {
   id: ID
   imageUrl: String!
+  largeImageUrl: String
 }
 
 type ShopImageEdge {
@@ -3450,6 +3491,8 @@ enum ShopImageOrderByInput {
   id_DESC
   imageUrl_ASC
   imageUrl_DESC
+  largeImageUrl_ASC
+  largeImageUrl_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -3459,6 +3502,7 @@ enum ShopImageOrderByInput {
 type ShopImagePreviousValues {
   id: ID!
   imageUrl: String!
+  largeImageUrl: String
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -3492,6 +3536,20 @@ input ShopImageScalarWhereInput {
   imageUrl_not_starts_with: String
   imageUrl_ends_with: String
   imageUrl_not_ends_with: String
+  largeImageUrl: String
+  largeImageUrl_not: String
+  largeImageUrl_in: [String!]
+  largeImageUrl_not_in: [String!]
+  largeImageUrl_lt: String
+  largeImageUrl_lte: String
+  largeImageUrl_gt: String
+  largeImageUrl_gte: String
+  largeImageUrl_contains: String
+  largeImageUrl_not_contains: String
+  largeImageUrl_starts_with: String
+  largeImageUrl_not_starts_with: String
+  largeImageUrl_ends_with: String
+  largeImageUrl_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -3533,15 +3591,18 @@ input ShopImageSubscriptionWhereInput {
 
 input ShopImageUpdateInput {
   imageUrl: String
+  largeImageUrl: String
   shop: ShopUpdateOneWithoutImagesInput
 }
 
 input ShopImageUpdateManyDataInput {
   imageUrl: String
+  largeImageUrl: String
 }
 
 input ShopImageUpdateManyMutationInput {
   imageUrl: String
+  largeImageUrl: String
 }
 
 input ShopImageUpdateManyWithoutShopInput {
@@ -3563,6 +3624,7 @@ input ShopImageUpdateManyWithWhereNestedInput {
 
 input ShopImageUpdateWithoutShopDataInput {
   imageUrl: String
+  largeImageUrl: String
 }
 
 input ShopImageUpdateWithWhereUniqueWithoutShopInput {
@@ -3605,6 +3667,20 @@ input ShopImageWhereInput {
   imageUrl_not_starts_with: String
   imageUrl_ends_with: String
   imageUrl_not_ends_with: String
+  largeImageUrl: String
+  largeImageUrl_not: String
+  largeImageUrl_in: [String!]
+  largeImageUrl_not_in: [String!]
+  largeImageUrl_lt: String
+  largeImageUrl_lte: String
+  largeImageUrl_gt: String
+  largeImageUrl_gte: String
+  largeImageUrl_contains: String
+  largeImageUrl_not_contains: String
+  largeImageUrl_starts_with: String
+  largeImageUrl_not_starts_with: String
+  largeImageUrl_ends_with: String
+  largeImageUrl_not_ends_with: String
   shop: ShopWhereInput
   createdAt: DateTime
   createdAt_not: DateTime

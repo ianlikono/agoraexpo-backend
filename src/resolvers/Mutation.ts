@@ -489,5 +489,34 @@ export const Mutation = mutationType({
         return deletedItem;
       }
     });
+
+    t.field("addShopCoverImage", {
+      type: "ShopImage",
+      args: {
+        shopId: idArg({ required: true }),
+        imageUrl: stringArg({ required: true }),
+        largeImageUrl: stringArg({ required: true })
+      },
+      resolve: async (parent, { shopId, imageUrl, largeImageUrl }, ctx) => {
+        const image = await ctx.prisma.createShopImage({
+          imageUrl: imageUrl,
+          largeImageUrl: largeImageUrl,
+          shop: { connect: { id: shopId } }
+        });
+        return image;
+      }
+    });
+    t.field("deleteShopCoverImage", {
+      type: "ShopImage",
+      args: {
+        imageId: idArg({ required: true })
+      },
+      resolve: async (parent, { imageId }, ctx) => {
+        const deletedmage = await ctx.prisma.deleteShopImage({
+          id: imageId
+        });
+        return deletedmage;
+      }
+    });
   }
 });

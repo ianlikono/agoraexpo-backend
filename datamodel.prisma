@@ -78,6 +78,7 @@ type Shop {
 type ShopImage {
   id: ID! @id
   imageUrl: String!
+  largeImageUrl: String
   shop: Shop @relation(name: "ShopImages")
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
@@ -160,6 +161,7 @@ type Category {
 type ProductImage {
   id: ID! @id
   imageUrl: String!
+  largeImageUrl: String
   product: Product @relation(name: "ProductImages")
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt

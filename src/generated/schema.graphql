@@ -544,6 +544,7 @@ input ForumWhereInput {
 
 type Mutation {
   addItemToCart(productId: ID!, quantity: Int!, variants: [String!]): Cart
+  addShopCoverImage(imageUrl: String!, largeImageUrl: String!, shopId: ID!): ShopImage
   addVariant(name: String!, productId: ID!, values: [String!]): Variant
   createForum(avatarPic: String, coverPic: String, description: String, name: String!): Forum
   createForumPost(content: String, forumId: String!, title: String!, type: String!): ForumPost
@@ -552,6 +553,7 @@ type Mutation {
   createProductReview(productId: ID!, rating: Int!, review: String): ProductReview
   createShopDraft(category: String!, description: String!, live: Boolean, name: String!, ownersIds: [ID!]): Shop
   deleteCartItem(itemId: ID!): CartItem
+  deleteShopCoverImage(imageId: ID!): ShopImage
   login(idToken: String!): AuthPayload
   logout: AuthPayload
   publishShop(id: ID): Shop
@@ -581,6 +583,7 @@ type ProductImage {
   createdAt: DateTime!
   id: ID!
   imageUrl: String!
+  largeImageUrl: String
   product: Product
   updatedAt: DateTime!
 }
@@ -592,6 +595,8 @@ enum ProductImageOrderByInput {
   id_DESC
   imageUrl_ASC
   imageUrl_DESC
+  largeImageUrl_ASC
+  largeImageUrl_DESC
   updatedAt_ASC
   updatedAt_DESC
 }
@@ -634,6 +639,20 @@ input ProductImageWhereInput {
   imageUrl_not_in: [String!]
   imageUrl_not_starts_with: String
   imageUrl_starts_with: String
+  largeImageUrl: String
+  largeImageUrl_contains: String
+  largeImageUrl_ends_with: String
+  largeImageUrl_gt: String
+  largeImageUrl_gte: String
+  largeImageUrl_in: [String!]
+  largeImageUrl_lt: String
+  largeImageUrl_lte: String
+  largeImageUrl_not: String
+  largeImageUrl_not_contains: String
+  largeImageUrl_not_ends_with: String
+  largeImageUrl_not_in: [String!]
+  largeImageUrl_not_starts_with: String
+  largeImageUrl_starts_with: String
   NOT: [ProductImageWhereInput!]
   OR: [ProductImageWhereInput!]
   product: ProductWhereInput
@@ -873,6 +892,7 @@ type ShopImage {
   createdAt: DateTime!
   id: ID!
   imageUrl: String!
+  largeImageUrl: String
   shop: Shop
   updatedAt: DateTime!
 }
@@ -884,6 +904,8 @@ enum ShopImageOrderByInput {
   id_DESC
   imageUrl_ASC
   imageUrl_DESC
+  largeImageUrl_ASC
+  largeImageUrl_DESC
   updatedAt_ASC
   updatedAt_DESC
 }
@@ -926,6 +948,20 @@ input ShopImageWhereInput {
   imageUrl_not_in: [String!]
   imageUrl_not_starts_with: String
   imageUrl_starts_with: String
+  largeImageUrl: String
+  largeImageUrl_contains: String
+  largeImageUrl_ends_with: String
+  largeImageUrl_gt: String
+  largeImageUrl_gte: String
+  largeImageUrl_in: [String!]
+  largeImageUrl_lt: String
+  largeImageUrl_lte: String
+  largeImageUrl_not: String
+  largeImageUrl_not_contains: String
+  largeImageUrl_not_ends_with: String
+  largeImageUrl_not_in: [String!]
+  largeImageUrl_not_starts_with: String
+  largeImageUrl_starts_with: String
   NOT: [ShopImageWhereInput!]
   OR: [ShopImageWhereInput!]
   shop: ShopWhereInput

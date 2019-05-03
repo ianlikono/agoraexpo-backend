@@ -456,6 +456,20 @@ export interface NexusGenInputs {
     imageUrl_not_in?: string[] | null; // [String!]
     imageUrl_not_starts_with?: string | null; // String
     imageUrl_starts_with?: string | null; // String
+    largeImageUrl?: string | null; // String
+    largeImageUrl_contains?: string | null; // String
+    largeImageUrl_ends_with?: string | null; // String
+    largeImageUrl_gt?: string | null; // String
+    largeImageUrl_gte?: string | null; // String
+    largeImageUrl_in?: string[] | null; // [String!]
+    largeImageUrl_lt?: string | null; // String
+    largeImageUrl_lte?: string | null; // String
+    largeImageUrl_not?: string | null; // String
+    largeImageUrl_not_contains?: string | null; // String
+    largeImageUrl_not_ends_with?: string | null; // String
+    largeImageUrl_not_in?: string[] | null; // [String!]
+    largeImageUrl_not_starts_with?: string | null; // String
+    largeImageUrl_starts_with?: string | null; // String
     NOT?: NexusGenInputs['ProductImageWhereInput'][] | null; // [ProductImageWhereInput!]
     OR?: NexusGenInputs['ProductImageWhereInput'][] | null; // [ProductImageWhereInput!]
     product?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
@@ -659,6 +673,20 @@ export interface NexusGenInputs {
     imageUrl_not_in?: string[] | null; // [String!]
     imageUrl_not_starts_with?: string | null; // String
     imageUrl_starts_with?: string | null; // String
+    largeImageUrl?: string | null; // String
+    largeImageUrl_contains?: string | null; // String
+    largeImageUrl_ends_with?: string | null; // String
+    largeImageUrl_gt?: string | null; // String
+    largeImageUrl_gte?: string | null; // String
+    largeImageUrl_in?: string[] | null; // [String!]
+    largeImageUrl_lt?: string | null; // String
+    largeImageUrl_lte?: string | null; // String
+    largeImageUrl_not?: string | null; // String
+    largeImageUrl_not_contains?: string | null; // String
+    largeImageUrl_not_ends_with?: string | null; // String
+    largeImageUrl_not_in?: string[] | null; // [String!]
+    largeImageUrl_not_starts_with?: string | null; // String
+    largeImageUrl_starts_with?: string | null; // String
     NOT?: NexusGenInputs['ShopImageWhereInput'][] | null; // [ShopImageWhereInput!]
     OR?: NexusGenInputs['ShopImageWhereInput'][] | null; // [ShopImageWhereInput!]
     shop?: NexusGenInputs['ShopWhereInput'] | null; // ShopWhereInput
@@ -1047,10 +1075,10 @@ export interface NexusGenEnums {
   ForumPostCommentOrderByInput: "comment_ASC" | "comment_DESC" | "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   ForumPostOrderByInput: "content_ASC" | "content_DESC" | "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "title_ASC" | "title_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   ForumPostType: "LINK" | "MEDIA" | "POST"
-  ProductImageOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "imageUrl_ASC" | "imageUrl_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  ProductImageOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "imageUrl_ASC" | "imageUrl_DESC" | "largeImageUrl_ASC" | "largeImageUrl_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   ProductOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "price_ASC" | "price_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   ProductReviewOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "rating_ASC" | "rating_DESC" | "review_ASC" | "review_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
-  ShopImageOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "imageUrl_ASC" | "imageUrl_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  ShopImageOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "imageUrl_ASC" | "imageUrl_DESC" | "largeImageUrl_ASC" | "largeImageUrl_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   TagOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   UserImageOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "imageUrl_ASC" | "imageUrl_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   UserOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "emailVerified_ASC" | "emailVerified_DESC" | "firebaseId_ASC" | "firebaseId_DESC" | "id_ASC" | "id_DESC" | "isAnonymous_ASC" | "isAnonymous_DESC" | "name_ASC" | "name_DESC" | "profilePic_ASC" | "profilePic_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "username_ASC" | "username_DESC"
@@ -1120,6 +1148,7 @@ export interface NexusGenRootTypes {
     createdAt: any; // DateTime!
     id: string; // ID!
     imageUrl: string; // String!
+    largeImageUrl?: string | null; // String
     updatedAt: any; // DateTime!
   }
   ProductReview: { // root type
@@ -1143,6 +1172,7 @@ export interface NexusGenRootTypes {
     createdAt: any; // DateTime!
     id: string; // ID!
     imageUrl: string; // String!
+    largeImageUrl?: string | null; // String
     updatedAt: any; // DateTime!
   }
   Tag: { // root type
@@ -1279,6 +1309,7 @@ export interface NexusGenFieldTypes {
   }
   Mutation: { // field return type
     addItemToCart: NexusGenRootTypes['Cart'] | null; // Cart
+    addShopCoverImage: NexusGenRootTypes['ShopImage'] | null; // ShopImage
     addVariant: NexusGenRootTypes['Variant'] | null; // Variant
     createForum: NexusGenRootTypes['Forum'] | null; // Forum
     createForumPost: NexusGenRootTypes['ForumPost'] | null; // ForumPost
@@ -1287,6 +1318,7 @@ export interface NexusGenFieldTypes {
     createProductReview: NexusGenRootTypes['ProductReview'] | null; // ProductReview
     createShopDraft: NexusGenRootTypes['Shop'] | null; // Shop
     deleteCartItem: NexusGenRootTypes['CartItem'] | null; // CartItem
+    deleteShopCoverImage: NexusGenRootTypes['ShopImage'] | null; // ShopImage
     login: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
     logout: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
     publishShop: NexusGenRootTypes['Shop'] | null; // Shop
@@ -1314,6 +1346,7 @@ export interface NexusGenFieldTypes {
     createdAt: any; // DateTime!
     id: string; // ID!
     imageUrl: string; // String!
+    largeImageUrl: string | null; // String
     product: NexusGenRootTypes['Product'] | null; // Product
     updatedAt: any; // DateTime!
   }
@@ -1357,6 +1390,7 @@ export interface NexusGenFieldTypes {
     createdAt: any; // DateTime!
     id: string; // ID!
     imageUrl: string; // String!
+    largeImageUrl: string | null; // String
     shop: NexusGenRootTypes['Shop'] | null; // Shop
     updatedAt: any; // DateTime!
   }
@@ -1467,6 +1501,11 @@ export interface NexusGenArgTypes {
       quantity: number; // Int!
       variants?: string[] | null; // [String!]
     }
+    addShopCoverImage: { // args
+      imageUrl: string; // String!
+      largeImageUrl: string; // String!
+      shopId: string; // ID!
+    }
     addVariant: { // args
       name: string; // String!
       productId: string; // ID!
@@ -1512,6 +1551,9 @@ export interface NexusGenArgTypes {
     }
     deleteCartItem: { // args
       itemId: string; // ID!
+    }
+    deleteShopCoverImage: { // args
+      imageId: string; // ID!
     }
     login: { // args
       idToken: string; // String!

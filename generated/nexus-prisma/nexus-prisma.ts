@@ -2124,6 +2124,7 @@ type ShopImageObject =
   | ShopImageFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'imageUrl', args?: [] | false, alias?: string  } 
+  | { name: 'largeImageUrl', args?: [] | false, alias?: string  } 
   | { name: 'shop', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
@@ -2131,6 +2132,7 @@ type ShopImageObject =
 type ShopImageFields =
   | 'id'
   | 'imageUrl'
+  | 'largeImageUrl'
   | 'shop'
   | 'createdAt'
   | 'updatedAt'
@@ -2154,6 +2156,14 @@ export interface ShopImageFieldDetails {
     description: string
     list: undefined
     nullable: false
+    resolve: undefined
+  }
+  largeImageUrl: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
     resolve: undefined
   }
   shop: {
@@ -2644,6 +2654,7 @@ type ProductImageObject =
   | ProductImageFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'imageUrl', args?: [] | false, alias?: string  } 
+  | { name: 'largeImageUrl', args?: [] | false, alias?: string  } 
   | { name: 'product', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
@@ -2651,6 +2662,7 @@ type ProductImageObject =
 type ProductImageFields =
   | 'id'
   | 'imageUrl'
+  | 'largeImageUrl'
   | 'product'
   | 'createdAt'
   | 'updatedAt'
@@ -2674,6 +2686,14 @@ export interface ProductImageFieldDetails {
     description: string
     list: undefined
     nullable: false
+    resolve: undefined
+  }
+  largeImageUrl: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
     resolve: undefined
   }
   product: {
@@ -8699,12 +8719,14 @@ type ShopImagePreviousValuesObject =
   | ShopImagePreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'imageUrl', args?: [] | false, alias?: string  } 
+  | { name: 'largeImageUrl', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
 
 type ShopImagePreviousValuesFields =
   | 'id'
   | 'imageUrl'
+  | 'largeImageUrl'
   | 'createdAt'
   | 'updatedAt'
 
@@ -8727,6 +8749,14 @@ export interface ShopImagePreviousValuesFieldDetails {
     description: string
     list: undefined
     nullable: false
+    resolve: undefined
+  }
+  largeImageUrl: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
     resolve: undefined
   }
   createdAt: {
@@ -9844,12 +9874,14 @@ type ProductImagePreviousValuesObject =
   | ProductImagePreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'imageUrl', args?: [] | false, alias?: string  } 
+  | { name: 'largeImageUrl', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
 
 type ProductImagePreviousValuesFields =
   | 'id'
   | 'imageUrl'
+  | 'largeImageUrl'
   | 'createdAt'
   | 'updatedAt'
 
@@ -9872,6 +9904,14 @@ export interface ProductImagePreviousValuesFieldDetails {
     description: string
     list: undefined
     nullable: false
+    resolve: undefined
+  }
+  largeImageUrl: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
     resolve: undefined
   }
   createdAt: {
@@ -11364,6 +11404,20 @@ export interface ProductImageWhereInput {
   imageUrl_not_starts_with?: string | null
   imageUrl_ends_with?: string | null
   imageUrl_not_ends_with?: string | null
+  largeImageUrl?: string | null
+  largeImageUrl_not?: string | null
+  largeImageUrl_in?: string[]
+  largeImageUrl_not_in?: string[]
+  largeImageUrl_lt?: string | null
+  largeImageUrl_lte?: string | null
+  largeImageUrl_gt?: string | null
+  largeImageUrl_gte?: string | null
+  largeImageUrl_contains?: string | null
+  largeImageUrl_not_contains?: string | null
+  largeImageUrl_starts_with?: string | null
+  largeImageUrl_not_starts_with?: string | null
+  largeImageUrl_ends_with?: string | null
+  largeImageUrl_not_ends_with?: string | null
   product?: ProductWhereInput | null
   createdAt?: string | null
   createdAt_not?: string | null
@@ -11415,6 +11469,20 @@ export type ProductImageWhereInputInputObject =
   | { name: 'imageUrl_not_starts_with', alias?: string  } 
   | { name: 'imageUrl_ends_with', alias?: string  } 
   | { name: 'imageUrl_not_ends_with', alias?: string  } 
+  | { name: 'largeImageUrl', alias?: string  } 
+  | { name: 'largeImageUrl_not', alias?: string  } 
+  | { name: 'largeImageUrl_in', alias?: string  } 
+  | { name: 'largeImageUrl_not_in', alias?: string  } 
+  | { name: 'largeImageUrl_lt', alias?: string  } 
+  | { name: 'largeImageUrl_lte', alias?: string  } 
+  | { name: 'largeImageUrl_gt', alias?: string  } 
+  | { name: 'largeImageUrl_gte', alias?: string  } 
+  | { name: 'largeImageUrl_contains', alias?: string  } 
+  | { name: 'largeImageUrl_not_contains', alias?: string  } 
+  | { name: 'largeImageUrl_starts_with', alias?: string  } 
+  | { name: 'largeImageUrl_not_starts_with', alias?: string  } 
+  | { name: 'largeImageUrl_ends_with', alias?: string  } 
+  | { name: 'largeImageUrl_not_ends_with', alias?: string  } 
   | { name: 'product', alias?: string  } 
   | { name: 'createdAt', alias?: string  } 
   | { name: 'createdAt_not', alias?: string  } 
@@ -12177,6 +12245,20 @@ export interface ShopImageWhereInput {
   imageUrl_not_starts_with?: string | null
   imageUrl_ends_with?: string | null
   imageUrl_not_ends_with?: string | null
+  largeImageUrl?: string | null
+  largeImageUrl_not?: string | null
+  largeImageUrl_in?: string[]
+  largeImageUrl_not_in?: string[]
+  largeImageUrl_lt?: string | null
+  largeImageUrl_lte?: string | null
+  largeImageUrl_gt?: string | null
+  largeImageUrl_gte?: string | null
+  largeImageUrl_contains?: string | null
+  largeImageUrl_not_contains?: string | null
+  largeImageUrl_starts_with?: string | null
+  largeImageUrl_not_starts_with?: string | null
+  largeImageUrl_ends_with?: string | null
+  largeImageUrl_not_ends_with?: string | null
   shop?: ShopWhereInput | null
   createdAt?: string | null
   createdAt_not?: string | null
@@ -12228,6 +12310,20 @@ export type ShopImageWhereInputInputObject =
   | { name: 'imageUrl_not_starts_with', alias?: string  } 
   | { name: 'imageUrl_ends_with', alias?: string  } 
   | { name: 'imageUrl_not_ends_with', alias?: string  } 
+  | { name: 'largeImageUrl', alias?: string  } 
+  | { name: 'largeImageUrl_not', alias?: string  } 
+  | { name: 'largeImageUrl_in', alias?: string  } 
+  | { name: 'largeImageUrl_not_in', alias?: string  } 
+  | { name: 'largeImageUrl_lt', alias?: string  } 
+  | { name: 'largeImageUrl_lte', alias?: string  } 
+  | { name: 'largeImageUrl_gt', alias?: string  } 
+  | { name: 'largeImageUrl_gte', alias?: string  } 
+  | { name: 'largeImageUrl_contains', alias?: string  } 
+  | { name: 'largeImageUrl_not_contains', alias?: string  } 
+  | { name: 'largeImageUrl_starts_with', alias?: string  } 
+  | { name: 'largeImageUrl_not_starts_with', alias?: string  } 
+  | { name: 'largeImageUrl_ends_with', alias?: string  } 
+  | { name: 'largeImageUrl_not_ends_with', alias?: string  } 
   | { name: 'shop', alias?: string  } 
   | { name: 'createdAt', alias?: string  } 
   | { name: 'createdAt_not', alias?: string  } 
@@ -12535,11 +12631,13 @@ export type ShopImageCreateManyWithoutShopInputInputObject =
 export interface ShopImageCreateWithoutShopInput {
   id?: string | null
   imageUrl?: string
+  largeImageUrl?: string | null
 }
 export type ShopImageCreateWithoutShopInputInputObject =
   | Extract<keyof ShopImageCreateWithoutShopInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'imageUrl', alias?: string  } 
+  | { name: 'largeImageUrl', alias?: string  } 
   
 export interface ProductCreateManyWithoutShopInput {
   create?: ProductCreateWithoutShopInput[]
@@ -12641,11 +12739,13 @@ export type ProductImageCreateManyWithoutProductInputInputObject =
 export interface ProductImageCreateWithoutProductInput {
   id?: string | null
   imageUrl?: string
+  largeImageUrl?: string | null
 }
 export type ProductImageCreateWithoutProductInputInputObject =
   | Extract<keyof ProductImageCreateWithoutProductInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'imageUrl', alias?: string  } 
+  | { name: 'largeImageUrl', alias?: string  } 
   
 export interface VariantCreateManyWithoutProductInput {
   create?: VariantCreateWithoutProductInput[]
@@ -13377,10 +13477,12 @@ export type ShopImageUpdateWithWhereUniqueWithoutShopInputInputObject =
   
 export interface ShopImageUpdateWithoutShopDataInput {
   imageUrl?: string | null
+  largeImageUrl?: string | null
 }
 export type ShopImageUpdateWithoutShopDataInputInputObject =
   | Extract<keyof ShopImageUpdateWithoutShopDataInput, string>
   | { name: 'imageUrl', alias?: string  } 
+  | { name: 'largeImageUrl', alias?: string  } 
   
 export interface ShopImageUpsertWithWhereUniqueWithoutShopInput {
   where?: ShopImageWhereUniqueInput
@@ -13422,6 +13524,20 @@ export interface ShopImageScalarWhereInput {
   imageUrl_not_starts_with?: string | null
   imageUrl_ends_with?: string | null
   imageUrl_not_ends_with?: string | null
+  largeImageUrl?: string | null
+  largeImageUrl_not?: string | null
+  largeImageUrl_in?: string[]
+  largeImageUrl_not_in?: string[]
+  largeImageUrl_lt?: string | null
+  largeImageUrl_lte?: string | null
+  largeImageUrl_gt?: string | null
+  largeImageUrl_gte?: string | null
+  largeImageUrl_contains?: string | null
+  largeImageUrl_not_contains?: string | null
+  largeImageUrl_starts_with?: string | null
+  largeImageUrl_not_starts_with?: string | null
+  largeImageUrl_ends_with?: string | null
+  largeImageUrl_not_ends_with?: string | null
   createdAt?: string | null
   createdAt_not?: string | null
   createdAt_in?: string[]
@@ -13472,6 +13588,20 @@ export type ShopImageScalarWhereInputInputObject =
   | { name: 'imageUrl_not_starts_with', alias?: string  } 
   | { name: 'imageUrl_ends_with', alias?: string  } 
   | { name: 'imageUrl_not_ends_with', alias?: string  } 
+  | { name: 'largeImageUrl', alias?: string  } 
+  | { name: 'largeImageUrl_not', alias?: string  } 
+  | { name: 'largeImageUrl_in', alias?: string  } 
+  | { name: 'largeImageUrl_not_in', alias?: string  } 
+  | { name: 'largeImageUrl_lt', alias?: string  } 
+  | { name: 'largeImageUrl_lte', alias?: string  } 
+  | { name: 'largeImageUrl_gt', alias?: string  } 
+  | { name: 'largeImageUrl_gte', alias?: string  } 
+  | { name: 'largeImageUrl_contains', alias?: string  } 
+  | { name: 'largeImageUrl_not_contains', alias?: string  } 
+  | { name: 'largeImageUrl_starts_with', alias?: string  } 
+  | { name: 'largeImageUrl_not_starts_with', alias?: string  } 
+  | { name: 'largeImageUrl_ends_with', alias?: string  } 
+  | { name: 'largeImageUrl_not_ends_with', alias?: string  } 
   | { name: 'createdAt', alias?: string  } 
   | { name: 'createdAt_not', alias?: string  } 
   | { name: 'createdAt_in', alias?: string  } 
@@ -13503,10 +13633,12 @@ export type ShopImageUpdateManyWithWhereNestedInputInputObject =
   
 export interface ShopImageUpdateManyDataInput {
   imageUrl?: string | null
+  largeImageUrl?: string | null
 }
 export type ShopImageUpdateManyDataInputInputObject =
   | Extract<keyof ShopImageUpdateManyDataInput, string>
   | { name: 'imageUrl', alias?: string  } 
+  | { name: 'largeImageUrl', alias?: string  } 
   
 export interface ProductUpdateManyWithoutShopInput {
   create?: ProductCreateWithoutShopInput[]
@@ -13960,10 +14092,12 @@ export type ProductImageUpdateWithWhereUniqueWithoutProductInputInputObject =
   
 export interface ProductImageUpdateWithoutProductDataInput {
   imageUrl?: string | null
+  largeImageUrl?: string | null
 }
 export type ProductImageUpdateWithoutProductDataInputInputObject =
   | Extract<keyof ProductImageUpdateWithoutProductDataInput, string>
   | { name: 'imageUrl', alias?: string  } 
+  | { name: 'largeImageUrl', alias?: string  } 
   
 export interface ProductImageUpsertWithWhereUniqueWithoutProductInput {
   where?: ProductImageWhereUniqueInput
@@ -14005,6 +14139,20 @@ export interface ProductImageScalarWhereInput {
   imageUrl_not_starts_with?: string | null
   imageUrl_ends_with?: string | null
   imageUrl_not_ends_with?: string | null
+  largeImageUrl?: string | null
+  largeImageUrl_not?: string | null
+  largeImageUrl_in?: string[]
+  largeImageUrl_not_in?: string[]
+  largeImageUrl_lt?: string | null
+  largeImageUrl_lte?: string | null
+  largeImageUrl_gt?: string | null
+  largeImageUrl_gte?: string | null
+  largeImageUrl_contains?: string | null
+  largeImageUrl_not_contains?: string | null
+  largeImageUrl_starts_with?: string | null
+  largeImageUrl_not_starts_with?: string | null
+  largeImageUrl_ends_with?: string | null
+  largeImageUrl_not_ends_with?: string | null
   createdAt?: string | null
   createdAt_not?: string | null
   createdAt_in?: string[]
@@ -14055,6 +14203,20 @@ export type ProductImageScalarWhereInputInputObject =
   | { name: 'imageUrl_not_starts_with', alias?: string  } 
   | { name: 'imageUrl_ends_with', alias?: string  } 
   | { name: 'imageUrl_not_ends_with', alias?: string  } 
+  | { name: 'largeImageUrl', alias?: string  } 
+  | { name: 'largeImageUrl_not', alias?: string  } 
+  | { name: 'largeImageUrl_in', alias?: string  } 
+  | { name: 'largeImageUrl_not_in', alias?: string  } 
+  | { name: 'largeImageUrl_lt', alias?: string  } 
+  | { name: 'largeImageUrl_lte', alias?: string  } 
+  | { name: 'largeImageUrl_gt', alias?: string  } 
+  | { name: 'largeImageUrl_gte', alias?: string  } 
+  | { name: 'largeImageUrl_contains', alias?: string  } 
+  | { name: 'largeImageUrl_not_contains', alias?: string  } 
+  | { name: 'largeImageUrl_starts_with', alias?: string  } 
+  | { name: 'largeImageUrl_not_starts_with', alias?: string  } 
+  | { name: 'largeImageUrl_ends_with', alias?: string  } 
+  | { name: 'largeImageUrl_not_ends_with', alias?: string  } 
   | { name: 'createdAt', alias?: string  } 
   | { name: 'createdAt_not', alias?: string  } 
   | { name: 'createdAt_in', alias?: string  } 
@@ -14086,10 +14248,12 @@ export type ProductImageUpdateManyWithWhereNestedInputInputObject =
   
 export interface ProductImageUpdateManyDataInput {
   imageUrl?: string | null
+  largeImageUrl?: string | null
 }
 export type ProductImageUpdateManyDataInputInputObject =
   | Extract<keyof ProductImageUpdateManyDataInput, string>
   | { name: 'imageUrl', alias?: string  } 
+  | { name: 'largeImageUrl', alias?: string  } 
   
 export interface VariantUpdateManyWithoutProductInput {
   create?: VariantCreateWithoutProductInput[]
@@ -16964,12 +17128,14 @@ export type ShopUpdateManyMutationInputInputObject =
 export interface ShopImageCreateInput {
   id?: string | null
   imageUrl?: string
+  largeImageUrl?: string | null
   shop?: ShopCreateOneWithoutImagesInput | null
 }
 export type ShopImageCreateInputInputObject =
   | Extract<keyof ShopImageCreateInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'imageUrl', alias?: string  } 
+  | { name: 'largeImageUrl', alias?: string  } 
   | { name: 'shop', alias?: string  } 
   
 export interface ShopCreateOneWithoutImagesInput {
@@ -17002,11 +17168,13 @@ export type ShopCreateWithoutImagesInputInputObject =
   
 export interface ShopImageUpdateInput {
   imageUrl?: string | null
+  largeImageUrl?: string | null
   shop?: ShopUpdateOneWithoutImagesInput | null
 }
 export type ShopImageUpdateInputInputObject =
   | Extract<keyof ShopImageUpdateInput, string>
   | { name: 'imageUrl', alias?: string  } 
+  | { name: 'largeImageUrl', alias?: string  } 
   | { name: 'shop', alias?: string  } 
   
 export interface ShopUpdateOneWithoutImagesInput {
@@ -17054,10 +17222,12 @@ export type ShopUpsertWithoutImagesInputInputObject =
   
 export interface ShopImageUpdateManyMutationInput {
   imageUrl?: string | null
+  largeImageUrl?: string | null
 }
 export type ShopImageUpdateManyMutationInputInputObject =
   | Extract<keyof ShopImageUpdateManyMutationInput, string>
   | { name: 'imageUrl', alias?: string  } 
+  | { name: 'largeImageUrl', alias?: string  } 
   
 export interface UserImageCreateInput {
   id?: string | null
@@ -17875,12 +18045,14 @@ export type CategoryUpdateManyMutationInputInputObject =
 export interface ProductImageCreateInput {
   id?: string | null
   imageUrl?: string
+  largeImageUrl?: string | null
   product?: ProductCreateOneWithoutImagesInput | null
 }
 export type ProductImageCreateInputInputObject =
   | Extract<keyof ProductImageCreateInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'imageUrl', alias?: string  } 
+  | { name: 'largeImageUrl', alias?: string  } 
   | { name: 'product', alias?: string  } 
   
 export interface ProductCreateOneWithoutImagesInput {
@@ -17919,11 +18091,13 @@ export type ProductCreateWithoutImagesInputInputObject =
   
 export interface ProductImageUpdateInput {
   imageUrl?: string | null
+  largeImageUrl?: string | null
   product?: ProductUpdateOneWithoutImagesInput | null
 }
 export type ProductImageUpdateInputInputObject =
   | Extract<keyof ProductImageUpdateInput, string>
   | { name: 'imageUrl', alias?: string  } 
+  | { name: 'largeImageUrl', alias?: string  } 
   | { name: 'product', alias?: string  } 
   
 export interface ProductUpdateOneWithoutImagesInput {
@@ -17977,10 +18151,12 @@ export type ProductUpsertWithoutImagesInputInputObject =
   
 export interface ProductImageUpdateManyMutationInput {
   imageUrl?: string | null
+  largeImageUrl?: string | null
 }
 export type ProductImageUpdateManyMutationInputInputObject =
   | Extract<keyof ProductImageUpdateManyMutationInput, string>
   | { name: 'imageUrl', alias?: string  } 
+  | { name: 'largeImageUrl', alias?: string  } 
   
 export interface VariantCreateInput {
   id?: string | null
@@ -18537,6 +18713,8 @@ export type ShopImageOrderByInputValues =
   | 'id_DESC'
   | 'imageUrl_ASC'
   | 'imageUrl_DESC'
+  | 'largeImageUrl_ASC'
+  | 'largeImageUrl_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
@@ -18581,6 +18759,8 @@ export type ProductImageOrderByInputValues =
   | 'id_DESC'
   | 'imageUrl_ASC'
   | 'imageUrl_DESC'
+  | 'largeImageUrl_ASC'
+  | 'largeImageUrl_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'

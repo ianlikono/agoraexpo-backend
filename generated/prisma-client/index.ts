@@ -816,6 +816,8 @@ export type ShopImageOrderByInput =
   | "id_DESC"
   | "imageUrl_ASC"
   | "imageUrl_DESC"
+  | "largeImageUrl_ASC"
+  | "largeImageUrl_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -892,6 +894,8 @@ export type ProductImageOrderByInput =
   | "id_DESC"
   | "imageUrl_ASC"
   | "imageUrl_DESC"
+  | "largeImageUrl_ASC"
+  | "largeImageUrl_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -1516,6 +1520,7 @@ export interface UserWhereInput {
 
 export interface ProductImageUpdateWithoutProductDataInput {
   imageUrl?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
 }
 
 export interface ProductSubscriptionWhereInput {
@@ -1584,6 +1589,20 @@ export interface ProductImageScalarWhereInput {
   imageUrl_not_starts_with?: Maybe<String>;
   imageUrl_ends_with?: Maybe<String>;
   imageUrl_not_ends_with?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
+  largeImageUrl_not?: Maybe<String>;
+  largeImageUrl_in?: Maybe<String[] | String>;
+  largeImageUrl_not_in?: Maybe<String[] | String>;
+  largeImageUrl_lt?: Maybe<String>;
+  largeImageUrl_lte?: Maybe<String>;
+  largeImageUrl_gt?: Maybe<String>;
+  largeImageUrl_gte?: Maybe<String>;
+  largeImageUrl_contains?: Maybe<String>;
+  largeImageUrl_not_contains?: Maybe<String>;
+  largeImageUrl_starts_with?: Maybe<String>;
+  largeImageUrl_not_starts_with?: Maybe<String>;
+  largeImageUrl_ends_with?: Maybe<String>;
+  largeImageUrl_not_ends_with?: Maybe<String>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -1656,6 +1675,20 @@ export interface ProductImageWhereInput {
   imageUrl_not_starts_with?: Maybe<String>;
   imageUrl_ends_with?: Maybe<String>;
   imageUrl_not_ends_with?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
+  largeImageUrl_not?: Maybe<String>;
+  largeImageUrl_in?: Maybe<String[] | String>;
+  largeImageUrl_not_in?: Maybe<String[] | String>;
+  largeImageUrl_lt?: Maybe<String>;
+  largeImageUrl_lte?: Maybe<String>;
+  largeImageUrl_gt?: Maybe<String>;
+  largeImageUrl_gte?: Maybe<String>;
+  largeImageUrl_contains?: Maybe<String>;
+  largeImageUrl_not_contains?: Maybe<String>;
+  largeImageUrl_starts_with?: Maybe<String>;
+  largeImageUrl_not_starts_with?: Maybe<String>;
+  largeImageUrl_ends_with?: Maybe<String>;
+  largeImageUrl_not_ends_with?: Maybe<String>;
   product?: Maybe<ProductWhereInput>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
@@ -1680,6 +1713,7 @@ export interface ProductImageWhereInput {
 
 export interface ProductImageUpdateManyDataInput {
   imageUrl?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
 }
 
 export interface TagWhereInput {
@@ -2194,6 +2228,7 @@ export interface VariantUpdatevaluesInput {
 
 export interface ShopImageUpdateInput {
   imageUrl?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
   shop?: Maybe<ShopUpdateOneWithoutImagesInput>;
 }
 
@@ -2260,6 +2295,7 @@ export interface VariantScalarWhereInput {
 export interface ShopImageCreateInput {
   id?: Maybe<ID_Input>;
   imageUrl: String;
+  largeImageUrl?: Maybe<String>;
   shop?: Maybe<ShopCreateOneWithoutImagesInput>;
 }
 
@@ -2525,6 +2561,20 @@ export interface ShopImageWhereInput {
   imageUrl_not_starts_with?: Maybe<String>;
   imageUrl_ends_with?: Maybe<String>;
   imageUrl_not_ends_with?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
+  largeImageUrl_not?: Maybe<String>;
+  largeImageUrl_in?: Maybe<String[] | String>;
+  largeImageUrl_not_in?: Maybe<String[] | String>;
+  largeImageUrl_lt?: Maybe<String>;
+  largeImageUrl_lte?: Maybe<String>;
+  largeImageUrl_gt?: Maybe<String>;
+  largeImageUrl_gte?: Maybe<String>;
+  largeImageUrl_contains?: Maybe<String>;
+  largeImageUrl_not_contains?: Maybe<String>;
+  largeImageUrl_starts_with?: Maybe<String>;
+  largeImageUrl_not_starts_with?: Maybe<String>;
+  largeImageUrl_ends_with?: Maybe<String>;
+  largeImageUrl_not_ends_with?: Maybe<String>;
   shop?: Maybe<ShopWhereInput>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
@@ -2882,6 +2932,7 @@ export interface VariantCreatevaluesInput {
 
 export interface ShopImageUpdateWithoutShopDataInput {
   imageUrl?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
 }
 
 export interface CartCreateWithoutUserInput {
@@ -2931,6 +2982,20 @@ export interface ShopImageScalarWhereInput {
   imageUrl_not_starts_with?: Maybe<String>;
   imageUrl_ends_with?: Maybe<String>;
   imageUrl_not_ends_with?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
+  largeImageUrl_not?: Maybe<String>;
+  largeImageUrl_in?: Maybe<String[] | String>;
+  largeImageUrl_not_in?: Maybe<String[] | String>;
+  largeImageUrl_lt?: Maybe<String>;
+  largeImageUrl_lte?: Maybe<String>;
+  largeImageUrl_gt?: Maybe<String>;
+  largeImageUrl_gte?: Maybe<String>;
+  largeImageUrl_contains?: Maybe<String>;
+  largeImageUrl_not_contains?: Maybe<String>;
+  largeImageUrl_starts_with?: Maybe<String>;
+  largeImageUrl_not_starts_with?: Maybe<String>;
+  largeImageUrl_ends_with?: Maybe<String>;
+  largeImageUrl_not_ends_with?: Maybe<String>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -2980,6 +3045,7 @@ export interface ProductReviewCreateWithoutProductInput {
 
 export interface ShopImageUpdateManyDataInput {
   imageUrl?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
 }
 
 export interface UserCreateWithoutProductReviewsInput {
@@ -3040,6 +3106,7 @@ export interface ProductUpdateWithWhereUniqueWithoutShopInput {
 export interface ShopImageCreateWithoutShopInput {
   id?: Maybe<ID_Input>;
   imageUrl: String;
+  largeImageUrl?: Maybe<String>;
 }
 
 export interface ProductUpdateWithoutShopDataInput {
@@ -4109,6 +4176,7 @@ export interface UserUpdateOneRequiredWithoutPostCommentsInput {
 
 export interface ShopImageUpdateManyMutationInput {
   imageUrl?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
 }
 
 export interface UserUpdateWithoutPostCommentsDataInput {
@@ -4241,6 +4309,7 @@ export interface ForumPostCommentUpdateManyDataInput {
 
 export interface ProductImageUpdateInput {
   imageUrl?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
   product?: Maybe<ProductUpdateOneWithoutImagesInput>;
 }
 
@@ -4253,6 +4322,7 @@ export interface ForumPostUpsertWithWhereUniqueWithoutForumInput {
 export interface ProductImageCreateInput {
   id?: Maybe<ID_Input>;
   imageUrl: String;
+  largeImageUrl?: Maybe<String>;
   product?: Maybe<ProductCreateOneWithoutImagesInput>;
 }
 
@@ -4359,6 +4429,7 @@ export interface ForumUpsertWithWhereUniqueWithoutMembersInput {
 export interface ProductImageCreateWithoutProductInput {
   id?: Maybe<ID_Input>;
   imageUrl: String;
+  largeImageUrl?: Maybe<String>;
 }
 
 export interface ForumScalarWhereInput {
@@ -5310,6 +5381,7 @@ export interface ProductUpdateWithoutCategoriesDataInput {
 
 export interface ProductImageUpdateManyMutationInput {
   imageUrl?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
 }
 
 export interface ProductUpsertWithWhereUniqueWithoutCategoriesInput {
@@ -6417,6 +6489,7 @@ export interface AggregateProductReviewSubscription
 export interface ShopImage {
   id: ID_Output;
   imageUrl: String;
+  largeImageUrl?: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
@@ -6424,6 +6497,7 @@ export interface ShopImage {
 export interface ShopImagePromise extends Promise<ShopImage>, Fragmentable {
   id: () => Promise<ID_Output>;
   imageUrl: () => Promise<String>;
+  largeImageUrl: () => Promise<String>;
   shop: <T = ShopPromise>() => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -6434,6 +6508,7 @@ export interface ShopImageSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   imageUrl: () => Promise<AsyncIterator<String>>;
+  largeImageUrl: () => Promise<AsyncIterator<String>>;
   shop: <T = ShopSubscription>() => T;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -6444,6 +6519,7 @@ export interface ShopImageNullablePromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   imageUrl: () => Promise<String>;
+  largeImageUrl: () => Promise<String>;
   shop: <T = ShopPromise>() => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -7695,6 +7771,7 @@ export interface OrderConnectionSubscription
 export interface ProductImagePreviousValues {
   id: ID_Output;
   imageUrl: String;
+  largeImageUrl?: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
@@ -7704,6 +7781,7 @@ export interface ProductImagePreviousValuesPromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   imageUrl: () => Promise<String>;
+  largeImageUrl: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -7713,6 +7791,7 @@ export interface ProductImagePreviousValuesSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   imageUrl: () => Promise<AsyncIterator<String>>;
+  largeImageUrl: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
@@ -8330,6 +8409,7 @@ export interface OrderNullablePromise
 export interface ShopImagePreviousValues {
   id: ID_Output;
   imageUrl: String;
+  largeImageUrl?: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
@@ -8339,6 +8419,7 @@ export interface ShopImagePreviousValuesPromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   imageUrl: () => Promise<String>;
+  largeImageUrl: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -8348,6 +8429,7 @@ export interface ShopImagePreviousValuesSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   imageUrl: () => Promise<AsyncIterator<String>>;
+  largeImageUrl: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
@@ -8643,6 +8725,7 @@ export interface UserSubscriptionPayloadSubscription
 export interface ProductImage {
   id: ID_Output;
   imageUrl: String;
+  largeImageUrl?: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
@@ -8652,6 +8735,7 @@ export interface ProductImagePromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   imageUrl: () => Promise<String>;
+  largeImageUrl: () => Promise<String>;
   product: <T = ProductPromise>() => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -8662,6 +8746,7 @@ export interface ProductImageSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   imageUrl: () => Promise<AsyncIterator<String>>;
+  largeImageUrl: () => Promise<AsyncIterator<String>>;
   product: <T = ProductSubscription>() => T;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -8672,6 +8757,7 @@ export interface ProductImageNullablePromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   imageUrl: () => Promise<String>;
+  largeImageUrl: () => Promise<String>;
   product: <T = ProductPromise>() => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
