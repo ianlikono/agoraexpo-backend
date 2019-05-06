@@ -156,5 +156,47 @@ export const Query = queryType({
         return products;
       }
     });
+    t.list.field("getUser", {
+      type: "User",
+      args: {
+        username: stringArg({ required: true })
+      },
+      resolve: async (_, { username }, ctx) => {
+        const user = await ctx.prisma.users({
+          where: {
+            username: username
+          }
+        });
+        return user;
+      }
+    });
+    t.list.field("getUserForums", {
+      type: "Forum",
+      args: {
+        username: stringArg({ required: true })
+      },
+      resolve: async (_, { username }, ctx) => {
+        const forums = await ctx.prisma.forums({
+          where: {
+            members_every: { username: username }
+          }
+        });
+        return forums;
+      }
+    });
+    t.list.field("getUserPosts", {
+      type: "ForumPost",
+      args: {
+        username: stringArg({ required: true })
+      },
+      resolve: async (_, { username }, ctx) => {
+        const forums = await ctx.prisma.forumPosts({
+          where: {
+            postedBy: { username: username }
+          }
+        });
+        return forums;
+      }
+    });
   }
 });

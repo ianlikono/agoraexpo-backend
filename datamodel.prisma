@@ -2,8 +2,8 @@ type User {
   id: ID! @id
   firebaseId: String! @unique
   email: String @unique
-  name: String
-  username: String @unique
+  name: String!
+  username: String! @unique
   profilePic: String
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt

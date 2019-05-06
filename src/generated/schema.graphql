@@ -869,6 +869,9 @@ type Query {
   forums(limit: Int): [ForumPost!]
   getMeCart: [Cart!]
   getShopProducts(shopId: ID!): [Product!]
+  getUser(username: String!): [User!]
+  getUserForums(username: String!): [Forum!]
+  getUserPosts(username: String!): [ForumPost!]
   me: User
   product(id: ID): Product
   productReviews(productId: ID!): [ProductReview!]

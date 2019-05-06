@@ -1369,6 +1369,9 @@ export interface NexusGenFieldTypes {
     forums: NexusGenRootTypes['ForumPost'][] | null; // [ForumPost!]
     getMeCart: NexusGenRootTypes['Cart'][] | null; // [Cart!]
     getShopProducts: NexusGenRootTypes['Product'][] | null; // [Product!]
+    getUser: NexusGenRootTypes['User'][] | null; // [User!]
+    getUserForums: NexusGenRootTypes['Forum'][] | null; // [Forum!]
+    getUserPosts: NexusGenRootTypes['ForumPost'][] | null; // [ForumPost!]
     me: NexusGenRootTypes['User'] | null; // User
     product: NexusGenRootTypes['Product'] | null; // Product
     productReviews: NexusGenRootTypes['ProductReview'][] | null; // [ProductReview!]
@@ -1659,6 +1662,15 @@ export interface NexusGenArgTypes {
     }
     getShopProducts: { // args
       shopId: string; // ID!
+    }
+    getUser: { // args
+      username: string; // String!
+    }
+    getUserForums: { // args
+      username: string; // String!
+    }
+    getUserPosts: { // args
+      username: string; // String!
     }
     product: { // args
       id?: string | null; // ID
