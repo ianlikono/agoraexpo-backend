@@ -2189,6 +2189,7 @@ export interface UserImageUpdateManyWithWhereNestedInput {
 
 export type ForumWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
+  name?: Maybe<String>;
 }>;
 
 export interface UserImageUpdateManyDataInput {
@@ -2279,8 +2280,8 @@ export interface UserCreateWithoutImagesInput {
   id?: Maybe<ID_Input>;
   firebaseId: String;
   email?: Maybe<String>;
-  name?: Maybe<String>;
-  username?: Maybe<String>;
+  name: String;
+  username: String;
   profilePic?: Maybe<String>;
   isAnonymous?: Maybe<Boolean>;
   emailVerified?: Maybe<Boolean>;
@@ -3337,8 +3338,8 @@ export interface UserCreateWithoutProductReviewsInput {
   id?: Maybe<ID_Input>;
   firebaseId: String;
   email?: Maybe<String>;
-  name?: Maybe<String>;
-  username?: Maybe<String>;
+  name: String;
+  username: String;
   profilePic?: Maybe<String>;
   isAnonymous?: Maybe<Boolean>;
   emailVerified?: Maybe<Boolean>;
@@ -3582,8 +3583,8 @@ export interface UserCreateWithoutForumsInput {
   id?: Maybe<ID_Input>;
   firebaseId: String;
   email?: Maybe<String>;
-  name?: Maybe<String>;
-  username?: Maybe<String>;
+  name: String;
+  username: String;
   profilePic?: Maybe<String>;
   isAnonymous?: Maybe<Boolean>;
   emailVerified?: Maybe<Boolean>;
@@ -3649,8 +3650,8 @@ export interface UserCreateWithoutForumpostsInput {
   id?: Maybe<ID_Input>;
   firebaseId: String;
   email?: Maybe<String>;
-  name?: Maybe<String>;
-  username?: Maybe<String>;
+  name: String;
+  username: String;
   profilePic?: Maybe<String>;
   isAnonymous?: Maybe<Boolean>;
   emailVerified?: Maybe<Boolean>;
@@ -3718,8 +3719,8 @@ export interface UserCreateWithoutPostCommentsInput {
   id?: Maybe<ID_Input>;
   firebaseId: String;
   email?: Maybe<String>;
-  name?: Maybe<String>;
-  username?: Maybe<String>;
+  name: String;
+  username: String;
   profilePic?: Maybe<String>;
   isAnonymous?: Maybe<Boolean>;
   emailVerified?: Maybe<Boolean>;
@@ -5476,8 +5477,8 @@ export interface UserCreateWithoutCartItemsInput {
   id?: Maybe<ID_Input>;
   firebaseId: String;
   email?: Maybe<String>;
-  name?: Maybe<String>;
-  username?: Maybe<String>;
+  name: String;
+  username: String;
   profilePic?: Maybe<String>;
   isAnonymous?: Maybe<Boolean>;
   emailVerified?: Maybe<Boolean>;
@@ -5920,8 +5921,8 @@ export interface UserCreateWithoutShopsInput {
   id?: Maybe<ID_Input>;
   firebaseId: String;
   email?: Maybe<String>;
-  name?: Maybe<String>;
-  username?: Maybe<String>;
+  name: String;
+  username: String;
   profilePic?: Maybe<String>;
   isAnonymous?: Maybe<Boolean>;
   emailVerified?: Maybe<Boolean>;
@@ -5947,8 +5948,8 @@ export interface UserCreateInput {
   id?: Maybe<ID_Input>;
   firebaseId: String;
   email?: Maybe<String>;
-  name?: Maybe<String>;
-  username?: Maybe<String>;
+  name: String;
+  username: String;
   profilePic?: Maybe<String>;
   isAnonymous?: Maybe<Boolean>;
   emailVerified?: Maybe<Boolean>;
@@ -7345,8 +7346,8 @@ export interface User {
   id: ID_Output;
   firebaseId: String;
   email?: String;
-  name?: String;
-  username?: String;
+  name: String;
+  username: String;
   profilePic?: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -9291,8 +9292,8 @@ export interface UserPreviousValues {
   id: ID_Output;
   firebaseId: String;
   email?: String;
-  name?: String;
-  username?: String;
+  name: String;
+  username: String;
   profilePic?: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;

@@ -1834,6 +1834,7 @@ input ForumWhereInput {
 
 input ForumWhereUniqueInput {
   id: ID
+  name: String
 }
 
 scalar Long
@@ -4625,8 +4626,8 @@ type User {
   id: ID!
   firebaseId: String!
   email: String
-  name: String
-  username: String
+  name: String!
+  username: String!
   profilePic: String
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -4651,8 +4652,8 @@ input UserCreateInput {
   id: ID
   firebaseId: String!
   email: String
-  name: String
-  username: String
+  name: String!
+  username: String!
   profilePic: String
   isAnonymous: Boolean
   emailVerified: Boolean
@@ -4709,8 +4710,8 @@ input UserCreateWithoutCartItemsInput {
   id: ID
   firebaseId: String!
   email: String
-  name: String
-  username: String
+  name: String!
+  username: String!
   profilePic: String
   isAnonymous: Boolean
   emailVerified: Boolean
@@ -4726,8 +4727,8 @@ input UserCreateWithoutForumpostsInput {
   id: ID
   firebaseId: String!
   email: String
-  name: String
-  username: String
+  name: String!
+  username: String!
   profilePic: String
   isAnonymous: Boolean
   emailVerified: Boolean
@@ -4743,8 +4744,8 @@ input UserCreateWithoutForumsInput {
   id: ID
   firebaseId: String!
   email: String
-  name: String
-  username: String
+  name: String!
+  username: String!
   profilePic: String
   isAnonymous: Boolean
   emailVerified: Boolean
@@ -4760,8 +4761,8 @@ input UserCreateWithoutImagesInput {
   id: ID
   firebaseId: String!
   email: String
-  name: String
-  username: String
+  name: String!
+  username: String!
   profilePic: String
   isAnonymous: Boolean
   emailVerified: Boolean
@@ -4777,8 +4778,8 @@ input UserCreateWithoutPostCommentsInput {
   id: ID
   firebaseId: String!
   email: String
-  name: String
-  username: String
+  name: String!
+  username: String!
   profilePic: String
   isAnonymous: Boolean
   emailVerified: Boolean
@@ -4794,8 +4795,8 @@ input UserCreateWithoutProductReviewsInput {
   id: ID
   firebaseId: String!
   email: String
-  name: String
-  username: String
+  name: String!
+  username: String!
   profilePic: String
   isAnonymous: Boolean
   emailVerified: Boolean
@@ -4811,8 +4812,8 @@ input UserCreateWithoutShopsInput {
   id: ID
   firebaseId: String!
   email: String
-  name: String
-  username: String
+  name: String!
+  username: String!
   profilePic: String
   isAnonymous: Boolean
   emailVerified: Boolean
@@ -5077,8 +5078,8 @@ type UserPreviousValues {
   id: ID!
   firebaseId: String!
   email: String
-  name: String
-  username: String
+  name: String!
+  username: String!
   profilePic: String
   createdAt: DateTime!
   updatedAt: DateTime!

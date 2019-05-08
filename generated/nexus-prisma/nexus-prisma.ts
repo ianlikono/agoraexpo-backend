@@ -1908,7 +1908,7 @@ export interface UserFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: true
+    nullable: false
     resolve: undefined
   }
   username: {
@@ -1916,7 +1916,7 @@ export interface UserFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: true
+    nullable: false
     resolve: undefined
   }
   profilePic: {
@@ -8467,7 +8467,7 @@ export interface UserPreviousValuesFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: true
+    nullable: false
     resolve: undefined
   }
   username: {
@@ -8475,7 +8475,7 @@ export interface UserPreviousValuesFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: true
+    nullable: false
     resolve: undefined
   }
   profilePic: {
@@ -12985,10 +12985,12 @@ export type ShopImageWhereInputInputObject =
   
 export interface ForumWhereUniqueInput {
   id?: string | null
+  name?: string | null
 }
 export type ForumWhereUniqueInputInputObject =
   | Extract<keyof ForumWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
   
 export interface ForumPostWhereUniqueInput {
   id?: string | null
@@ -13410,8 +13412,8 @@ export interface UserCreateInput {
   id?: string | null
   firebaseId?: string
   email?: string | null
-  name?: string | null
-  username?: string | null
+  name?: string
+  username?: string
   profilePic?: string | null
   isAnonymous?: boolean | null
   emailVerified?: boolean | null
@@ -13659,8 +13661,8 @@ export interface UserCreateWithoutProductReviewsInput {
   id?: string | null
   firebaseId?: string
   email?: string | null
-  name?: string | null
-  username?: string | null
+  name?: string
+  username?: string
   profilePic?: string | null
   isAnonymous?: boolean | null
   emailVerified?: boolean | null
@@ -13823,8 +13825,8 @@ export interface UserCreateWithoutShopsInput {
   id?: string | null
   firebaseId?: string
   email?: string | null
-  name?: string | null
-  username?: string | null
+  name?: string
+  username?: string
   profilePic?: string | null
   isAnonymous?: boolean | null
   emailVerified?: boolean | null
@@ -13973,8 +13975,8 @@ export interface UserCreateWithoutForumsInput {
   id?: string | null
   firebaseId?: string
   email?: string | null
-  name?: string | null
-  username?: string | null
+  name?: string
+  username?: string
   profilePic?: string | null
   isAnonymous?: boolean | null
   emailVerified?: boolean | null
@@ -14061,8 +14063,8 @@ export interface UserCreateWithoutForumpostsInput {
   id?: string | null
   firebaseId?: string
   email?: string | null
-  name?: string | null
-  username?: string | null
+  name?: string
+  username?: string
   profilePic?: string | null
   isAnonymous?: boolean | null
   emailVerified?: boolean | null
@@ -14175,8 +14177,8 @@ export interface UserCreateWithoutPostCommentsInput {
   id?: string | null
   firebaseId?: string
   email?: string | null
-  name?: string | null
-  username?: string | null
+  name?: string
+  username?: string
   profilePic?: string | null
   isAnonymous?: boolean | null
   emailVerified?: boolean | null
@@ -18103,8 +18105,8 @@ export interface UserCreateWithoutImagesInput {
   id?: string | null
   firebaseId?: string
   email?: string | null
-  name?: string | null
-  username?: string | null
+  name?: string
+  username?: string
   profilePic?: string | null
   isAnonymous?: boolean | null
   emailVerified?: boolean | null
@@ -18265,8 +18267,8 @@ export interface UserCreateWithoutCartItemsInput {
   id?: string | null
   firebaseId?: string
   email?: string | null
-  name?: string | null
-  username?: string | null
+  name?: string
+  username?: string
   profilePic?: string | null
   isAnonymous?: boolean | null
   emailVerified?: boolean | null
