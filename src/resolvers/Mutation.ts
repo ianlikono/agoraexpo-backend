@@ -518,5 +518,59 @@ export const Mutation = mutationType({
         return deletedmage;
       }
     });
+    t.field("createOrder", {
+      type: "Order",
+      args: {
+        items: idArg({ list: true, required: true }),
+        paymentId: stringArg({ required: true }),
+        PayerID: stringArg({ required: true })
+      },
+      resolve: async (parent, { items, paymentId, PayerID }, ctx) => {
+        const userId = getUserId(ctx);
+        let promises = [];
+        for (let i = 0; i < items.length; ++i) {
+          promises[i] = ctx.prisma.product({ id: items[i] });
+        }
+        const products = await Promise.all(promises);
+        let productsList = [];
+        let imgList = [];
+        for (let i = 0; i < products.length; i++) {
+          productsList[i] = ctx.prisma.cartItems({
+            where: { product: { id: products[i].id } }
+          });
+          imgList[i] = ctx.prisma.productImages({
+            where: { product: { id: products[i].id } }
+          });
+        }
+        const cartItems = await Promise.all(productsList);
+        const cartImages = await Promise.all(imgList);
+        const createdOrderItems = [];
+        let total = 0;
+        for (let i = 0; i < products.length; i++) {
+          createdOrderItems[i] = ctx.prisma.createorderItem({
+            title: products[i].title,
+            description: products[i].description,
+            price: products[i].price,
+            quantity: cartItems[i][0].quantity,
+            variants: { set: cartItems[i][0].variants },
+            imageUrl: cartImages[i][0].imageUrl
+          });
+          total = total + Number(products[i].price) * cartItems[i][0].quantity;
+        }
+        const orderItems = await Promise.all(createdOrderItems);
+        const orderItemsIds = await orderItems.map((item: any) => ({
+          id: item.id
+        }));
+        const createdOrder = await ctx.prisma.createOrder({
+          user: { connect: { id: userId } },
+          items: { connect: orderItemsIds },
+          paymentId: paymentId,
+          PayerID: PayerID,
+          total: total,
+          imageUrl: cartImages[0][0].imageUrl
+        });
+        return createdOrder;
+      }
+    });
   }
 });

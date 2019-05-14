@@ -131,8 +131,8 @@ type orderItem {
   description: String!
   price: String!
   quantity: Int!
+  imageUrl: String
   variants: [String] @scalarList(strategy: RELATION)
-  user: User!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
@@ -142,7 +142,9 @@ type Order {
   items: [orderItem!]!
   total: Int!
   user: User!
-  charge: String!
+  paymentId: String!
+  PayerID: String!
+  imageUrl: String
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }

@@ -1964,7 +1964,9 @@ type Order {
   items(where: orderItemWhereInput, orderBy: orderItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [orderItem!]
   total: Int!
   user: User!
-  charge: String!
+  paymentId: String!
+  PayerID: String!
+  imageUrl: String
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -1980,7 +1982,9 @@ input OrderCreateInput {
   items: orderItemCreateManyInput
   total: Int!
   user: UserCreateOneInput!
-  charge: String!
+  paymentId: String!
+  PayerID: String!
+  imageUrl: String
 }
 
 type OrderEdge {
@@ -1994,8 +1998,8 @@ type orderItem {
   description: String!
   price: String!
   quantity: Int!
+  imageUrl: String
   variants: [String!]!
-  user: User!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -2012,8 +2016,8 @@ input orderItemCreateInput {
   description: String!
   price: String!
   quantity: Int!
+  imageUrl: String
   variants: orderItemCreatevariantsInput
-  user: UserCreateOneInput!
 }
 
 input orderItemCreateManyInput {
@@ -2041,6 +2045,8 @@ enum orderItemOrderByInput {
   price_DESC
   quantity_ASC
   quantity_DESC
+  imageUrl_ASC
+  imageUrl_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -2053,6 +2059,7 @@ type orderItemPreviousValues {
   description: String!
   price: String!
   quantity: Int!
+  imageUrl: String
   variants: [String!]!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -2123,6 +2130,20 @@ input orderItemScalarWhereInput {
   quantity_lte: Int
   quantity_gt: Int
   quantity_gte: Int
+  imageUrl: String
+  imageUrl_not: String
+  imageUrl_in: [String!]
+  imageUrl_not_in: [String!]
+  imageUrl_lt: String
+  imageUrl_lte: String
+  imageUrl_gt: String
+  imageUrl_gte: String
+  imageUrl_contains: String
+  imageUrl_not_contains: String
+  imageUrl_starts_with: String
+  imageUrl_not_starts_with: String
+  imageUrl_ends_with: String
+  imageUrl_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -2167,8 +2188,8 @@ input orderItemUpdateDataInput {
   description: String
   price: String
   quantity: Int
+  imageUrl: String
   variants: orderItemUpdatevariantsInput
-  user: UserUpdateOneRequiredInput
 }
 
 input orderItemUpdateInput {
@@ -2176,8 +2197,8 @@ input orderItemUpdateInput {
   description: String
   price: String
   quantity: Int
+  imageUrl: String
   variants: orderItemUpdatevariantsInput
-  user: UserUpdateOneRequiredInput
 }
 
 input orderItemUpdateManyDataInput {
@@ -2185,6 +2206,7 @@ input orderItemUpdateManyDataInput {
   description: String
   price: String
   quantity: Int
+  imageUrl: String
   variants: orderItemUpdatevariantsInput
 }
 
@@ -2205,6 +2227,7 @@ input orderItemUpdateManyMutationInput {
   description: String
   price: String
   quantity: Int
+  imageUrl: String
   variants: orderItemUpdatevariantsInput
 }
 
@@ -2293,7 +2316,20 @@ input orderItemWhereInput {
   quantity_lte: Int
   quantity_gt: Int
   quantity_gte: Int
-  user: UserWhereInput
+  imageUrl: String
+  imageUrl_not: String
+  imageUrl_in: [String!]
+  imageUrl_not_in: [String!]
+  imageUrl_lt: String
+  imageUrl_lte: String
+  imageUrl_gt: String
+  imageUrl_gte: String
+  imageUrl_contains: String
+  imageUrl_not_contains: String
+  imageUrl_starts_with: String
+  imageUrl_not_starts_with: String
+  imageUrl_ends_with: String
+  imageUrl_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -2324,8 +2360,12 @@ enum OrderOrderByInput {
   id_DESC
   total_ASC
   total_DESC
-  charge_ASC
-  charge_DESC
+  paymentId_ASC
+  paymentId_DESC
+  PayerID_ASC
+  PayerID_DESC
+  imageUrl_ASC
+  imageUrl_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -2335,7 +2375,9 @@ enum OrderOrderByInput {
 type OrderPreviousValues {
   id: ID!
   total: Int!
-  charge: String!
+  paymentId: String!
+  PayerID: String!
+  imageUrl: String
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -2362,12 +2404,16 @@ input OrderUpdateInput {
   items: orderItemUpdateManyInput
   total: Int
   user: UserUpdateOneRequiredInput
-  charge: String
+  paymentId: String
+  PayerID: String
+  imageUrl: String
 }
 
 input OrderUpdateManyMutationInput {
   total: Int
-  charge: String
+  paymentId: String
+  PayerID: String
+  imageUrl: String
 }
 
 input OrderWhereInput {
@@ -2397,20 +2443,48 @@ input OrderWhereInput {
   total_gt: Int
   total_gte: Int
   user: UserWhereInput
-  charge: String
-  charge_not: String
-  charge_in: [String!]
-  charge_not_in: [String!]
-  charge_lt: String
-  charge_lte: String
-  charge_gt: String
-  charge_gte: String
-  charge_contains: String
-  charge_not_contains: String
-  charge_starts_with: String
-  charge_not_starts_with: String
-  charge_ends_with: String
-  charge_not_ends_with: String
+  paymentId: String
+  paymentId_not: String
+  paymentId_in: [String!]
+  paymentId_not_in: [String!]
+  paymentId_lt: String
+  paymentId_lte: String
+  paymentId_gt: String
+  paymentId_gte: String
+  paymentId_contains: String
+  paymentId_not_contains: String
+  paymentId_starts_with: String
+  paymentId_not_starts_with: String
+  paymentId_ends_with: String
+  paymentId_not_ends_with: String
+  PayerID: String
+  PayerID_not: String
+  PayerID_in: [String!]
+  PayerID_not_in: [String!]
+  PayerID_lt: String
+  PayerID_lte: String
+  PayerID_gt: String
+  PayerID_gte: String
+  PayerID_contains: String
+  PayerID_not_contains: String
+  PayerID_starts_with: String
+  PayerID_not_starts_with: String
+  PayerID_ends_with: String
+  PayerID_not_ends_with: String
+  imageUrl: String
+  imageUrl_not: String
+  imageUrl_in: [String!]
+  imageUrl_not_in: [String!]
+  imageUrl_lt: String
+  imageUrl_lte: String
+  imageUrl_gt: String
+  imageUrl_gte: String
+  imageUrl_contains: String
+  imageUrl_not_contains: String
+  imageUrl_starts_with: String
+  imageUrl_not_starts_with: String
+  imageUrl_ends_with: String
+  imageUrl_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]

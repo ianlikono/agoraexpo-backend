@@ -76,13 +76,17 @@ export const Query = queryType({
       type: "Cart",
       resolve: (parent, { productId }, ctx) => {
         const userId = getUserId(ctx);
-        return ctx.prisma.carts({
-          where: {
-            user: {
-              id: userId
+        if (userId) {
+          return ctx.prisma.carts({
+            where: {
+              user: {
+                id: userId
+              }
             }
-          }
-        });
+          });
+        } else {
+          return null;
+        }
       }
     });
     t.list.field("filterForums", {
@@ -196,6 +200,28 @@ export const Query = queryType({
           }
         });
         return forums;
+      }
+    });
+    t.list.field("getOrder", {
+      type: "Order",
+      args: {
+        orderId: idArg({ required: true })
+      },
+      resolve: async (_, { orderId }, ctx) => {
+        const order = await ctx.prisma.orders({
+          where: { id: orderId }
+        });
+        return order;
+      }
+    });
+    t.list.field("getMeOrders", {
+      type: "Order",
+      resolve: async (_, {}, ctx) => {
+        const userId = getUserId(ctx);
+        const orders = await ctx.prisma.orders({
+          where: { user: { id: userId } }
+        });
+        return orders;
       }
     });
   }

@@ -530,15 +530,12 @@ export interface NexusPrismaTypes {
       CartItemUpdateManyMutationInput: CartItemUpdateManyMutationInputInputObject
       orderItemCreateInput: orderItemCreateInputInputObject
       orderItemCreatevariantsInput: orderItemCreatevariantsInputInputObject
-      UserCreateOneInput: UserCreateOneInputInputObject
       orderItemUpdateInput: orderItemUpdateInputInputObject
       orderItemUpdatevariantsInput: orderItemUpdatevariantsInputInputObject
-      UserUpdateOneRequiredInput: UserUpdateOneRequiredInputInputObject
-      UserUpdateDataInput: UserUpdateDataInputInputObject
-      UserUpsertNestedInput: UserUpsertNestedInputInputObject
       orderItemUpdateManyMutationInput: orderItemUpdateManyMutationInputInputObject
       OrderCreateInput: OrderCreateInputInputObject
       orderItemCreateManyInput: orderItemCreateManyInputInputObject
+      UserCreateOneInput: UserCreateOneInputInputObject
       OrderUpdateInput: OrderUpdateInputInputObject
       orderItemUpdateManyInput: orderItemUpdateManyInputInputObject
       orderItemUpdateWithWhereUniqueNestedInput: orderItemUpdateWithWhereUniqueNestedInputInputObject
@@ -547,6 +544,9 @@ export interface NexusPrismaTypes {
       orderItemScalarWhereInput: orderItemScalarWhereInputInputObject
       orderItemUpdateManyWithWhereNestedInput: orderItemUpdateManyWithWhereNestedInputInputObject
       orderItemUpdateManyDataInput: orderItemUpdateManyDataInputInputObject
+      UserUpdateOneRequiredInput: UserUpdateOneRequiredInputInputObject
+      UserUpdateDataInput: UserUpdateDataInputInputObject
+      UserUpsertNestedInput: UserUpsertNestedInputInputObject
       OrderUpdateManyMutationInput: OrderUpdateManyMutationInputInputObject
       BrandCreateInput: BrandCreateInputInputObject
       ProductCreateManyWithoutBrandInput: ProductCreateManyWithoutBrandInputInputObject
@@ -4884,8 +4884,8 @@ type orderItemObject =
   | { name: 'description', args?: [] | false, alias?: string  } 
   | { name: 'price', args?: [] | false, alias?: string  } 
   | { name: 'quantity', args?: [] | false, alias?: string  } 
+  | { name: 'imageUrl', args?: [] | false, alias?: string  } 
   | { name: 'variants', args?: [] | false, alias?: string  } 
-  | { name: 'user', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
 
@@ -4895,8 +4895,8 @@ type orderItemFields =
   | 'description'
   | 'price'
   | 'quantity'
+  | 'imageUrl'
   | 'variants'
-  | 'user'
   | 'createdAt'
   | 'updatedAt'
 
@@ -4945,6 +4945,14 @@ export interface orderItemFieldDetails {
     nullable: false
     resolve: undefined
   }
+  imageUrl: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
   variants: {
     type: 'String'
     args: {}
@@ -4952,19 +4960,6 @@ export interface orderItemFieldDetails {
     list: true
     nullable: false
     resolve: undefined
-  }
-  user: {
-    type: 'User'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"orderItem">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.User> | prisma.User
   }
   createdAt: {
     type: 'DateTime'
@@ -5118,7 +5113,9 @@ type OrderObject =
   | { name: 'items', args?: OrderItemsArgs[] | false, alias?: string  } 
   | { name: 'total', args?: [] | false, alias?: string  } 
   | { name: 'user', args?: [] | false, alias?: string  } 
-  | { name: 'charge', args?: [] | false, alias?: string  } 
+  | { name: 'paymentId', args?: [] | false, alias?: string  } 
+  | { name: 'PayerID', args?: [] | false, alias?: string  } 
+  | { name: 'imageUrl', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
 
@@ -5127,7 +5124,9 @@ type OrderFields =
   | 'items'
   | 'total'
   | 'user'
-  | 'charge'
+  | 'paymentId'
+  | 'PayerID'
+  | 'imageUrl'
   | 'createdAt'
   | 'updatedAt'
 
@@ -5185,12 +5184,28 @@ export interface OrderFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.User> | prisma.User
   }
-  charge: {
+  paymentId: {
     type: 'String'
     args: {}
     description: string
     list: undefined
     nullable: false
+    resolve: undefined
+  }
+  PayerID: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  imageUrl: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
     resolve: undefined
   }
   createdAt: {
@@ -9840,6 +9855,7 @@ type orderItemPreviousValuesObject =
   | { name: 'description', args?: [] | false, alias?: string  } 
   | { name: 'price', args?: [] | false, alias?: string  } 
   | { name: 'quantity', args?: [] | false, alias?: string  } 
+  | { name: 'imageUrl', args?: [] | false, alias?: string  } 
   | { name: 'variants', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
@@ -9850,6 +9866,7 @@ type orderItemPreviousValuesFields =
   | 'description'
   | 'price'
   | 'quantity'
+  | 'imageUrl'
   | 'variants'
   | 'createdAt'
   | 'updatedAt'
@@ -9897,6 +9914,14 @@ export interface orderItemPreviousValuesFieldDetails {
     description: string
     list: undefined
     nullable: false
+    resolve: undefined
+  }
+  imageUrl: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
     resolve: undefined
   }
   variants: {
@@ -10002,14 +10027,18 @@ type OrderPreviousValuesObject =
   | OrderPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'total', args?: [] | false, alias?: string  } 
-  | { name: 'charge', args?: [] | false, alias?: string  } 
+  | { name: 'paymentId', args?: [] | false, alias?: string  } 
+  | { name: 'PayerID', args?: [] | false, alias?: string  } 
+  | { name: 'imageUrl', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
 
 type OrderPreviousValuesFields =
   | 'id'
   | 'total'
-  | 'charge'
+  | 'paymentId'
+  | 'PayerID'
+  | 'imageUrl'
   | 'createdAt'
   | 'updatedAt'
 
@@ -10034,12 +10063,28 @@ export interface OrderPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
-  charge: {
+  paymentId: {
     type: 'String'
     args: {}
     description: string
     list: undefined
     nullable: false
+    resolve: undefined
+  }
+  PayerID: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  imageUrl: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
     resolve: undefined
   }
   createdAt: {
@@ -13122,7 +13167,20 @@ export interface orderItemWhereInput {
   quantity_lte?: number | null
   quantity_gt?: number | null
   quantity_gte?: number | null
-  user?: UserWhereInput | null
+  imageUrl?: string | null
+  imageUrl_not?: string | null
+  imageUrl_in?: string[]
+  imageUrl_not_in?: string[]
+  imageUrl_lt?: string | null
+  imageUrl_lte?: string | null
+  imageUrl_gt?: string | null
+  imageUrl_gte?: string | null
+  imageUrl_contains?: string | null
+  imageUrl_not_contains?: string | null
+  imageUrl_starts_with?: string | null
+  imageUrl_not_starts_with?: string | null
+  imageUrl_ends_with?: string | null
+  imageUrl_not_ends_with?: string | null
   createdAt?: string | null
   createdAt_not?: string | null
   createdAt_in?: string[]
@@ -13209,7 +13267,20 @@ export type orderItemWhereInputInputObject =
   | { name: 'quantity_lte', alias?: string  } 
   | { name: 'quantity_gt', alias?: string  } 
   | { name: 'quantity_gte', alias?: string  } 
-  | { name: 'user', alias?: string  } 
+  | { name: 'imageUrl', alias?: string  } 
+  | { name: 'imageUrl_not', alias?: string  } 
+  | { name: 'imageUrl_in', alias?: string  } 
+  | { name: 'imageUrl_not_in', alias?: string  } 
+  | { name: 'imageUrl_lt', alias?: string  } 
+  | { name: 'imageUrl_lte', alias?: string  } 
+  | { name: 'imageUrl_gt', alias?: string  } 
+  | { name: 'imageUrl_gte', alias?: string  } 
+  | { name: 'imageUrl_contains', alias?: string  } 
+  | { name: 'imageUrl_not_contains', alias?: string  } 
+  | { name: 'imageUrl_starts_with', alias?: string  } 
+  | { name: 'imageUrl_not_starts_with', alias?: string  } 
+  | { name: 'imageUrl_ends_with', alias?: string  } 
+  | { name: 'imageUrl_not_ends_with', alias?: string  } 
   | { name: 'createdAt', alias?: string  } 
   | { name: 'createdAt_not', alias?: string  } 
   | { name: 'createdAt_in', alias?: string  } 
@@ -13264,20 +13335,48 @@ export interface OrderWhereInput {
   total_gt?: number | null
   total_gte?: number | null
   user?: UserWhereInput | null
-  charge?: string | null
-  charge_not?: string | null
-  charge_in?: string[]
-  charge_not_in?: string[]
-  charge_lt?: string | null
-  charge_lte?: string | null
-  charge_gt?: string | null
-  charge_gte?: string | null
-  charge_contains?: string | null
-  charge_not_contains?: string | null
-  charge_starts_with?: string | null
-  charge_not_starts_with?: string | null
-  charge_ends_with?: string | null
-  charge_not_ends_with?: string | null
+  paymentId?: string | null
+  paymentId_not?: string | null
+  paymentId_in?: string[]
+  paymentId_not_in?: string[]
+  paymentId_lt?: string | null
+  paymentId_lte?: string | null
+  paymentId_gt?: string | null
+  paymentId_gte?: string | null
+  paymentId_contains?: string | null
+  paymentId_not_contains?: string | null
+  paymentId_starts_with?: string | null
+  paymentId_not_starts_with?: string | null
+  paymentId_ends_with?: string | null
+  paymentId_not_ends_with?: string | null
+  PayerID?: string | null
+  PayerID_not?: string | null
+  PayerID_in?: string[]
+  PayerID_not_in?: string[]
+  PayerID_lt?: string | null
+  PayerID_lte?: string | null
+  PayerID_gt?: string | null
+  PayerID_gte?: string | null
+  PayerID_contains?: string | null
+  PayerID_not_contains?: string | null
+  PayerID_starts_with?: string | null
+  PayerID_not_starts_with?: string | null
+  PayerID_ends_with?: string | null
+  PayerID_not_ends_with?: string | null
+  imageUrl?: string | null
+  imageUrl_not?: string | null
+  imageUrl_in?: string[]
+  imageUrl_not_in?: string[]
+  imageUrl_lt?: string | null
+  imageUrl_lte?: string | null
+  imageUrl_gt?: string | null
+  imageUrl_gte?: string | null
+  imageUrl_contains?: string | null
+  imageUrl_not_contains?: string | null
+  imageUrl_starts_with?: string | null
+  imageUrl_not_starts_with?: string | null
+  imageUrl_ends_with?: string | null
+  imageUrl_not_ends_with?: string | null
   createdAt?: string | null
   createdAt_not?: string | null
   createdAt_in?: string[]
@@ -13326,20 +13425,48 @@ export type OrderWhereInputInputObject =
   | { name: 'total_gt', alias?: string  } 
   | { name: 'total_gte', alias?: string  } 
   | { name: 'user', alias?: string  } 
-  | { name: 'charge', alias?: string  } 
-  | { name: 'charge_not', alias?: string  } 
-  | { name: 'charge_in', alias?: string  } 
-  | { name: 'charge_not_in', alias?: string  } 
-  | { name: 'charge_lt', alias?: string  } 
-  | { name: 'charge_lte', alias?: string  } 
-  | { name: 'charge_gt', alias?: string  } 
-  | { name: 'charge_gte', alias?: string  } 
-  | { name: 'charge_contains', alias?: string  } 
-  | { name: 'charge_not_contains', alias?: string  } 
-  | { name: 'charge_starts_with', alias?: string  } 
-  | { name: 'charge_not_starts_with', alias?: string  } 
-  | { name: 'charge_ends_with', alias?: string  } 
-  | { name: 'charge_not_ends_with', alias?: string  } 
+  | { name: 'paymentId', alias?: string  } 
+  | { name: 'paymentId_not', alias?: string  } 
+  | { name: 'paymentId_in', alias?: string  } 
+  | { name: 'paymentId_not_in', alias?: string  } 
+  | { name: 'paymentId_lt', alias?: string  } 
+  | { name: 'paymentId_lte', alias?: string  } 
+  | { name: 'paymentId_gt', alias?: string  } 
+  | { name: 'paymentId_gte', alias?: string  } 
+  | { name: 'paymentId_contains', alias?: string  } 
+  | { name: 'paymentId_not_contains', alias?: string  } 
+  | { name: 'paymentId_starts_with', alias?: string  } 
+  | { name: 'paymentId_not_starts_with', alias?: string  } 
+  | { name: 'paymentId_ends_with', alias?: string  } 
+  | { name: 'paymentId_not_ends_with', alias?: string  } 
+  | { name: 'PayerID', alias?: string  } 
+  | { name: 'PayerID_not', alias?: string  } 
+  | { name: 'PayerID_in', alias?: string  } 
+  | { name: 'PayerID_not_in', alias?: string  } 
+  | { name: 'PayerID_lt', alias?: string  } 
+  | { name: 'PayerID_lte', alias?: string  } 
+  | { name: 'PayerID_gt', alias?: string  } 
+  | { name: 'PayerID_gte', alias?: string  } 
+  | { name: 'PayerID_contains', alias?: string  } 
+  | { name: 'PayerID_not_contains', alias?: string  } 
+  | { name: 'PayerID_starts_with', alias?: string  } 
+  | { name: 'PayerID_not_starts_with', alias?: string  } 
+  | { name: 'PayerID_ends_with', alias?: string  } 
+  | { name: 'PayerID_not_ends_with', alias?: string  } 
+  | { name: 'imageUrl', alias?: string  } 
+  | { name: 'imageUrl_not', alias?: string  } 
+  | { name: 'imageUrl_in', alias?: string  } 
+  | { name: 'imageUrl_not_in', alias?: string  } 
+  | { name: 'imageUrl_lt', alias?: string  } 
+  | { name: 'imageUrl_lte', alias?: string  } 
+  | { name: 'imageUrl_gt', alias?: string  } 
+  | { name: 'imageUrl_gte', alias?: string  } 
+  | { name: 'imageUrl_contains', alias?: string  } 
+  | { name: 'imageUrl_not_contains', alias?: string  } 
+  | { name: 'imageUrl_starts_with', alias?: string  } 
+  | { name: 'imageUrl_not_starts_with', alias?: string  } 
+  | { name: 'imageUrl_ends_with', alias?: string  } 
+  | { name: 'imageUrl_not_ends_with', alias?: string  } 
   | { name: 'createdAt', alias?: string  } 
   | { name: 'createdAt_not', alias?: string  } 
   | { name: 'createdAt_in', alias?: string  } 
@@ -18384,8 +18511,8 @@ export interface orderItemCreateInput {
   description?: string
   price?: string
   quantity?: number
+  imageUrl?: string | null
   variants?: orderItemCreatevariantsInput | null
-  user?: UserCreateOneInput
 }
 export type orderItemCreateInputInputObject =
   | Extract<keyof orderItemCreateInput, string>
@@ -18394,8 +18521,8 @@ export type orderItemCreateInputInputObject =
   | { name: 'description', alias?: string  } 
   | { name: 'price', alias?: string  } 
   | { name: 'quantity', alias?: string  } 
+  | { name: 'imageUrl', alias?: string  } 
   | { name: 'variants', alias?: string  } 
-  | { name: 'user', alias?: string  } 
   
 export interface orderItemCreatevariantsInput {
   set?: string[]
@@ -18404,22 +18531,13 @@ export type orderItemCreatevariantsInputInputObject =
   | Extract<keyof orderItemCreatevariantsInput, string>
   | { name: 'set', alias?: string  } 
   
-export interface UserCreateOneInput {
-  create?: UserCreateInput | null
-  connect?: UserWhereUniqueInput | null
-}
-export type UserCreateOneInputInputObject =
-  | Extract<keyof UserCreateOneInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
 export interface orderItemUpdateInput {
   title?: string | null
   description?: string | null
   price?: string | null
   quantity?: number | null
+  imageUrl?: string | null
   variants?: orderItemUpdatevariantsInput | null
-  user?: UserUpdateOneRequiredInput | null
 }
 export type orderItemUpdateInputInputObject =
   | Extract<keyof orderItemUpdateInput, string>
@@ -18427,8 +18545,8 @@ export type orderItemUpdateInputInputObject =
   | { name: 'description', alias?: string  } 
   | { name: 'price', alias?: string  } 
   | { name: 'quantity', alias?: string  } 
+  | { name: 'imageUrl', alias?: string  } 
   | { name: 'variants', alias?: string  } 
-  | { name: 'user', alias?: string  } 
   
 export interface orderItemUpdatevariantsInput {
   set?: string[]
@@ -18437,66 +18555,12 @@ export type orderItemUpdatevariantsInputInputObject =
   | Extract<keyof orderItemUpdatevariantsInput, string>
   | { name: 'set', alias?: string  } 
   
-export interface UserUpdateOneRequiredInput {
-  create?: UserCreateInput | null
-  update?: UserUpdateDataInput | null
-  upsert?: UserUpsertNestedInput | null
-  connect?: UserWhereUniqueInput | null
-}
-export type UserUpdateOneRequiredInputInputObject =
-  | Extract<keyof UserUpdateOneRequiredInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface UserUpdateDataInput {
-  firebaseId?: string | null
-  email?: string | null
-  name?: string | null
-  username?: string | null
-  profilePic?: string | null
-  isAnonymous?: boolean | null
-  emailVerified?: boolean | null
-  shops?: ShopUpdateManyWithoutOwnersInput | null
-  images?: UserImageUpdateManyWithoutUserInput | null
-  productReviews?: ProductReviewUpdateManyWithoutUserInput | null
-  cartItems?: CartUpdateOneWithoutUserInput | null
-  forumposts?: ForumPostUpdateManyWithoutPostedByInput | null
-  forums?: ForumUpdateManyWithoutMembersInput | null
-  postComments?: ForumPostCommentUpdateManyWithoutUserInput | null
-}
-export type UserUpdateDataInputInputObject =
-  | Extract<keyof UserUpdateDataInput, string>
-  | { name: 'firebaseId', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'username', alias?: string  } 
-  | { name: 'profilePic', alias?: string  } 
-  | { name: 'isAnonymous', alias?: string  } 
-  | { name: 'emailVerified', alias?: string  } 
-  | { name: 'shops', alias?: string  } 
-  | { name: 'images', alias?: string  } 
-  | { name: 'productReviews', alias?: string  } 
-  | { name: 'cartItems', alias?: string  } 
-  | { name: 'forumposts', alias?: string  } 
-  | { name: 'forums', alias?: string  } 
-  | { name: 'postComments', alias?: string  } 
-  
-export interface UserUpsertNestedInput {
-  update?: UserUpdateDataInput
-  create?: UserCreateInput
-}
-export type UserUpsertNestedInputInputObject =
-  | Extract<keyof UserUpsertNestedInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
 export interface orderItemUpdateManyMutationInput {
   title?: string | null
   description?: string | null
   price?: string | null
   quantity?: number | null
+  imageUrl?: string | null
   variants?: orderItemUpdatevariantsInput | null
 }
 export type orderItemUpdateManyMutationInputInputObject =
@@ -18505,6 +18569,7 @@ export type orderItemUpdateManyMutationInputInputObject =
   | { name: 'description', alias?: string  } 
   | { name: 'price', alias?: string  } 
   | { name: 'quantity', alias?: string  } 
+  | { name: 'imageUrl', alias?: string  } 
   | { name: 'variants', alias?: string  } 
   
 export interface OrderCreateInput {
@@ -18512,7 +18577,9 @@ export interface OrderCreateInput {
   items?: orderItemCreateManyInput | null
   total?: number
   user?: UserCreateOneInput
-  charge?: string
+  paymentId?: string
+  PayerID?: string
+  imageUrl?: string | null
 }
 export type OrderCreateInputInputObject =
   | Extract<keyof OrderCreateInput, string>
@@ -18520,7 +18587,9 @@ export type OrderCreateInputInputObject =
   | { name: 'items', alias?: string  } 
   | { name: 'total', alias?: string  } 
   | { name: 'user', alias?: string  } 
-  | { name: 'charge', alias?: string  } 
+  | { name: 'paymentId', alias?: string  } 
+  | { name: 'PayerID', alias?: string  } 
+  | { name: 'imageUrl', alias?: string  } 
   
 export interface orderItemCreateManyInput {
   create?: orderItemCreateInput[]
@@ -18531,18 +18600,31 @@ export type orderItemCreateManyInputInputObject =
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
+export interface UserCreateOneInput {
+  create?: UserCreateInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserCreateOneInputInputObject =
+  | Extract<keyof UserCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
 export interface OrderUpdateInput {
   items?: orderItemUpdateManyInput | null
   total?: number | null
   user?: UserUpdateOneRequiredInput | null
-  charge?: string | null
+  paymentId?: string | null
+  PayerID?: string | null
+  imageUrl?: string | null
 }
 export type OrderUpdateInputInputObject =
   | Extract<keyof OrderUpdateInput, string>
   | { name: 'items', alias?: string  } 
   | { name: 'total', alias?: string  } 
   | { name: 'user', alias?: string  } 
-  | { name: 'charge', alias?: string  } 
+  | { name: 'paymentId', alias?: string  } 
+  | { name: 'PayerID', alias?: string  } 
+  | { name: 'imageUrl', alias?: string  } 
   
 export interface orderItemUpdateManyInput {
   create?: orderItemCreateInput[]
@@ -18581,8 +18663,8 @@ export interface orderItemUpdateDataInput {
   description?: string | null
   price?: string | null
   quantity?: number | null
+  imageUrl?: string | null
   variants?: orderItemUpdatevariantsInput | null
-  user?: UserUpdateOneRequiredInput | null
 }
 export type orderItemUpdateDataInputInputObject =
   | Extract<keyof orderItemUpdateDataInput, string>
@@ -18590,8 +18672,8 @@ export type orderItemUpdateDataInputInputObject =
   | { name: 'description', alias?: string  } 
   | { name: 'price', alias?: string  } 
   | { name: 'quantity', alias?: string  } 
+  | { name: 'imageUrl', alias?: string  } 
   | { name: 'variants', alias?: string  } 
-  | { name: 'user', alias?: string  } 
   
 export interface orderItemUpsertWithWhereUniqueNestedInput {
   where?: orderItemWhereUniqueInput
@@ -18669,6 +18751,20 @@ export interface orderItemScalarWhereInput {
   quantity_lte?: number | null
   quantity_gt?: number | null
   quantity_gte?: number | null
+  imageUrl?: string | null
+  imageUrl_not?: string | null
+  imageUrl_in?: string[]
+  imageUrl_not_in?: string[]
+  imageUrl_lt?: string | null
+  imageUrl_lte?: string | null
+  imageUrl_gt?: string | null
+  imageUrl_gte?: string | null
+  imageUrl_contains?: string | null
+  imageUrl_not_contains?: string | null
+  imageUrl_starts_with?: string | null
+  imageUrl_not_starts_with?: string | null
+  imageUrl_ends_with?: string | null
+  imageUrl_not_ends_with?: string | null
   createdAt?: string | null
   createdAt_not?: string | null
   createdAt_in?: string[]
@@ -18755,6 +18851,20 @@ export type orderItemScalarWhereInputInputObject =
   | { name: 'quantity_lte', alias?: string  } 
   | { name: 'quantity_gt', alias?: string  } 
   | { name: 'quantity_gte', alias?: string  } 
+  | { name: 'imageUrl', alias?: string  } 
+  | { name: 'imageUrl_not', alias?: string  } 
+  | { name: 'imageUrl_in', alias?: string  } 
+  | { name: 'imageUrl_not_in', alias?: string  } 
+  | { name: 'imageUrl_lt', alias?: string  } 
+  | { name: 'imageUrl_lte', alias?: string  } 
+  | { name: 'imageUrl_gt', alias?: string  } 
+  | { name: 'imageUrl_gte', alias?: string  } 
+  | { name: 'imageUrl_contains', alias?: string  } 
+  | { name: 'imageUrl_not_contains', alias?: string  } 
+  | { name: 'imageUrl_starts_with', alias?: string  } 
+  | { name: 'imageUrl_not_starts_with', alias?: string  } 
+  | { name: 'imageUrl_ends_with', alias?: string  } 
+  | { name: 'imageUrl_not_ends_with', alias?: string  } 
   | { name: 'createdAt', alias?: string  } 
   | { name: 'createdAt_not', alias?: string  } 
   | { name: 'createdAt_in', alias?: string  } 
@@ -18789,6 +18899,7 @@ export interface orderItemUpdateManyDataInput {
   description?: string | null
   price?: string | null
   quantity?: number | null
+  imageUrl?: string | null
   variants?: orderItemUpdatevariantsInput | null
 }
 export type orderItemUpdateManyDataInputInputObject =
@@ -18797,16 +18908,76 @@ export type orderItemUpdateManyDataInputInputObject =
   | { name: 'description', alias?: string  } 
   | { name: 'price', alias?: string  } 
   | { name: 'quantity', alias?: string  } 
+  | { name: 'imageUrl', alias?: string  } 
   | { name: 'variants', alias?: string  } 
+  
+export interface UserUpdateOneRequiredInput {
+  create?: UserCreateInput | null
+  update?: UserUpdateDataInput | null
+  upsert?: UserUpsertNestedInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserUpdateOneRequiredInputInputObject =
+  | Extract<keyof UserUpdateOneRequiredInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserUpdateDataInput {
+  firebaseId?: string | null
+  email?: string | null
+  name?: string | null
+  username?: string | null
+  profilePic?: string | null
+  isAnonymous?: boolean | null
+  emailVerified?: boolean | null
+  shops?: ShopUpdateManyWithoutOwnersInput | null
+  images?: UserImageUpdateManyWithoutUserInput | null
+  productReviews?: ProductReviewUpdateManyWithoutUserInput | null
+  cartItems?: CartUpdateOneWithoutUserInput | null
+  forumposts?: ForumPostUpdateManyWithoutPostedByInput | null
+  forums?: ForumUpdateManyWithoutMembersInput | null
+  postComments?: ForumPostCommentUpdateManyWithoutUserInput | null
+}
+export type UserUpdateDataInputInputObject =
+  | Extract<keyof UserUpdateDataInput, string>
+  | { name: 'firebaseId', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'profilePic', alias?: string  } 
+  | { name: 'isAnonymous', alias?: string  } 
+  | { name: 'emailVerified', alias?: string  } 
+  | { name: 'shops', alias?: string  } 
+  | { name: 'images', alias?: string  } 
+  | { name: 'productReviews', alias?: string  } 
+  | { name: 'cartItems', alias?: string  } 
+  | { name: 'forumposts', alias?: string  } 
+  | { name: 'forums', alias?: string  } 
+  | { name: 'postComments', alias?: string  } 
+  
+export interface UserUpsertNestedInput {
+  update?: UserUpdateDataInput
+  create?: UserCreateInput
+}
+export type UserUpsertNestedInputInputObject =
+  | Extract<keyof UserUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
   
 export interface OrderUpdateManyMutationInput {
   total?: number | null
-  charge?: string | null
+  paymentId?: string | null
+  PayerID?: string | null
+  imageUrl?: string | null
 }
 export type OrderUpdateManyMutationInputInputObject =
   | Extract<keyof OrderUpdateManyMutationInput, string>
   | { name: 'total', alias?: string  } 
-  | { name: 'charge', alias?: string  } 
+  | { name: 'paymentId', alias?: string  } 
+  | { name: 'PayerID', alias?: string  } 
+  | { name: 'imageUrl', alias?: string  } 
   
 export interface BrandCreateInput {
   id?: string | null
@@ -20035,6 +20206,8 @@ export type orderItemOrderByInputValues =
   | 'price_DESC'
   | 'quantity_ASC'
   | 'quantity_DESC'
+  | 'imageUrl_ASC'
+  | 'imageUrl_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
@@ -20045,8 +20218,12 @@ export type OrderOrderByInputValues =
   | 'id_DESC'
   | 'total_ASC'
   | 'total_DESC'
-  | 'charge_ASC'
-  | 'charge_DESC'
+  | 'paymentId_ASC'
+  | 'paymentId_DESC'
+  | 'PayerID_ASC'
+  | 'PayerID_DESC'
+  | 'imageUrl_ASC'
+  | 'imageUrl_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
