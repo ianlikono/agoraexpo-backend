@@ -21,6 +21,12 @@ export const Query = queryType({
         return ctx.prisma.shop({ id });
       }
     });
+    t.field("shops", {
+      type: "Shop",
+      resolve: async (parent, {}, ctx) => {
+        return await ctx.prisma.shops({ first: 10 });
+      }
+    });
     t.field("product", {
       type: "Product",
       args: { id: idArg() },

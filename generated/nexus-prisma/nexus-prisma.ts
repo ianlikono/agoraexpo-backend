@@ -308,8 +308,8 @@ export interface NexusPrismaTypes {
       UserImageCreateWithoutUserInput: UserImageCreateWithoutUserInputInputObject
       CartCreateOneWithoutUserInput: CartCreateOneWithoutUserInputInputObject
       CartCreateWithoutUserInput: CartCreateWithoutUserInputInputObject
-      CartItemCreateManyInput: CartItemCreateManyInputInputObject
-      CartItemCreateInput: CartItemCreateInputInputObject
+      CartItemCreateManyWithoutCartInput: CartItemCreateManyWithoutCartInputInputObject
+      CartItemCreateWithoutCartInput: CartItemCreateWithoutCartInputInputObject
       ProductCreateOneInput: ProductCreateOneInputInputObject
       ProductCreateInput: ProductCreateInputInputObject
       ShopCreateOneWithoutProductsInput: ShopCreateOneWithoutProductsInputInputObject
@@ -401,9 +401,9 @@ export interface NexusPrismaTypes {
       UserImageUpdateManyDataInput: UserImageUpdateManyDataInputInputObject
       CartUpdateOneWithoutUserInput: CartUpdateOneWithoutUserInputInputObject
       CartUpdateWithoutUserDataInput: CartUpdateWithoutUserDataInputInputObject
-      CartItemUpdateManyInput: CartItemUpdateManyInputInputObject
-      CartItemUpdateWithWhereUniqueNestedInput: CartItemUpdateWithWhereUniqueNestedInputInputObject
-      CartItemUpdateDataInput: CartItemUpdateDataInputInputObject
+      CartItemUpdateManyWithoutCartInput: CartItemUpdateManyWithoutCartInputInputObject
+      CartItemUpdateWithWhereUniqueWithoutCartInput: CartItemUpdateWithWhereUniqueWithoutCartInputInputObject
+      CartItemUpdateWithoutCartDataInput: CartItemUpdateWithoutCartDataInputInputObject
       ProductUpdateOneRequiredInput: ProductUpdateOneRequiredInputInputObject
       ProductUpdateDataInput: ProductUpdateDataInputInputObject
       ShopUpdateOneRequiredWithoutProductsInput: ShopUpdateOneRequiredWithoutProductsInputInputObject
@@ -473,7 +473,7 @@ export interface NexusPrismaTypes {
       ShopUpsertWithoutProductsInput: ShopUpsertWithoutProductsInputInputObject
       ProductUpsertNestedInput: ProductUpsertNestedInputInputObject
       CartItemUpdatevariantsInput: CartItemUpdatevariantsInputInputObject
-      CartItemUpsertWithWhereUniqueNestedInput: CartItemUpsertWithWhereUniqueNestedInputInputObject
+      CartItemUpsertWithWhereUniqueWithoutCartInput: CartItemUpsertWithWhereUniqueWithoutCartInputInputObject
       CartItemScalarWhereInput: CartItemScalarWhereInputInputObject
       CartItemUpdateManyWithWhereNestedInput: CartItemUpdateManyWithWhereNestedInputInputObject
       CartItemUpdateManyDataInput: CartItemUpdateManyDataInputInputObject
@@ -526,7 +526,13 @@ export interface NexusPrismaTypes {
       UserUpdateOneRequiredWithoutCartItemsInput: UserUpdateOneRequiredWithoutCartItemsInputInputObject
       UserUpdateWithoutCartItemsDataInput: UserUpdateWithoutCartItemsDataInputInputObject
       UserUpsertWithoutCartItemsInput: UserUpsertWithoutCartItemsInputInputObject
+      CartItemCreateInput: CartItemCreateInputInputObject
+      CartCreateOneWithoutItemsInput: CartCreateOneWithoutItemsInputInputObject
+      CartCreateWithoutItemsInput: CartCreateWithoutItemsInputInputObject
       CartItemUpdateInput: CartItemUpdateInputInputObject
+      CartUpdateOneRequiredWithoutItemsInput: CartUpdateOneRequiredWithoutItemsInputInputObject
+      CartUpdateWithoutItemsDataInput: CartUpdateWithoutItemsDataInputInputObject
+      CartUpsertWithoutItemsInput: CartUpsertWithoutItemsInputInputObject
       CartItemUpdateManyMutationInput: CartItemUpdateManyMutationInputInputObject
       orderItemCreateInput: orderItemCreateInputInputObject
       orderItemCreatevariantsInput: orderItemCreatevariantsInputInputObject
@@ -3153,6 +3159,7 @@ type CartItemObject =
   | { name: 'variants', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+  | { name: 'cart', args?: [] | false, alias?: string  } 
 
 type CartItemFields =
   | 'id'
@@ -3161,6 +3168,7 @@ type CartItemFields =
   | 'variants'
   | 'createdAt'
   | 'updatedAt'
+  | 'cart'
 
 
 
@@ -3219,6 +3227,19 @@ export interface CartItemFieldDetails {
     list: undefined
     nullable: false
     resolve: undefined
+  }
+  cart: {
+    type: 'Cart'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"CartItem">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Cart> | prisma.Cart
   }
 }
   
@@ -5164,7 +5185,7 @@ export interface OrderFieldDetails {
     ) => Promise<prisma.orderItem[]> | prisma.orderItem[]
   }
   total: {
-    type: 'Int'
+    type: 'String'
     args: {}
     description: string
     list: undefined
@@ -10056,7 +10077,7 @@ export interface OrderPreviousValuesFieldDetails {
     resolve: undefined
   }
   total: {
-    type: 'Int'
+    type: 'String'
     args: {}
     description: string
     list: undefined
@@ -12407,6 +12428,7 @@ export interface CartItemWhereInput {
   updatedAt_lte?: string | null
   updatedAt_gt?: string | null
   updatedAt_gte?: string | null
+  cart?: CartWhereInput | null
   AND?: CartItemWhereInput[]
   OR?: CartItemWhereInput[]
   NOT?: CartItemWhereInput[]
@@ -12452,6 +12474,7 @@ export type CartItemWhereInputInputObject =
   | { name: 'updatedAt_lte', alias?: string  } 
   | { name: 'updatedAt_gt', alias?: string  } 
   | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'cart', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -13326,14 +13349,20 @@ export interface OrderWhereInput {
   items_every?: orderItemWhereInput | null
   items_some?: orderItemWhereInput | null
   items_none?: orderItemWhereInput | null
-  total?: number | null
-  total_not?: number | null
-  total_in?: number[]
-  total_not_in?: number[]
-  total_lt?: number | null
-  total_lte?: number | null
-  total_gt?: number | null
-  total_gte?: number | null
+  total?: string | null
+  total_not?: string | null
+  total_in?: string[]
+  total_not_in?: string[]
+  total_lt?: string | null
+  total_lte?: string | null
+  total_gt?: string | null
+  total_gte?: string | null
+  total_contains?: string | null
+  total_not_contains?: string | null
+  total_starts_with?: string | null
+  total_not_starts_with?: string | null
+  total_ends_with?: string | null
+  total_not_ends_with?: string | null
   user?: UserWhereInput | null
   paymentId?: string | null
   paymentId_not?: string | null
@@ -13424,6 +13453,12 @@ export type OrderWhereInputInputObject =
   | { name: 'total_lte', alias?: string  } 
   | { name: 'total_gt', alias?: string  } 
   | { name: 'total_gte', alias?: string  } 
+  | { name: 'total_contains', alias?: string  } 
+  | { name: 'total_not_contains', alias?: string  } 
+  | { name: 'total_starts_with', alias?: string  } 
+  | { name: 'total_not_starts_with', alias?: string  } 
+  | { name: 'total_ends_with', alias?: string  } 
+  | { name: 'total_not_ends_with', alias?: string  } 
   | { name: 'user', alias?: string  } 
   | { name: 'paymentId', alias?: string  } 
   | { name: 'paymentId_not', alias?: string  } 
@@ -13846,30 +13881,30 @@ export type CartCreateOneWithoutUserInputInputObject =
   
 export interface CartCreateWithoutUserInput {
   id?: string | null
-  items?: CartItemCreateManyInput | null
+  items?: CartItemCreateManyWithoutCartInput | null
 }
 export type CartCreateWithoutUserInputInputObject =
   | Extract<keyof CartCreateWithoutUserInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'items', alias?: string  } 
   
-export interface CartItemCreateManyInput {
-  create?: CartItemCreateInput[]
+export interface CartItemCreateManyWithoutCartInput {
+  create?: CartItemCreateWithoutCartInput[]
   connect?: CartItemWhereUniqueInput[]
 }
-export type CartItemCreateManyInputInputObject =
-  | Extract<keyof CartItemCreateManyInput, string>
+export type CartItemCreateManyWithoutCartInputInputObject =
+  | Extract<keyof CartItemCreateManyWithoutCartInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface CartItemCreateInput {
+export interface CartItemCreateWithoutCartInput {
   id?: string | null
   product?: ProductCreateOneInput
   quantity?: number
   variants?: CartItemCreatevariantsInput | null
 }
-export type CartItemCreateInputInputObject =
-  | Extract<keyof CartItemCreateInput, string>
+export type CartItemCreateWithoutCartInputInputObject =
+  | Extract<keyof CartItemCreateWithoutCartInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'product', alias?: string  } 
   | { name: 'quantity', alias?: string  } 
@@ -15680,51 +15715,51 @@ export type CartUpdateOneWithoutUserInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface CartUpdateWithoutUserDataInput {
-  items?: CartItemUpdateManyInput | null
+  items?: CartItemUpdateManyWithoutCartInput | null
 }
 export type CartUpdateWithoutUserDataInputInputObject =
   | Extract<keyof CartUpdateWithoutUserDataInput, string>
   | { name: 'items', alias?: string  } 
   
-export interface CartItemUpdateManyInput {
-  create?: CartItemCreateInput[]
-  update?: CartItemUpdateWithWhereUniqueNestedInput[]
-  upsert?: CartItemUpsertWithWhereUniqueNestedInput[]
+export interface CartItemUpdateManyWithoutCartInput {
+  create?: CartItemCreateWithoutCartInput[]
   delete?: CartItemWhereUniqueInput[]
   connect?: CartItemWhereUniqueInput[]
   set?: CartItemWhereUniqueInput[]
   disconnect?: CartItemWhereUniqueInput[]
+  update?: CartItemUpdateWithWhereUniqueWithoutCartInput[]
+  upsert?: CartItemUpsertWithWhereUniqueWithoutCartInput[]
   deleteMany?: CartItemScalarWhereInput[]
   updateMany?: CartItemUpdateManyWithWhereNestedInput[]
 }
-export type CartItemUpdateManyInputInputObject =
-  | Extract<keyof CartItemUpdateManyInput, string>
+export type CartItemUpdateManyWithoutCartInputInputObject =
+  | Extract<keyof CartItemUpdateManyWithoutCartInput, string>
   | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
   | { name: 'delete', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   | { name: 'set', alias?: string  } 
   | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
   | { name: 'deleteMany', alias?: string  } 
   | { name: 'updateMany', alias?: string  } 
   
-export interface CartItemUpdateWithWhereUniqueNestedInput {
+export interface CartItemUpdateWithWhereUniqueWithoutCartInput {
   where?: CartItemWhereUniqueInput
-  data?: CartItemUpdateDataInput
+  data?: CartItemUpdateWithoutCartDataInput
 }
-export type CartItemUpdateWithWhereUniqueNestedInputInputObject =
-  | Extract<keyof CartItemUpdateWithWhereUniqueNestedInput, string>
+export type CartItemUpdateWithWhereUniqueWithoutCartInputInputObject =
+  | Extract<keyof CartItemUpdateWithWhereUniqueWithoutCartInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'data', alias?: string  } 
   
-export interface CartItemUpdateDataInput {
+export interface CartItemUpdateWithoutCartDataInput {
   product?: ProductUpdateOneRequiredInput | null
   quantity?: number | null
   variants?: CartItemUpdatevariantsInput | null
 }
-export type CartItemUpdateDataInputInputObject =
-  | Extract<keyof CartItemUpdateDataInput, string>
+export type CartItemUpdateWithoutCartDataInputInputObject =
+  | Extract<keyof CartItemUpdateWithoutCartDataInput, string>
   | { name: 'product', alias?: string  } 
   | { name: 'quantity', alias?: string  } 
   | { name: 'variants', alias?: string  } 
@@ -17382,13 +17417,13 @@ export type CartItemUpdatevariantsInputInputObject =
   | Extract<keyof CartItemUpdatevariantsInput, string>
   | { name: 'set', alias?: string  } 
   
-export interface CartItemUpsertWithWhereUniqueNestedInput {
+export interface CartItemUpsertWithWhereUniqueWithoutCartInput {
   where?: CartItemWhereUniqueInput
-  update?: CartItemUpdateDataInput
-  create?: CartItemCreateInput
+  update?: CartItemUpdateWithoutCartDataInput
+  create?: CartItemCreateWithoutCartInput
 }
-export type CartItemUpsertWithWhereUniqueNestedInputInputObject =
-  | Extract<keyof CartItemUpsertWithWhereUniqueNestedInput, string>
+export type CartItemUpsertWithWhereUniqueWithoutCartInputInputObject =
+  | Extract<keyof CartItemUpsertWithWhereUniqueWithoutCartInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
@@ -18373,7 +18408,7 @@ export type ProductUpdateManyMutationInputInputObject =
 export interface CartCreateInput {
   id?: string | null
   user?: UserCreateOneWithoutCartItemsInput
-  items?: CartItemCreateManyInput | null
+  items?: CartItemCreateManyWithoutCartInput | null
 }
 export type CartCreateInputInputObject =
   | Extract<keyof CartCreateInput, string>
@@ -18425,7 +18460,7 @@ export type UserCreateWithoutCartItemsInputInputObject =
   
 export interface CartUpdateInput {
   user?: UserUpdateOneRequiredWithoutCartItemsInput | null
-  items?: CartItemUpdateManyInput | null
+  items?: CartItemUpdateManyWithoutCartInput | null
 }
 export type CartUpdateInputInputObject =
   | Extract<keyof CartUpdateInput, string>
@@ -18485,16 +18520,80 @@ export type UserUpsertWithoutCartItemsInputInputObject =
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
+export interface CartItemCreateInput {
+  id?: string | null
+  product?: ProductCreateOneInput
+  quantity?: number
+  variants?: CartItemCreatevariantsInput | null
+  cart?: CartCreateOneWithoutItemsInput
+}
+export type CartItemCreateInputInputObject =
+  | Extract<keyof CartItemCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'product', alias?: string  } 
+  | { name: 'quantity', alias?: string  } 
+  | { name: 'variants', alias?: string  } 
+  | { name: 'cart', alias?: string  } 
+  
+export interface CartCreateOneWithoutItemsInput {
+  create?: CartCreateWithoutItemsInput | null
+  connect?: CartWhereUniqueInput | null
+}
+export type CartCreateOneWithoutItemsInputInputObject =
+  | Extract<keyof CartCreateOneWithoutItemsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface CartCreateWithoutItemsInput {
+  id?: string | null
+  user?: UserCreateOneWithoutCartItemsInput
+}
+export type CartCreateWithoutItemsInputInputObject =
+  | Extract<keyof CartCreateWithoutItemsInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'user', alias?: string  } 
+  
 export interface CartItemUpdateInput {
   product?: ProductUpdateOneRequiredInput | null
   quantity?: number | null
   variants?: CartItemUpdatevariantsInput | null
+  cart?: CartUpdateOneRequiredWithoutItemsInput | null
 }
 export type CartItemUpdateInputInputObject =
   | Extract<keyof CartItemUpdateInput, string>
   | { name: 'product', alias?: string  } 
   | { name: 'quantity', alias?: string  } 
   | { name: 'variants', alias?: string  } 
+  | { name: 'cart', alias?: string  } 
+  
+export interface CartUpdateOneRequiredWithoutItemsInput {
+  create?: CartCreateWithoutItemsInput | null
+  update?: CartUpdateWithoutItemsDataInput | null
+  upsert?: CartUpsertWithoutItemsInput | null
+  connect?: CartWhereUniqueInput | null
+}
+export type CartUpdateOneRequiredWithoutItemsInputInputObject =
+  | Extract<keyof CartUpdateOneRequiredWithoutItemsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface CartUpdateWithoutItemsDataInput {
+  user?: UserUpdateOneRequiredWithoutCartItemsInput | null
+}
+export type CartUpdateWithoutItemsDataInputInputObject =
+  | Extract<keyof CartUpdateWithoutItemsDataInput, string>
+  | { name: 'user', alias?: string  } 
+  
+export interface CartUpsertWithoutItemsInput {
+  update?: CartUpdateWithoutItemsDataInput
+  create?: CartCreateWithoutItemsInput
+}
+export type CartUpsertWithoutItemsInputInputObject =
+  | Extract<keyof CartUpsertWithoutItemsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
   
 export interface CartItemUpdateManyMutationInput {
   quantity?: number | null
@@ -18575,7 +18674,7 @@ export type orderItemUpdateManyMutationInputInputObject =
 export interface OrderCreateInput {
   id?: string | null
   items?: orderItemCreateManyInput | null
-  total?: number
+  total?: string
   user?: UserCreateOneInput
   paymentId?: string
   PayerID?: string
@@ -18611,7 +18710,7 @@ export type UserCreateOneInputInputObject =
   
 export interface OrderUpdateInput {
   items?: orderItemUpdateManyInput | null
-  total?: number | null
+  total?: string | null
   user?: UserUpdateOneRequiredInput | null
   paymentId?: string | null
   PayerID?: string | null
@@ -18967,7 +19066,7 @@ export type UserUpsertNestedInputInputObject =
   | { name: 'create', alias?: string  } 
   
 export interface OrderUpdateManyMutationInput {
-  total?: number | null
+  total?: string | null
   paymentId?: string | null
   PayerID?: string | null
   imageUrl?: string | null

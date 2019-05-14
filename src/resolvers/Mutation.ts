@@ -523,9 +523,10 @@ export const Mutation = mutationType({
       args: {
         items: idArg({ list: true, required: true }),
         paymentId: stringArg({ required: true }),
-        PayerID: stringArg({ required: true })
+        PayerID: stringArg({ required: true }),
+        cartId: idArg({ required: true })
       },
-      resolve: async (parent, { items, paymentId, PayerID }, ctx) => {
+      resolve: async (parent, { items, paymentId, PayerID, cartId }, ctx) => {
         const userId = getUserId(ctx);
         let promises = [];
         for (let i = 0; i < items.length; ++i) {
@@ -566,9 +567,17 @@ export const Mutation = mutationType({
           items: { connect: orderItemsIds },
           paymentId: paymentId,
           PayerID: PayerID,
-          total: total,
+          total: total.toString(),
           imageUrl: cartImages[0][0].imageUrl
         });
+        const deletedCart = [];
+        for (let i = 0; i < cartItems.length; i++) {
+          deletedCart[i] = ctx.prisma.deleteCartItem({
+            id: cartItems[i][0].id
+          });
+        }
+        await Promise.all(deletedCart);
+        await ctx.prisma.deleteCart({ id: cartId });
         return createdOrder;
       }
     });

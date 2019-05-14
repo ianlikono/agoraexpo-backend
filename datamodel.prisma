@@ -123,6 +123,7 @@ type CartItem {
   variants: [String] @scalarList(strategy: RELATION)
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
+  cart: Cart!
 }
 
 type orderItem {
@@ -140,7 +141,7 @@ type orderItem {
 type Order {
   id: ID! @id
   items: [orderItem!]!
-  total: Int!
+  total: String!
   user: User!
   paymentId: String!
   PayerID: String!

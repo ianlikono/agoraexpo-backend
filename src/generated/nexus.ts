@@ -65,6 +65,7 @@ export interface NexusGenInputs {
   }
   CartItemWhereInput: { // input type
     AND?: NexusGenInputs['CartItemWhereInput'][] | null; // [CartItemWhereInput!]
+    cart?: NexusGenInputs['CartWhereInput'] | null; // CartWhereInput
     createdAt?: any | null; // DateTime
     createdAt_gt?: any | null; // DateTime
     createdAt_gte?: any | null; // DateTime
@@ -1242,7 +1243,7 @@ export interface NexusGenRootTypes {
     imageUrl?: string | null; // String
     PayerID: string; // String!
     paymentId: string; // String!
-    total: number; // Int!
+    total: string; // String!
     updatedAt: any; // DateTime!
   }
   Product: { // root type
@@ -1385,6 +1386,7 @@ export interface NexusGenFieldTypes {
     user: NexusGenRootTypes['User']; // User!
   }
   CartItem: { // field return type
+    cart: NexusGenRootTypes['Cart']; // Cart!
     createdAt: any; // DateTime!
     id: string; // ID!
     product: NexusGenRootTypes['Product']; // Product!
@@ -1457,7 +1459,7 @@ export interface NexusGenFieldTypes {
     items: NexusGenRootTypes['orderItem'][] | null; // [orderItem!]
     PayerID: string; // String!
     paymentId: string; // String!
-    total: number; // Int!
+    total: string; // String!
     updatedAt: any; // DateTime!
     user: NexusGenRootTypes['User']; // User!
   }
@@ -1512,6 +1514,7 @@ export interface NexusGenFieldTypes {
     product: NexusGenRootTypes['Product'] | null; // Product
     productReviews: NexusGenRootTypes['ProductReview'][] | null; // [ProductReview!]
     shop: NexusGenRootTypes['Shop'] | null; // Shop
+    shops: NexusGenRootTypes['Shop'] | null; // Shop
   }
   Shop: { // field return type
     category: string; // String!
@@ -1674,6 +1677,7 @@ export interface NexusGenArgTypes {
       type: string; // String!
     }
     createOrder: { // args
+      cartId: string; // ID!
       items: string[]; // [ID!]!
       PayerID: string; // String!
       paymentId: string; // String!

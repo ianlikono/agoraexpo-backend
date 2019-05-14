@@ -76,6 +76,7 @@ type Cart {
 }
 
 type CartItem {
+  cart: Cart!
   createdAt: DateTime!
   id: ID!
   product: Product!
@@ -97,6 +98,7 @@ enum CartItemOrderByInput {
 
 input CartItemWhereInput {
   AND: [CartItemWhereInput!]
+  cart: CartWhereInput
   createdAt: DateTime
   createdAt_gt: DateTime
   createdAt_gte: DateTime
@@ -548,7 +550,7 @@ type Mutation {
   addVariant(name: String!, productId: ID!, values: [String!]): Variant
   createForum(avatarPic: String, coverPic: String, description: String, name: String!): Forum
   createForumPost(content: String, forumId: String!, title: String!, type: String!): ForumPost
-  createOrder(items: [ID!]!, PayerID: String!, paymentId: String!): Order
+  createOrder(cartId: ID!, items: [ID!]!, PayerID: String!, paymentId: String!): Order
   createPostForumComment(comment: String!, postId: ID!): ForumPostComment
   createProduct(brand: String!, categories: [String!], description: String!, id: ID!, images: [String!], price: String!, tags: [String!], title: String!): Product
   createProductReview(productId: ID!, rating: Int!, review: String): ProductReview
@@ -571,7 +573,7 @@ type Order {
   items(after: String, before: String, first: Int, last: Int, orderBy: orderItemOrderByInput, skip: Int, where: orderItemWhereInput): [orderItem!]
   PayerID: String!
   paymentId: String!
-  total: Int!
+  total: String!
   updatedAt: DateTime!
   user: User!
 }
@@ -1022,6 +1024,7 @@ type Query {
   product(id: ID): Product
   productReviews(productId: ID!): [ProductReview!]
   shop(id: ID): Shop
+  shops: Shop
 }
 
 type Shop {
