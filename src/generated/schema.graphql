@@ -1008,23 +1008,27 @@ input ProductWhereInput {
 type Query {
   filterCategories(searchString: String): [Category!]
   filterForums(searchString: String): [Forum!]
+  filterProducts(searchString: String): [Product!]
   filterUsers(searchString: String): [User!]
   forumPost(id: ID): ForumPost
   forumPostComments(postId: ID!): [ForumPostComment!]
   forumPosts(forumName: String!): [ForumPost!]
   forums(limit: Int): [ForumPost!]
+  getForums(limit: Int): [Forum!]
   getMeCart: [Cart!]
   getMeOrders: [Order!]
   getOrder(orderId: ID!): [Order!]
-  getShopProducts(shopId: ID!): [Product!]
+  getShopProducts(limit: Int, shopId: ID!): [Product!]
+  getShops(limit: Int): [Shop!]
   getUser(username: String!): [User!]
   getUserForums(username: String!): [Forum!]
   getUserPosts(username: String!): [ForumPost!]
+  getUsers(limit: Int): [User!]
   me: User
   product(id: ID): Product
   productReviews(productId: ID!): [ProductReview!]
   shop(id: ID): Shop
-  shops: Shop
+  similarProducts(brandName: String, categories: [String!], tags: [String!]): [Product!]
 }
 
 type Shop {

@@ -1,3 +1,4 @@
+import * as _ from "lodash";
 import { idArg, intArg, queryType, stringArg } from "nexus";
 import { getUserId } from "../utils/getUser";
 
@@ -21,12 +22,7 @@ export const Query = queryType({
         return ctx.prisma.shop({ id });
       }
     });
-    t.field("shops", {
-      type: "Shop",
-      resolve: async (parent, {}, ctx) => {
-        return await ctx.prisma.shops({ first: 10 });
-      }
-    });
+
     t.field("product", {
       type: "Product",
       args: { id: idArg() },
@@ -61,6 +57,81 @@ export const Query = queryType({
             ]
           }
         });
+      }
+    });
+    t.list.field("filterProducts", {
+      type: "Product",
+      args: {
+        searchString: stringArg()
+      },
+      resolve: (parent, { searchString }, ctx) => {
+        return ctx.prisma.products({
+          where: {
+            OR: [
+              { title_contains: searchString },
+              { description_contains: searchString }
+            ]
+          },
+          first: 10
+        });
+      }
+    });
+
+    t.list.field("similarProducts", {
+      type: "Product",
+      args: {
+        brandName: stringArg({ required: false }),
+        categories: stringArg({ required: false, list: true }),
+        tags: stringArg({ required: false, list: true })
+      },
+      resolve: async (parent, { categories, brandName, tags }, ctx) => {
+        let categoriesList = [];
+        for (let i = 0; i < categories.length; i++) {
+          categoriesList[i] = await ctx.prisma.products({
+            where: { categories_some: { name_contains: categories[i] } }
+          });
+        }
+        categoriesList = categoriesList.map(item => item[0]);
+        categoriesList = _.uniqBy(categoriesList, "id");
+        if (categoriesList.length > 5) {
+          return categoriesList;
+        } else {
+          let tagsList = [];
+          for (let i = 0; i < tags.length; i++) {
+            tagsList[i] = await ctx.prisma.products({
+              where: { tags_some: { name_contains: tags[i] } }
+            });
+          }
+          tagsList = tagsList.map(item => item[0]);
+          let similarList = [...categoriesList, ...tagsList];
+          similarList = _.uniqBy(similarList, "id");
+          if (similarList.length > 5) {
+            return similarList;
+          } else {
+            const brandsList = await ctx.prisma.products({
+              where: { brand: { name_contains: brandName } }
+            });
+            let finalSimilarList = [
+              ...categoriesList,
+              ...tagsList,
+              ...brandsList
+            ];
+            finalSimilarList = _.uniqBy(finalSimilarList, "id");
+            if (finalSimilarList.length > 5) {
+              return finalSimilarList;
+            } else {
+              const toFetch = 5 - finalSimilarList.length;
+              const finalSimilarIds = await finalSimilarList.map(item => {
+                return item.id;
+              });
+              const remaining = await ctx.prisma.products({
+                first: toFetch,
+                where: { id_not_in: finalSimilarIds }
+              });
+              return [...finalSimilarList, ...remaining];
+            }
+          }
+        }
       }
     });
 
@@ -142,6 +213,41 @@ export const Query = queryType({
       }
     });
 
+    t.list.field("getShops", {
+      type: "Shop",
+      args: {
+        limit: intArg({ required: false })
+      },
+      resolve: (parent, { limit }, ctx) => {
+        return ctx.prisma.shops({
+          first: limit
+        });
+      }
+    });
+    t.list.field("getUsers", {
+      type: "User",
+      args: {
+        limit: intArg({ required: false })
+      },
+      resolve: (parent, { limit }, ctx) => {
+        return ctx.prisma.users({
+          first: limit
+        });
+      }
+    });
+
+    t.list.field("getForums", {
+      type: "Forum",
+      args: {
+        limit: intArg({ required: false })
+      },
+      resolve: (parent, { limit }, ctx) => {
+        return ctx.prisma.forums({
+          first: limit
+        });
+      }
+    });
+
     t.list.field("forumPosts", {
       type: "ForumPost",
       args: {
@@ -157,11 +263,13 @@ export const Query = queryType({
     t.list.field("getShopProducts", {
       type: "Product",
       args: {
-        shopId: idArg({ required: true })
+        shopId: idArg({ required: true }),
+        limit: intArg({ required: false })
       },
-      resolve: async (_, { shopId }, ctx) => {
+      resolve: async (_, { shopId, limit }, ctx) => {
         const products = await ctx.prisma.products({
-          where: { shop: { id: shopId } }
+          where: { shop: { id: shopId } },
+          first: limit
         });
         return products;
       }
