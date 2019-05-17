@@ -66,7 +66,7 @@ const opts = {
   port: 4000,
   cors: {
     credentials: true,
-    origin: ["http://localhost:3000"] // your frontend url.
+    origin: ["http://localhost:3000", "https://agoraexpo.com"] // your frontend url.
   }
 };
 
@@ -89,6 +89,7 @@ server.express.use(
   } as any)
 );
 
-server.start(opts, () =>
-  console.log(`🚀 Server is running on http://localhost:${opts.port}`)
-);
+server.start(opts, () => {
+  console.log(process.env.NODE_ENV);
+  console.log(`🚀 Server is running on http://localhost:${opts.port}`);
+});

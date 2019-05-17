@@ -6,10 +6,10 @@
   "scripts": {
     "deploy": "prisma deploy --env-file .env",
     "dev": "ts-node-dev --no-notify --respawn --transpileOnly ./src",
+    "build": "tsc -b",
     "test": "jest"
   },
   "dependencies": {
-    "bcrypt": "^3.0.5",
     "connect-redis": "^3.4.1",
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
@@ -29,7 +29,6 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.23",
-    "@types/bcrypt": "^3.0.0",
     "@types/connect-redis": "^0.0.9",
     "@types/cors": "^2.8.4",
     "@types/dotenv": "^6.1.1",

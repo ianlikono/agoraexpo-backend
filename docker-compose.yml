@@ -1,0 +1,17 @@
+version: "3"
+services:
+  redis:
+    image: redis
+    networks:
+      - webnet
+  web:
+    # replace username/repo:tag with your name and image details
+    image: agoraexpo/agoraexpo-server:latest
+    ports:
+      - "4000:4000"
+    networks:
+      - webnet
+    environment:
+      REDIS_HOST: redis
+networks:
+  webnet:
