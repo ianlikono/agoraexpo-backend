@@ -9662,7 +9662,7 @@ export const models: Model[] = [
 export const Prisma = makePrismaClientClass<ClientConstructor<Prisma>>({
   typeDefs,
   models,
-  endpoint: `https://agoraexpo-prod-c1efd45270.herokuapp.com/agoraexpo-prod/prod`,
+  endpoint: `https://still-brook-40385.herokuapp.com/agoraexpo-production/prod`,
   secret: `111jkdsjknd$$$$**s$$**$$jkdsjnk`
 });
 export const prisma = new Prisma();
