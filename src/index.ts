@@ -89,7 +89,6 @@ server.express.use(
   } as any)
 );
 
-server.start(opts, () => {
-  console.log(process.env.NODE_ENV);
-  console.log(`🚀 Server is running on http://localhost:${opts.port}`);
-});
+server.start(opts, () =>
+  console.log(`🚀 Server is running on http://localhost:${opts.port}`)
+);
