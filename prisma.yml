@@ -1,4 +1,4 @@
-#endpoint: "https://us1.prisma.sh/ian-likono-09ee33/agoraexpo/dev"
+# endpoint: "https://us1.prisma.sh/ian-likono-09ee33/agoraexpo/dev"
 #endpoint: https://agoraexpo-prod-c1efd45270.herokuapp.com/agoraexpo-prod/prod
 endpoint: https://still-brook-40385.herokuapp.com/agoraexpo-production/prod
 datamodel: datamodel.prisma

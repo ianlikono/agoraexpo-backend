@@ -2,23 +2,9 @@ import * as admin from "firebase-admin";
 import { booleanArg, idArg, intArg, mutationType, stringArg } from "nexus";
 import * as shortid from "shortid";
 import { userSessionIdPrefix } from "../constants/sessions";
+import firebaseCredentials from "../credentials/firebase";
 import { redis } from "../redis";
 import { getUserId } from "../utils/getUser";
-
-const firebaseCredentials = {
-  type: "service_account",
-  project_id: "agoraexpo-dev",
-  private_key_id: "98fa99530c61cb93b231681f53ee1e2775ed2a4b",
-  private_key:
-    "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCQGaI+IEQY6BPU\nG9NU0z2dldwpGZHCJ+n4VKFuEpUxjxqP72kvPuIQUMNhWX0u/6hFLkuB0QDuALVU\n6vBPUixkLYOnaAf2ZMF8LiZCSpLvUddCUtgV2y7SPiBzRX5XHiJKxZ7OsydSVAAy\nEnPRy3ZxcRJZgiEmIybKpxO1NOPa630YzQBVn7yoiZJtfkpaBci2uXL9ta35rwhu\nwPMMLnXVpBnOQzNrLIYC8VpHT9W61yYGG7siWyVmCUGLsFCGJQ83k4lRFfXRpBjC\nDcQmJjxVfav/jCk8kGoN7ZUKOjnloO34Hziy6GGmAD0wYGZRQWIm2DbX2MGz042M\nP7bchWGpAgMBAAECggEAF+Lf5Xt0vkouC0FniQ6RDp+qRHfUFQKHwp3IupXC/FmT\n1hsh7O54C6tPj8IFQbaoPnt7kbPC+zDL3h0po4RkDmELC0Nv2nR+LCb8OY3iCGCh\nFYHlBs5z1u7scx8oX6mDlrBmcC37TSbWd3Zek36uDgTnvUWYWBmIkxwZ5LY1NPMH\ndXYvJjc3T/1CzbbLYYkldvw8fpJYlzllT2tnXfkzQ48f67yxeV+DeKFN5k6LI10P\nPza7ezai6MRvBDhBGul5PjYgHlhlW57377k4t9ev5matcimju+zB8IqqQzLSkvvI\nqA09C/CZys0e5L8GP+mIyq/cM0ovOZ3UJ2glbTESXwKBgQDC0Xl2RtmiUOMfDvYD\nztXxA9xpxidOCly9S7C0MOQbaYQNvfDHrvZLHClM2NgvB8hQ0ASPivwV11pHXCP4\nsES6frWSh73BJcRJCJ6fwSmUUqyrBHjhV0jiE1t3t4cH6IaDyXU6PL4BuEy/Exf4\nPUjQDsNn4xHuGfAv4zUsvfgFswKBgQC9WqV5Arw3ds01W7C/GGB4IIrseNjfRHl1\nPY6zfsWm+rt4ttGe27T6mcCU5KXgIUF1wRQIEW+fykWNSZ3eMDAYZxxhXE7qkgP+\njjlGC0POOEWqrVr99VziZysUnnK5889hSlH50Kb4UJsrNx/Bs0/T3veyQxYcdR0M\nBmw7l6FFMwKBgDOwODW1XpC+PURER+mCuyiTCavWsx71iN2Ac4WbYyoSuMKcnoGc\nXiRXeG23KsRvoCowxsT+7xssY/uC6thUjCee7rXN5f6U8psd+lgQe+Oqe710Fk5T\nRjcVQ7NjsiPbAbV9gejNrOvv5gzcGAP43pS1Fgs+J8ewghVyhu00CdYZAoGBAKEe\nwZB/cFIth51wgKuJ/YQaBLwEdF0+ca7+Cy/Wni5gSScFQMbQomVecM0A5dgZ1A5z\nlSzsUTQBND9ttaP7EuGg0zhRCGF2j2mJ8VgVe8O8hCMf0T4pCrknGjQ4QtzRhdN+\nHtTX40uFoxMZm68BedqJbfDEPstGJ8o0qOHoOvSbAoGADOJ9As8fE5qVv2l6cUwz\nqZmqHMKSsgziqE26fnJnCfHnbAPt9Y/HC7C7elaeNOg91tB7sX5t+Q7sMOrSafuq\nXoGJuDSmlanJ4dX/v0MLN9hEOWN+lRTA+fLchPqX6vY9wbXY00EnRBseQ2j8xF43\nh7TizaDbxJ156QtjJiqryN8=\n-----END PRIVATE KEY-----\n",
-  client_email: "firebase-adminsdk-loxi6@agoraexpo-dev.iam.gserviceaccount.com",
-  client_id: "103773008668110021909",
-  auth_uri: "https://accounts.google.com/o/oauth2/auth",
-  token_uri: "https://oauth2.googleapis.com/token",
-  auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
-  client_x509_cert_url:
-    "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-loxi6%40agoraexpo-dev.iam.gserviceaccount.com"
-};
 
 const firebase = admin.initializeApp(
   {
