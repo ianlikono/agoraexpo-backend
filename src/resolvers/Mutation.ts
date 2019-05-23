@@ -1,9 +1,7 @@
 import * as admin from "firebase-admin";
 import { booleanArg, idArg, intArg, mutationType, stringArg } from "nexus";
 import * as shortid from "shortid";
-import { userSessionIdPrefix } from "../constants/sessions";
 import firebaseCredentials from "../credentials/firebase";
-import { redis } from "../redis";
 import { getUserId } from "../utils/getUser";
 
 const firebase = admin.initializeApp(
@@ -53,12 +51,6 @@ export const Mutation = mutationType({
             emailVerified
           });
           ctx.request.session.userId = user.id;
-          if (ctx.request.sessionID) {
-            await redis.lpush(
-              `${userSessionIdPrefix}${user.id}`,
-              ctx.request.sessionID
-            );
-          }
           return {
             user
           };
@@ -81,12 +73,6 @@ export const Mutation = mutationType({
             throw new Error(`Invalid Credentials`);
           }
           context.request.session.userId = user.id;
-          if (context.request.sessionID) {
-            await redis.lpush(
-              `${userSessionIdPrefix}${user.id}`,
-              context.request.sessionID
-            );
-          }
           return {
             user
           };

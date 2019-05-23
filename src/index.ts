@@ -1,18 +1,15 @@
-import * as connectRedis from "connect-redis";
 import * as session from "express-session";
 import { GraphQLServer } from "graphql-yoga";
 import { makePrismaSchema } from "nexus-prisma";
 import * as path from "path";
 import datamodelInfo from "../generated/nexus-prisma";
 import { prisma } from "../generated/prisma-client";
-import { redisSessionPrefix } from "./constants/sessions";
 import { permissions } from "./permisions";
 import { redis } from "./redis";
 import * as allTypes from "./resolvers";
 require("dotenv").config();
 
 const SESSION_SECRET = process.env.SESSION_SECRET;
-const RedisStore = connectRedis(session);
 
 const schema = makePrismaSchema({
   // Provide all the GraphQL types we've implemented
@@ -70,24 +67,19 @@ const opts = {
   }
 };
 
-server.express.use(
-  session({
-    store: new RedisStore({
-      client: redis as any,
-      prefix: redisSessionPrefix
-    }),
-    name: "qid",
-    secret: SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      httpOnly: true,
-      // secure: process.env.NODE_ENV === "production",
-      secure: false,
-      maxAge: 1000 * 60 * 60 * 24 * 7 * 365 // 7 years
-    }
-  } as any)
-);
+const sess = {
+  name: "qid",
+  secret: SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    maxAge: 1000 * 60 * 60 * 24 * 7 * 365 // 7 years
+  }
+}
+
+server.use(session(sess))
 
 server.start(opts, () =>
   console.log(`🚀 Server is running on http://localhost:${opts.port}`)
