@@ -5,7 +5,6 @@ import * as path from "path";
 import datamodelInfo from "../generated/nexus-prisma";
 import { prisma } from "../generated/prisma-client";
 import { permissions } from "./permisions";
-import { redis } from "./redis";
 import * as allTypes from "./resolvers";
 require("dotenv").config();
 
@@ -53,8 +52,7 @@ const server = new GraphQLServer({
     return {
       ...request,
       ...response,
-      prisma,
-      redis
+      prisma
     };
   }
 });
@@ -77,9 +75,9 @@ const sess = {
     secure: process.env.NODE_ENV === "production",
     maxAge: 1000 * 60 * 60 * 24 * 7 * 365 // 7 years
   }
-}
+};
 
-server.use(session(sess))
+server.use(session(sess));
 
 server.start(opts, () =>
   console.log(`🚀 Server is running on http://localhost:${opts.port}`)

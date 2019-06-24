@@ -780,19 +780,7 @@ export interface ClientConstructor<T> {
  * Types
  */
 
-export type ForumPostOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "title_ASC"
-  | "title_DESC"
-  | "content_ASC"
-  | "content_DESC"
-  | "type_ASC"
-  | "type_DESC";
+export type ForumPostType = "POST" | "MEDIA" | "LINK";
 
 export type ProductOrderByInput =
   | "id_ASC"
@@ -807,130 +795,6 @@ export type ProductOrderByInput =
   | "createdAt_DESC"
   | "updatedAt_ASC"
   | "updatedAt_DESC";
-
-export type CartItemOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "quantity_ASC"
-  | "quantity_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type OrderOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "total_ASC"
-  | "total_DESC"
-  | "paymentId_ASC"
-  | "paymentId_DESC"
-  | "PayerID_ASC"
-  | "PayerID_DESC"
-  | "imageUrl_ASC"
-  | "imageUrl_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type ProductReviewOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "rating_ASC"
-  | "rating_DESC"
-  | "review_ASC"
-  | "review_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type CartOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type UserImageOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "imageUrl_ASC"
-  | "imageUrl_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type VariantOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type ShopOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "category_ASC"
-  | "category_DESC"
-  | "live_ASC"
-  | "live_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type ForumOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "avatarPic_ASC"
-  | "avatarPic_DESC"
-  | "coverPic_ASC"
-  | "coverPic_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type UserOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "firebaseId_ASC"
-  | "firebaseId_DESC"
-  | "email_ASC"
-  | "email_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "username_ASC"
-  | "username_DESC"
-  | "profilePic_ASC"
-  | "profilePic_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "isAnonymous_ASC"
-  | "isAnonymous_DESC"
-  | "emailVerified_ASC"
-  | "emailVerified_DESC";
-
-export type MutationType = "CREATED" | "UPDATED" | "DELETED";
-
-export type ForumPostType = "POST" | "MEDIA" | "LINK";
 
 export type CategoryOrderByInput =
   | "id_ASC"
@@ -964,6 +828,156 @@ export type ProductImageOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
+export type UserOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "firebaseId_ASC"
+  | "firebaseId_DESC"
+  | "email_ASC"
+  | "email_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "username_ASC"
+  | "username_DESC"
+  | "profilePic_ASC"
+  | "profilePic_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "isAnonymous_ASC"
+  | "isAnonymous_DESC"
+  | "emailVerified_ASC"
+  | "emailVerified_DESC";
+
+export type ShopOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "description_ASC"
+  | "description_DESC"
+  | "category_ASC"
+  | "category_DESC"
+  | "live_ASC"
+  | "live_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type UserImageOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "imageUrl_ASC"
+  | "imageUrl_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type ProductReviewOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "rating_ASC"
+  | "rating_DESC"
+  | "review_ASC"
+  | "review_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type CartItemOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "quantity_ASC"
+  | "quantity_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type ForumPostOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "title_ASC"
+  | "title_DESC"
+  | "content_ASC"
+  | "content_DESC"
+  | "type_ASC"
+  | "type_DESC";
+
+export type ForumPostCommentOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "comment_ASC"
+  | "comment_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type ForumOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "avatarPic_ASC"
+  | "avatarPic_DESC"
+  | "coverPic_ASC"
+  | "coverPic_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "description_ASC"
+  | "description_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type ShopImageOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "imageUrl_ASC"
+  | "imageUrl_DESC"
+  | "largeImageUrl_ASC"
+  | "largeImageUrl_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type VariantOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type BrandOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type CartOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
 export type orderItemOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -982,68 +996,284 @@ export type orderItemOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type ForumPostCommentOrderByInput =
+export type OrderOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "comment_ASC"
-  | "comment_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type ShopImageOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
+  | "total_ASC"
+  | "total_DESC"
+  | "paymentId_ASC"
+  | "paymentId_DESC"
+  | "PayerID_ASC"
+  | "PayerID_DESC"
   | "imageUrl_ASC"
   | "imageUrl_DESC"
-  | "largeImageUrl_ASC"
-  | "largeImageUrl_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type BrandOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export interface CartUpdateWithoutUserDataInput {
-  items?: Maybe<CartItemUpdateManyWithoutCartInput>;
-}
+export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
 export type BrandWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
   name?: Maybe<String>;
 }>;
 
-export interface ShopUpdateManyWithoutOwnersInput {
-  create?: Maybe<ShopCreateWithoutOwnersInput[] | ShopCreateWithoutOwnersInput>;
-  delete?: Maybe<ShopWhereUniqueInput[] | ShopWhereUniqueInput>;
-  connect?: Maybe<ShopWhereUniqueInput[] | ShopWhereUniqueInput>;
-  set?: Maybe<ShopWhereUniqueInput[] | ShopWhereUniqueInput>;
-  disconnect?: Maybe<ShopWhereUniqueInput[] | ShopWhereUniqueInput>;
-  update?: Maybe<
-    | ShopUpdateWithWhereUniqueWithoutOwnersInput[]
-    | ShopUpdateWithWhereUniqueWithoutOwnersInput
-  >;
-  upsert?: Maybe<
-    | ShopUpsertWithWhereUniqueWithoutOwnersInput[]
-    | ShopUpsertWithWhereUniqueWithoutOwnersInput
-  >;
-  deleteMany?: Maybe<ShopScalarWhereInput[] | ShopScalarWhereInput>;
-  updateMany?: Maybe<
-    ShopUpdateManyWithWhereNestedInput[] | ShopUpdateManyWithWhereNestedInput
-  >;
+export interface ProductWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  title?: Maybe<String>;
+  title_not?: Maybe<String>;
+  title_in?: Maybe<String[] | String>;
+  title_not_in?: Maybe<String[] | String>;
+  title_lt?: Maybe<String>;
+  title_lte?: Maybe<String>;
+  title_gt?: Maybe<String>;
+  title_gte?: Maybe<String>;
+  title_contains?: Maybe<String>;
+  title_not_contains?: Maybe<String>;
+  title_starts_with?: Maybe<String>;
+  title_not_starts_with?: Maybe<String>;
+  title_ends_with?: Maybe<String>;
+  title_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  price?: Maybe<String>;
+  price_not?: Maybe<String>;
+  price_in?: Maybe<String[] | String>;
+  price_not_in?: Maybe<String[] | String>;
+  price_lt?: Maybe<String>;
+  price_lte?: Maybe<String>;
+  price_gt?: Maybe<String>;
+  price_gte?: Maybe<String>;
+  price_contains?: Maybe<String>;
+  price_not_contains?: Maybe<String>;
+  price_starts_with?: Maybe<String>;
+  price_not_starts_with?: Maybe<String>;
+  price_ends_with?: Maybe<String>;
+  price_not_ends_with?: Maybe<String>;
+  categories_every?: Maybe<CategoryWhereInput>;
+  categories_some?: Maybe<CategoryWhereInput>;
+  categories_none?: Maybe<CategoryWhereInput>;
+  brand?: Maybe<BrandWhereInput>;
+  tags_every?: Maybe<TagWhereInput>;
+  tags_some?: Maybe<TagWhereInput>;
+  tags_none?: Maybe<TagWhereInput>;
+  images_every?: Maybe<ProductImageWhereInput>;
+  images_some?: Maybe<ProductImageWhereInput>;
+  images_none?: Maybe<ProductImageWhereInput>;
+  shop?: Maybe<ShopWhereInput>;
+  variants_every?: Maybe<VariantWhereInput>;
+  variants_some?: Maybe<VariantWhereInput>;
+  variants_none?: Maybe<VariantWhereInput>;
+  reviews_every?: Maybe<ProductReviewWhereInput>;
+  reviews_some?: Maybe<ProductReviewWhereInput>;
+  reviews_none?: Maybe<ProductReviewWhereInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<ProductWhereInput[] | ProductWhereInput>;
+  OR?: Maybe<ProductWhereInput[] | ProductWhereInput>;
+  NOT?: Maybe<ProductWhereInput[] | ProductWhereInput>;
 }
 
-export interface ShopImageWhereInput {
+export interface CategoryWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  product_every?: Maybe<ProductWhereInput>;
+  product_some?: Maybe<ProductWhereInput>;
+  product_none?: Maybe<ProductWhereInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<CategoryWhereInput[] | CategoryWhereInput>;
+  OR?: Maybe<CategoryWhereInput[] | CategoryWhereInput>;
+  NOT?: Maybe<CategoryWhereInput[] | CategoryWhereInput>;
+}
+
+export interface BrandWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  products_every?: Maybe<ProductWhereInput>;
+  products_some?: Maybe<ProductWhereInput>;
+  products_none?: Maybe<ProductWhereInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<BrandWhereInput[] | BrandWhereInput>;
+  OR?: Maybe<BrandWhereInput[] | BrandWhereInput>;
+  NOT?: Maybe<BrandWhereInput[] | BrandWhereInput>;
+}
+
+export interface TagWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  products_every?: Maybe<ProductWhereInput>;
+  products_some?: Maybe<ProductWhereInput>;
+  products_none?: Maybe<ProductWhereInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<TagWhereInput[] | TagWhereInput>;
+  OR?: Maybe<TagWhereInput[] | TagWhereInput>;
+  NOT?: Maybe<TagWhereInput[] | TagWhereInput>;
+}
+
+export interface ProductImageWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -1086,7 +1316,7 @@ export interface ShopImageWhereInput {
   largeImageUrl_not_starts_with?: Maybe<String>;
   largeImageUrl_ends_with?: Maybe<String>;
   largeImageUrl_not_ends_with?: Maybe<String>;
-  shop?: Maybe<ShopWhereInput>;
+  product?: Maybe<ProductWhereInput>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -1103,17 +1333,12 @@ export interface ShopImageWhereInput {
   updatedAt_lte?: Maybe<DateTimeInput>;
   updatedAt_gt?: Maybe<DateTimeInput>;
   updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<ShopImageWhereInput[] | ShopImageWhereInput>;
-  OR?: Maybe<ShopImageWhereInput[] | ShopImageWhereInput>;
-  NOT?: Maybe<ShopImageWhereInput[] | ShopImageWhereInput>;
+  AND?: Maybe<ProductImageWhereInput[] | ProductImageWhereInput>;
+  OR?: Maybe<ProductImageWhereInput[] | ProductImageWhereInput>;
+  NOT?: Maybe<ProductImageWhereInput[] | ProductImageWhereInput>;
 }
 
-export interface ShopUpdateWithWhereUniqueWithoutOwnersInput {
-  where: ShopWhereUniqueInput;
-  data: ShopUpdateWithoutOwnersDataInput;
-}
-
-export interface ForumPostCommentWhereInput {
+export interface ShopWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -1128,101 +1353,6 @@ export interface ForumPostCommentWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  user?: Maybe<UserWhereInput>;
-  forumPost?: Maybe<ForumPostWhereInput>;
-  comment?: Maybe<String>;
-  comment_not?: Maybe<String>;
-  comment_in?: Maybe<String[] | String>;
-  comment_not_in?: Maybe<String[] | String>;
-  comment_lt?: Maybe<String>;
-  comment_lte?: Maybe<String>;
-  comment_gt?: Maybe<String>;
-  comment_gte?: Maybe<String>;
-  comment_contains?: Maybe<String>;
-  comment_not_contains?: Maybe<String>;
-  comment_starts_with?: Maybe<String>;
-  comment_not_starts_with?: Maybe<String>;
-  comment_ends_with?: Maybe<String>;
-  comment_not_ends_with?: Maybe<String>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<ForumPostCommentWhereInput[] | ForumPostCommentWhereInput>;
-  OR?: Maybe<ForumPostCommentWhereInput[] | ForumPostCommentWhereInput>;
-  NOT?: Maybe<ForumPostCommentWhereInput[] | ForumPostCommentWhereInput>;
-}
-
-export interface ShopUpdateWithoutOwnersDataInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  category?: Maybe<String>;
-  live?: Maybe<Boolean>;
-  images?: Maybe<ShopImageUpdateManyWithoutShopInput>;
-  products?: Maybe<ProductUpdateManyWithoutShopInput>;
-}
-
-export interface ForumWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  avatarPic?: Maybe<String>;
-  avatarPic_not?: Maybe<String>;
-  avatarPic_in?: Maybe<String[] | String>;
-  avatarPic_not_in?: Maybe<String[] | String>;
-  avatarPic_lt?: Maybe<String>;
-  avatarPic_lte?: Maybe<String>;
-  avatarPic_gt?: Maybe<String>;
-  avatarPic_gte?: Maybe<String>;
-  avatarPic_contains?: Maybe<String>;
-  avatarPic_not_contains?: Maybe<String>;
-  avatarPic_starts_with?: Maybe<String>;
-  avatarPic_not_starts_with?: Maybe<String>;
-  avatarPic_ends_with?: Maybe<String>;
-  avatarPic_not_ends_with?: Maybe<String>;
-  coverPic?: Maybe<String>;
-  coverPic_not?: Maybe<String>;
-  coverPic_in?: Maybe<String[] | String>;
-  coverPic_not_in?: Maybe<String[] | String>;
-  coverPic_lt?: Maybe<String>;
-  coverPic_lte?: Maybe<String>;
-  coverPic_gt?: Maybe<String>;
-  coverPic_gte?: Maybe<String>;
-  coverPic_contains?: Maybe<String>;
-  coverPic_not_contains?: Maybe<String>;
-  coverPic_starts_with?: Maybe<String>;
-  coverPic_not_starts_with?: Maybe<String>;
-  coverPic_ends_with?: Maybe<String>;
-  coverPic_not_ends_with?: Maybe<String>;
-  members_every?: Maybe<UserWhereInput>;
-  members_some?: Maybe<UserWhereInput>;
-  members_none?: Maybe<UserWhereInput>;
-  posts_every?: Maybe<ForumPostWhereInput>;
-  posts_some?: Maybe<ForumPostWhereInput>;
-  posts_none?: Maybe<ForumPostWhereInput>;
   name?: Maybe<String>;
   name_not?: Maybe<String>;
   name_in?: Maybe<String[] | String>;
@@ -1251,6 +1381,25 @@ export interface ForumWhereInput {
   description_not_starts_with?: Maybe<String>;
   description_ends_with?: Maybe<String>;
   description_not_ends_with?: Maybe<String>;
+  category?: Maybe<String>;
+  category_not?: Maybe<String>;
+  category_in?: Maybe<String[] | String>;
+  category_not_in?: Maybe<String[] | String>;
+  category_lt?: Maybe<String>;
+  category_lte?: Maybe<String>;
+  category_gt?: Maybe<String>;
+  category_gte?: Maybe<String>;
+  category_contains?: Maybe<String>;
+  category_not_contains?: Maybe<String>;
+  category_starts_with?: Maybe<String>;
+  category_not_starts_with?: Maybe<String>;
+  category_ends_with?: Maybe<String>;
+  category_not_ends_with?: Maybe<String>;
+  live?: Maybe<Boolean>;
+  live_not?: Maybe<Boolean>;
+  owners_every?: Maybe<UserWhereInput>;
+  owners_some?: Maybe<UserWhereInput>;
+  owners_none?: Maybe<UserWhereInput>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -1267,321 +1416,15 @@ export interface ForumWhereInput {
   updatedAt_lte?: Maybe<DateTimeInput>;
   updatedAt_gt?: Maybe<DateTimeInput>;
   updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<ForumWhereInput[] | ForumWhereInput>;
-  OR?: Maybe<ForumWhereInput[] | ForumWhereInput>;
-  NOT?: Maybe<ForumWhereInput[] | ForumWhereInput>;
-}
-
-export interface ShopImageUpdateManyWithoutShopInput {
-  create?: Maybe<
-    ShopImageCreateWithoutShopInput[] | ShopImageCreateWithoutShopInput
-  >;
-  delete?: Maybe<ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput>;
-  connect?: Maybe<ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput>;
-  set?: Maybe<ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput>;
-  disconnect?: Maybe<ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput>;
-  update?: Maybe<
-    | ShopImageUpdateWithWhereUniqueWithoutShopInput[]
-    | ShopImageUpdateWithWhereUniqueWithoutShopInput
-  >;
-  upsert?: Maybe<
-    | ShopImageUpsertWithWhereUniqueWithoutShopInput[]
-    | ShopImageUpsertWithWhereUniqueWithoutShopInput
-  >;
-  deleteMany?: Maybe<ShopImageScalarWhereInput[] | ShopImageScalarWhereInput>;
-  updateMany?: Maybe<
-    | ShopImageUpdateManyWithWhereNestedInput[]
-    | ShopImageUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface ForumPostWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  postedBy?: Maybe<UserWhereInput>;
-  forum?: Maybe<ForumWhereInput>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  title?: Maybe<String>;
-  title_not?: Maybe<String>;
-  title_in?: Maybe<String[] | String>;
-  title_not_in?: Maybe<String[] | String>;
-  title_lt?: Maybe<String>;
-  title_lte?: Maybe<String>;
-  title_gt?: Maybe<String>;
-  title_gte?: Maybe<String>;
-  title_contains?: Maybe<String>;
-  title_not_contains?: Maybe<String>;
-  title_starts_with?: Maybe<String>;
-  title_not_starts_with?: Maybe<String>;
-  title_ends_with?: Maybe<String>;
-  title_not_ends_with?: Maybe<String>;
-  content?: Maybe<String>;
-  content_not?: Maybe<String>;
-  content_in?: Maybe<String[] | String>;
-  content_not_in?: Maybe<String[] | String>;
-  content_lt?: Maybe<String>;
-  content_lte?: Maybe<String>;
-  content_gt?: Maybe<String>;
-  content_gte?: Maybe<String>;
-  content_contains?: Maybe<String>;
-  content_not_contains?: Maybe<String>;
-  content_starts_with?: Maybe<String>;
-  content_not_starts_with?: Maybe<String>;
-  content_ends_with?: Maybe<String>;
-  content_not_ends_with?: Maybe<String>;
-  type?: Maybe<ForumPostType>;
-  type_not?: Maybe<ForumPostType>;
-  type_in?: Maybe<ForumPostType[] | ForumPostType>;
-  type_not_in?: Maybe<ForumPostType[] | ForumPostType>;
-  comments_every?: Maybe<ForumPostCommentWhereInput>;
-  comments_some?: Maybe<ForumPostCommentWhereInput>;
-  comments_none?: Maybe<ForumPostCommentWhereInput>;
-  AND?: Maybe<ForumPostWhereInput[] | ForumPostWhereInput>;
-  OR?: Maybe<ForumPostWhereInput[] | ForumPostWhereInput>;
-  NOT?: Maybe<ForumPostWhereInput[] | ForumPostWhereInput>;
-}
-
-export interface ShopImageUpdateWithWhereUniqueWithoutShopInput {
-  where: ShopImageWhereUniqueInput;
-  data: ShopImageUpdateWithoutShopDataInput;
-}
-
-export interface CartItemWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  product?: Maybe<ProductWhereInput>;
-  quantity?: Maybe<Int>;
-  quantity_not?: Maybe<Int>;
-  quantity_in?: Maybe<Int[] | Int>;
-  quantity_not_in?: Maybe<Int[] | Int>;
-  quantity_lt?: Maybe<Int>;
-  quantity_lte?: Maybe<Int>;
-  quantity_gt?: Maybe<Int>;
-  quantity_gte?: Maybe<Int>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  cart?: Maybe<CartWhereInput>;
-  AND?: Maybe<CartItemWhereInput[] | CartItemWhereInput>;
-  OR?: Maybe<CartItemWhereInput[] | CartItemWhereInput>;
-  NOT?: Maybe<CartItemWhereInput[] | CartItemWhereInput>;
-}
-
-export interface ProductImageUpdateManyWithoutProductInput {
-  create?: Maybe<
-    | ProductImageCreateWithoutProductInput[]
-    | ProductImageCreateWithoutProductInput
-  >;
-  delete?: Maybe<ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput>;
-  connect?: Maybe<
-    ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput
-  >;
-  set?: Maybe<ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput>;
-  disconnect?: Maybe<
-    ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput
-  >;
-  update?: Maybe<
-    | ProductImageUpdateWithWhereUniqueWithoutProductInput[]
-    | ProductImageUpdateWithWhereUniqueWithoutProductInput
-  >;
-  upsert?: Maybe<
-    | ProductImageUpsertWithWhereUniqueWithoutProductInput[]
-    | ProductImageUpsertWithWhereUniqueWithoutProductInput
-  >;
-  deleteMany?: Maybe<
-    ProductImageScalarWhereInput[] | ProductImageScalarWhereInput
-  >;
-  updateMany?: Maybe<
-    | ProductImageUpdateManyWithWhereNestedInput[]
-    | ProductImageUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface orderItemUpsertWithWhereUniqueNestedInput {
-  where: orderItemWhereUniqueInput;
-  update: orderItemUpdateDataInput;
-  create: orderItemCreateInput;
-}
-
-export interface ProductImageUpdateWithWhereUniqueWithoutProductInput {
-  where: ProductImageWhereUniqueInput;
-  data: ProductImageUpdateWithoutProductDataInput;
-}
-
-export interface ShopImageUpdateWithoutShopDataInput {
-  imageUrl?: Maybe<String>;
-  largeImageUrl?: Maybe<String>;
-}
-
-export interface ProductImageUpdateWithoutProductDataInput {
-  imageUrl?: Maybe<String>;
-  largeImageUrl?: Maybe<String>;
-}
-
-export interface VariantSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<VariantWhereInput>;
-  AND?: Maybe<VariantSubscriptionWhereInput[] | VariantSubscriptionWhereInput>;
-  OR?: Maybe<VariantSubscriptionWhereInput[] | VariantSubscriptionWhereInput>;
-  NOT?: Maybe<VariantSubscriptionWhereInput[] | VariantSubscriptionWhereInput>;
-}
-
-export interface ProductImageUpsertWithWhereUniqueWithoutProductInput {
-  where: ProductImageWhereUniqueInput;
-  update: ProductImageUpdateWithoutProductDataInput;
-  create: ProductImageCreateWithoutProductInput;
-}
-
-export interface UserImageSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<UserImageWhereInput>;
-  AND?: Maybe<
-    UserImageSubscriptionWhereInput[] | UserImageSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    UserImageSubscriptionWhereInput[] | UserImageSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    UserImageSubscriptionWhereInput[] | UserImageSubscriptionWhereInput
-  >;
-}
-
-export interface ProductImageScalarWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  imageUrl?: Maybe<String>;
-  imageUrl_not?: Maybe<String>;
-  imageUrl_in?: Maybe<String[] | String>;
-  imageUrl_not_in?: Maybe<String[] | String>;
-  imageUrl_lt?: Maybe<String>;
-  imageUrl_lte?: Maybe<String>;
-  imageUrl_gt?: Maybe<String>;
-  imageUrl_gte?: Maybe<String>;
-  imageUrl_contains?: Maybe<String>;
-  imageUrl_not_contains?: Maybe<String>;
-  imageUrl_starts_with?: Maybe<String>;
-  imageUrl_not_starts_with?: Maybe<String>;
-  imageUrl_ends_with?: Maybe<String>;
-  imageUrl_not_ends_with?: Maybe<String>;
-  largeImageUrl?: Maybe<String>;
-  largeImageUrl_not?: Maybe<String>;
-  largeImageUrl_in?: Maybe<String[] | String>;
-  largeImageUrl_not_in?: Maybe<String[] | String>;
-  largeImageUrl_lt?: Maybe<String>;
-  largeImageUrl_lte?: Maybe<String>;
-  largeImageUrl_gt?: Maybe<String>;
-  largeImageUrl_gte?: Maybe<String>;
-  largeImageUrl_contains?: Maybe<String>;
-  largeImageUrl_not_contains?: Maybe<String>;
-  largeImageUrl_starts_with?: Maybe<String>;
-  largeImageUrl_not_starts_with?: Maybe<String>;
-  largeImageUrl_ends_with?: Maybe<String>;
-  largeImageUrl_not_ends_with?: Maybe<String>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<ProductImageScalarWhereInput[] | ProductImageScalarWhereInput>;
-  OR?: Maybe<ProductImageScalarWhereInput[] | ProductImageScalarWhereInput>;
-  NOT?: Maybe<ProductImageScalarWhereInput[] | ProductImageScalarWhereInput>;
-}
-
-export interface UserSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<UserWhereInput>;
-  AND?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
-  OR?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
-  NOT?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
-}
-
-export interface ProductImageUpdateManyWithWhereNestedInput {
-  where: ProductImageScalarWhereInput;
-  data: ProductImageUpdateManyDataInput;
+  images_every?: Maybe<ShopImageWhereInput>;
+  images_some?: Maybe<ShopImageWhereInput>;
+  images_none?: Maybe<ShopImageWhereInput>;
+  products_every?: Maybe<ProductWhereInput>;
+  products_some?: Maybe<ProductWhereInput>;
+  products_none?: Maybe<ProductWhereInput>;
+  AND?: Maybe<ShopWhereInput[] | ShopWhereInput>;
+  OR?: Maybe<ShopWhereInput[] | ShopWhereInput>;
+  NOT?: Maybe<ShopWhereInput[] | ShopWhereInput>;
 }
 
 export interface UserWhereInput {
@@ -1713,357 +1556,7 @@ export interface UserWhereInput {
   NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
 }
 
-export interface ProductImageUpdateManyDataInput {
-  imageUrl?: Maybe<String>;
-  largeImageUrl?: Maybe<String>;
-}
-
-export interface ShopSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<ShopWhereInput>;
-  AND?: Maybe<ShopSubscriptionWhereInput[] | ShopSubscriptionWhereInput>;
-  OR?: Maybe<ShopSubscriptionWhereInput[] | ShopSubscriptionWhereInput>;
-  NOT?: Maybe<ShopSubscriptionWhereInput[] | ShopSubscriptionWhereInput>;
-}
-
-export interface ShopUpdateOneRequiredWithoutProductsInput {
-  create?: Maybe<ShopCreateWithoutProductsInput>;
-  update?: Maybe<ShopUpdateWithoutProductsDataInput>;
-  upsert?: Maybe<ShopUpsertWithoutProductsInput>;
-  connect?: Maybe<ShopWhereUniqueInput>;
-}
-
-export interface ProductImageSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<ProductImageWhereInput>;
-  AND?: Maybe<
-    ProductImageSubscriptionWhereInput[] | ProductImageSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    ProductImageSubscriptionWhereInput[] | ProductImageSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    ProductImageSubscriptionWhereInput[] | ProductImageSubscriptionWhereInput
-  >;
-}
-
-export interface ShopUpdateWithoutProductsDataInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  category?: Maybe<String>;
-  live?: Maybe<Boolean>;
-  owners?: Maybe<UserUpdateManyWithoutShopsInput>;
-  images?: Maybe<ShopImageUpdateManyWithoutShopInput>;
-}
-
-export interface ProductSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<ProductWhereInput>;
-  AND?: Maybe<ProductSubscriptionWhereInput[] | ProductSubscriptionWhereInput>;
-  OR?: Maybe<ProductSubscriptionWhereInput[] | ProductSubscriptionWhereInput>;
-  NOT?: Maybe<ProductSubscriptionWhereInput[] | ProductSubscriptionWhereInput>;
-}
-
-export interface UserUpdateManyWithoutShopsInput {
-  create?: Maybe<UserCreateWithoutShopsInput[] | UserCreateWithoutShopsInput>;
-  delete?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
-  connect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
-  set?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
-  disconnect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
-  update?: Maybe<
-    | UserUpdateWithWhereUniqueWithoutShopsInput[]
-    | UserUpdateWithWhereUniqueWithoutShopsInput
-  >;
-  upsert?: Maybe<
-    | UserUpsertWithWhereUniqueWithoutShopsInput[]
-    | UserUpsertWithWhereUniqueWithoutShopsInput
-  >;
-  deleteMany?: Maybe<UserScalarWhereInput[] | UserScalarWhereInput>;
-  updateMany?: Maybe<
-    UserUpdateManyWithWhereNestedInput[] | UserUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface TagWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  products_every?: Maybe<ProductWhereInput>;
-  products_some?: Maybe<ProductWhereInput>;
-  products_none?: Maybe<ProductWhereInput>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<TagWhereInput[] | TagWhereInput>;
-  OR?: Maybe<TagWhereInput[] | TagWhereInput>;
-  NOT?: Maybe<TagWhereInput[] | TagWhereInput>;
-}
-
-export interface UserUpdateWithWhereUniqueWithoutShopsInput {
-  where: UserWhereUniqueInput;
-  data: UserUpdateWithoutShopsDataInput;
-}
-
-export interface BrandWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  products_every?: Maybe<ProductWhereInput>;
-  products_some?: Maybe<ProductWhereInput>;
-  products_none?: Maybe<ProductWhereInput>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<BrandWhereInput[] | BrandWhereInput>;
-  OR?: Maybe<BrandWhereInput[] | BrandWhereInput>;
-  NOT?: Maybe<BrandWhereInput[] | BrandWhereInput>;
-}
-
-export interface UserUpdateWithoutShopsDataInput {
-  firebaseId?: Maybe<String>;
-  email?: Maybe<String>;
-  name?: Maybe<String>;
-  username?: Maybe<String>;
-  profilePic?: Maybe<String>;
-  isAnonymous?: Maybe<Boolean>;
-  emailVerified?: Maybe<Boolean>;
-  images?: Maybe<UserImageUpdateManyWithoutUserInput>;
-  productReviews?: Maybe<ProductReviewUpdateManyWithoutUserInput>;
-  cartItems?: Maybe<CartUpdateOneWithoutUserInput>;
-  forumposts?: Maybe<ForumPostUpdateManyWithoutPostedByInput>;
-  forums?: Maybe<ForumUpdateManyWithoutMembersInput>;
-  postComments?: Maybe<ForumPostCommentUpdateManyWithoutUserInput>;
-}
-
-export interface ForumPostSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<ForumPostWhereInput>;
-  AND?: Maybe<
-    ForumPostSubscriptionWhereInput[] | ForumPostSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    ForumPostSubscriptionWhereInput[] | ForumPostSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    ForumPostSubscriptionWhereInput[] | ForumPostSubscriptionWhereInput
-  >;
-}
-
-export interface UserImageUpdateManyWithoutUserInput {
-  create?: Maybe<
-    UserImageCreateWithoutUserInput[] | UserImageCreateWithoutUserInput
-  >;
-  delete?: Maybe<UserImageWhereUniqueInput[] | UserImageWhereUniqueInput>;
-  connect?: Maybe<UserImageWhereUniqueInput[] | UserImageWhereUniqueInput>;
-  set?: Maybe<UserImageWhereUniqueInput[] | UserImageWhereUniqueInput>;
-  disconnect?: Maybe<UserImageWhereUniqueInput[] | UserImageWhereUniqueInput>;
-  update?: Maybe<
-    | UserImageUpdateWithWhereUniqueWithoutUserInput[]
-    | UserImageUpdateWithWhereUniqueWithoutUserInput
-  >;
-  upsert?: Maybe<
-    | UserImageUpsertWithWhereUniqueWithoutUserInput[]
-    | UserImageUpsertWithWhereUniqueWithoutUserInput
-  >;
-  deleteMany?: Maybe<UserImageScalarWhereInput[] | UserImageScalarWhereInput>;
-  updateMany?: Maybe<
-    | UserImageUpdateManyWithWhereNestedInput[]
-    | UserImageUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface CategorySubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<CategoryWhereInput>;
-  AND?: Maybe<
-    CategorySubscriptionWhereInput[] | CategorySubscriptionWhereInput
-  >;
-  OR?: Maybe<CategorySubscriptionWhereInput[] | CategorySubscriptionWhereInput>;
-  NOT?: Maybe<
-    CategorySubscriptionWhereInput[] | CategorySubscriptionWhereInput
-  >;
-}
-
-export interface UserImageUpdateWithWhereUniqueWithoutUserInput {
-  where: UserImageWhereUniqueInput;
-  data: UserImageUpdateWithoutUserDataInput;
-}
-
-export interface CartSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<CartWhereInput>;
-  AND?: Maybe<CartSubscriptionWhereInput[] | CartSubscriptionWhereInput>;
-  OR?: Maybe<CartSubscriptionWhereInput[] | CartSubscriptionWhereInput>;
-  NOT?: Maybe<CartSubscriptionWhereInput[] | CartSubscriptionWhereInput>;
-}
-
-export interface UserImageUpdateWithoutUserDataInput {
-  imageUrl?: Maybe<String>;
-}
-
-export interface CategoryWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  product_every?: Maybe<ProductWhereInput>;
-  product_some?: Maybe<ProductWhereInput>;
-  product_none?: Maybe<ProductWhereInput>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<CategoryWhereInput[] | CategoryWhereInput>;
-  OR?: Maybe<CategoryWhereInput[] | CategoryWhereInput>;
-  NOT?: Maybe<CategoryWhereInput[] | CategoryWhereInput>;
-}
-
-export interface UserImageUpsertWithWhereUniqueWithoutUserInput {
-  where: UserImageWhereUniqueInput;
-  update: UserImageUpdateWithoutUserDataInput;
-  create: UserImageCreateWithoutUserInput;
-}
-
-export interface orderItemUpdateManyMutationInput {
-  title?: Maybe<String>;
-  description?: Maybe<String>;
-  price?: Maybe<String>;
-  quantity?: Maybe<Int>;
-  imageUrl?: Maybe<String>;
-  variants?: Maybe<orderItemUpdatevariantsInput>;
-}
-
-export interface UserImageScalarWhereInput {
+export interface UserImageWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -2092,6 +1585,7 @@ export interface UserImageScalarWhereInput {
   imageUrl_not_starts_with?: Maybe<String>;
   imageUrl_ends_with?: Maybe<String>;
   imageUrl_not_ends_with?: Maybe<String>;
+  user?: Maybe<UserWhereInput>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -2108,198 +1602,525 @@ export interface UserImageScalarWhereInput {
   updatedAt_lte?: Maybe<DateTimeInput>;
   updatedAt_gt?: Maybe<DateTimeInput>;
   updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<UserImageScalarWhereInput[] | UserImageScalarWhereInput>;
-  OR?: Maybe<UserImageScalarWhereInput[] | UserImageScalarWhereInput>;
-  NOT?: Maybe<UserImageScalarWhereInput[] | UserImageScalarWhereInput>;
+  AND?: Maybe<UserImageWhereInput[] | UserImageWhereInput>;
+  OR?: Maybe<UserImageWhereInput[] | UserImageWhereInput>;
+  NOT?: Maybe<UserImageWhereInput[] | UserImageWhereInput>;
 }
+
+export interface ProductReviewWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  user?: Maybe<UserWhereInput>;
+  product?: Maybe<ProductWhereInput>;
+  rating?: Maybe<Int>;
+  rating_not?: Maybe<Int>;
+  rating_in?: Maybe<Int[] | Int>;
+  rating_not_in?: Maybe<Int[] | Int>;
+  rating_lt?: Maybe<Int>;
+  rating_lte?: Maybe<Int>;
+  rating_gt?: Maybe<Int>;
+  rating_gte?: Maybe<Int>;
+  review?: Maybe<String>;
+  review_not?: Maybe<String>;
+  review_in?: Maybe<String[] | String>;
+  review_not_in?: Maybe<String[] | String>;
+  review_lt?: Maybe<String>;
+  review_lte?: Maybe<String>;
+  review_gt?: Maybe<String>;
+  review_gte?: Maybe<String>;
+  review_contains?: Maybe<String>;
+  review_not_contains?: Maybe<String>;
+  review_starts_with?: Maybe<String>;
+  review_not_starts_with?: Maybe<String>;
+  review_ends_with?: Maybe<String>;
+  review_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<ProductReviewWhereInput[] | ProductReviewWhereInput>;
+  OR?: Maybe<ProductReviewWhereInput[] | ProductReviewWhereInput>;
+  NOT?: Maybe<ProductReviewWhereInput[] | ProductReviewWhereInput>;
+}
+
+export interface CartWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  user?: Maybe<UserWhereInput>;
+  items_every?: Maybe<CartItemWhereInput>;
+  items_some?: Maybe<CartItemWhereInput>;
+  items_none?: Maybe<CartItemWhereInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<CartWhereInput[] | CartWhereInput>;
+  OR?: Maybe<CartWhereInput[] | CartWhereInput>;
+  NOT?: Maybe<CartWhereInput[] | CartWhereInput>;
+}
+
+export interface CartItemWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  product?: Maybe<ProductWhereInput>;
+  quantity?: Maybe<Int>;
+  quantity_not?: Maybe<Int>;
+  quantity_in?: Maybe<Int[] | Int>;
+  quantity_not_in?: Maybe<Int[] | Int>;
+  quantity_lt?: Maybe<Int>;
+  quantity_lte?: Maybe<Int>;
+  quantity_gt?: Maybe<Int>;
+  quantity_gte?: Maybe<Int>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  cart?: Maybe<CartWhereInput>;
+  AND?: Maybe<CartItemWhereInput[] | CartItemWhereInput>;
+  OR?: Maybe<CartItemWhereInput[] | CartItemWhereInput>;
+  NOT?: Maybe<CartItemWhereInput[] | CartItemWhereInput>;
+}
+
+export interface ForumPostWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  postedBy?: Maybe<UserWhereInput>;
+  forum?: Maybe<ForumWhereInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  title?: Maybe<String>;
+  title_not?: Maybe<String>;
+  title_in?: Maybe<String[] | String>;
+  title_not_in?: Maybe<String[] | String>;
+  title_lt?: Maybe<String>;
+  title_lte?: Maybe<String>;
+  title_gt?: Maybe<String>;
+  title_gte?: Maybe<String>;
+  title_contains?: Maybe<String>;
+  title_not_contains?: Maybe<String>;
+  title_starts_with?: Maybe<String>;
+  title_not_starts_with?: Maybe<String>;
+  title_ends_with?: Maybe<String>;
+  title_not_ends_with?: Maybe<String>;
+  content?: Maybe<String>;
+  content_not?: Maybe<String>;
+  content_in?: Maybe<String[] | String>;
+  content_not_in?: Maybe<String[] | String>;
+  content_lt?: Maybe<String>;
+  content_lte?: Maybe<String>;
+  content_gt?: Maybe<String>;
+  content_gte?: Maybe<String>;
+  content_contains?: Maybe<String>;
+  content_not_contains?: Maybe<String>;
+  content_starts_with?: Maybe<String>;
+  content_not_starts_with?: Maybe<String>;
+  content_ends_with?: Maybe<String>;
+  content_not_ends_with?: Maybe<String>;
+  type?: Maybe<ForumPostType>;
+  type_not?: Maybe<ForumPostType>;
+  type_in?: Maybe<ForumPostType[] | ForumPostType>;
+  type_not_in?: Maybe<ForumPostType[] | ForumPostType>;
+  comments_every?: Maybe<ForumPostCommentWhereInput>;
+  comments_some?: Maybe<ForumPostCommentWhereInput>;
+  comments_none?: Maybe<ForumPostCommentWhereInput>;
+  AND?: Maybe<ForumPostWhereInput[] | ForumPostWhereInput>;
+  OR?: Maybe<ForumPostWhereInput[] | ForumPostWhereInput>;
+  NOT?: Maybe<ForumPostWhereInput[] | ForumPostWhereInput>;
+}
+
+export interface ForumWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  avatarPic?: Maybe<String>;
+  avatarPic_not?: Maybe<String>;
+  avatarPic_in?: Maybe<String[] | String>;
+  avatarPic_not_in?: Maybe<String[] | String>;
+  avatarPic_lt?: Maybe<String>;
+  avatarPic_lte?: Maybe<String>;
+  avatarPic_gt?: Maybe<String>;
+  avatarPic_gte?: Maybe<String>;
+  avatarPic_contains?: Maybe<String>;
+  avatarPic_not_contains?: Maybe<String>;
+  avatarPic_starts_with?: Maybe<String>;
+  avatarPic_not_starts_with?: Maybe<String>;
+  avatarPic_ends_with?: Maybe<String>;
+  avatarPic_not_ends_with?: Maybe<String>;
+  coverPic?: Maybe<String>;
+  coverPic_not?: Maybe<String>;
+  coverPic_in?: Maybe<String[] | String>;
+  coverPic_not_in?: Maybe<String[] | String>;
+  coverPic_lt?: Maybe<String>;
+  coverPic_lte?: Maybe<String>;
+  coverPic_gt?: Maybe<String>;
+  coverPic_gte?: Maybe<String>;
+  coverPic_contains?: Maybe<String>;
+  coverPic_not_contains?: Maybe<String>;
+  coverPic_starts_with?: Maybe<String>;
+  coverPic_not_starts_with?: Maybe<String>;
+  coverPic_ends_with?: Maybe<String>;
+  coverPic_not_ends_with?: Maybe<String>;
+  members_every?: Maybe<UserWhereInput>;
+  members_some?: Maybe<UserWhereInput>;
+  members_none?: Maybe<UserWhereInput>;
+  posts_every?: Maybe<ForumPostWhereInput>;
+  posts_some?: Maybe<ForumPostWhereInput>;
+  posts_none?: Maybe<ForumPostWhereInput>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<ForumWhereInput[] | ForumWhereInput>;
+  OR?: Maybe<ForumWhereInput[] | ForumWhereInput>;
+  NOT?: Maybe<ForumWhereInput[] | ForumWhereInput>;
+}
+
+export interface ForumPostCommentWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  user?: Maybe<UserWhereInput>;
+  forumPost?: Maybe<ForumPostWhereInput>;
+  comment?: Maybe<String>;
+  comment_not?: Maybe<String>;
+  comment_in?: Maybe<String[] | String>;
+  comment_not_in?: Maybe<String[] | String>;
+  comment_lt?: Maybe<String>;
+  comment_lte?: Maybe<String>;
+  comment_gt?: Maybe<String>;
+  comment_gte?: Maybe<String>;
+  comment_contains?: Maybe<String>;
+  comment_not_contains?: Maybe<String>;
+  comment_starts_with?: Maybe<String>;
+  comment_not_starts_with?: Maybe<String>;
+  comment_ends_with?: Maybe<String>;
+  comment_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<ForumPostCommentWhereInput[] | ForumPostCommentWhereInput>;
+  OR?: Maybe<ForumPostCommentWhereInput[] | ForumPostCommentWhereInput>;
+  NOT?: Maybe<ForumPostCommentWhereInput[] | ForumPostCommentWhereInput>;
+}
+
+export interface ShopImageWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  imageUrl?: Maybe<String>;
+  imageUrl_not?: Maybe<String>;
+  imageUrl_in?: Maybe<String[] | String>;
+  imageUrl_not_in?: Maybe<String[] | String>;
+  imageUrl_lt?: Maybe<String>;
+  imageUrl_lte?: Maybe<String>;
+  imageUrl_gt?: Maybe<String>;
+  imageUrl_gte?: Maybe<String>;
+  imageUrl_contains?: Maybe<String>;
+  imageUrl_not_contains?: Maybe<String>;
+  imageUrl_starts_with?: Maybe<String>;
+  imageUrl_not_starts_with?: Maybe<String>;
+  imageUrl_ends_with?: Maybe<String>;
+  imageUrl_not_ends_with?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
+  largeImageUrl_not?: Maybe<String>;
+  largeImageUrl_in?: Maybe<String[] | String>;
+  largeImageUrl_not_in?: Maybe<String[] | String>;
+  largeImageUrl_lt?: Maybe<String>;
+  largeImageUrl_lte?: Maybe<String>;
+  largeImageUrl_gt?: Maybe<String>;
+  largeImageUrl_gte?: Maybe<String>;
+  largeImageUrl_contains?: Maybe<String>;
+  largeImageUrl_not_contains?: Maybe<String>;
+  largeImageUrl_starts_with?: Maybe<String>;
+  largeImageUrl_not_starts_with?: Maybe<String>;
+  largeImageUrl_ends_with?: Maybe<String>;
+  largeImageUrl_not_ends_with?: Maybe<String>;
+  shop?: Maybe<ShopWhereInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<ShopImageWhereInput[] | ShopImageWhereInput>;
+  OR?: Maybe<ShopImageWhereInput[] | ShopImageWhereInput>;
+  NOT?: Maybe<ShopImageWhereInput[] | ShopImageWhereInput>;
+}
+
+export interface VariantWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  product?: Maybe<ProductWhereInput>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<VariantWhereInput[] | VariantWhereInput>;
+  OR?: Maybe<VariantWhereInput[] | VariantWhereInput>;
+  NOT?: Maybe<VariantWhereInput[] | VariantWhereInput>;
+}
+
+export type CartWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
 
 export type CartItemWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
-
-export interface UserImageUpdateManyWithWhereNestedInput {
-  where: UserImageScalarWhereInput;
-  data: UserImageUpdateManyDataInput;
-}
-
-export interface ProductUpsertWithoutVariantsInput {
-  update: ProductUpdateWithoutVariantsDataInput;
-  create: ProductCreateWithoutVariantsInput;
-}
-
-export interface UserImageUpdateManyDataInput {
-  imageUrl?: Maybe<String>;
-}
 
 export type CategoryWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
   name?: Maybe<String>;
 }>;
 
-export interface ProductReviewUpdateManyWithoutUserInput {
-  create?: Maybe<
-    ProductReviewCreateWithoutUserInput[] | ProductReviewCreateWithoutUserInput
-  >;
-  delete?: Maybe<
-    ProductReviewWhereUniqueInput[] | ProductReviewWhereUniqueInput
-  >;
-  connect?: Maybe<
-    ProductReviewWhereUniqueInput[] | ProductReviewWhereUniqueInput
-  >;
-  set?: Maybe<ProductReviewWhereUniqueInput[] | ProductReviewWhereUniqueInput>;
-  disconnect?: Maybe<
-    ProductReviewWhereUniqueInput[] | ProductReviewWhereUniqueInput
-  >;
-  update?: Maybe<
-    | ProductReviewUpdateWithWhereUniqueWithoutUserInput[]
-    | ProductReviewUpdateWithWhereUniqueWithoutUserInput
-  >;
-  upsert?: Maybe<
-    | ProductReviewUpsertWithWhereUniqueWithoutUserInput[]
-    | ProductReviewUpsertWithWhereUniqueWithoutUserInput
-  >;
-  deleteMany?: Maybe<
-    ProductReviewScalarWhereInput[] | ProductReviewScalarWhereInput
-  >;
-  updateMany?: Maybe<
-    | ProductReviewUpdateManyWithWhereNestedInput[]
-    | ProductReviewUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface VariantUpdateInput {
-  product?: Maybe<ProductUpdateOneRequiredWithoutVariantsInput>;
-  name?: Maybe<String>;
-  values?: Maybe<VariantUpdatevaluesInput>;
-}
-
-export interface ProductReviewUpdateWithWhereUniqueWithoutUserInput {
-  where: ProductReviewWhereUniqueInput;
-  data: ProductReviewUpdateWithoutUserDataInput;
-}
-
 export type ForumWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
   name?: Maybe<String>;
 }>;
 
-export interface ProductReviewUpdateWithoutUserDataInput {
-  product?: Maybe<ProductUpdateOneRequiredWithoutReviewsInput>;
-  rating?: Maybe<Int>;
-  review?: Maybe<String>;
-}
-
-export interface VariantCreateInput {
-  id?: Maybe<ID_Input>;
-  product: ProductCreateOneWithoutVariantsInput;
-  name: String;
-  values?: Maybe<VariantCreatevaluesInput>;
-}
-
-export interface ProductUpdateOneRequiredWithoutReviewsInput {
-  create?: Maybe<ProductCreateWithoutReviewsInput>;
-  update?: Maybe<ProductUpdateWithoutReviewsDataInput>;
-  upsert?: Maybe<ProductUpsertWithoutReviewsInput>;
-  connect?: Maybe<ProductWhereUniqueInput>;
-}
-
 export type ForumPostWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
-
-export interface ProductUpdateWithoutReviewsDataInput {
-  title?: Maybe<String>;
-  description?: Maybe<String>;
-  price?: Maybe<String>;
-  categories?: Maybe<CategoryUpdateManyWithoutProductInput>;
-  brand?: Maybe<BrandUpdateOneWithoutProductsInput>;
-  tags?: Maybe<TagUpdateManyWithoutProductsInput>;
-  images?: Maybe<ProductImageUpdateManyWithoutProductInput>;
-  shop?: Maybe<ShopUpdateOneRequiredWithoutProductsInput>;
-  variants?: Maybe<VariantUpdateManyWithoutProductInput>;
-}
-
-export interface UserUpdateWithoutImagesDataInput {
-  firebaseId?: Maybe<String>;
-  email?: Maybe<String>;
-  name?: Maybe<String>;
-  username?: Maybe<String>;
-  profilePic?: Maybe<String>;
-  isAnonymous?: Maybe<Boolean>;
-  emailVerified?: Maybe<Boolean>;
-  shops?: Maybe<ShopUpdateManyWithoutOwnersInput>;
-  productReviews?: Maybe<ProductReviewUpdateManyWithoutUserInput>;
-  cartItems?: Maybe<CartUpdateOneWithoutUserInput>;
-  forumposts?: Maybe<ForumPostUpdateManyWithoutPostedByInput>;
-  forums?: Maybe<ForumUpdateManyWithoutMembersInput>;
-  postComments?: Maybe<ForumPostCommentUpdateManyWithoutUserInput>;
-}
-
-export interface BrandUpdateOneWithoutProductsInput {
-  create?: Maybe<BrandCreateWithoutProductsInput>;
-  update?: Maybe<BrandUpdateWithoutProductsDataInput>;
-  upsert?: Maybe<BrandUpsertWithoutProductsInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<BrandWhereUniqueInput>;
-}
 
 export type ForumPostCommentWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
-export interface BrandUpdateWithoutProductsDataInput {
-  name?: Maybe<String>;
-}
-
-export interface UserCreateWithoutImagesInput {
-  id?: Maybe<ID_Input>;
-  firebaseId: String;
-  email?: Maybe<String>;
-  name: String;
-  username: String;
-  profilePic?: Maybe<String>;
-  isAnonymous?: Maybe<Boolean>;
-  emailVerified?: Maybe<Boolean>;
-  shops?: Maybe<ShopCreateManyWithoutOwnersInput>;
-  productReviews?: Maybe<ProductReviewCreateManyWithoutUserInput>;
-  cartItems?: Maybe<CartCreateOneWithoutUserInput>;
-  forumposts?: Maybe<ForumPostCreateManyWithoutPostedByInput>;
-  forums?: Maybe<ForumCreateManyWithoutMembersInput>;
-  postComments?: Maybe<ForumPostCommentCreateManyWithoutUserInput>;
-}
-
-export interface BrandUpsertWithoutProductsInput {
-  update: BrandUpdateWithoutProductsDataInput;
-  create: BrandCreateWithoutProductsInput;
-}
-
 export type OrderWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
-
-export interface VariantUpdateManyWithoutProductInput {
-  create?: Maybe<
-    VariantCreateWithoutProductInput[] | VariantCreateWithoutProductInput
-  >;
-  delete?: Maybe<VariantWhereUniqueInput[] | VariantWhereUniqueInput>;
-  connect?: Maybe<VariantWhereUniqueInput[] | VariantWhereUniqueInput>;
-  set?: Maybe<VariantWhereUniqueInput[] | VariantWhereUniqueInput>;
-  disconnect?: Maybe<VariantWhereUniqueInput[] | VariantWhereUniqueInput>;
-  update?: Maybe<
-    | VariantUpdateWithWhereUniqueWithoutProductInput[]
-    | VariantUpdateWithWhereUniqueWithoutProductInput
-  >;
-  upsert?: Maybe<
-    | VariantUpsertWithWhereUniqueWithoutProductInput[]
-    | VariantUpsertWithWhereUniqueWithoutProductInput
-  >;
-  deleteMany?: Maybe<VariantScalarWhereInput[] | VariantScalarWhereInput>;
-  updateMany?: Maybe<
-    | VariantUpdateManyWithWhereNestedInput[]
-    | VariantUpdateManyWithWhereNestedInput
-  >;
-}
 
 export interface orderItemWhereInput {
   id?: Maybe<ID_Input>;
@@ -2401,12 +2222,1031 @@ export interface orderItemWhereInput {
   NOT?: Maybe<orderItemWhereInput[] | orderItemWhereInput>;
 }
 
-export interface VariantUpdateWithWhereUniqueWithoutProductInput {
-  where: VariantWhereUniqueInput;
-  data: VariantUpdateWithoutProductDataInput;
+export interface OrderWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  items_every?: Maybe<orderItemWhereInput>;
+  items_some?: Maybe<orderItemWhereInput>;
+  items_none?: Maybe<orderItemWhereInput>;
+  total?: Maybe<String>;
+  total_not?: Maybe<String>;
+  total_in?: Maybe<String[] | String>;
+  total_not_in?: Maybe<String[] | String>;
+  total_lt?: Maybe<String>;
+  total_lte?: Maybe<String>;
+  total_gt?: Maybe<String>;
+  total_gte?: Maybe<String>;
+  total_contains?: Maybe<String>;
+  total_not_contains?: Maybe<String>;
+  total_starts_with?: Maybe<String>;
+  total_not_starts_with?: Maybe<String>;
+  total_ends_with?: Maybe<String>;
+  total_not_ends_with?: Maybe<String>;
+  user?: Maybe<UserWhereInput>;
+  paymentId?: Maybe<String>;
+  paymentId_not?: Maybe<String>;
+  paymentId_in?: Maybe<String[] | String>;
+  paymentId_not_in?: Maybe<String[] | String>;
+  paymentId_lt?: Maybe<String>;
+  paymentId_lte?: Maybe<String>;
+  paymentId_gt?: Maybe<String>;
+  paymentId_gte?: Maybe<String>;
+  paymentId_contains?: Maybe<String>;
+  paymentId_not_contains?: Maybe<String>;
+  paymentId_starts_with?: Maybe<String>;
+  paymentId_not_starts_with?: Maybe<String>;
+  paymentId_ends_with?: Maybe<String>;
+  paymentId_not_ends_with?: Maybe<String>;
+  PayerID?: Maybe<String>;
+  PayerID_not?: Maybe<String>;
+  PayerID_in?: Maybe<String[] | String>;
+  PayerID_not_in?: Maybe<String[] | String>;
+  PayerID_lt?: Maybe<String>;
+  PayerID_lte?: Maybe<String>;
+  PayerID_gt?: Maybe<String>;
+  PayerID_gte?: Maybe<String>;
+  PayerID_contains?: Maybe<String>;
+  PayerID_not_contains?: Maybe<String>;
+  PayerID_starts_with?: Maybe<String>;
+  PayerID_not_starts_with?: Maybe<String>;
+  PayerID_ends_with?: Maybe<String>;
+  PayerID_not_ends_with?: Maybe<String>;
+  imageUrl?: Maybe<String>;
+  imageUrl_not?: Maybe<String>;
+  imageUrl_in?: Maybe<String[] | String>;
+  imageUrl_not_in?: Maybe<String[] | String>;
+  imageUrl_lt?: Maybe<String>;
+  imageUrl_lte?: Maybe<String>;
+  imageUrl_gt?: Maybe<String>;
+  imageUrl_gte?: Maybe<String>;
+  imageUrl_contains?: Maybe<String>;
+  imageUrl_not_contains?: Maybe<String>;
+  imageUrl_starts_with?: Maybe<String>;
+  imageUrl_not_starts_with?: Maybe<String>;
+  imageUrl_ends_with?: Maybe<String>;
+  imageUrl_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<OrderWhereInput[] | OrderWhereInput>;
+  OR?: Maybe<OrderWhereInput[] | OrderWhereInput>;
+  NOT?: Maybe<OrderWhereInput[] | OrderWhereInput>;
 }
 
-export interface UserUpdateManyMutationInput {
+export type ProductWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export type ProductImageWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export type ProductReviewWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export type ShopWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  name?: Maybe<String>;
+}>;
+
+export type ShopImageWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export type TagWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  name?: Maybe<String>;
+}>;
+
+export type UserWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  firebaseId?: Maybe<String>;
+  email?: Maybe<String>;
+  username?: Maybe<String>;
+}>;
+
+export type UserImageWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export type VariantWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export type orderItemWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface BrandCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  products?: Maybe<ProductCreateManyWithoutBrandInput>;
+}
+
+export interface ProductCreateManyWithoutBrandInput {
+  create?: Maybe<
+    ProductCreateWithoutBrandInput[] | ProductCreateWithoutBrandInput
+  >;
+  connect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
+}
+
+export interface ProductCreateWithoutBrandInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  description: String;
+  price: String;
+  categories?: Maybe<CategoryCreateManyWithoutProductInput>;
+  tags?: Maybe<TagCreateManyWithoutProductsInput>;
+  images?: Maybe<ProductImageCreateManyWithoutProductInput>;
+  shop: ShopCreateOneWithoutProductsInput;
+  variants?: Maybe<VariantCreateManyWithoutProductInput>;
+  reviews?: Maybe<ProductReviewCreateManyWithoutProductInput>;
+}
+
+export interface CategoryCreateManyWithoutProductInput {
+  create?: Maybe<
+    CategoryCreateWithoutProductInput[] | CategoryCreateWithoutProductInput
+  >;
+  connect?: Maybe<CategoryWhereUniqueInput[] | CategoryWhereUniqueInput>;
+}
+
+export interface CategoryCreateWithoutProductInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+}
+
+export interface TagCreateManyWithoutProductsInput {
+  create?: Maybe<
+    TagCreateWithoutProductsInput[] | TagCreateWithoutProductsInput
+  >;
+  connect?: Maybe<TagWhereUniqueInput[] | TagWhereUniqueInput>;
+}
+
+export interface TagCreateWithoutProductsInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+}
+
+export interface ProductImageCreateManyWithoutProductInput {
+  create?: Maybe<
+    | ProductImageCreateWithoutProductInput[]
+    | ProductImageCreateWithoutProductInput
+  >;
+  connect?: Maybe<
+    ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput
+  >;
+}
+
+export interface ProductImageCreateWithoutProductInput {
+  id?: Maybe<ID_Input>;
+  imageUrl: String;
+  largeImageUrl?: Maybe<String>;
+}
+
+export interface ShopCreateOneWithoutProductsInput {
+  create?: Maybe<ShopCreateWithoutProductsInput>;
+  connect?: Maybe<ShopWhereUniqueInput>;
+}
+
+export interface ShopCreateWithoutProductsInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description: String;
+  category: String;
+  live?: Maybe<Boolean>;
+  owners?: Maybe<UserCreateManyWithoutShopsInput>;
+  images?: Maybe<ShopImageCreateManyWithoutShopInput>;
+}
+
+export interface UserCreateManyWithoutShopsInput {
+  create?: Maybe<UserCreateWithoutShopsInput[] | UserCreateWithoutShopsInput>;
+  connect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+}
+
+export interface UserCreateWithoutShopsInput {
+  id?: Maybe<ID_Input>;
+  firebaseId: String;
+  email?: Maybe<String>;
+  name: String;
+  username: String;
+  profilePic?: Maybe<String>;
+  isAnonymous?: Maybe<Boolean>;
+  emailVerified?: Maybe<Boolean>;
+  images?: Maybe<UserImageCreateManyWithoutUserInput>;
+  productReviews?: Maybe<ProductReviewCreateManyWithoutUserInput>;
+  cartItems?: Maybe<CartCreateOneWithoutUserInput>;
+  forumposts?: Maybe<ForumPostCreateManyWithoutPostedByInput>;
+  forums?: Maybe<ForumCreateManyWithoutMembersInput>;
+  postComments?: Maybe<ForumPostCommentCreateManyWithoutUserInput>;
+}
+
+export interface UserImageCreateManyWithoutUserInput {
+  create?: Maybe<
+    UserImageCreateWithoutUserInput[] | UserImageCreateWithoutUserInput
+  >;
+  connect?: Maybe<UserImageWhereUniqueInput[] | UserImageWhereUniqueInput>;
+}
+
+export interface UserImageCreateWithoutUserInput {
+  id?: Maybe<ID_Input>;
+  imageUrl: String;
+}
+
+export interface ProductReviewCreateManyWithoutUserInput {
+  create?: Maybe<
+    ProductReviewCreateWithoutUserInput[] | ProductReviewCreateWithoutUserInput
+  >;
+  connect?: Maybe<
+    ProductReviewWhereUniqueInput[] | ProductReviewWhereUniqueInput
+  >;
+}
+
+export interface ProductReviewCreateWithoutUserInput {
+  id?: Maybe<ID_Input>;
+  product: ProductCreateOneWithoutReviewsInput;
+  rating: Int;
+  review?: Maybe<String>;
+}
+
+export interface ProductCreateOneWithoutReviewsInput {
+  create?: Maybe<ProductCreateWithoutReviewsInput>;
+  connect?: Maybe<ProductWhereUniqueInput>;
+}
+
+export interface ProductCreateWithoutReviewsInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  description: String;
+  price: String;
+  categories?: Maybe<CategoryCreateManyWithoutProductInput>;
+  brand?: Maybe<BrandCreateOneWithoutProductsInput>;
+  tags?: Maybe<TagCreateManyWithoutProductsInput>;
+  images?: Maybe<ProductImageCreateManyWithoutProductInput>;
+  shop: ShopCreateOneWithoutProductsInput;
+  variants?: Maybe<VariantCreateManyWithoutProductInput>;
+}
+
+export interface BrandCreateOneWithoutProductsInput {
+  create?: Maybe<BrandCreateWithoutProductsInput>;
+  connect?: Maybe<BrandWhereUniqueInput>;
+}
+
+export interface BrandCreateWithoutProductsInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+}
+
+export interface VariantCreateManyWithoutProductInput {
+  create?: Maybe<
+    VariantCreateWithoutProductInput[] | VariantCreateWithoutProductInput
+  >;
+  connect?: Maybe<VariantWhereUniqueInput[] | VariantWhereUniqueInput>;
+}
+
+export interface VariantCreateWithoutProductInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  values?: Maybe<VariantCreatevaluesInput>;
+}
+
+export interface VariantCreatevaluesInput {
+  set?: Maybe<String[] | String>;
+}
+
+export interface CartCreateOneWithoutUserInput {
+  create?: Maybe<CartCreateWithoutUserInput>;
+  connect?: Maybe<CartWhereUniqueInput>;
+}
+
+export interface CartCreateWithoutUserInput {
+  id?: Maybe<ID_Input>;
+  items?: Maybe<CartItemCreateManyWithoutCartInput>;
+}
+
+export interface CartItemCreateManyWithoutCartInput {
+  create?: Maybe<
+    CartItemCreateWithoutCartInput[] | CartItemCreateWithoutCartInput
+  >;
+  connect?: Maybe<CartItemWhereUniqueInput[] | CartItemWhereUniqueInput>;
+}
+
+export interface CartItemCreateWithoutCartInput {
+  id?: Maybe<ID_Input>;
+  product: ProductCreateOneInput;
+  quantity: Int;
+  variants?: Maybe<CartItemCreatevariantsInput>;
+}
+
+export interface ProductCreateOneInput {
+  create?: Maybe<ProductCreateInput>;
+  connect?: Maybe<ProductWhereUniqueInput>;
+}
+
+export interface ProductCreateInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  description: String;
+  price: String;
+  categories?: Maybe<CategoryCreateManyWithoutProductInput>;
+  brand?: Maybe<BrandCreateOneWithoutProductsInput>;
+  tags?: Maybe<TagCreateManyWithoutProductsInput>;
+  images?: Maybe<ProductImageCreateManyWithoutProductInput>;
+  shop: ShopCreateOneWithoutProductsInput;
+  variants?: Maybe<VariantCreateManyWithoutProductInput>;
+  reviews?: Maybe<ProductReviewCreateManyWithoutProductInput>;
+}
+
+export interface ProductReviewCreateManyWithoutProductInput {
+  create?: Maybe<
+    | ProductReviewCreateWithoutProductInput[]
+    | ProductReviewCreateWithoutProductInput
+  >;
+  connect?: Maybe<
+    ProductReviewWhereUniqueInput[] | ProductReviewWhereUniqueInput
+  >;
+}
+
+export interface ProductReviewCreateWithoutProductInput {
+  id?: Maybe<ID_Input>;
+  user: UserCreateOneWithoutProductReviewsInput;
+  rating: Int;
+  review?: Maybe<String>;
+}
+
+export interface UserCreateOneWithoutProductReviewsInput {
+  create?: Maybe<UserCreateWithoutProductReviewsInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserCreateWithoutProductReviewsInput {
+  id?: Maybe<ID_Input>;
+  firebaseId: String;
+  email?: Maybe<String>;
+  name: String;
+  username: String;
+  profilePic?: Maybe<String>;
+  isAnonymous?: Maybe<Boolean>;
+  emailVerified?: Maybe<Boolean>;
+  shops?: Maybe<ShopCreateManyWithoutOwnersInput>;
+  images?: Maybe<UserImageCreateManyWithoutUserInput>;
+  cartItems?: Maybe<CartCreateOneWithoutUserInput>;
+  forumposts?: Maybe<ForumPostCreateManyWithoutPostedByInput>;
+  forums?: Maybe<ForumCreateManyWithoutMembersInput>;
+  postComments?: Maybe<ForumPostCommentCreateManyWithoutUserInput>;
+}
+
+export interface ShopCreateManyWithoutOwnersInput {
+  create?: Maybe<ShopCreateWithoutOwnersInput[] | ShopCreateWithoutOwnersInput>;
+  connect?: Maybe<ShopWhereUniqueInput[] | ShopWhereUniqueInput>;
+}
+
+export interface ShopCreateWithoutOwnersInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description: String;
+  category: String;
+  live?: Maybe<Boolean>;
+  images?: Maybe<ShopImageCreateManyWithoutShopInput>;
+  products?: Maybe<ProductCreateManyWithoutShopInput>;
+}
+
+export interface ShopImageCreateManyWithoutShopInput {
+  create?: Maybe<
+    ShopImageCreateWithoutShopInput[] | ShopImageCreateWithoutShopInput
+  >;
+  connect?: Maybe<ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput>;
+}
+
+export interface ShopImageCreateWithoutShopInput {
+  id?: Maybe<ID_Input>;
+  imageUrl: String;
+  largeImageUrl?: Maybe<String>;
+}
+
+export interface ProductCreateManyWithoutShopInput {
+  create?: Maybe<
+    ProductCreateWithoutShopInput[] | ProductCreateWithoutShopInput
+  >;
+  connect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
+}
+
+export interface ProductCreateWithoutShopInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  description: String;
+  price: String;
+  categories?: Maybe<CategoryCreateManyWithoutProductInput>;
+  brand?: Maybe<BrandCreateOneWithoutProductsInput>;
+  tags?: Maybe<TagCreateManyWithoutProductsInput>;
+  images?: Maybe<ProductImageCreateManyWithoutProductInput>;
+  variants?: Maybe<VariantCreateManyWithoutProductInput>;
+  reviews?: Maybe<ProductReviewCreateManyWithoutProductInput>;
+}
+
+export interface ForumPostCreateManyWithoutPostedByInput {
+  create?: Maybe<
+    ForumPostCreateWithoutPostedByInput[] | ForumPostCreateWithoutPostedByInput
+  >;
+  connect?: Maybe<ForumPostWhereUniqueInput[] | ForumPostWhereUniqueInput>;
+}
+
+export interface ForumPostCreateWithoutPostedByInput {
+  id?: Maybe<ID_Input>;
+  forum: ForumCreateOneWithoutPostsInput;
+  title: String;
+  content?: Maybe<String>;
+  type: ForumPostType;
+  comments?: Maybe<ForumPostCommentCreateManyWithoutForumPostInput>;
+}
+
+export interface ForumCreateOneWithoutPostsInput {
+  create?: Maybe<ForumCreateWithoutPostsInput>;
+  connect?: Maybe<ForumWhereUniqueInput>;
+}
+
+export interface ForumCreateWithoutPostsInput {
+  id?: Maybe<ID_Input>;
+  avatarPic?: Maybe<String>;
+  coverPic?: Maybe<String>;
+  members?: Maybe<UserCreateManyWithoutForumsInput>;
+  name: String;
+  description?: Maybe<String>;
+}
+
+export interface UserCreateManyWithoutForumsInput {
+  create?: Maybe<UserCreateWithoutForumsInput[] | UserCreateWithoutForumsInput>;
+  connect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+}
+
+export interface UserCreateWithoutForumsInput {
+  id?: Maybe<ID_Input>;
+  firebaseId: String;
+  email?: Maybe<String>;
+  name: String;
+  username: String;
+  profilePic?: Maybe<String>;
+  isAnonymous?: Maybe<Boolean>;
+  emailVerified?: Maybe<Boolean>;
+  shops?: Maybe<ShopCreateManyWithoutOwnersInput>;
+  images?: Maybe<UserImageCreateManyWithoutUserInput>;
+  productReviews?: Maybe<ProductReviewCreateManyWithoutUserInput>;
+  cartItems?: Maybe<CartCreateOneWithoutUserInput>;
+  forumposts?: Maybe<ForumPostCreateManyWithoutPostedByInput>;
+  postComments?: Maybe<ForumPostCommentCreateManyWithoutUserInput>;
+}
+
+export interface ForumPostCommentCreateManyWithoutUserInput {
+  create?: Maybe<
+    | ForumPostCommentCreateWithoutUserInput[]
+    | ForumPostCommentCreateWithoutUserInput
+  >;
+  connect?: Maybe<
+    ForumPostCommentWhereUniqueInput[] | ForumPostCommentWhereUniqueInput
+  >;
+}
+
+export interface ForumPostCommentCreateWithoutUserInput {
+  id?: Maybe<ID_Input>;
+  forumPost: ForumPostCreateOneWithoutCommentsInput;
+  comment: String;
+}
+
+export interface ForumPostCreateOneWithoutCommentsInput {
+  create?: Maybe<ForumPostCreateWithoutCommentsInput>;
+  connect?: Maybe<ForumPostWhereUniqueInput>;
+}
+
+export interface ForumPostCreateWithoutCommentsInput {
+  id?: Maybe<ID_Input>;
+  postedBy: UserCreateOneWithoutForumpostsInput;
+  forum: ForumCreateOneWithoutPostsInput;
+  title: String;
+  content?: Maybe<String>;
+  type: ForumPostType;
+}
+
+export interface UserCreateOneWithoutForumpostsInput {
+  create?: Maybe<UserCreateWithoutForumpostsInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserCreateWithoutForumpostsInput {
+  id?: Maybe<ID_Input>;
+  firebaseId: String;
+  email?: Maybe<String>;
+  name: String;
+  username: String;
+  profilePic?: Maybe<String>;
+  isAnonymous?: Maybe<Boolean>;
+  emailVerified?: Maybe<Boolean>;
+  shops?: Maybe<ShopCreateManyWithoutOwnersInput>;
+  images?: Maybe<UserImageCreateManyWithoutUserInput>;
+  productReviews?: Maybe<ProductReviewCreateManyWithoutUserInput>;
+  cartItems?: Maybe<CartCreateOneWithoutUserInput>;
+  forums?: Maybe<ForumCreateManyWithoutMembersInput>;
+  postComments?: Maybe<ForumPostCommentCreateManyWithoutUserInput>;
+}
+
+export interface ForumCreateManyWithoutMembersInput {
+  create?: Maybe<
+    ForumCreateWithoutMembersInput[] | ForumCreateWithoutMembersInput
+  >;
+  connect?: Maybe<ForumWhereUniqueInput[] | ForumWhereUniqueInput>;
+}
+
+export interface ForumCreateWithoutMembersInput {
+  id?: Maybe<ID_Input>;
+  avatarPic?: Maybe<String>;
+  coverPic?: Maybe<String>;
+  posts?: Maybe<ForumPostCreateManyWithoutForumInput>;
+  name: String;
+  description?: Maybe<String>;
+}
+
+export interface ForumPostCreateManyWithoutForumInput {
+  create?: Maybe<
+    ForumPostCreateWithoutForumInput[] | ForumPostCreateWithoutForumInput
+  >;
+  connect?: Maybe<ForumPostWhereUniqueInput[] | ForumPostWhereUniqueInput>;
+}
+
+export interface ForumPostCreateWithoutForumInput {
+  id?: Maybe<ID_Input>;
+  postedBy: UserCreateOneWithoutForumpostsInput;
+  title: String;
+  content?: Maybe<String>;
+  type: ForumPostType;
+  comments?: Maybe<ForumPostCommentCreateManyWithoutForumPostInput>;
+}
+
+export interface ForumPostCommentCreateManyWithoutForumPostInput {
+  create?: Maybe<
+    | ForumPostCommentCreateWithoutForumPostInput[]
+    | ForumPostCommentCreateWithoutForumPostInput
+  >;
+  connect?: Maybe<
+    ForumPostCommentWhereUniqueInput[] | ForumPostCommentWhereUniqueInput
+  >;
+}
+
+export interface ForumPostCommentCreateWithoutForumPostInput {
+  id?: Maybe<ID_Input>;
+  user: UserCreateOneWithoutPostCommentsInput;
+  comment: String;
+}
+
+export interface UserCreateOneWithoutPostCommentsInput {
+  create?: Maybe<UserCreateWithoutPostCommentsInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserCreateWithoutPostCommentsInput {
+  id?: Maybe<ID_Input>;
+  firebaseId: String;
+  email?: Maybe<String>;
+  name: String;
+  username: String;
+  profilePic?: Maybe<String>;
+  isAnonymous?: Maybe<Boolean>;
+  emailVerified?: Maybe<Boolean>;
+  shops?: Maybe<ShopCreateManyWithoutOwnersInput>;
+  images?: Maybe<UserImageCreateManyWithoutUserInput>;
+  productReviews?: Maybe<ProductReviewCreateManyWithoutUserInput>;
+  cartItems?: Maybe<CartCreateOneWithoutUserInput>;
+  forumposts?: Maybe<ForumPostCreateManyWithoutPostedByInput>;
+  forums?: Maybe<ForumCreateManyWithoutMembersInput>;
+}
+
+export interface CartItemCreatevariantsInput {
+  set?: Maybe<String[] | String>;
+}
+
+export interface BrandUpdateInput {
+  name?: Maybe<String>;
+  products?: Maybe<ProductUpdateManyWithoutBrandInput>;
+}
+
+export interface ProductUpdateManyWithoutBrandInput {
+  create?: Maybe<
+    ProductCreateWithoutBrandInput[] | ProductCreateWithoutBrandInput
+  >;
+  delete?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
+  connect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
+  set?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
+  disconnect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
+  update?: Maybe<
+    | ProductUpdateWithWhereUniqueWithoutBrandInput[]
+    | ProductUpdateWithWhereUniqueWithoutBrandInput
+  >;
+  upsert?: Maybe<
+    | ProductUpsertWithWhereUniqueWithoutBrandInput[]
+    | ProductUpsertWithWhereUniqueWithoutBrandInput
+  >;
+  deleteMany?: Maybe<ProductScalarWhereInput[] | ProductScalarWhereInput>;
+  updateMany?: Maybe<
+    | ProductUpdateManyWithWhereNestedInput[]
+    | ProductUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface ProductUpdateWithWhereUniqueWithoutBrandInput {
+  where: ProductWhereUniqueInput;
+  data: ProductUpdateWithoutBrandDataInput;
+}
+
+export interface ProductUpdateWithoutBrandDataInput {
+  title?: Maybe<String>;
+  description?: Maybe<String>;
+  price?: Maybe<String>;
+  categories?: Maybe<CategoryUpdateManyWithoutProductInput>;
+  tags?: Maybe<TagUpdateManyWithoutProductsInput>;
+  images?: Maybe<ProductImageUpdateManyWithoutProductInput>;
+  shop?: Maybe<ShopUpdateOneRequiredWithoutProductsInput>;
+  variants?: Maybe<VariantUpdateManyWithoutProductInput>;
+  reviews?: Maybe<ProductReviewUpdateManyWithoutProductInput>;
+}
+
+export interface CategoryUpdateManyWithoutProductInput {
+  create?: Maybe<
+    CategoryCreateWithoutProductInput[] | CategoryCreateWithoutProductInput
+  >;
+  delete?: Maybe<CategoryWhereUniqueInput[] | CategoryWhereUniqueInput>;
+  connect?: Maybe<CategoryWhereUniqueInput[] | CategoryWhereUniqueInput>;
+  set?: Maybe<CategoryWhereUniqueInput[] | CategoryWhereUniqueInput>;
+  disconnect?: Maybe<CategoryWhereUniqueInput[] | CategoryWhereUniqueInput>;
+  update?: Maybe<
+    | CategoryUpdateWithWhereUniqueWithoutProductInput[]
+    | CategoryUpdateWithWhereUniqueWithoutProductInput
+  >;
+  upsert?: Maybe<
+    | CategoryUpsertWithWhereUniqueWithoutProductInput[]
+    | CategoryUpsertWithWhereUniqueWithoutProductInput
+  >;
+  deleteMany?: Maybe<CategoryScalarWhereInput[] | CategoryScalarWhereInput>;
+  updateMany?: Maybe<
+    | CategoryUpdateManyWithWhereNestedInput[]
+    | CategoryUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface CategoryUpdateWithWhereUniqueWithoutProductInput {
+  where: CategoryWhereUniqueInput;
+  data: CategoryUpdateWithoutProductDataInput;
+}
+
+export interface CategoryUpdateWithoutProductDataInput {
+  name?: Maybe<String>;
+}
+
+export interface CategoryUpsertWithWhereUniqueWithoutProductInput {
+  where: CategoryWhereUniqueInput;
+  update: CategoryUpdateWithoutProductDataInput;
+  create: CategoryCreateWithoutProductInput;
+}
+
+export interface CategoryScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<CategoryScalarWhereInput[] | CategoryScalarWhereInput>;
+  OR?: Maybe<CategoryScalarWhereInput[] | CategoryScalarWhereInput>;
+  NOT?: Maybe<CategoryScalarWhereInput[] | CategoryScalarWhereInput>;
+}
+
+export interface CategoryUpdateManyWithWhereNestedInput {
+  where: CategoryScalarWhereInput;
+  data: CategoryUpdateManyDataInput;
+}
+
+export interface CategoryUpdateManyDataInput {
+  name?: Maybe<String>;
+}
+
+export interface TagUpdateManyWithoutProductsInput {
+  create?: Maybe<
+    TagCreateWithoutProductsInput[] | TagCreateWithoutProductsInput
+  >;
+  delete?: Maybe<TagWhereUniqueInput[] | TagWhereUniqueInput>;
+  connect?: Maybe<TagWhereUniqueInput[] | TagWhereUniqueInput>;
+  set?: Maybe<TagWhereUniqueInput[] | TagWhereUniqueInput>;
+  disconnect?: Maybe<TagWhereUniqueInput[] | TagWhereUniqueInput>;
+  update?: Maybe<
+    | TagUpdateWithWhereUniqueWithoutProductsInput[]
+    | TagUpdateWithWhereUniqueWithoutProductsInput
+  >;
+  upsert?: Maybe<
+    | TagUpsertWithWhereUniqueWithoutProductsInput[]
+    | TagUpsertWithWhereUniqueWithoutProductsInput
+  >;
+  deleteMany?: Maybe<TagScalarWhereInput[] | TagScalarWhereInput>;
+  updateMany?: Maybe<
+    TagUpdateManyWithWhereNestedInput[] | TagUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface TagUpdateWithWhereUniqueWithoutProductsInput {
+  where: TagWhereUniqueInput;
+  data: TagUpdateWithoutProductsDataInput;
+}
+
+export interface TagUpdateWithoutProductsDataInput {
+  name?: Maybe<String>;
+}
+
+export interface TagUpsertWithWhereUniqueWithoutProductsInput {
+  where: TagWhereUniqueInput;
+  update: TagUpdateWithoutProductsDataInput;
+  create: TagCreateWithoutProductsInput;
+}
+
+export interface TagScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<TagScalarWhereInput[] | TagScalarWhereInput>;
+  OR?: Maybe<TagScalarWhereInput[] | TagScalarWhereInput>;
+  NOT?: Maybe<TagScalarWhereInput[] | TagScalarWhereInput>;
+}
+
+export interface TagUpdateManyWithWhereNestedInput {
+  where: TagScalarWhereInput;
+  data: TagUpdateManyDataInput;
+}
+
+export interface TagUpdateManyDataInput {
+  name?: Maybe<String>;
+}
+
+export interface ProductImageUpdateManyWithoutProductInput {
+  create?: Maybe<
+    | ProductImageCreateWithoutProductInput[]
+    | ProductImageCreateWithoutProductInput
+  >;
+  delete?: Maybe<ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput>;
+  connect?: Maybe<
+    ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput
+  >;
+  set?: Maybe<ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput>;
+  disconnect?: Maybe<
+    ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput
+  >;
+  update?: Maybe<
+    | ProductImageUpdateWithWhereUniqueWithoutProductInput[]
+    | ProductImageUpdateWithWhereUniqueWithoutProductInput
+  >;
+  upsert?: Maybe<
+    | ProductImageUpsertWithWhereUniqueWithoutProductInput[]
+    | ProductImageUpsertWithWhereUniqueWithoutProductInput
+  >;
+  deleteMany?: Maybe<
+    ProductImageScalarWhereInput[] | ProductImageScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | ProductImageUpdateManyWithWhereNestedInput[]
+    | ProductImageUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface ProductImageUpdateWithWhereUniqueWithoutProductInput {
+  where: ProductImageWhereUniqueInput;
+  data: ProductImageUpdateWithoutProductDataInput;
+}
+
+export interface ProductImageUpdateWithoutProductDataInput {
+  imageUrl?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
+}
+
+export interface ProductImageUpsertWithWhereUniqueWithoutProductInput {
+  where: ProductImageWhereUniqueInput;
+  update: ProductImageUpdateWithoutProductDataInput;
+  create: ProductImageCreateWithoutProductInput;
+}
+
+export interface ProductImageScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  imageUrl?: Maybe<String>;
+  imageUrl_not?: Maybe<String>;
+  imageUrl_in?: Maybe<String[] | String>;
+  imageUrl_not_in?: Maybe<String[] | String>;
+  imageUrl_lt?: Maybe<String>;
+  imageUrl_lte?: Maybe<String>;
+  imageUrl_gt?: Maybe<String>;
+  imageUrl_gte?: Maybe<String>;
+  imageUrl_contains?: Maybe<String>;
+  imageUrl_not_contains?: Maybe<String>;
+  imageUrl_starts_with?: Maybe<String>;
+  imageUrl_not_starts_with?: Maybe<String>;
+  imageUrl_ends_with?: Maybe<String>;
+  imageUrl_not_ends_with?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
+  largeImageUrl_not?: Maybe<String>;
+  largeImageUrl_in?: Maybe<String[] | String>;
+  largeImageUrl_not_in?: Maybe<String[] | String>;
+  largeImageUrl_lt?: Maybe<String>;
+  largeImageUrl_lte?: Maybe<String>;
+  largeImageUrl_gt?: Maybe<String>;
+  largeImageUrl_gte?: Maybe<String>;
+  largeImageUrl_contains?: Maybe<String>;
+  largeImageUrl_not_contains?: Maybe<String>;
+  largeImageUrl_starts_with?: Maybe<String>;
+  largeImageUrl_not_starts_with?: Maybe<String>;
+  largeImageUrl_ends_with?: Maybe<String>;
+  largeImageUrl_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<ProductImageScalarWhereInput[] | ProductImageScalarWhereInput>;
+  OR?: Maybe<ProductImageScalarWhereInput[] | ProductImageScalarWhereInput>;
+  NOT?: Maybe<ProductImageScalarWhereInput[] | ProductImageScalarWhereInput>;
+}
+
+export interface ProductImageUpdateManyWithWhereNestedInput {
+  where: ProductImageScalarWhereInput;
+  data: ProductImageUpdateManyDataInput;
+}
+
+export interface ProductImageUpdateManyDataInput {
+  imageUrl?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
+}
+
+export interface ShopUpdateOneRequiredWithoutProductsInput {
+  create?: Maybe<ShopCreateWithoutProductsInput>;
+  update?: Maybe<ShopUpdateWithoutProductsDataInput>;
+  upsert?: Maybe<ShopUpsertWithoutProductsInput>;
+  connect?: Maybe<ShopWhereUniqueInput>;
+}
+
+export interface ShopUpdateWithoutProductsDataInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  category?: Maybe<String>;
+  live?: Maybe<Boolean>;
+  owners?: Maybe<UserUpdateManyWithoutShopsInput>;
+  images?: Maybe<ShopImageUpdateManyWithoutShopInput>;
+}
+
+export interface UserUpdateManyWithoutShopsInput {
+  create?: Maybe<UserCreateWithoutShopsInput[] | UserCreateWithoutShopsInput>;
+  delete?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+  connect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+  set?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+  disconnect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+  update?: Maybe<
+    | UserUpdateWithWhereUniqueWithoutShopsInput[]
+    | UserUpdateWithWhereUniqueWithoutShopsInput
+  >;
+  upsert?: Maybe<
+    | UserUpsertWithWhereUniqueWithoutShopsInput[]
+    | UserUpsertWithWhereUniqueWithoutShopsInput
+  >;
+  deleteMany?: Maybe<UserScalarWhereInput[] | UserScalarWhereInput>;
+  updateMany?: Maybe<
+    UserUpdateManyWithWhereNestedInput[] | UserUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface UserUpdateWithWhereUniqueWithoutShopsInput {
+  where: UserWhereUniqueInput;
+  data: UserUpdateWithoutShopsDataInput;
+}
+
+export interface UserUpdateWithoutShopsDataInput {
   firebaseId?: Maybe<String>;
   email?: Maybe<String>;
   name?: Maybe<String>;
@@ -2414,22 +3254,6 @@ export interface UserUpdateManyMutationInput {
   profilePic?: Maybe<String>;
   isAnonymous?: Maybe<Boolean>;
   emailVerified?: Maybe<Boolean>;
-}
-
-export interface VariantUpdateWithoutProductDataInput {
-  name?: Maybe<String>;
-  values?: Maybe<VariantUpdatevaluesInput>;
-}
-
-export interface UserUpdateInput {
-  firebaseId?: Maybe<String>;
-  email?: Maybe<String>;
-  name?: Maybe<String>;
-  username?: Maybe<String>;
-  profilePic?: Maybe<String>;
-  isAnonymous?: Maybe<Boolean>;
-  emailVerified?: Maybe<Boolean>;
-  shops?: Maybe<ShopUpdateManyWithoutOwnersInput>;
   images?: Maybe<UserImageUpdateManyWithoutUserInput>;
   productReviews?: Maybe<ProductReviewUpdateManyWithoutUserInput>;
   cartItems?: Maybe<CartUpdateOneWithoutUserInput>;
@@ -2438,14 +3262,217 @@ export interface UserUpdateInput {
   postComments?: Maybe<ForumPostCommentUpdateManyWithoutUserInput>;
 }
 
-export interface VariantUpdatevaluesInput {
-  set?: Maybe<String[] | String>;
+export interface UserImageUpdateManyWithoutUserInput {
+  create?: Maybe<
+    UserImageCreateWithoutUserInput[] | UserImageCreateWithoutUserInput
+  >;
+  delete?: Maybe<UserImageWhereUniqueInput[] | UserImageWhereUniqueInput>;
+  connect?: Maybe<UserImageWhereUniqueInput[] | UserImageWhereUniqueInput>;
+  set?: Maybe<UserImageWhereUniqueInput[] | UserImageWhereUniqueInput>;
+  disconnect?: Maybe<UserImageWhereUniqueInput[] | UserImageWhereUniqueInput>;
+  update?: Maybe<
+    | UserImageUpdateWithWhereUniqueWithoutUserInput[]
+    | UserImageUpdateWithWhereUniqueWithoutUserInput
+  >;
+  upsert?: Maybe<
+    | UserImageUpsertWithWhereUniqueWithoutUserInput[]
+    | UserImageUpsertWithWhereUniqueWithoutUserInput
+  >;
+  deleteMany?: Maybe<UserImageScalarWhereInput[] | UserImageScalarWhereInput>;
+  updateMany?: Maybe<
+    | UserImageUpdateManyWithWhereNestedInput[]
+    | UserImageUpdateManyWithWhereNestedInput
+  >;
 }
 
-export interface ProductUpsertWithWhereUniqueWithoutTagsInput {
-  where: ProductWhereUniqueInput;
-  update: ProductUpdateWithoutTagsDataInput;
-  create: ProductCreateWithoutTagsInput;
+export interface UserImageUpdateWithWhereUniqueWithoutUserInput {
+  where: UserImageWhereUniqueInput;
+  data: UserImageUpdateWithoutUserDataInput;
+}
+
+export interface UserImageUpdateWithoutUserDataInput {
+  imageUrl?: Maybe<String>;
+}
+
+export interface UserImageUpsertWithWhereUniqueWithoutUserInput {
+  where: UserImageWhereUniqueInput;
+  update: UserImageUpdateWithoutUserDataInput;
+  create: UserImageCreateWithoutUserInput;
+}
+
+export interface UserImageScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  imageUrl?: Maybe<String>;
+  imageUrl_not?: Maybe<String>;
+  imageUrl_in?: Maybe<String[] | String>;
+  imageUrl_not_in?: Maybe<String[] | String>;
+  imageUrl_lt?: Maybe<String>;
+  imageUrl_lte?: Maybe<String>;
+  imageUrl_gt?: Maybe<String>;
+  imageUrl_gte?: Maybe<String>;
+  imageUrl_contains?: Maybe<String>;
+  imageUrl_not_contains?: Maybe<String>;
+  imageUrl_starts_with?: Maybe<String>;
+  imageUrl_not_starts_with?: Maybe<String>;
+  imageUrl_ends_with?: Maybe<String>;
+  imageUrl_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<UserImageScalarWhereInput[] | UserImageScalarWhereInput>;
+  OR?: Maybe<UserImageScalarWhereInput[] | UserImageScalarWhereInput>;
+  NOT?: Maybe<UserImageScalarWhereInput[] | UserImageScalarWhereInput>;
+}
+
+export interface UserImageUpdateManyWithWhereNestedInput {
+  where: UserImageScalarWhereInput;
+  data: UserImageUpdateManyDataInput;
+}
+
+export interface UserImageUpdateManyDataInput {
+  imageUrl?: Maybe<String>;
+}
+
+export interface ProductReviewUpdateManyWithoutUserInput {
+  create?: Maybe<
+    ProductReviewCreateWithoutUserInput[] | ProductReviewCreateWithoutUserInput
+  >;
+  delete?: Maybe<
+    ProductReviewWhereUniqueInput[] | ProductReviewWhereUniqueInput
+  >;
+  connect?: Maybe<
+    ProductReviewWhereUniqueInput[] | ProductReviewWhereUniqueInput
+  >;
+  set?: Maybe<ProductReviewWhereUniqueInput[] | ProductReviewWhereUniqueInput>;
+  disconnect?: Maybe<
+    ProductReviewWhereUniqueInput[] | ProductReviewWhereUniqueInput
+  >;
+  update?: Maybe<
+    | ProductReviewUpdateWithWhereUniqueWithoutUserInput[]
+    | ProductReviewUpdateWithWhereUniqueWithoutUserInput
+  >;
+  upsert?: Maybe<
+    | ProductReviewUpsertWithWhereUniqueWithoutUserInput[]
+    | ProductReviewUpsertWithWhereUniqueWithoutUserInput
+  >;
+  deleteMany?: Maybe<
+    ProductReviewScalarWhereInput[] | ProductReviewScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | ProductReviewUpdateManyWithWhereNestedInput[]
+    | ProductReviewUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface ProductReviewUpdateWithWhereUniqueWithoutUserInput {
+  where: ProductReviewWhereUniqueInput;
+  data: ProductReviewUpdateWithoutUserDataInput;
+}
+
+export interface ProductReviewUpdateWithoutUserDataInput {
+  product?: Maybe<ProductUpdateOneRequiredWithoutReviewsInput>;
+  rating?: Maybe<Int>;
+  review?: Maybe<String>;
+}
+
+export interface ProductUpdateOneRequiredWithoutReviewsInput {
+  create?: Maybe<ProductCreateWithoutReviewsInput>;
+  update?: Maybe<ProductUpdateWithoutReviewsDataInput>;
+  upsert?: Maybe<ProductUpsertWithoutReviewsInput>;
+  connect?: Maybe<ProductWhereUniqueInput>;
+}
+
+export interface ProductUpdateWithoutReviewsDataInput {
+  title?: Maybe<String>;
+  description?: Maybe<String>;
+  price?: Maybe<String>;
+  categories?: Maybe<CategoryUpdateManyWithoutProductInput>;
+  brand?: Maybe<BrandUpdateOneWithoutProductsInput>;
+  tags?: Maybe<TagUpdateManyWithoutProductsInput>;
+  images?: Maybe<ProductImageUpdateManyWithoutProductInput>;
+  shop?: Maybe<ShopUpdateOneRequiredWithoutProductsInput>;
+  variants?: Maybe<VariantUpdateManyWithoutProductInput>;
+}
+
+export interface BrandUpdateOneWithoutProductsInput {
+  create?: Maybe<BrandCreateWithoutProductsInput>;
+  update?: Maybe<BrandUpdateWithoutProductsDataInput>;
+  upsert?: Maybe<BrandUpsertWithoutProductsInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<BrandWhereUniqueInput>;
+}
+
+export interface BrandUpdateWithoutProductsDataInput {
+  name?: Maybe<String>;
+}
+
+export interface BrandUpsertWithoutProductsInput {
+  update: BrandUpdateWithoutProductsDataInput;
+  create: BrandCreateWithoutProductsInput;
+}
+
+export interface VariantUpdateManyWithoutProductInput {
+  create?: Maybe<
+    VariantCreateWithoutProductInput[] | VariantCreateWithoutProductInput
+  >;
+  delete?: Maybe<VariantWhereUniqueInput[] | VariantWhereUniqueInput>;
+  connect?: Maybe<VariantWhereUniqueInput[] | VariantWhereUniqueInput>;
+  set?: Maybe<VariantWhereUniqueInput[] | VariantWhereUniqueInput>;
+  disconnect?: Maybe<VariantWhereUniqueInput[] | VariantWhereUniqueInput>;
+  update?: Maybe<
+    | VariantUpdateWithWhereUniqueWithoutProductInput[]
+    | VariantUpdateWithWhereUniqueWithoutProductInput
+  >;
+  upsert?: Maybe<
+    | VariantUpsertWithWhereUniqueWithoutProductInput[]
+    | VariantUpsertWithWhereUniqueWithoutProductInput
+  >;
+  deleteMany?: Maybe<VariantScalarWhereInput[] | VariantScalarWhereInput>;
+  updateMany?: Maybe<
+    | VariantUpdateManyWithWhereNestedInput[]
+    | VariantUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface VariantUpdateWithWhereUniqueWithoutProductInput {
+  where: VariantWhereUniqueInput;
+  data: VariantUpdateWithoutProductDataInput;
+}
+
+export interface VariantUpdateWithoutProductDataInput {
+  name?: Maybe<String>;
+  values?: Maybe<VariantUpdatevaluesInput>;
+}
+
+export interface VariantUpdatevaluesInput {
+  set?: Maybe<String[] | String>;
 }
 
 export interface VariantUpsertWithWhereUniqueWithoutProductInput {
@@ -2453,10 +3480,6 @@ export interface VariantUpsertWithWhereUniqueWithoutProductInput {
   update: VariantUpdateWithoutProductDataInput;
   create: VariantCreateWithoutProductInput;
 }
-
-export type ProductWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
 
 export interface VariantScalarWhereInput {
   id?: Maybe<ID_Input>;
@@ -2508,48 +3531,14 @@ export interface VariantScalarWhereInput {
   NOT?: Maybe<VariantScalarWhereInput[] | VariantScalarWhereInput>;
 }
 
-export interface ProductUpdateManyWithoutTagsInput {
-  create?: Maybe<
-    ProductCreateWithoutTagsInput[] | ProductCreateWithoutTagsInput
-  >;
-  delete?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
-  connect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
-  set?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
-  disconnect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
-  update?: Maybe<
-    | ProductUpdateWithWhereUniqueWithoutTagsInput[]
-    | ProductUpdateWithWhereUniqueWithoutTagsInput
-  >;
-  upsert?: Maybe<
-    | ProductUpsertWithWhereUniqueWithoutTagsInput[]
-    | ProductUpsertWithWhereUniqueWithoutTagsInput
-  >;
-  deleteMany?: Maybe<ProductScalarWhereInput[] | ProductScalarWhereInput>;
-  updateMany?: Maybe<
-    | ProductUpdateManyWithWhereNestedInput[]
-    | ProductUpdateManyWithWhereNestedInput
-  >;
-}
-
 export interface VariantUpdateManyWithWhereNestedInput {
   where: VariantScalarWhereInput;
   data: VariantUpdateManyDataInput;
 }
 
-export type ProductImageWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
 export interface VariantUpdateManyDataInput {
   name?: Maybe<String>;
   values?: Maybe<VariantUpdatevaluesInput>;
-}
-
-export interface ProductCreateManyWithoutTagsInput {
-  create?: Maybe<
-    ProductCreateWithoutTagsInput[] | ProductCreateWithoutTagsInput
-  >;
-  connect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
 }
 
 export interface ProductUpsertWithoutReviewsInput {
@@ -2557,19 +3546,10 @@ export interface ProductUpsertWithoutReviewsInput {
   create: ProductCreateWithoutReviewsInput;
 }
 
-export type ProductReviewWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
 export interface ProductReviewUpsertWithWhereUniqueWithoutUserInput {
   where: ProductReviewWhereUniqueInput;
   update: ProductReviewUpdateWithoutUserDataInput;
   create: ProductReviewCreateWithoutUserInput;
-}
-
-export interface ShopUpsertWithoutImagesInput {
-  update: ShopUpdateWithoutImagesDataInput;
-  create: ShopCreateWithoutImagesInput;
 }
 
 export interface ProductReviewScalarWhereInput {
@@ -2630,30 +3610,15 @@ export interface ProductReviewScalarWhereInput {
   NOT?: Maybe<ProductReviewScalarWhereInput[] | ProductReviewScalarWhereInput>;
 }
 
-export type ShopWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-  name?: Maybe<String>;
-}>;
-
 export interface ProductReviewUpdateManyWithWhereNestedInput {
   where: ProductReviewScalarWhereInput;
   data: ProductReviewUpdateManyDataInput;
-}
-
-export interface ShopImageUpdateInput {
-  imageUrl?: Maybe<String>;
-  largeImageUrl?: Maybe<String>;
-  shop?: Maybe<ShopUpdateOneWithoutImagesInput>;
 }
 
 export interface ProductReviewUpdateManyDataInput {
   rating?: Maybe<Int>;
   review?: Maybe<String>;
 }
-
-export type ShopImageWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
 
 export interface CartUpdateOneWithoutUserInput {
   create?: Maybe<CartCreateWithoutUserInput>;
@@ -2664,24 +3629,9 @@ export interface CartUpdateOneWithoutUserInput {
   connect?: Maybe<CartWhereUniqueInput>;
 }
 
-export interface ShopImageCreateInput {
-  id?: Maybe<ID_Input>;
-  imageUrl: String;
-  largeImageUrl?: Maybe<String>;
-  shop?: Maybe<ShopCreateOneWithoutImagesInput>;
+export interface CartUpdateWithoutUserDataInput {
+  items?: Maybe<CartItemUpdateManyWithoutCartInput>;
 }
-
-export interface OrderUpdateManyMutationInput {
-  total?: Maybe<String>;
-  paymentId?: Maybe<String>;
-  PayerID?: Maybe<String>;
-  imageUrl?: Maybe<String>;
-}
-
-export type TagWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-  name?: Maybe<String>;
-}>;
 
 export interface CartItemUpdateManyWithoutCartInput {
   create?: Maybe<
@@ -2706,41 +3656,15 @@ export interface CartItemUpdateManyWithoutCartInput {
   >;
 }
 
-export interface ShopCreateInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description: String;
-  category: String;
-  live?: Maybe<Boolean>;
-  owners?: Maybe<UserCreateManyWithoutShopsInput>;
-  images?: Maybe<ShopImageCreateManyWithoutShopInput>;
-  products?: Maybe<ProductCreateManyWithoutShopInput>;
-}
-
 export interface CartItemUpdateWithWhereUniqueWithoutCartInput {
   where: CartItemWhereUniqueInput;
   data: CartItemUpdateWithoutCartDataInput;
 }
 
-export type UserWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-  firebaseId?: Maybe<String>;
-  email?: Maybe<String>;
-  username?: Maybe<String>;
-}>;
-
 export interface CartItemUpdateWithoutCartDataInput {
   product?: Maybe<ProductUpdateOneRequiredInput>;
   quantity?: Maybe<Int>;
   variants?: Maybe<CartItemUpdatevariantsInput>;
-}
-
-export interface ProductReviewCreateInput {
-  id?: Maybe<ID_Input>;
-  user: UserCreateOneWithoutProductReviewsInput;
-  product: ProductCreateOneWithoutReviewsInput;
-  rating: Int;
-  review?: Maybe<String>;
 }
 
 export interface ProductUpdateOneRequiredInput {
@@ -2750,10 +3674,6 @@ export interface ProductUpdateOneRequiredInput {
   connect?: Maybe<ProductWhereUniqueInput>;
 }
 
-export type UserImageWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
 export interface ProductUpdateDataInput {
   title?: Maybe<String>;
   description?: Maybe<String>;
@@ -2762,18 +3682,6 @@ export interface ProductUpdateDataInput {
   brand?: Maybe<BrandUpdateOneWithoutProductsInput>;
   tags?: Maybe<TagUpdateManyWithoutProductsInput>;
   images?: Maybe<ProductImageUpdateManyWithoutProductInput>;
-  shop?: Maybe<ShopUpdateOneRequiredWithoutProductsInput>;
-  variants?: Maybe<VariantUpdateManyWithoutProductInput>;
-  reviews?: Maybe<ProductReviewUpdateManyWithoutProductInput>;
-}
-
-export interface ProductUpdateWithoutImagesDataInput {
-  title?: Maybe<String>;
-  description?: Maybe<String>;
-  price?: Maybe<String>;
-  categories?: Maybe<CategoryUpdateManyWithoutProductInput>;
-  brand?: Maybe<BrandUpdateOneWithoutProductsInput>;
-  tags?: Maybe<TagUpdateManyWithoutProductsInput>;
   shop?: Maybe<ShopUpdateOneRequiredWithoutProductsInput>;
   variants?: Maybe<VariantUpdateManyWithoutProductInput>;
   reviews?: Maybe<ProductReviewUpdateManyWithoutProductInput>;
@@ -2811,26 +3719,9 @@ export interface ProductReviewUpdateManyWithoutProductInput {
   >;
 }
 
-export type VariantWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
 export interface ProductReviewUpdateWithWhereUniqueWithoutProductInput {
   where: ProductReviewWhereUniqueInput;
   data: ProductReviewUpdateWithoutProductDataInput;
-}
-
-export interface ProductCreateWithoutImagesInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  description: String;
-  price: String;
-  categories?: Maybe<CategoryCreateManyWithoutProductInput>;
-  brand?: Maybe<BrandCreateOneWithoutProductsInput>;
-  tags?: Maybe<TagCreateManyWithoutProductsInput>;
-  shop: ShopCreateOneWithoutProductsInput;
-  variants?: Maybe<VariantCreateManyWithoutProductInput>;
-  reviews?: Maybe<ProductReviewCreateManyWithoutProductInput>;
 }
 
 export interface ProductReviewUpdateWithoutProductDataInput {
@@ -2839,21 +3730,11 @@ export interface ProductReviewUpdateWithoutProductDataInput {
   review?: Maybe<String>;
 }
 
-export type orderItemWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
 export interface UserUpdateOneRequiredWithoutProductReviewsInput {
   create?: Maybe<UserCreateWithoutProductReviewsInput>;
   update?: Maybe<UserUpdateWithoutProductReviewsDataInput>;
   upsert?: Maybe<UserUpsertWithoutProductReviewsInput>;
   connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface ProductUpdateManyMutationInput {
-  title?: Maybe<String>;
-  description?: Maybe<String>;
-  price?: Maybe<String>;
 }
 
 export interface UserUpdateWithoutProductReviewsDataInput {
@@ -2872,196 +3753,77 @@ export interface UserUpdateWithoutProductReviewsDataInput {
   postComments?: Maybe<ForumPostCommentUpdateManyWithoutUserInput>;
 }
 
-export interface ProductCreateManyWithoutBrandInput {
-  create?: Maybe<
-    ProductCreateWithoutBrandInput[] | ProductCreateWithoutBrandInput
+export interface ShopUpdateManyWithoutOwnersInput {
+  create?: Maybe<ShopCreateWithoutOwnersInput[] | ShopCreateWithoutOwnersInput>;
+  delete?: Maybe<ShopWhereUniqueInput[] | ShopWhereUniqueInput>;
+  connect?: Maybe<ShopWhereUniqueInput[] | ShopWhereUniqueInput>;
+  set?: Maybe<ShopWhereUniqueInput[] | ShopWhereUniqueInput>;
+  disconnect?: Maybe<ShopWhereUniqueInput[] | ShopWhereUniqueInput>;
+  update?: Maybe<
+    | ShopUpdateWithWhereUniqueWithoutOwnersInput[]
+    | ShopUpdateWithWhereUniqueWithoutOwnersInput
   >;
-  connect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
+  upsert?: Maybe<
+    | ShopUpsertWithWhereUniqueWithoutOwnersInput[]
+    | ShopUpsertWithWhereUniqueWithoutOwnersInput
+  >;
+  deleteMany?: Maybe<ShopScalarWhereInput[] | ShopScalarWhereInput>;
+  updateMany?: Maybe<
+    ShopUpdateManyWithWhereNestedInput[] | ShopUpdateManyWithWhereNestedInput
+  >;
 }
 
-export interface VariantWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  product?: Maybe<ProductWhereInput>;
+export interface ShopUpdateWithWhereUniqueWithoutOwnersInput {
+  where: ShopWhereUniqueInput;
+  data: ShopUpdateWithoutOwnersDataInput;
+}
+
+export interface ShopUpdateWithoutOwnersDataInput {
   name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<VariantWhereInput[] | VariantWhereInput>;
-  OR?: Maybe<VariantWhereInput[] | VariantWhereInput>;
-  NOT?: Maybe<VariantWhereInput[] | VariantWhereInput>;
-}
-
-export interface CategoryCreateManyWithoutProductInput {
-  create?: Maybe<
-    CategoryCreateWithoutProductInput[] | CategoryCreateWithoutProductInput
-  >;
-  connect?: Maybe<CategoryWhereUniqueInput[] | CategoryWhereUniqueInput>;
-}
-
-export interface UserUpsertNestedInput {
-  update: UserUpdateDataInput;
-  create: UserCreateInput;
-}
-
-export interface TagCreateManyWithoutProductsInput {
-  create?: Maybe<
-    TagCreateWithoutProductsInput[] | TagCreateWithoutProductsInput
-  >;
-  connect?: Maybe<TagWhereUniqueInput[] | TagWhereUniqueInput>;
-}
-
-export interface UserUpdateDataInput {
-  firebaseId?: Maybe<String>;
-  email?: Maybe<String>;
-  name?: Maybe<String>;
-  username?: Maybe<String>;
-  profilePic?: Maybe<String>;
-  isAnonymous?: Maybe<Boolean>;
-  emailVerified?: Maybe<Boolean>;
-  shops?: Maybe<ShopUpdateManyWithoutOwnersInput>;
-  images?: Maybe<UserImageUpdateManyWithoutUserInput>;
-  productReviews?: Maybe<ProductReviewUpdateManyWithoutUserInput>;
-  cartItems?: Maybe<CartUpdateOneWithoutUserInput>;
-  forumposts?: Maybe<ForumPostUpdateManyWithoutPostedByInput>;
-  forums?: Maybe<ForumUpdateManyWithoutMembersInput>;
-  postComments?: Maybe<ForumPostCommentUpdateManyWithoutUserInput>;
-}
-
-export interface ProductImageCreateManyWithoutProductInput {
-  create?: Maybe<
-    | ProductImageCreateWithoutProductInput[]
-    | ProductImageCreateWithoutProductInput
-  >;
-  connect?: Maybe<
-    ProductImageWhereUniqueInput[] | ProductImageWhereUniqueInput
-  >;
-}
-
-export interface UserUpdateOneRequiredInput {
-  create?: Maybe<UserCreateInput>;
-  update?: Maybe<UserUpdateDataInput>;
-  upsert?: Maybe<UserUpsertNestedInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface ShopCreateOneWithoutProductsInput {
-  create?: Maybe<ShopCreateWithoutProductsInput>;
-  connect?: Maybe<ShopWhereUniqueInput>;
-}
-
-export interface orderItemUpdateManyDataInput {
-  title?: Maybe<String>;
   description?: Maybe<String>;
-  price?: Maybe<String>;
-  quantity?: Maybe<Int>;
-  imageUrl?: Maybe<String>;
-  variants?: Maybe<orderItemUpdatevariantsInput>;
+  category?: Maybe<String>;
+  live?: Maybe<Boolean>;
+  images?: Maybe<ShopImageUpdateManyWithoutShopInput>;
+  products?: Maybe<ProductUpdateManyWithoutShopInput>;
 }
 
-export interface UserCreateManyWithoutShopsInput {
-  create?: Maybe<UserCreateWithoutShopsInput[] | UserCreateWithoutShopsInput>;
-  connect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
-}
-
-export interface CartWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  user?: Maybe<UserWhereInput>;
-  items_every?: Maybe<CartItemWhereInput>;
-  items_some?: Maybe<CartItemWhereInput>;
-  items_none?: Maybe<CartItemWhereInput>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<CartWhereInput[] | CartWhereInput>;
-  OR?: Maybe<CartWhereInput[] | CartWhereInput>;
-  NOT?: Maybe<CartWhereInput[] | CartWhereInput>;
-}
-
-export interface UserImageCreateManyWithoutUserInput {
+export interface ShopImageUpdateManyWithoutShopInput {
   create?: Maybe<
-    UserImageCreateWithoutUserInput[] | UserImageCreateWithoutUserInput
+    ShopImageCreateWithoutShopInput[] | ShopImageCreateWithoutShopInput
   >;
-  connect?: Maybe<UserImageWhereUniqueInput[] | UserImageWhereUniqueInput>;
+  delete?: Maybe<ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput>;
+  connect?: Maybe<ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput>;
+  set?: Maybe<ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput>;
+  disconnect?: Maybe<ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput>;
+  update?: Maybe<
+    | ShopImageUpdateWithWhereUniqueWithoutShopInput[]
+    | ShopImageUpdateWithWhereUniqueWithoutShopInput
+  >;
+  upsert?: Maybe<
+    | ShopImageUpsertWithWhereUniqueWithoutShopInput[]
+    | ShopImageUpsertWithWhereUniqueWithoutShopInput
+  >;
+  deleteMany?: Maybe<ShopImageScalarWhereInput[] | ShopImageScalarWhereInput>;
+  updateMany?: Maybe<
+    | ShopImageUpdateManyWithWhereNestedInput[]
+    | ShopImageUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface ShopImageUpdateWithWhereUniqueWithoutShopInput {
+  where: ShopImageWhereUniqueInput;
+  data: ShopImageUpdateWithoutShopDataInput;
+}
+
+export interface ShopImageUpdateWithoutShopDataInput {
+  imageUrl?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
 }
 
 export interface ShopImageUpsertWithWhereUniqueWithoutShopInput {
   where: ShopImageWhereUniqueInput;
   update: ShopImageUpdateWithoutShopDataInput;
   create: ShopImageCreateWithoutShopInput;
-}
-
-export interface ProductReviewCreateManyWithoutUserInput {
-  create?: Maybe<
-    ProductReviewCreateWithoutUserInput[] | ProductReviewCreateWithoutUserInput
-  >;
-  connect?: Maybe<
-    ProductReviewWhereUniqueInput[] | ProductReviewWhereUniqueInput
-  >;
 }
 
 export interface ShopImageScalarWhereInput {
@@ -3128,31 +3890,14 @@ export interface ShopImageScalarWhereInput {
   NOT?: Maybe<ShopImageScalarWhereInput[] | ShopImageScalarWhereInput>;
 }
 
-export interface ProductCreateOneWithoutReviewsInput {
-  create?: Maybe<ProductCreateWithoutReviewsInput>;
-  connect?: Maybe<ProductWhereUniqueInput>;
-}
-
 export interface ShopImageUpdateManyWithWhereNestedInput {
   where: ShopImageScalarWhereInput;
   data: ShopImageUpdateManyDataInput;
 }
 
-export interface BrandCreateOneWithoutProductsInput {
-  create?: Maybe<BrandCreateWithoutProductsInput>;
-  connect?: Maybe<BrandWhereUniqueInput>;
-}
-
 export interface ShopImageUpdateManyDataInput {
   imageUrl?: Maybe<String>;
   largeImageUrl?: Maybe<String>;
-}
-
-export interface VariantCreateManyWithoutProductInput {
-  create?: Maybe<
-    VariantCreateWithoutProductInput[] | VariantCreateWithoutProductInput
-  >;
-  connect?: Maybe<VariantWhereUniqueInput[] | VariantWhereUniqueInput>;
 }
 
 export interface ProductUpdateManyWithoutShopInput {
@@ -3178,18 +3923,9 @@ export interface ProductUpdateManyWithoutShopInput {
   >;
 }
 
-export interface VariantCreatevaluesInput {
-  set?: Maybe<String[] | String>;
-}
-
 export interface ProductUpdateWithWhereUniqueWithoutShopInput {
   where: ProductWhereUniqueInput;
   data: ProductUpdateWithoutShopDataInput;
-}
-
-export interface CartCreateWithoutUserInput {
-  id?: Maybe<ID_Input>;
-  items?: Maybe<CartItemCreateManyWithoutCartInput>;
 }
 
 export interface ProductUpdateWithoutShopDataInput {
@@ -3204,31 +3940,10 @@ export interface ProductUpdateWithoutShopDataInput {
   reviews?: Maybe<ProductReviewUpdateManyWithoutProductInput>;
 }
 
-export interface CartItemCreateWithoutCartInput {
-  id?: Maybe<ID_Input>;
-  product: ProductCreateOneInput;
-  quantity: Int;
-  variants?: Maybe<CartItemCreatevariantsInput>;
-}
-
 export interface ProductUpsertWithWhereUniqueWithoutShopInput {
   where: ProductWhereUniqueInput;
   update: ProductUpdateWithoutShopDataInput;
   create: ProductCreateWithoutShopInput;
-}
-
-export interface ProductCreateInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  description: String;
-  price: String;
-  categories?: Maybe<CategoryCreateManyWithoutProductInput>;
-  brand?: Maybe<BrandCreateOneWithoutProductsInput>;
-  tags?: Maybe<TagCreateManyWithoutProductsInput>;
-  images?: Maybe<ProductImageCreateManyWithoutProductInput>;
-  shop: ShopCreateOneWithoutProductsInput;
-  variants?: Maybe<VariantCreateManyWithoutProductInput>;
-  reviews?: Maybe<ProductReviewCreateManyWithoutProductInput>;
 }
 
 export interface ProductScalarWhereInput {
@@ -3309,33 +4024,9 @@ export interface ProductScalarWhereInput {
   NOT?: Maybe<ProductScalarWhereInput[] | ProductScalarWhereInput>;
 }
 
-export interface ProductReviewCreateWithoutProductInput {
-  id?: Maybe<ID_Input>;
-  user: UserCreateOneWithoutProductReviewsInput;
-  rating: Int;
-  review?: Maybe<String>;
-}
-
 export interface ProductUpdateManyWithWhereNestedInput {
   where: ProductScalarWhereInput;
   data: ProductUpdateManyDataInput;
-}
-
-export interface UserCreateWithoutProductReviewsInput {
-  id?: Maybe<ID_Input>;
-  firebaseId: String;
-  email?: Maybe<String>;
-  name: String;
-  username: String;
-  profilePic?: Maybe<String>;
-  isAnonymous?: Maybe<Boolean>;
-  emailVerified?: Maybe<Boolean>;
-  shops?: Maybe<ShopCreateManyWithoutOwnersInput>;
-  images?: Maybe<UserImageCreateManyWithoutUserInput>;
-  cartItems?: Maybe<CartCreateOneWithoutUserInput>;
-  forumposts?: Maybe<ForumPostCreateManyWithoutPostedByInput>;
-  forums?: Maybe<ForumCreateManyWithoutMembersInput>;
-  postComments?: Maybe<ForumPostCommentCreateManyWithoutUserInput>;
 }
 
 export interface ProductUpdateManyDataInput {
@@ -3344,26 +4035,10 @@ export interface ProductUpdateManyDataInput {
   price?: Maybe<String>;
 }
 
-export interface ShopCreateWithoutOwnersInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description: String;
-  category: String;
-  live?: Maybe<Boolean>;
-  images?: Maybe<ShopImageCreateManyWithoutShopInput>;
-  products?: Maybe<ProductCreateManyWithoutShopInput>;
-}
-
 export interface ShopUpsertWithWhereUniqueWithoutOwnersInput {
   where: ShopWhereUniqueInput;
   update: ShopUpdateWithoutOwnersDataInput;
   create: ShopCreateWithoutOwnersInput;
-}
-
-export interface ShopImageCreateWithoutShopInput {
-  id?: Maybe<ID_Input>;
-  imageUrl: String;
-  largeImageUrl?: Maybe<String>;
 }
 
 export interface ShopScalarWhereInput {
@@ -3446,31 +4121,9 @@ export interface ShopScalarWhereInput {
   NOT?: Maybe<ShopScalarWhereInput[] | ShopScalarWhereInput>;
 }
 
-export interface ProductCreateWithoutShopInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  description: String;
-  price: String;
-  categories?: Maybe<CategoryCreateManyWithoutProductInput>;
-  brand?: Maybe<BrandCreateOneWithoutProductsInput>;
-  tags?: Maybe<TagCreateManyWithoutProductsInput>;
-  images?: Maybe<ProductImageCreateManyWithoutProductInput>;
-  variants?: Maybe<VariantCreateManyWithoutProductInput>;
-  reviews?: Maybe<ProductReviewCreateManyWithoutProductInput>;
-}
-
 export interface ShopUpdateManyWithWhereNestedInput {
   where: ShopScalarWhereInput;
   data: ShopUpdateManyDataInput;
-}
-
-export interface ForumPostCreateWithoutPostedByInput {
-  id?: Maybe<ID_Input>;
-  forum: ForumCreateOneWithoutPostsInput;
-  title: String;
-  content?: Maybe<String>;
-  type: ForumPostType;
-  comments?: Maybe<ForumPostCommentCreateManyWithoutForumPostInput>;
 }
 
 export interface ShopUpdateManyDataInput {
@@ -3478,15 +4131,6 @@ export interface ShopUpdateManyDataInput {
   description?: Maybe<String>;
   category?: Maybe<String>;
   live?: Maybe<Boolean>;
-}
-
-export interface ForumCreateWithoutPostsInput {
-  id?: Maybe<ID_Input>;
-  avatarPic?: Maybe<String>;
-  coverPic?: Maybe<String>;
-  members?: Maybe<UserCreateManyWithoutForumsInput>;
-  name: String;
-  description?: Maybe<String>;
 }
 
 export interface ForumPostUpdateManyWithoutPostedByInput {
@@ -3512,32 +4156,9 @@ export interface ForumPostUpdateManyWithoutPostedByInput {
   >;
 }
 
-export interface UserCreateWithoutForumsInput {
-  id?: Maybe<ID_Input>;
-  firebaseId: String;
-  email?: Maybe<String>;
-  name: String;
-  username: String;
-  profilePic?: Maybe<String>;
-  isAnonymous?: Maybe<Boolean>;
-  emailVerified?: Maybe<Boolean>;
-  shops?: Maybe<ShopCreateManyWithoutOwnersInput>;
-  images?: Maybe<UserImageCreateManyWithoutUserInput>;
-  productReviews?: Maybe<ProductReviewCreateManyWithoutUserInput>;
-  cartItems?: Maybe<CartCreateOneWithoutUserInput>;
-  forumposts?: Maybe<ForumPostCreateManyWithoutPostedByInput>;
-  postComments?: Maybe<ForumPostCommentCreateManyWithoutUserInput>;
-}
-
 export interface ForumPostUpdateWithWhereUniqueWithoutPostedByInput {
   where: ForumPostWhereUniqueInput;
   data: ForumPostUpdateWithoutPostedByDataInput;
-}
-
-export interface ForumPostCommentCreateWithoutUserInput {
-  id?: Maybe<ID_Input>;
-  forumPost: ForumPostCreateOneWithoutCommentsInput;
-  comment: String;
 }
 
 export interface ForumPostUpdateWithoutPostedByDataInput {
@@ -3548,15 +4169,6 @@ export interface ForumPostUpdateWithoutPostedByDataInput {
   comments?: Maybe<ForumPostCommentUpdateManyWithoutForumPostInput>;
 }
 
-export interface ForumPostCreateWithoutCommentsInput {
-  id?: Maybe<ID_Input>;
-  postedBy: UserCreateOneWithoutForumpostsInput;
-  forum: ForumCreateOneWithoutPostsInput;
-  title: String;
-  content?: Maybe<String>;
-  type: ForumPostType;
-}
-
 export interface ForumUpdateOneRequiredWithoutPostsInput {
   create?: Maybe<ForumCreateWithoutPostsInput>;
   update?: Maybe<ForumUpdateWithoutPostsDataInput>;
@@ -3564,37 +4176,11 @@ export interface ForumUpdateOneRequiredWithoutPostsInput {
   connect?: Maybe<ForumWhereUniqueInput>;
 }
 
-export interface UserCreateWithoutForumpostsInput {
-  id?: Maybe<ID_Input>;
-  firebaseId: String;
-  email?: Maybe<String>;
-  name: String;
-  username: String;
-  profilePic?: Maybe<String>;
-  isAnonymous?: Maybe<Boolean>;
-  emailVerified?: Maybe<Boolean>;
-  shops?: Maybe<ShopCreateManyWithoutOwnersInput>;
-  images?: Maybe<UserImageCreateManyWithoutUserInput>;
-  productReviews?: Maybe<ProductReviewCreateManyWithoutUserInput>;
-  cartItems?: Maybe<CartCreateOneWithoutUserInput>;
-  forums?: Maybe<ForumCreateManyWithoutMembersInput>;
-  postComments?: Maybe<ForumPostCommentCreateManyWithoutUserInput>;
-}
-
 export interface ForumUpdateWithoutPostsDataInput {
   avatarPic?: Maybe<String>;
   coverPic?: Maybe<String>;
   members?: Maybe<UserUpdateManyWithoutForumsInput>;
   name?: Maybe<String>;
-  description?: Maybe<String>;
-}
-
-export interface ForumCreateWithoutMembersInput {
-  id?: Maybe<ID_Input>;
-  avatarPic?: Maybe<String>;
-  coverPic?: Maybe<String>;
-  posts?: Maybe<ForumPostCreateManyWithoutForumInput>;
-  name: String;
   description?: Maybe<String>;
 }
 
@@ -3618,24 +4204,9 @@ export interface UserUpdateManyWithoutForumsInput {
   >;
 }
 
-export interface ForumPostCreateWithoutForumInput {
-  id?: Maybe<ID_Input>;
-  postedBy: UserCreateOneWithoutForumpostsInput;
-  title: String;
-  content?: Maybe<String>;
-  type: ForumPostType;
-  comments?: Maybe<ForumPostCommentCreateManyWithoutForumPostInput>;
-}
-
 export interface UserUpdateWithWhereUniqueWithoutForumsInput {
   where: UserWhereUniqueInput;
   data: UserUpdateWithoutForumsDataInput;
-}
-
-export interface ForumPostCommentCreateWithoutForumPostInput {
-  id?: Maybe<ID_Input>;
-  user: UserCreateOneWithoutPostCommentsInput;
-  comment: String;
 }
 
 export interface UserUpdateWithoutForumsDataInput {
@@ -3652,23 +4223,6 @@ export interface UserUpdateWithoutForumsDataInput {
   cartItems?: Maybe<CartUpdateOneWithoutUserInput>;
   forumposts?: Maybe<ForumPostUpdateManyWithoutPostedByInput>;
   postComments?: Maybe<ForumPostCommentUpdateManyWithoutUserInput>;
-}
-
-export interface UserCreateWithoutPostCommentsInput {
-  id?: Maybe<ID_Input>;
-  firebaseId: String;
-  email?: Maybe<String>;
-  name: String;
-  username: String;
-  profilePic?: Maybe<String>;
-  isAnonymous?: Maybe<Boolean>;
-  emailVerified?: Maybe<Boolean>;
-  shops?: Maybe<ShopCreateManyWithoutOwnersInput>;
-  images?: Maybe<UserImageCreateManyWithoutUserInput>;
-  productReviews?: Maybe<ProductReviewCreateManyWithoutUserInput>;
-  cartItems?: Maybe<CartCreateOneWithoutUserInput>;
-  forumposts?: Maybe<ForumPostCreateManyWithoutPostedByInput>;
-  forums?: Maybe<ForumCreateManyWithoutMembersInput>;
 }
 
 export interface ForumPostCommentUpdateManyWithoutUserInput {
@@ -3705,19 +4259,9 @@ export interface ForumPostCommentUpdateManyWithoutUserInput {
   >;
 }
 
-export interface BrandUpdateInput {
-  name?: Maybe<String>;
-  products?: Maybe<ProductUpdateManyWithoutBrandInput>;
-}
-
 export interface ForumPostCommentUpdateWithWhereUniqueWithoutUserInput {
   where: ForumPostCommentWhereUniqueInput;
   data: ForumPostCommentUpdateWithoutUserDataInput;
-}
-
-export interface ProductUpdateWithWhereUniqueWithoutBrandInput {
-  where: ProductWhereUniqueInput;
-  data: ProductUpdateWithoutBrandDataInput;
 }
 
 export interface ForumPostCommentUpdateWithoutUserDataInput {
@@ -3725,38 +4269,11 @@ export interface ForumPostCommentUpdateWithoutUserDataInput {
   comment?: Maybe<String>;
 }
 
-export interface CategoryUpdateManyWithoutProductInput {
-  create?: Maybe<
-    CategoryCreateWithoutProductInput[] | CategoryCreateWithoutProductInput
-  >;
-  delete?: Maybe<CategoryWhereUniqueInput[] | CategoryWhereUniqueInput>;
-  connect?: Maybe<CategoryWhereUniqueInput[] | CategoryWhereUniqueInput>;
-  set?: Maybe<CategoryWhereUniqueInput[] | CategoryWhereUniqueInput>;
-  disconnect?: Maybe<CategoryWhereUniqueInput[] | CategoryWhereUniqueInput>;
-  update?: Maybe<
-    | CategoryUpdateWithWhereUniqueWithoutProductInput[]
-    | CategoryUpdateWithWhereUniqueWithoutProductInput
-  >;
-  upsert?: Maybe<
-    | CategoryUpsertWithWhereUniqueWithoutProductInput[]
-    | CategoryUpsertWithWhereUniqueWithoutProductInput
-  >;
-  deleteMany?: Maybe<CategoryScalarWhereInput[] | CategoryScalarWhereInput>;
-  updateMany?: Maybe<
-    | CategoryUpdateManyWithWhereNestedInput[]
-    | CategoryUpdateManyWithWhereNestedInput
-  >;
-}
-
 export interface ForumPostUpdateOneRequiredWithoutCommentsInput {
   create?: Maybe<ForumPostCreateWithoutCommentsInput>;
   update?: Maybe<ForumPostUpdateWithoutCommentsDataInput>;
   upsert?: Maybe<ForumPostUpsertWithoutCommentsInput>;
   connect?: Maybe<ForumPostWhereUniqueInput>;
-}
-
-export interface CategoryUpdateWithoutProductDataInput {
-  name?: Maybe<String>;
 }
 
 export interface ForumPostUpdateWithoutCommentsDataInput {
@@ -3767,65 +4284,11 @@ export interface ForumPostUpdateWithoutCommentsDataInput {
   type?: Maybe<ForumPostType>;
 }
 
-export interface CategoryScalarWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<CategoryScalarWhereInput[] | CategoryScalarWhereInput>;
-  OR?: Maybe<CategoryScalarWhereInput[] | CategoryScalarWhereInput>;
-  NOT?: Maybe<CategoryScalarWhereInput[] | CategoryScalarWhereInput>;
-}
-
 export interface UserUpdateOneRequiredWithoutForumpostsInput {
   create?: Maybe<UserCreateWithoutForumpostsInput>;
   update?: Maybe<UserUpdateWithoutForumpostsDataInput>;
   upsert?: Maybe<UserUpsertWithoutForumpostsInput>;
   connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface CategoryUpdateManyDataInput {
-  name?: Maybe<String>;
 }
 
 export interface UserUpdateWithoutForumpostsDataInput {
@@ -3842,11 +4305,6 @@ export interface UserUpdateWithoutForumpostsDataInput {
   cartItems?: Maybe<CartUpdateOneWithoutUserInput>;
   forums?: Maybe<ForumUpdateManyWithoutMembersInput>;
   postComments?: Maybe<ForumPostCommentUpdateManyWithoutUserInput>;
-}
-
-export interface TagUpdateWithWhereUniqueWithoutProductsInput {
-  where: TagWhereUniqueInput;
-  data: TagUpdateWithoutProductsDataInput;
 }
 
 export interface ForumUpdateManyWithoutMembersInput {
@@ -3871,20 +4329,9 @@ export interface ForumUpdateManyWithoutMembersInput {
   >;
 }
 
-export interface TagUpsertWithWhereUniqueWithoutProductsInput {
-  where: TagWhereUniqueInput;
-  update: TagUpdateWithoutProductsDataInput;
-  create: TagCreateWithoutProductsInput;
-}
-
 export interface ForumUpdateWithWhereUniqueWithoutMembersInput {
   where: ForumWhereUniqueInput;
   data: ForumUpdateWithoutMembersDataInput;
-}
-
-export interface TagUpdateManyWithWhereNestedInput {
-  where: TagScalarWhereInput;
-  data: TagUpdateManyDataInput;
 }
 
 export interface ForumUpdateWithoutMembersDataInput {
@@ -3893,23 +4340,6 @@ export interface ForumUpdateWithoutMembersDataInput {
   posts?: Maybe<ForumPostUpdateManyWithoutForumInput>;
   name?: Maybe<String>;
   description?: Maybe<String>;
-}
-
-export interface orderItemSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<orderItemWhereInput>;
-  AND?: Maybe<
-    orderItemSubscriptionWhereInput[] | orderItemSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    orderItemSubscriptionWhereInput[] | orderItemSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    orderItemSubscriptionWhereInput[] | orderItemSubscriptionWhereInput
-  >;
 }
 
 export interface ForumPostUpdateManyWithoutForumInput {
@@ -3935,77 +4365,9 @@ export interface ForumPostUpdateManyWithoutForumInput {
   >;
 }
 
-export interface UserImageWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  imageUrl?: Maybe<String>;
-  imageUrl_not?: Maybe<String>;
-  imageUrl_in?: Maybe<String[] | String>;
-  imageUrl_not_in?: Maybe<String[] | String>;
-  imageUrl_lt?: Maybe<String>;
-  imageUrl_lte?: Maybe<String>;
-  imageUrl_gt?: Maybe<String>;
-  imageUrl_gte?: Maybe<String>;
-  imageUrl_contains?: Maybe<String>;
-  imageUrl_not_contains?: Maybe<String>;
-  imageUrl_starts_with?: Maybe<String>;
-  imageUrl_not_starts_with?: Maybe<String>;
-  imageUrl_ends_with?: Maybe<String>;
-  imageUrl_not_ends_with?: Maybe<String>;
-  user?: Maybe<UserWhereInput>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<UserImageWhereInput[] | UserImageWhereInput>;
-  OR?: Maybe<UserImageWhereInput[] | UserImageWhereInput>;
-  NOT?: Maybe<UserImageWhereInput[] | UserImageWhereInput>;
-}
-
 export interface ForumPostUpdateWithWhereUniqueWithoutForumInput {
   where: ForumPostWhereUniqueInput;
   data: ForumPostUpdateWithoutForumDataInput;
-}
-
-export interface ShopImageSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<ShopImageWhereInput>;
-  AND?: Maybe<
-    ShopImageSubscriptionWhereInput[] | ShopImageSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    ShopImageSubscriptionWhereInput[] | ShopImageSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    ShopImageSubscriptionWhereInput[] | ShopImageSubscriptionWhereInput
-  >;
 }
 
 export interface ForumPostUpdateWithoutForumDataInput {
@@ -4014,95 +4376,6 @@ export interface ForumPostUpdateWithoutForumDataInput {
   content?: Maybe<String>;
   type?: Maybe<ForumPostType>;
   comments?: Maybe<ForumPostCommentUpdateManyWithoutForumPostInput>;
-}
-
-export interface ShopWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  description?: Maybe<String>;
-  description_not?: Maybe<String>;
-  description_in?: Maybe<String[] | String>;
-  description_not_in?: Maybe<String[] | String>;
-  description_lt?: Maybe<String>;
-  description_lte?: Maybe<String>;
-  description_gt?: Maybe<String>;
-  description_gte?: Maybe<String>;
-  description_contains?: Maybe<String>;
-  description_not_contains?: Maybe<String>;
-  description_starts_with?: Maybe<String>;
-  description_not_starts_with?: Maybe<String>;
-  description_ends_with?: Maybe<String>;
-  description_not_ends_with?: Maybe<String>;
-  category?: Maybe<String>;
-  category_not?: Maybe<String>;
-  category_in?: Maybe<String[] | String>;
-  category_not_in?: Maybe<String[] | String>;
-  category_lt?: Maybe<String>;
-  category_lte?: Maybe<String>;
-  category_gt?: Maybe<String>;
-  category_gte?: Maybe<String>;
-  category_contains?: Maybe<String>;
-  category_not_contains?: Maybe<String>;
-  category_starts_with?: Maybe<String>;
-  category_not_starts_with?: Maybe<String>;
-  category_ends_with?: Maybe<String>;
-  category_not_ends_with?: Maybe<String>;
-  live?: Maybe<Boolean>;
-  live_not?: Maybe<Boolean>;
-  owners_every?: Maybe<UserWhereInput>;
-  owners_some?: Maybe<UserWhereInput>;
-  owners_none?: Maybe<UserWhereInput>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  images_every?: Maybe<ShopImageWhereInput>;
-  images_some?: Maybe<ShopImageWhereInput>;
-  images_none?: Maybe<ShopImageWhereInput>;
-  products_every?: Maybe<ProductWhereInput>;
-  products_some?: Maybe<ProductWhereInput>;
-  products_none?: Maybe<ProductWhereInput>;
-  AND?: Maybe<ShopWhereInput[] | ShopWhereInput>;
-  OR?: Maybe<ShopWhereInput[] | ShopWhereInput>;
-  NOT?: Maybe<ShopWhereInput[] | ShopWhereInput>;
 }
 
 export interface ForumPostCommentUpdateManyWithoutForumPostInput {
@@ -4139,31 +4412,9 @@ export interface ForumPostCommentUpdateManyWithoutForumPostInput {
   >;
 }
 
-export interface OrderSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<OrderWhereInput>;
-  AND?: Maybe<OrderSubscriptionWhereInput[] | OrderSubscriptionWhereInput>;
-  OR?: Maybe<OrderSubscriptionWhereInput[] | OrderSubscriptionWhereInput>;
-  NOT?: Maybe<OrderSubscriptionWhereInput[] | OrderSubscriptionWhereInput>;
-}
-
 export interface ForumPostCommentUpdateWithWhereUniqueWithoutForumPostInput {
   where: ForumPostCommentWhereUniqueInput;
   data: ForumPostCommentUpdateWithoutForumPostDataInput;
-}
-
-export interface ForumSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<ForumWhereInput>;
-  AND?: Maybe<ForumSubscriptionWhereInput[] | ForumSubscriptionWhereInput>;
-  OR?: Maybe<ForumSubscriptionWhereInput[] | ForumSubscriptionWhereInput>;
-  NOT?: Maybe<ForumSubscriptionWhereInput[] | ForumSubscriptionWhereInput>;
 }
 
 export interface ForumPostCommentUpdateWithoutForumPostDataInput {
@@ -4171,24 +4422,11 @@ export interface ForumPostCommentUpdateWithoutForumPostDataInput {
   comment?: Maybe<String>;
 }
 
-export type CartWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
 export interface UserUpdateOneRequiredWithoutPostCommentsInput {
   create?: Maybe<UserCreateWithoutPostCommentsInput>;
   update?: Maybe<UserUpdateWithoutPostCommentsDataInput>;
   upsert?: Maybe<UserUpsertWithoutPostCommentsInput>;
   connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface orderItemUpdateInput {
-  title?: Maybe<String>;
-  description?: Maybe<String>;
-  price?: Maybe<String>;
-  quantity?: Maybe<Int>;
-  imageUrl?: Maybe<String>;
-  variants?: Maybe<orderItemUpdatevariantsInput>;
 }
 
 export interface UserUpdateWithoutPostCommentsDataInput {
@@ -4207,44 +4445,15 @@ export interface UserUpdateWithoutPostCommentsDataInput {
   forums?: Maybe<ForumUpdateManyWithoutMembersInput>;
 }
 
-export interface ProductUpdateWithoutVariantsDataInput {
-  title?: Maybe<String>;
-  description?: Maybe<String>;
-  price?: Maybe<String>;
-  categories?: Maybe<CategoryUpdateManyWithoutProductInput>;
-  brand?: Maybe<BrandUpdateOneWithoutProductsInput>;
-  tags?: Maybe<TagUpdateManyWithoutProductsInput>;
-  images?: Maybe<ProductImageUpdateManyWithoutProductInput>;
-  shop?: Maybe<ShopUpdateOneRequiredWithoutProductsInput>;
-  reviews?: Maybe<ProductReviewUpdateManyWithoutProductInput>;
-}
-
 export interface UserUpsertWithoutPostCommentsInput {
   update: UserUpdateWithoutPostCommentsDataInput;
   create: UserCreateWithoutPostCommentsInput;
-}
-
-export interface ProductCreateWithoutVariantsInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  description: String;
-  price: String;
-  categories?: Maybe<CategoryCreateManyWithoutProductInput>;
-  brand?: Maybe<BrandCreateOneWithoutProductsInput>;
-  tags?: Maybe<TagCreateManyWithoutProductsInput>;
-  images?: Maybe<ProductImageCreateManyWithoutProductInput>;
-  shop: ShopCreateOneWithoutProductsInput;
-  reviews?: Maybe<ProductReviewCreateManyWithoutProductInput>;
 }
 
 export interface ForumPostCommentUpsertWithWhereUniqueWithoutForumPostInput {
   where: ForumPostCommentWhereUniqueInput;
   update: ForumPostCommentUpdateWithoutForumPostDataInput;
   create: ForumPostCommentCreateWithoutForumPostInput;
-}
-
-export interface UserImageUpdateManyMutationInput {
-  imageUrl?: Maybe<String>;
 }
 
 export interface ForumPostCommentScalarWhereInput {
@@ -4303,132 +4512,19 @@ export interface ForumPostCommentScalarWhereInput {
   >;
 }
 
-export interface UserUpdateOneWithoutImagesInput {
-  create?: Maybe<UserCreateWithoutImagesInput>;
-  update?: Maybe<UserUpdateWithoutImagesDataInput>;
-  upsert?: Maybe<UserUpsertWithoutImagesInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
 export interface ForumPostCommentUpdateManyWithWhereNestedInput {
   where: ForumPostCommentScalarWhereInput;
   data: ForumPostCommentUpdateManyDataInput;
-}
-
-export interface UserCreateOneWithoutImagesInput {
-  create?: Maybe<UserCreateWithoutImagesInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
 }
 
 export interface ForumPostCommentUpdateManyDataInput {
   comment?: Maybe<String>;
 }
 
-export interface ProductWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  title?: Maybe<String>;
-  title_not?: Maybe<String>;
-  title_in?: Maybe<String[] | String>;
-  title_not_in?: Maybe<String[] | String>;
-  title_lt?: Maybe<String>;
-  title_lte?: Maybe<String>;
-  title_gt?: Maybe<String>;
-  title_gte?: Maybe<String>;
-  title_contains?: Maybe<String>;
-  title_not_contains?: Maybe<String>;
-  title_starts_with?: Maybe<String>;
-  title_not_starts_with?: Maybe<String>;
-  title_ends_with?: Maybe<String>;
-  title_not_ends_with?: Maybe<String>;
-  description?: Maybe<String>;
-  description_not?: Maybe<String>;
-  description_in?: Maybe<String[] | String>;
-  description_not_in?: Maybe<String[] | String>;
-  description_lt?: Maybe<String>;
-  description_lte?: Maybe<String>;
-  description_gt?: Maybe<String>;
-  description_gte?: Maybe<String>;
-  description_contains?: Maybe<String>;
-  description_not_contains?: Maybe<String>;
-  description_starts_with?: Maybe<String>;
-  description_not_starts_with?: Maybe<String>;
-  description_ends_with?: Maybe<String>;
-  description_not_ends_with?: Maybe<String>;
-  price?: Maybe<String>;
-  price_not?: Maybe<String>;
-  price_in?: Maybe<String[] | String>;
-  price_not_in?: Maybe<String[] | String>;
-  price_lt?: Maybe<String>;
-  price_lte?: Maybe<String>;
-  price_gt?: Maybe<String>;
-  price_gte?: Maybe<String>;
-  price_contains?: Maybe<String>;
-  price_not_contains?: Maybe<String>;
-  price_starts_with?: Maybe<String>;
-  price_not_starts_with?: Maybe<String>;
-  price_ends_with?: Maybe<String>;
-  price_not_ends_with?: Maybe<String>;
-  categories_every?: Maybe<CategoryWhereInput>;
-  categories_some?: Maybe<CategoryWhereInput>;
-  categories_none?: Maybe<CategoryWhereInput>;
-  brand?: Maybe<BrandWhereInput>;
-  tags_every?: Maybe<TagWhereInput>;
-  tags_some?: Maybe<TagWhereInput>;
-  tags_none?: Maybe<TagWhereInput>;
-  images_every?: Maybe<ProductImageWhereInput>;
-  images_some?: Maybe<ProductImageWhereInput>;
-  images_none?: Maybe<ProductImageWhereInput>;
-  shop?: Maybe<ShopWhereInput>;
-  variants_every?: Maybe<VariantWhereInput>;
-  variants_some?: Maybe<VariantWhereInput>;
-  variants_none?: Maybe<VariantWhereInput>;
-  reviews_every?: Maybe<ProductReviewWhereInput>;
-  reviews_some?: Maybe<ProductReviewWhereInput>;
-  reviews_none?: Maybe<ProductReviewWhereInput>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<ProductWhereInput[] | ProductWhereInput>;
-  OR?: Maybe<ProductWhereInput[] | ProductWhereInput>;
-  NOT?: Maybe<ProductWhereInput[] | ProductWhereInput>;
-}
-
 export interface ForumPostUpsertWithWhereUniqueWithoutForumInput {
   where: ForumPostWhereUniqueInput;
   update: ForumPostUpdateWithoutForumDataInput;
   create: ForumPostCreateWithoutForumInput;
-}
-
-export interface TagUpdateManyMutationInput {
-  name?: Maybe<String>;
 }
 
 export interface ForumPostScalarWhereInput {
@@ -4499,27 +4595,9 @@ export interface ForumPostScalarWhereInput {
   NOT?: Maybe<ForumPostScalarWhereInput[] | ForumPostScalarWhereInput>;
 }
 
-export interface ProductUpdateWithWhereUniqueWithoutTagsInput {
-  where: ProductWhereUniqueInput;
-  data: ProductUpdateWithoutTagsDataInput;
-}
-
 export interface ForumPostUpdateManyWithWhereNestedInput {
   where: ForumPostScalarWhereInput;
   data: ForumPostUpdateManyDataInput;
-}
-
-export interface ProductCreateWithoutTagsInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  description: String;
-  price: String;
-  categories?: Maybe<CategoryCreateManyWithoutProductInput>;
-  brand?: Maybe<BrandCreateOneWithoutProductsInput>;
-  images?: Maybe<ProductImageCreateManyWithoutProductInput>;
-  shop: ShopCreateOneWithoutProductsInput;
-  variants?: Maybe<VariantCreateManyWithoutProductInput>;
-  reviews?: Maybe<ProductReviewCreateManyWithoutProductInput>;
 }
 
 export interface ForumPostUpdateManyDataInput {
@@ -4528,24 +4606,10 @@ export interface ForumPostUpdateManyDataInput {
   type?: Maybe<ForumPostType>;
 }
 
-export interface ShopImageUpdateManyMutationInput {
-  imageUrl?: Maybe<String>;
-  largeImageUrl?: Maybe<String>;
-}
-
 export interface ForumUpsertWithWhereUniqueWithoutMembersInput {
   where: ForumWhereUniqueInput;
   update: ForumUpdateWithoutMembersDataInput;
   create: ForumCreateWithoutMembersInput;
-}
-
-export interface ShopUpdateOneWithoutImagesInput {
-  create?: Maybe<ShopCreateWithoutImagesInput>;
-  update?: Maybe<ShopUpdateWithoutImagesDataInput>;
-  upsert?: Maybe<ShopUpsertWithoutImagesInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<ShopWhereUniqueInput>;
 }
 
 export interface ForumScalarWhereInput {
@@ -4640,24 +4704,9 @@ export interface ForumScalarWhereInput {
   NOT?: Maybe<ForumScalarWhereInput[] | ForumScalarWhereInput>;
 }
 
-export interface ShopCreateOneWithoutImagesInput {
-  create?: Maybe<ShopCreateWithoutImagesInput>;
-  connect?: Maybe<ShopWhereUniqueInput>;
-}
-
 export interface ForumUpdateManyWithWhereNestedInput {
   where: ForumScalarWhereInput;
   data: ForumUpdateManyDataInput;
-}
-
-export interface ShopUpdateInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  category?: Maybe<String>;
-  live?: Maybe<Boolean>;
-  owners?: Maybe<UserUpdateManyWithoutShopsInput>;
-  images?: Maybe<ShopImageUpdateManyWithoutShopInput>;
-  products?: Maybe<ProductUpdateManyWithoutShopInput>;
 }
 
 export interface ForumUpdateManyDataInput {
@@ -4667,32 +4716,14 @@ export interface ForumUpdateManyDataInput {
   description?: Maybe<String>;
 }
 
-export interface ProductReviewUpdateInput {
-  user?: Maybe<UserUpdateOneRequiredWithoutProductReviewsInput>;
-  product?: Maybe<ProductUpdateOneRequiredWithoutReviewsInput>;
-  rating?: Maybe<Int>;
-  review?: Maybe<String>;
-}
-
 export interface UserUpsertWithoutForumpostsInput {
   update: UserUpdateWithoutForumpostsDataInput;
   create: UserCreateWithoutForumpostsInput;
 }
 
-export interface ProductUpsertWithoutImagesInput {
-  update: ProductUpdateWithoutImagesDataInput;
-  create: ProductCreateWithoutImagesInput;
-}
-
 export interface ForumPostUpsertWithoutCommentsInput {
   update: ForumPostUpdateWithoutCommentsDataInput;
   create: ForumPostCreateWithoutCommentsInput;
-}
-
-export interface ProductImageUpdateInput {
-  imageUrl?: Maybe<String>;
-  largeImageUrl?: Maybe<String>;
-  product?: Maybe<ProductUpdateOneWithoutImagesInput>;
 }
 
 export interface ForumPostCommentUpsertWithWhereUniqueWithoutUserInput {
@@ -4701,23 +4732,10 @@ export interface ForumPostCommentUpsertWithWhereUniqueWithoutUserInput {
   create: ForumPostCommentCreateWithoutUserInput;
 }
 
-export interface ProductImageCreateInput {
-  id?: Maybe<ID_Input>;
-  imageUrl: String;
-  largeImageUrl?: Maybe<String>;
-  product?: Maybe<ProductCreateOneWithoutImagesInput>;
-}
-
 export interface UserUpsertWithWhereUniqueWithoutForumsInput {
   where: UserWhereUniqueInput;
   update: UserUpdateWithoutForumsDataInput;
   create: UserCreateWithoutForumsInput;
-}
-
-export interface BrandCreateInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  products?: Maybe<ProductCreateManyWithoutBrandInput>;
 }
 
 export interface UserScalarWhereInput {
@@ -4830,20 +4848,9 @@ export interface UserScalarWhereInput {
   NOT?: Maybe<UserScalarWhereInput[] | UserScalarWhereInput>;
 }
 
-export interface CategoryCreateWithoutProductInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-}
-
 export interface UserUpdateManyWithWhereNestedInput {
   where: UserScalarWhereInput;
   data: UserUpdateManyDataInput;
-}
-
-export interface ProductImageCreateWithoutProductInput {
-  id?: Maybe<ID_Input>;
-  imageUrl: String;
-  largeImageUrl?: Maybe<String>;
 }
 
 export interface UserUpdateManyDataInput {
@@ -4856,33 +4863,9 @@ export interface UserUpdateManyDataInput {
   emailVerified?: Maybe<Boolean>;
 }
 
-export interface UserCreateWithoutShopsInput {
-  id?: Maybe<ID_Input>;
-  firebaseId: String;
-  email?: Maybe<String>;
-  name: String;
-  username: String;
-  profilePic?: Maybe<String>;
-  isAnonymous?: Maybe<Boolean>;
-  emailVerified?: Maybe<Boolean>;
-  images?: Maybe<UserImageCreateManyWithoutUserInput>;
-  productReviews?: Maybe<ProductReviewCreateManyWithoutUserInput>;
-  cartItems?: Maybe<CartCreateOneWithoutUserInput>;
-  forumposts?: Maybe<ForumPostCreateManyWithoutPostedByInput>;
-  forums?: Maybe<ForumCreateManyWithoutMembersInput>;
-  postComments?: Maybe<ForumPostCommentCreateManyWithoutUserInput>;
-}
-
 export interface ForumUpsertWithoutPostsInput {
   update: ForumUpdateWithoutPostsDataInput;
   create: ForumCreateWithoutPostsInput;
-}
-
-export interface ProductReviewCreateWithoutUserInput {
-  id?: Maybe<ID_Input>;
-  product: ProductCreateOneWithoutReviewsInput;
-  rating: Int;
-  review?: Maybe<String>;
 }
 
 export interface ForumPostUpsertWithWhereUniqueWithoutPostedByInput {
@@ -4891,19 +4874,9 @@ export interface ForumPostUpsertWithWhereUniqueWithoutPostedByInput {
   create: ForumPostCreateWithoutPostedByInput;
 }
 
-export interface BrandCreateWithoutProductsInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-}
-
 export interface UserUpsertWithoutProductReviewsInput {
   update: UserUpdateWithoutProductReviewsDataInput;
   create: UserCreateWithoutProductReviewsInput;
-}
-
-export interface CartCreateOneWithoutUserInput {
-  create?: Maybe<CartCreateWithoutUserInput>;
-  connect?: Maybe<CartWhereUniqueInput>;
 }
 
 export interface ProductReviewUpsertWithWhereUniqueWithoutProductInput {
@@ -4912,43 +4885,19 @@ export interface ProductReviewUpsertWithWhereUniqueWithoutProductInput {
   create: ProductReviewCreateWithoutProductInput;
 }
 
-export interface ProductCreateOneInput {
-  create?: Maybe<ProductCreateInput>;
-  connect?: Maybe<ProductWhereUniqueInput>;
-}
-
 export interface ProductUpsertNestedInput {
   update: ProductUpdateDataInput;
   create: ProductCreateInput;
-}
-
-export interface UserCreateOneWithoutProductReviewsInput {
-  create?: Maybe<UserCreateWithoutProductReviewsInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
 }
 
 export interface CartItemUpdatevariantsInput {
   set?: Maybe<String[] | String>;
 }
 
-export interface ShopImageCreateManyWithoutShopInput {
-  create?: Maybe<
-    ShopImageCreateWithoutShopInput[] | ShopImageCreateWithoutShopInput
-  >;
-  connect?: Maybe<ShopImageWhereUniqueInput[] | ShopImageWhereUniqueInput>;
-}
-
 export interface CartItemUpsertWithWhereUniqueWithoutCartInput {
   where: CartItemWhereUniqueInput;
   update: CartItemUpdateWithoutCartDataInput;
   create: CartItemCreateWithoutCartInput;
-}
-
-export interface ForumPostCreateManyWithoutPostedByInput {
-  create?: Maybe<
-    ForumPostCreateWithoutPostedByInput[] | ForumPostCreateWithoutPostedByInput
-  >;
-  connect?: Maybe<ForumPostWhereUniqueInput[] | ForumPostWhereUniqueInput>;
 }
 
 export interface CartItemScalarWhereInput {
@@ -4995,19 +4944,9 @@ export interface CartItemScalarWhereInput {
   NOT?: Maybe<CartItemScalarWhereInput[] | CartItemScalarWhereInput>;
 }
 
-export interface UserCreateManyWithoutForumsInput {
-  create?: Maybe<UserCreateWithoutForumsInput[] | UserCreateWithoutForumsInput>;
-  connect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
-}
-
 export interface CartItemUpdateManyWithWhereNestedInput {
   where: CartItemScalarWhereInput;
   data: CartItemUpdateManyDataInput;
-}
-
-export interface ForumPostCreateOneWithoutCommentsInput {
-  create?: Maybe<ForumPostCreateWithoutCommentsInput>;
-  connect?: Maybe<ForumPostWhereUniqueInput>;
 }
 
 export interface CartItemUpdateManyDataInput {
@@ -5015,26 +4954,9 @@ export interface CartItemUpdateManyDataInput {
   variants?: Maybe<CartItemUpdatevariantsInput>;
 }
 
-export interface ForumCreateManyWithoutMembersInput {
-  create?: Maybe<
-    ForumCreateWithoutMembersInput[] | ForumCreateWithoutMembersInput
-  >;
-  connect?: Maybe<ForumWhereUniqueInput[] | ForumWhereUniqueInput>;
-}
-
 export interface CartUpsertWithoutUserInput {
   update: CartUpdateWithoutUserDataInput;
   create: CartCreateWithoutUserInput;
-}
-
-export interface ForumPostCommentCreateManyWithoutForumPostInput {
-  create?: Maybe<
-    | ForumPostCommentCreateWithoutForumPostInput[]
-    | ForumPostCommentCreateWithoutForumPostInput
-  >;
-  connect?: Maybe<
-    ForumPostCommentWhereUniqueInput[] | ForumPostCommentWhereUniqueInput
-  >;
 }
 
 export interface UserUpsertWithWhereUniqueWithoutShopsInput {
@@ -5043,25 +4965,9 @@ export interface UserUpsertWithWhereUniqueWithoutShopsInput {
   create: UserCreateWithoutShopsInput;
 }
 
-export interface CartItemCreatevariantsInput {
-  set?: Maybe<String[] | String>;
-}
-
 export interface ShopUpsertWithoutProductsInput {
   update: ShopUpdateWithoutProductsDataInput;
   create: ShopCreateWithoutProductsInput;
-}
-
-export interface ProductUpdateWithoutBrandDataInput {
-  title?: Maybe<String>;
-  description?: Maybe<String>;
-  price?: Maybe<String>;
-  categories?: Maybe<CategoryUpdateManyWithoutProductInput>;
-  tags?: Maybe<TagUpdateManyWithoutProductsInput>;
-  images?: Maybe<ProductImageUpdateManyWithoutProductInput>;
-  shop?: Maybe<ShopUpdateOneRequiredWithoutProductsInput>;
-  variants?: Maybe<VariantUpdateManyWithoutProductInput>;
-  reviews?: Maybe<ProductReviewUpdateManyWithoutProductInput>;
 }
 
 export interface ProductUpsertWithWhereUniqueWithoutBrandInput {
@@ -5070,91 +4976,370 @@ export interface ProductUpsertWithWhereUniqueWithoutBrandInput {
   create: ProductCreateWithoutBrandInput;
 }
 
-export interface CategoryUpsertWithWhereUniqueWithoutProductInput {
-  where: CategoryWhereUniqueInput;
-  update: CategoryUpdateWithoutProductDataInput;
-  create: CategoryCreateWithoutProductInput;
-}
-
 export interface BrandUpdateManyMutationInput {
   name?: Maybe<String>;
 }
 
-export interface TagUpdateManyWithoutProductsInput {
+export interface CartCreateInput {
+  id?: Maybe<ID_Input>;
+  user: UserCreateOneWithoutCartItemsInput;
+  items?: Maybe<CartItemCreateManyWithoutCartInput>;
+}
+
+export interface UserCreateOneWithoutCartItemsInput {
+  create?: Maybe<UserCreateWithoutCartItemsInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserCreateWithoutCartItemsInput {
+  id?: Maybe<ID_Input>;
+  firebaseId: String;
+  email?: Maybe<String>;
+  name: String;
+  username: String;
+  profilePic?: Maybe<String>;
+  isAnonymous?: Maybe<Boolean>;
+  emailVerified?: Maybe<Boolean>;
+  shops?: Maybe<ShopCreateManyWithoutOwnersInput>;
+  images?: Maybe<UserImageCreateManyWithoutUserInput>;
+  productReviews?: Maybe<ProductReviewCreateManyWithoutUserInput>;
+  forumposts?: Maybe<ForumPostCreateManyWithoutPostedByInput>;
+  forums?: Maybe<ForumCreateManyWithoutMembersInput>;
+  postComments?: Maybe<ForumPostCommentCreateManyWithoutUserInput>;
+}
+
+export interface CartUpdateInput {
+  user?: Maybe<UserUpdateOneRequiredWithoutCartItemsInput>;
+  items?: Maybe<CartItemUpdateManyWithoutCartInput>;
+}
+
+export interface UserUpdateOneRequiredWithoutCartItemsInput {
+  create?: Maybe<UserCreateWithoutCartItemsInput>;
+  update?: Maybe<UserUpdateWithoutCartItemsDataInput>;
+  upsert?: Maybe<UserUpsertWithoutCartItemsInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserUpdateWithoutCartItemsDataInput {
+  firebaseId?: Maybe<String>;
+  email?: Maybe<String>;
+  name?: Maybe<String>;
+  username?: Maybe<String>;
+  profilePic?: Maybe<String>;
+  isAnonymous?: Maybe<Boolean>;
+  emailVerified?: Maybe<Boolean>;
+  shops?: Maybe<ShopUpdateManyWithoutOwnersInput>;
+  images?: Maybe<UserImageUpdateManyWithoutUserInput>;
+  productReviews?: Maybe<ProductReviewUpdateManyWithoutUserInput>;
+  forumposts?: Maybe<ForumPostUpdateManyWithoutPostedByInput>;
+  forums?: Maybe<ForumUpdateManyWithoutMembersInput>;
+  postComments?: Maybe<ForumPostCommentUpdateManyWithoutUserInput>;
+}
+
+export interface UserUpsertWithoutCartItemsInput {
+  update: UserUpdateWithoutCartItemsDataInput;
+  create: UserCreateWithoutCartItemsInput;
+}
+
+export interface CartItemCreateInput {
+  id?: Maybe<ID_Input>;
+  product: ProductCreateOneInput;
+  quantity: Int;
+  variants?: Maybe<CartItemCreatevariantsInput>;
+  cart: CartCreateOneWithoutItemsInput;
+}
+
+export interface CartCreateOneWithoutItemsInput {
+  create?: Maybe<CartCreateWithoutItemsInput>;
+  connect?: Maybe<CartWhereUniqueInput>;
+}
+
+export interface CartCreateWithoutItemsInput {
+  id?: Maybe<ID_Input>;
+  user: UserCreateOneWithoutCartItemsInput;
+}
+
+export interface CartItemUpdateInput {
+  product?: Maybe<ProductUpdateOneRequiredInput>;
+  quantity?: Maybe<Int>;
+  variants?: Maybe<CartItemUpdatevariantsInput>;
+  cart?: Maybe<CartUpdateOneRequiredWithoutItemsInput>;
+}
+
+export interface CartUpdateOneRequiredWithoutItemsInput {
+  create?: Maybe<CartCreateWithoutItemsInput>;
+  update?: Maybe<CartUpdateWithoutItemsDataInput>;
+  upsert?: Maybe<CartUpsertWithoutItemsInput>;
+  connect?: Maybe<CartWhereUniqueInput>;
+}
+
+export interface CartUpdateWithoutItemsDataInput {
+  user?: Maybe<UserUpdateOneRequiredWithoutCartItemsInput>;
+}
+
+export interface CartUpsertWithoutItemsInput {
+  update: CartUpdateWithoutItemsDataInput;
+  create: CartCreateWithoutItemsInput;
+}
+
+export interface CartItemUpdateManyMutationInput {
+  quantity?: Maybe<Int>;
+  variants?: Maybe<CartItemUpdatevariantsInput>;
+}
+
+export interface CategoryCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  product?: Maybe<ProductCreateManyWithoutCategoriesInput>;
+}
+
+export interface ProductCreateManyWithoutCategoriesInput {
   create?: Maybe<
-    TagCreateWithoutProductsInput[] | TagCreateWithoutProductsInput
+    ProductCreateWithoutCategoriesInput[] | ProductCreateWithoutCategoriesInput
   >;
-  delete?: Maybe<TagWhereUniqueInput[] | TagWhereUniqueInput>;
-  connect?: Maybe<TagWhereUniqueInput[] | TagWhereUniqueInput>;
-  set?: Maybe<TagWhereUniqueInput[] | TagWhereUniqueInput>;
-  disconnect?: Maybe<TagWhereUniqueInput[] | TagWhereUniqueInput>;
+  connect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
+}
+
+export interface ProductCreateWithoutCategoriesInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  description: String;
+  price: String;
+  brand?: Maybe<BrandCreateOneWithoutProductsInput>;
+  tags?: Maybe<TagCreateManyWithoutProductsInput>;
+  images?: Maybe<ProductImageCreateManyWithoutProductInput>;
+  shop: ShopCreateOneWithoutProductsInput;
+  variants?: Maybe<VariantCreateManyWithoutProductInput>;
+  reviews?: Maybe<ProductReviewCreateManyWithoutProductInput>;
+}
+
+export interface CategoryUpdateInput {
+  name?: Maybe<String>;
+  product?: Maybe<ProductUpdateManyWithoutCategoriesInput>;
+}
+
+export interface ProductUpdateManyWithoutCategoriesInput {
+  create?: Maybe<
+    ProductCreateWithoutCategoriesInput[] | ProductCreateWithoutCategoriesInput
+  >;
+  delete?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
+  connect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
+  set?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
+  disconnect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
   update?: Maybe<
-    | TagUpdateWithWhereUniqueWithoutProductsInput[]
-    | TagUpdateWithWhereUniqueWithoutProductsInput
+    | ProductUpdateWithWhereUniqueWithoutCategoriesInput[]
+    | ProductUpdateWithWhereUniqueWithoutCategoriesInput
   >;
   upsert?: Maybe<
-    | TagUpsertWithWhereUniqueWithoutProductsInput[]
-    | TagUpsertWithWhereUniqueWithoutProductsInput
+    | ProductUpsertWithWhereUniqueWithoutCategoriesInput[]
+    | ProductUpsertWithWhereUniqueWithoutCategoriesInput
   >;
-  deleteMany?: Maybe<TagScalarWhereInput[] | TagScalarWhereInput>;
+  deleteMany?: Maybe<ProductScalarWhereInput[] | ProductScalarWhereInput>;
   updateMany?: Maybe<
-    TagUpdateManyWithWhereNestedInput[] | TagUpdateManyWithWhereNestedInput
+    | ProductUpdateManyWithWhereNestedInput[]
+    | ProductUpdateManyWithWhereNestedInput
   >;
 }
 
-export interface orderItemUpdateManyWithWhereNestedInput {
-  where: orderItemScalarWhereInput;
-  data: orderItemUpdateManyDataInput;
+export interface ProductUpdateWithWhereUniqueWithoutCategoriesInput {
+  where: ProductWhereUniqueInput;
+  data: ProductUpdateWithoutCategoriesDataInput;
 }
 
-export interface TagScalarWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
+export interface ProductUpdateWithoutCategoriesDataInput {
+  title?: Maybe<String>;
+  description?: Maybe<String>;
+  price?: Maybe<String>;
+  brand?: Maybe<BrandUpdateOneWithoutProductsInput>;
+  tags?: Maybe<TagUpdateManyWithoutProductsInput>;
+  images?: Maybe<ProductImageUpdateManyWithoutProductInput>;
+  shop?: Maybe<ShopUpdateOneRequiredWithoutProductsInput>;
+  variants?: Maybe<VariantUpdateManyWithoutProductInput>;
+  reviews?: Maybe<ProductReviewUpdateManyWithoutProductInput>;
+}
+
+export interface ProductUpsertWithWhereUniqueWithoutCategoriesInput {
+  where: ProductWhereUniqueInput;
+  update: ProductUpdateWithoutCategoriesDataInput;
+  create: ProductCreateWithoutCategoriesInput;
+}
+
+export interface CategoryUpdateManyMutationInput {
   name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<TagScalarWhereInput[] | TagScalarWhereInput>;
-  OR?: Maybe<TagScalarWhereInput[] | TagScalarWhereInput>;
-  NOT?: Maybe<TagScalarWhereInput[] | TagScalarWhereInput>;
+}
+
+export interface ForumCreateInput {
+  id?: Maybe<ID_Input>;
+  avatarPic?: Maybe<String>;
+  coverPic?: Maybe<String>;
+  members?: Maybe<UserCreateManyWithoutForumsInput>;
+  posts?: Maybe<ForumPostCreateManyWithoutForumInput>;
+  name: String;
+  description?: Maybe<String>;
+}
+
+export interface ForumUpdateInput {
+  avatarPic?: Maybe<String>;
+  coverPic?: Maybe<String>;
+  members?: Maybe<UserUpdateManyWithoutForumsInput>;
+  posts?: Maybe<ForumPostUpdateManyWithoutForumInput>;
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+}
+
+export interface ForumUpdateManyMutationInput {
+  avatarPic?: Maybe<String>;
+  coverPic?: Maybe<String>;
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+}
+
+export interface ForumPostCreateInput {
+  id?: Maybe<ID_Input>;
+  postedBy: UserCreateOneWithoutForumpostsInput;
+  forum: ForumCreateOneWithoutPostsInput;
+  title: String;
+  content?: Maybe<String>;
+  type: ForumPostType;
+  comments?: Maybe<ForumPostCommentCreateManyWithoutForumPostInput>;
+}
+
+export interface ForumPostUpdateInput {
+  postedBy?: Maybe<UserUpdateOneRequiredWithoutForumpostsInput>;
+  forum?: Maybe<ForumUpdateOneRequiredWithoutPostsInput>;
+  title?: Maybe<String>;
+  content?: Maybe<String>;
+  type?: Maybe<ForumPostType>;
+  comments?: Maybe<ForumPostCommentUpdateManyWithoutForumPostInput>;
+}
+
+export interface ForumPostUpdateManyMutationInput {
+  title?: Maybe<String>;
+  content?: Maybe<String>;
+  type?: Maybe<ForumPostType>;
+}
+
+export interface ForumPostCommentCreateInput {
+  id?: Maybe<ID_Input>;
+  user: UserCreateOneWithoutPostCommentsInput;
+  forumPost: ForumPostCreateOneWithoutCommentsInput;
+  comment: String;
+}
+
+export interface ForumPostCommentUpdateInput {
+  user?: Maybe<UserUpdateOneRequiredWithoutPostCommentsInput>;
+  forumPost?: Maybe<ForumPostUpdateOneRequiredWithoutCommentsInput>;
+  comment?: Maybe<String>;
+}
+
+export interface ForumPostCommentUpdateManyMutationInput {
+  comment?: Maybe<String>;
+}
+
+export interface OrderCreateInput {
+  id?: Maybe<ID_Input>;
+  items?: Maybe<orderItemCreateManyInput>;
+  total: String;
+  user: UserCreateOneInput;
+  paymentId: String;
+  PayerID: String;
+  imageUrl?: Maybe<String>;
+}
+
+export interface orderItemCreateManyInput {
+  create?: Maybe<orderItemCreateInput[] | orderItemCreateInput>;
+  connect?: Maybe<orderItemWhereUniqueInput[] | orderItemWhereUniqueInput>;
+}
+
+export interface orderItemCreateInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  description: String;
+  price: String;
+  quantity: Int;
+  imageUrl?: Maybe<String>;
+  variants?: Maybe<orderItemCreatevariantsInput>;
+}
+
+export interface orderItemCreatevariantsInput {
+  set?: Maybe<String[] | String>;
+}
+
+export interface UserCreateOneInput {
+  create?: Maybe<UserCreateInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserCreateInput {
+  id?: Maybe<ID_Input>;
+  firebaseId: String;
+  email?: Maybe<String>;
+  name: String;
+  username: String;
+  profilePic?: Maybe<String>;
+  isAnonymous?: Maybe<Boolean>;
+  emailVerified?: Maybe<Boolean>;
+  shops?: Maybe<ShopCreateManyWithoutOwnersInput>;
+  images?: Maybe<UserImageCreateManyWithoutUserInput>;
+  productReviews?: Maybe<ProductReviewCreateManyWithoutUserInput>;
+  cartItems?: Maybe<CartCreateOneWithoutUserInput>;
+  forumposts?: Maybe<ForumPostCreateManyWithoutPostedByInput>;
+  forums?: Maybe<ForumCreateManyWithoutMembersInput>;
+  postComments?: Maybe<ForumPostCommentCreateManyWithoutUserInput>;
+}
+
+export interface OrderUpdateInput {
+  items?: Maybe<orderItemUpdateManyInput>;
+  total?: Maybe<String>;
+  user?: Maybe<UserUpdateOneRequiredInput>;
+  paymentId?: Maybe<String>;
+  PayerID?: Maybe<String>;
+  imageUrl?: Maybe<String>;
+}
+
+export interface orderItemUpdateManyInput {
+  create?: Maybe<orderItemCreateInput[] | orderItemCreateInput>;
+  update?: Maybe<
+    | orderItemUpdateWithWhereUniqueNestedInput[]
+    | orderItemUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | orderItemUpsertWithWhereUniqueNestedInput[]
+    | orderItemUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<orderItemWhereUniqueInput[] | orderItemWhereUniqueInput>;
+  connect?: Maybe<orderItemWhereUniqueInput[] | orderItemWhereUniqueInput>;
+  set?: Maybe<orderItemWhereUniqueInput[] | orderItemWhereUniqueInput>;
+  disconnect?: Maybe<orderItemWhereUniqueInput[] | orderItemWhereUniqueInput>;
+  deleteMany?: Maybe<orderItemScalarWhereInput[] | orderItemScalarWhereInput>;
+  updateMany?: Maybe<
+    | orderItemUpdateManyWithWhereNestedInput[]
+    | orderItemUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface orderItemUpdateWithWhereUniqueNestedInput {
+  where: orderItemWhereUniqueInput;
+  data: orderItemUpdateDataInput;
+}
+
+export interface orderItemUpdateDataInput {
+  title?: Maybe<String>;
+  description?: Maybe<String>;
+  price?: Maybe<String>;
+  quantity?: Maybe<Int>;
+  imageUrl?: Maybe<String>;
+  variants?: Maybe<orderItemUpdatevariantsInput>;
+}
+
+export interface orderItemUpdatevariantsInput {
+  set?: Maybe<String[] | String>;
+}
+
+export interface orderItemUpsertWithWhereUniqueNestedInput {
+  where: orderItemWhereUniqueInput;
+  update: orderItemUpdateDataInput;
+  create: orderItemCreateInput;
 }
 
 export interface orderItemScalarWhereInput {
@@ -5257,92 +5442,572 @@ export interface orderItemScalarWhereInput {
   NOT?: Maybe<orderItemScalarWhereInput[] | orderItemScalarWhereInput>;
 }
 
-export interface ProductReviewWhereInput {
+export interface orderItemUpdateManyWithWhereNestedInput {
+  where: orderItemScalarWhereInput;
+  data: orderItemUpdateManyDataInput;
+}
+
+export interface orderItemUpdateManyDataInput {
+  title?: Maybe<String>;
+  description?: Maybe<String>;
+  price?: Maybe<String>;
+  quantity?: Maybe<Int>;
+  imageUrl?: Maybe<String>;
+  variants?: Maybe<orderItemUpdatevariantsInput>;
+}
+
+export interface UserUpdateOneRequiredInput {
+  create?: Maybe<UserCreateInput>;
+  update?: Maybe<UserUpdateDataInput>;
+  upsert?: Maybe<UserUpsertNestedInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserUpdateDataInput {
+  firebaseId?: Maybe<String>;
+  email?: Maybe<String>;
+  name?: Maybe<String>;
+  username?: Maybe<String>;
+  profilePic?: Maybe<String>;
+  isAnonymous?: Maybe<Boolean>;
+  emailVerified?: Maybe<Boolean>;
+  shops?: Maybe<ShopUpdateManyWithoutOwnersInput>;
+  images?: Maybe<UserImageUpdateManyWithoutUserInput>;
+  productReviews?: Maybe<ProductReviewUpdateManyWithoutUserInput>;
+  cartItems?: Maybe<CartUpdateOneWithoutUserInput>;
+  forumposts?: Maybe<ForumPostUpdateManyWithoutPostedByInput>;
+  forums?: Maybe<ForumUpdateManyWithoutMembersInput>;
+  postComments?: Maybe<ForumPostCommentUpdateManyWithoutUserInput>;
+}
+
+export interface UserUpsertNestedInput {
+  update: UserUpdateDataInput;
+  create: UserCreateInput;
+}
+
+export interface OrderUpdateManyMutationInput {
+  total?: Maybe<String>;
+  paymentId?: Maybe<String>;
+  PayerID?: Maybe<String>;
+  imageUrl?: Maybe<String>;
+}
+
+export interface ProductUpdateInput {
+  title?: Maybe<String>;
+  description?: Maybe<String>;
+  price?: Maybe<String>;
+  categories?: Maybe<CategoryUpdateManyWithoutProductInput>;
+  brand?: Maybe<BrandUpdateOneWithoutProductsInput>;
+  tags?: Maybe<TagUpdateManyWithoutProductsInput>;
+  images?: Maybe<ProductImageUpdateManyWithoutProductInput>;
+  shop?: Maybe<ShopUpdateOneRequiredWithoutProductsInput>;
+  variants?: Maybe<VariantUpdateManyWithoutProductInput>;
+  reviews?: Maybe<ProductReviewUpdateManyWithoutProductInput>;
+}
+
+export interface ProductUpdateManyMutationInput {
+  title?: Maybe<String>;
+  description?: Maybe<String>;
+  price?: Maybe<String>;
+}
+
+export interface ProductImageCreateInput {
   id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  user?: Maybe<UserWhereInput>;
-  product?: Maybe<ProductWhereInput>;
-  rating?: Maybe<Int>;
-  rating_not?: Maybe<Int>;
-  rating_in?: Maybe<Int[] | Int>;
-  rating_not_in?: Maybe<Int[] | Int>;
-  rating_lt?: Maybe<Int>;
-  rating_lte?: Maybe<Int>;
-  rating_gt?: Maybe<Int>;
-  rating_gte?: Maybe<Int>;
+  imageUrl: String;
+  largeImageUrl?: Maybe<String>;
+  product?: Maybe<ProductCreateOneWithoutImagesInput>;
+}
+
+export interface ProductCreateOneWithoutImagesInput {
+  create?: Maybe<ProductCreateWithoutImagesInput>;
+  connect?: Maybe<ProductWhereUniqueInput>;
+}
+
+export interface ProductCreateWithoutImagesInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  description: String;
+  price: String;
+  categories?: Maybe<CategoryCreateManyWithoutProductInput>;
+  brand?: Maybe<BrandCreateOneWithoutProductsInput>;
+  tags?: Maybe<TagCreateManyWithoutProductsInput>;
+  shop: ShopCreateOneWithoutProductsInput;
+  variants?: Maybe<VariantCreateManyWithoutProductInput>;
+  reviews?: Maybe<ProductReviewCreateManyWithoutProductInput>;
+}
+
+export interface ProductImageUpdateInput {
+  imageUrl?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
+  product?: Maybe<ProductUpdateOneWithoutImagesInput>;
+}
+
+export interface ProductUpdateOneWithoutImagesInput {
+  create?: Maybe<ProductCreateWithoutImagesInput>;
+  update?: Maybe<ProductUpdateWithoutImagesDataInput>;
+  upsert?: Maybe<ProductUpsertWithoutImagesInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<ProductWhereUniqueInput>;
+}
+
+export interface ProductUpdateWithoutImagesDataInput {
+  title?: Maybe<String>;
+  description?: Maybe<String>;
+  price?: Maybe<String>;
+  categories?: Maybe<CategoryUpdateManyWithoutProductInput>;
+  brand?: Maybe<BrandUpdateOneWithoutProductsInput>;
+  tags?: Maybe<TagUpdateManyWithoutProductsInput>;
+  shop?: Maybe<ShopUpdateOneRequiredWithoutProductsInput>;
+  variants?: Maybe<VariantUpdateManyWithoutProductInput>;
+  reviews?: Maybe<ProductReviewUpdateManyWithoutProductInput>;
+}
+
+export interface ProductUpsertWithoutImagesInput {
+  update: ProductUpdateWithoutImagesDataInput;
+  create: ProductCreateWithoutImagesInput;
+}
+
+export interface ProductImageUpdateManyMutationInput {
+  imageUrl?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
+}
+
+export interface ProductReviewCreateInput {
+  id?: Maybe<ID_Input>;
+  user: UserCreateOneWithoutProductReviewsInput;
+  product: ProductCreateOneWithoutReviewsInput;
+  rating: Int;
   review?: Maybe<String>;
-  review_not?: Maybe<String>;
-  review_in?: Maybe<String[] | String>;
-  review_not_in?: Maybe<String[] | String>;
-  review_lt?: Maybe<String>;
-  review_lte?: Maybe<String>;
-  review_gt?: Maybe<String>;
-  review_gte?: Maybe<String>;
-  review_contains?: Maybe<String>;
-  review_not_contains?: Maybe<String>;
-  review_starts_with?: Maybe<String>;
-  review_not_starts_with?: Maybe<String>;
-  review_ends_with?: Maybe<String>;
-  review_not_ends_with?: Maybe<String>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<ProductReviewWhereInput[] | ProductReviewWhereInput>;
-  OR?: Maybe<ProductReviewWhereInput[] | ProductReviewWhereInput>;
-  NOT?: Maybe<ProductReviewWhereInput[] | ProductReviewWhereInput>;
 }
 
-export interface CartCreateInput {
+export interface ProductReviewUpdateInput {
+  user?: Maybe<UserUpdateOneRequiredWithoutProductReviewsInput>;
+  product?: Maybe<ProductUpdateOneRequiredWithoutReviewsInput>;
+  rating?: Maybe<Int>;
+  review?: Maybe<String>;
+}
+
+export interface ProductReviewUpdateManyMutationInput {
+  rating?: Maybe<Int>;
+  review?: Maybe<String>;
+}
+
+export interface ShopCreateInput {
   id?: Maybe<ID_Input>;
-  user: UserCreateOneWithoutCartItemsInput;
-  items?: Maybe<CartItemCreateManyWithoutCartInput>;
+  name: String;
+  description: String;
+  category: String;
+  live?: Maybe<Boolean>;
+  owners?: Maybe<UserCreateManyWithoutShopsInput>;
+  images?: Maybe<ShopImageCreateManyWithoutShopInput>;
+  products?: Maybe<ProductCreateManyWithoutShopInput>;
 }
 
-export interface ProductReviewSubscriptionWhereInput {
+export interface ShopUpdateInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  category?: Maybe<String>;
+  live?: Maybe<Boolean>;
+  owners?: Maybe<UserUpdateManyWithoutShopsInput>;
+  images?: Maybe<ShopImageUpdateManyWithoutShopInput>;
+  products?: Maybe<ProductUpdateManyWithoutShopInput>;
+}
+
+export interface ShopUpdateManyMutationInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  category?: Maybe<String>;
+  live?: Maybe<Boolean>;
+}
+
+export interface ShopImageCreateInput {
+  id?: Maybe<ID_Input>;
+  imageUrl: String;
+  largeImageUrl?: Maybe<String>;
+  shop?: Maybe<ShopCreateOneWithoutImagesInput>;
+}
+
+export interface ShopCreateOneWithoutImagesInput {
+  create?: Maybe<ShopCreateWithoutImagesInput>;
+  connect?: Maybe<ShopWhereUniqueInput>;
+}
+
+export interface ShopCreateWithoutImagesInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  description: String;
+  category: String;
+  live?: Maybe<Boolean>;
+  owners?: Maybe<UserCreateManyWithoutShopsInput>;
+  products?: Maybe<ProductCreateManyWithoutShopInput>;
+}
+
+export interface ShopImageUpdateInput {
+  imageUrl?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
+  shop?: Maybe<ShopUpdateOneWithoutImagesInput>;
+}
+
+export interface ShopUpdateOneWithoutImagesInput {
+  create?: Maybe<ShopCreateWithoutImagesInput>;
+  update?: Maybe<ShopUpdateWithoutImagesDataInput>;
+  upsert?: Maybe<ShopUpsertWithoutImagesInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<ShopWhereUniqueInput>;
+}
+
+export interface ShopUpdateWithoutImagesDataInput {
+  name?: Maybe<String>;
+  description?: Maybe<String>;
+  category?: Maybe<String>;
+  live?: Maybe<Boolean>;
+  owners?: Maybe<UserUpdateManyWithoutShopsInput>;
+  products?: Maybe<ProductUpdateManyWithoutShopInput>;
+}
+
+export interface ShopUpsertWithoutImagesInput {
+  update: ShopUpdateWithoutImagesDataInput;
+  create: ShopCreateWithoutImagesInput;
+}
+
+export interface ShopImageUpdateManyMutationInput {
+  imageUrl?: Maybe<String>;
+  largeImageUrl?: Maybe<String>;
+}
+
+export interface TagCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  products?: Maybe<ProductCreateManyWithoutTagsInput>;
+}
+
+export interface ProductCreateManyWithoutTagsInput {
+  create?: Maybe<
+    ProductCreateWithoutTagsInput[] | ProductCreateWithoutTagsInput
+  >;
+  connect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
+}
+
+export interface ProductCreateWithoutTagsInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  description: String;
+  price: String;
+  categories?: Maybe<CategoryCreateManyWithoutProductInput>;
+  brand?: Maybe<BrandCreateOneWithoutProductsInput>;
+  images?: Maybe<ProductImageCreateManyWithoutProductInput>;
+  shop: ShopCreateOneWithoutProductsInput;
+  variants?: Maybe<VariantCreateManyWithoutProductInput>;
+  reviews?: Maybe<ProductReviewCreateManyWithoutProductInput>;
+}
+
+export interface TagUpdateInput {
+  name?: Maybe<String>;
+  products?: Maybe<ProductUpdateManyWithoutTagsInput>;
+}
+
+export interface ProductUpdateManyWithoutTagsInput {
+  create?: Maybe<
+    ProductCreateWithoutTagsInput[] | ProductCreateWithoutTagsInput
+  >;
+  delete?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
+  connect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
+  set?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
+  disconnect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
+  update?: Maybe<
+    | ProductUpdateWithWhereUniqueWithoutTagsInput[]
+    | ProductUpdateWithWhereUniqueWithoutTagsInput
+  >;
+  upsert?: Maybe<
+    | ProductUpsertWithWhereUniqueWithoutTagsInput[]
+    | ProductUpsertWithWhereUniqueWithoutTagsInput
+  >;
+  deleteMany?: Maybe<ProductScalarWhereInput[] | ProductScalarWhereInput>;
+  updateMany?: Maybe<
+    | ProductUpdateManyWithWhereNestedInput[]
+    | ProductUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface ProductUpdateWithWhereUniqueWithoutTagsInput {
+  where: ProductWhereUniqueInput;
+  data: ProductUpdateWithoutTagsDataInput;
+}
+
+export interface ProductUpdateWithoutTagsDataInput {
+  title?: Maybe<String>;
+  description?: Maybe<String>;
+  price?: Maybe<String>;
+  categories?: Maybe<CategoryUpdateManyWithoutProductInput>;
+  brand?: Maybe<BrandUpdateOneWithoutProductsInput>;
+  images?: Maybe<ProductImageUpdateManyWithoutProductInput>;
+  shop?: Maybe<ShopUpdateOneRequiredWithoutProductsInput>;
+  variants?: Maybe<VariantUpdateManyWithoutProductInput>;
+  reviews?: Maybe<ProductReviewUpdateManyWithoutProductInput>;
+}
+
+export interface ProductUpsertWithWhereUniqueWithoutTagsInput {
+  where: ProductWhereUniqueInput;
+  update: ProductUpdateWithoutTagsDataInput;
+  create: ProductCreateWithoutTagsInput;
+}
+
+export interface TagUpdateManyMutationInput {
+  name?: Maybe<String>;
+}
+
+export interface UserUpdateInput {
+  firebaseId?: Maybe<String>;
+  email?: Maybe<String>;
+  name?: Maybe<String>;
+  username?: Maybe<String>;
+  profilePic?: Maybe<String>;
+  isAnonymous?: Maybe<Boolean>;
+  emailVerified?: Maybe<Boolean>;
+  shops?: Maybe<ShopUpdateManyWithoutOwnersInput>;
+  images?: Maybe<UserImageUpdateManyWithoutUserInput>;
+  productReviews?: Maybe<ProductReviewUpdateManyWithoutUserInput>;
+  cartItems?: Maybe<CartUpdateOneWithoutUserInput>;
+  forumposts?: Maybe<ForumPostUpdateManyWithoutPostedByInput>;
+  forums?: Maybe<ForumUpdateManyWithoutMembersInput>;
+  postComments?: Maybe<ForumPostCommentUpdateManyWithoutUserInput>;
+}
+
+export interface UserUpdateManyMutationInput {
+  firebaseId?: Maybe<String>;
+  email?: Maybe<String>;
+  name?: Maybe<String>;
+  username?: Maybe<String>;
+  profilePic?: Maybe<String>;
+  isAnonymous?: Maybe<Boolean>;
+  emailVerified?: Maybe<Boolean>;
+}
+
+export interface UserImageCreateInput {
+  id?: Maybe<ID_Input>;
+  imageUrl: String;
+  user?: Maybe<UserCreateOneWithoutImagesInput>;
+}
+
+export interface UserCreateOneWithoutImagesInput {
+  create?: Maybe<UserCreateWithoutImagesInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserCreateWithoutImagesInput {
+  id?: Maybe<ID_Input>;
+  firebaseId: String;
+  email?: Maybe<String>;
+  name: String;
+  username: String;
+  profilePic?: Maybe<String>;
+  isAnonymous?: Maybe<Boolean>;
+  emailVerified?: Maybe<Boolean>;
+  shops?: Maybe<ShopCreateManyWithoutOwnersInput>;
+  productReviews?: Maybe<ProductReviewCreateManyWithoutUserInput>;
+  cartItems?: Maybe<CartCreateOneWithoutUserInput>;
+  forumposts?: Maybe<ForumPostCreateManyWithoutPostedByInput>;
+  forums?: Maybe<ForumCreateManyWithoutMembersInput>;
+  postComments?: Maybe<ForumPostCommentCreateManyWithoutUserInput>;
+}
+
+export interface UserImageUpdateInput {
+  imageUrl?: Maybe<String>;
+  user?: Maybe<UserUpdateOneWithoutImagesInput>;
+}
+
+export interface UserUpdateOneWithoutImagesInput {
+  create?: Maybe<UserCreateWithoutImagesInput>;
+  update?: Maybe<UserUpdateWithoutImagesDataInput>;
+  upsert?: Maybe<UserUpsertWithoutImagesInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserUpdateWithoutImagesDataInput {
+  firebaseId?: Maybe<String>;
+  email?: Maybe<String>;
+  name?: Maybe<String>;
+  username?: Maybe<String>;
+  profilePic?: Maybe<String>;
+  isAnonymous?: Maybe<Boolean>;
+  emailVerified?: Maybe<Boolean>;
+  shops?: Maybe<ShopUpdateManyWithoutOwnersInput>;
+  productReviews?: Maybe<ProductReviewUpdateManyWithoutUserInput>;
+  cartItems?: Maybe<CartUpdateOneWithoutUserInput>;
+  forumposts?: Maybe<ForumPostUpdateManyWithoutPostedByInput>;
+  forums?: Maybe<ForumUpdateManyWithoutMembersInput>;
+  postComments?: Maybe<ForumPostCommentUpdateManyWithoutUserInput>;
+}
+
+export interface UserUpsertWithoutImagesInput {
+  update: UserUpdateWithoutImagesDataInput;
+  create: UserCreateWithoutImagesInput;
+}
+
+export interface UserImageUpdateManyMutationInput {
+  imageUrl?: Maybe<String>;
+}
+
+export interface VariantCreateInput {
+  id?: Maybe<ID_Input>;
+  product: ProductCreateOneWithoutVariantsInput;
+  name: String;
+  values?: Maybe<VariantCreatevaluesInput>;
+}
+
+export interface ProductCreateOneWithoutVariantsInput {
+  create?: Maybe<ProductCreateWithoutVariantsInput>;
+  connect?: Maybe<ProductWhereUniqueInput>;
+}
+
+export interface ProductCreateWithoutVariantsInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  description: String;
+  price: String;
+  categories?: Maybe<CategoryCreateManyWithoutProductInput>;
+  brand?: Maybe<BrandCreateOneWithoutProductsInput>;
+  tags?: Maybe<TagCreateManyWithoutProductsInput>;
+  images?: Maybe<ProductImageCreateManyWithoutProductInput>;
+  shop: ShopCreateOneWithoutProductsInput;
+  reviews?: Maybe<ProductReviewCreateManyWithoutProductInput>;
+}
+
+export interface VariantUpdateInput {
+  product?: Maybe<ProductUpdateOneRequiredWithoutVariantsInput>;
+  name?: Maybe<String>;
+  values?: Maybe<VariantUpdatevaluesInput>;
+}
+
+export interface ProductUpdateOneRequiredWithoutVariantsInput {
+  create?: Maybe<ProductCreateWithoutVariantsInput>;
+  update?: Maybe<ProductUpdateWithoutVariantsDataInput>;
+  upsert?: Maybe<ProductUpsertWithoutVariantsInput>;
+  connect?: Maybe<ProductWhereUniqueInput>;
+}
+
+export interface ProductUpdateWithoutVariantsDataInput {
+  title?: Maybe<String>;
+  description?: Maybe<String>;
+  price?: Maybe<String>;
+  categories?: Maybe<CategoryUpdateManyWithoutProductInput>;
+  brand?: Maybe<BrandUpdateOneWithoutProductsInput>;
+  tags?: Maybe<TagUpdateManyWithoutProductsInput>;
+  images?: Maybe<ProductImageUpdateManyWithoutProductInput>;
+  shop?: Maybe<ShopUpdateOneRequiredWithoutProductsInput>;
+  reviews?: Maybe<ProductReviewUpdateManyWithoutProductInput>;
+}
+
+export interface ProductUpsertWithoutVariantsInput {
+  update: ProductUpdateWithoutVariantsDataInput;
+  create: ProductCreateWithoutVariantsInput;
+}
+
+export interface VariantUpdateManyMutationInput {
+  name?: Maybe<String>;
+  values?: Maybe<VariantUpdatevaluesInput>;
+}
+
+export interface orderItemUpdateInput {
+  title?: Maybe<String>;
+  description?: Maybe<String>;
+  price?: Maybe<String>;
+  quantity?: Maybe<Int>;
+  imageUrl?: Maybe<String>;
+  variants?: Maybe<orderItemUpdatevariantsInput>;
+}
+
+export interface orderItemUpdateManyMutationInput {
+  title?: Maybe<String>;
+  description?: Maybe<String>;
+  price?: Maybe<String>;
+  quantity?: Maybe<Int>;
+  imageUrl?: Maybe<String>;
+  variants?: Maybe<orderItemUpdatevariantsInput>;
+}
+
+export interface BrandSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
   updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<ProductReviewWhereInput>;
+  node?: Maybe<BrandWhereInput>;
+  AND?: Maybe<BrandSubscriptionWhereInput[] | BrandSubscriptionWhereInput>;
+  OR?: Maybe<BrandSubscriptionWhereInput[] | BrandSubscriptionWhereInput>;
+  NOT?: Maybe<BrandSubscriptionWhereInput[] | BrandSubscriptionWhereInput>;
+}
+
+export interface CartSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<CartWhereInput>;
+  AND?: Maybe<CartSubscriptionWhereInput[] | CartSubscriptionWhereInput>;
+  OR?: Maybe<CartSubscriptionWhereInput[] | CartSubscriptionWhereInput>;
+  NOT?: Maybe<CartSubscriptionWhereInput[] | CartSubscriptionWhereInput>;
+}
+
+export interface CartItemSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<CartItemWhereInput>;
   AND?: Maybe<
-    ProductReviewSubscriptionWhereInput[] | ProductReviewSubscriptionWhereInput
+    CartItemSubscriptionWhereInput[] | CartItemSubscriptionWhereInput
   >;
-  OR?: Maybe<
-    ProductReviewSubscriptionWhereInput[] | ProductReviewSubscriptionWhereInput
-  >;
+  OR?: Maybe<CartItemSubscriptionWhereInput[] | CartItemSubscriptionWhereInput>;
   NOT?: Maybe<
-    ProductReviewSubscriptionWhereInput[] | ProductReviewSubscriptionWhereInput
+    CartItemSubscriptionWhereInput[] | CartItemSubscriptionWhereInput
   >;
 }
 
-export interface UserCreateOneWithoutCartItemsInput {
-  create?: Maybe<UserCreateWithoutCartItemsInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
+export interface CategorySubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<CategoryWhereInput>;
+  AND?: Maybe<
+    CategorySubscriptionWhereInput[] | CategorySubscriptionWhereInput
+  >;
+  OR?: Maybe<CategorySubscriptionWhereInput[] | CategorySubscriptionWhereInput>;
+  NOT?: Maybe<
+    CategorySubscriptionWhereInput[] | CategorySubscriptionWhereInput
+  >;
+}
+
+export interface ForumSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<ForumWhereInput>;
+  AND?: Maybe<ForumSubscriptionWhereInput[] | ForumSubscriptionWhereInput>;
+  OR?: Maybe<ForumSubscriptionWhereInput[] | ForumSubscriptionWhereInput>;
+  NOT?: Maybe<ForumSubscriptionWhereInput[] | ForumSubscriptionWhereInput>;
+}
+
+export interface ForumPostSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<ForumPostWhereInput>;
+  AND?: Maybe<
+    ForumPostSubscriptionWhereInput[] | ForumPostSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    ForumPostSubscriptionWhereInput[] | ForumPostSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    ForumPostSubscriptionWhereInput[] | ForumPostSubscriptionWhereInput
+  >;
 }
 
 export interface ForumPostCommentSubscriptionWhereInput {
@@ -5365,724 +6030,88 @@ export interface ForumPostCommentSubscriptionWhereInput {
   >;
 }
 
-export interface UserCreateWithoutCartItemsInput {
-  id?: Maybe<ID_Input>;
-  firebaseId: String;
-  email?: Maybe<String>;
-  name: String;
-  username: String;
-  profilePic?: Maybe<String>;
-  isAnonymous?: Maybe<Boolean>;
-  emailVerified?: Maybe<Boolean>;
-  shops?: Maybe<ShopCreateManyWithoutOwnersInput>;
-  images?: Maybe<UserImageCreateManyWithoutUserInput>;
-  productReviews?: Maybe<ProductReviewCreateManyWithoutUserInput>;
-  forumposts?: Maybe<ForumPostCreateManyWithoutPostedByInput>;
-  forums?: Maybe<ForumCreateManyWithoutMembersInput>;
-  postComments?: Maybe<ForumPostCommentCreateManyWithoutUserInput>;
-}
-
-export interface BrandSubscriptionWhereInput {
+export interface OrderSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
   updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<BrandWhereInput>;
-  AND?: Maybe<BrandSubscriptionWhereInput[] | BrandSubscriptionWhereInput>;
-  OR?: Maybe<BrandSubscriptionWhereInput[] | BrandSubscriptionWhereInput>;
-  NOT?: Maybe<BrandSubscriptionWhereInput[] | BrandSubscriptionWhereInput>;
+  node?: Maybe<OrderWhereInput>;
+  AND?: Maybe<OrderSubscriptionWhereInput[] | OrderSubscriptionWhereInput>;
+  OR?: Maybe<OrderSubscriptionWhereInput[] | OrderSubscriptionWhereInput>;
+  NOT?: Maybe<OrderSubscriptionWhereInput[] | OrderSubscriptionWhereInput>;
 }
 
-export interface CartUpdateInput {
-  user?: Maybe<UserUpdateOneRequiredWithoutCartItemsInput>;
-  items?: Maybe<CartItemUpdateManyWithoutCartInput>;
-}
-
-export interface ProductUpdateOneRequiredWithoutVariantsInput {
-  create?: Maybe<ProductCreateWithoutVariantsInput>;
-  update?: Maybe<ProductUpdateWithoutVariantsDataInput>;
-  upsert?: Maybe<ProductUpsertWithoutVariantsInput>;
-  connect?: Maybe<ProductWhereUniqueInput>;
-}
-
-export interface UserUpdateOneRequiredWithoutCartItemsInput {
-  create?: Maybe<UserCreateWithoutCartItemsInput>;
-  update?: Maybe<UserUpdateWithoutCartItemsDataInput>;
-  upsert?: Maybe<UserUpsertWithoutCartItemsInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface UserUpsertWithoutImagesInput {
-  update: UserUpdateWithoutImagesDataInput;
-  create: UserCreateWithoutImagesInput;
-}
-
-export interface UserUpdateWithoutCartItemsDataInput {
-  firebaseId?: Maybe<String>;
-  email?: Maybe<String>;
-  name?: Maybe<String>;
-  username?: Maybe<String>;
-  profilePic?: Maybe<String>;
-  isAnonymous?: Maybe<Boolean>;
-  emailVerified?: Maybe<Boolean>;
-  shops?: Maybe<ShopUpdateManyWithoutOwnersInput>;
-  images?: Maybe<UserImageUpdateManyWithoutUserInput>;
-  productReviews?: Maybe<ProductReviewUpdateManyWithoutUserInput>;
-  forumposts?: Maybe<ForumPostUpdateManyWithoutPostedByInput>;
-  forums?: Maybe<ForumUpdateManyWithoutMembersInput>;
-  postComments?: Maybe<ForumPostCommentUpdateManyWithoutUserInput>;
-}
-
-export interface UserImageCreateInput {
-  id?: Maybe<ID_Input>;
-  imageUrl: String;
-  user?: Maybe<UserCreateOneWithoutImagesInput>;
-}
-
-export interface UserUpsertWithoutCartItemsInput {
-  update: UserUpdateWithoutCartItemsDataInput;
-  create: UserCreateWithoutCartItemsInput;
-}
-
-export interface ProductUpdateWithoutTagsDataInput {
-  title?: Maybe<String>;
-  description?: Maybe<String>;
-  price?: Maybe<String>;
-  categories?: Maybe<CategoryUpdateManyWithoutProductInput>;
-  brand?: Maybe<BrandUpdateOneWithoutProductsInput>;
-  images?: Maybe<ProductImageUpdateManyWithoutProductInput>;
-  shop?: Maybe<ShopUpdateOneRequiredWithoutProductsInput>;
-  variants?: Maybe<VariantUpdateManyWithoutProductInput>;
-  reviews?: Maybe<ProductReviewUpdateManyWithoutProductInput>;
-}
-
-export interface CartItemCreateInput {
-  id?: Maybe<ID_Input>;
-  product: ProductCreateOneInput;
-  quantity: Int;
-  variants?: Maybe<CartItemCreatevariantsInput>;
-  cart: CartCreateOneWithoutItemsInput;
-}
-
-export interface TagCreateInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  products?: Maybe<ProductCreateManyWithoutTagsInput>;
-}
-
-export interface CartCreateOneWithoutItemsInput {
-  create?: Maybe<CartCreateWithoutItemsInput>;
-  connect?: Maybe<CartWhereUniqueInput>;
-}
-
-export interface ShopCreateWithoutImagesInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description: String;
-  category: String;
-  live?: Maybe<Boolean>;
-  owners?: Maybe<UserCreateManyWithoutShopsInput>;
-  products?: Maybe<ProductCreateManyWithoutShopInput>;
-}
-
-export interface CartCreateWithoutItemsInput {
-  id?: Maybe<ID_Input>;
-  user: UserCreateOneWithoutCartItemsInput;
-}
-
-export interface ProductReviewUpdateManyMutationInput {
-  rating?: Maybe<Int>;
-  review?: Maybe<String>;
-}
-
-export interface CartItemUpdateInput {
-  product?: Maybe<ProductUpdateOneRequiredInput>;
-  quantity?: Maybe<Int>;
-  variants?: Maybe<CartItemUpdatevariantsInput>;
-  cart?: Maybe<CartUpdateOneRequiredWithoutItemsInput>;
-}
-
-export interface ProductUpdateOneWithoutImagesInput {
-  create?: Maybe<ProductCreateWithoutImagesInput>;
-  update?: Maybe<ProductUpdateWithoutImagesDataInput>;
-  upsert?: Maybe<ProductUpsertWithoutImagesInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<ProductWhereUniqueInput>;
-}
-
-export interface CartUpdateOneRequiredWithoutItemsInput {
-  create?: Maybe<CartCreateWithoutItemsInput>;
-  update?: Maybe<CartUpdateWithoutItemsDataInput>;
-  upsert?: Maybe<CartUpsertWithoutItemsInput>;
-  connect?: Maybe<CartWhereUniqueInput>;
-}
-
-export interface ProductUpdateInput {
-  title?: Maybe<String>;
-  description?: Maybe<String>;
-  price?: Maybe<String>;
-  categories?: Maybe<CategoryUpdateManyWithoutProductInput>;
-  brand?: Maybe<BrandUpdateOneWithoutProductsInput>;
-  tags?: Maybe<TagUpdateManyWithoutProductsInput>;
-  images?: Maybe<ProductImageUpdateManyWithoutProductInput>;
-  shop?: Maybe<ShopUpdateOneRequiredWithoutProductsInput>;
-  variants?: Maybe<VariantUpdateManyWithoutProductInput>;
-  reviews?: Maybe<ProductReviewUpdateManyWithoutProductInput>;
-}
-
-export interface CartUpdateWithoutItemsDataInput {
-  user?: Maybe<UserUpdateOneRequiredWithoutCartItemsInput>;
-}
-
-export interface TagCreateWithoutProductsInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-}
-
-export interface CartUpsertWithoutItemsInput {
-  update: CartUpdateWithoutItemsDataInput;
-  create: CartCreateWithoutItemsInput;
-}
-
-export interface UserImageCreateWithoutUserInput {
-  id?: Maybe<ID_Input>;
-  imageUrl: String;
-}
-
-export interface CartItemUpdateManyMutationInput {
-  quantity?: Maybe<Int>;
-  variants?: Maybe<CartItemUpdatevariantsInput>;
-}
-
-export interface VariantCreateWithoutProductInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  values?: Maybe<VariantCreatevaluesInput>;
-}
-
-export interface CategoryCreateInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  product?: Maybe<ProductCreateManyWithoutCategoriesInput>;
-}
-
-export interface ProductReviewCreateManyWithoutProductInput {
-  create?: Maybe<
-    | ProductReviewCreateWithoutProductInput[]
-    | ProductReviewCreateWithoutProductInput
-  >;
-  connect?: Maybe<
-    ProductReviewWhereUniqueInput[] | ProductReviewWhereUniqueInput
-  >;
-}
-
-export interface ProductCreateManyWithoutCategoriesInput {
-  create?: Maybe<
-    ProductCreateWithoutCategoriesInput[] | ProductCreateWithoutCategoriesInput
-  >;
-  connect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
-}
-
-export interface ProductCreateManyWithoutShopInput {
-  create?: Maybe<
-    ProductCreateWithoutShopInput[] | ProductCreateWithoutShopInput
-  >;
-  connect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
-}
-
-export interface ProductCreateWithoutCategoriesInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  description: String;
-  price: String;
-  brand?: Maybe<BrandCreateOneWithoutProductsInput>;
-  tags?: Maybe<TagCreateManyWithoutProductsInput>;
-  images?: Maybe<ProductImageCreateManyWithoutProductInput>;
-  shop: ShopCreateOneWithoutProductsInput;
-  variants?: Maybe<VariantCreateManyWithoutProductInput>;
-  reviews?: Maybe<ProductReviewCreateManyWithoutProductInput>;
-}
-
-export interface ForumPostCommentCreateManyWithoutUserInput {
-  create?: Maybe<
-    | ForumPostCommentCreateWithoutUserInput[]
-    | ForumPostCommentCreateWithoutUserInput
-  >;
-  connect?: Maybe<
-    ForumPostCommentWhereUniqueInput[] | ForumPostCommentWhereUniqueInput
-  >;
-}
-
-export interface CategoryUpdateInput {
-  name?: Maybe<String>;
-  product?: Maybe<ProductUpdateManyWithoutCategoriesInput>;
-}
-
-export interface ForumPostCreateManyWithoutForumInput {
-  create?: Maybe<
-    ForumPostCreateWithoutForumInput[] | ForumPostCreateWithoutForumInput
-  >;
-  connect?: Maybe<ForumPostWhereUniqueInput[] | ForumPostWhereUniqueInput>;
-}
-
-export interface ProductUpdateManyWithoutCategoriesInput {
-  create?: Maybe<
-    ProductCreateWithoutCategoriesInput[] | ProductCreateWithoutCategoriesInput
-  >;
-  delete?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
-  connect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
-  set?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
-  disconnect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
-  update?: Maybe<
-    | ProductUpdateWithWhereUniqueWithoutCategoriesInput[]
-    | ProductUpdateWithWhereUniqueWithoutCategoriesInput
-  >;
-  upsert?: Maybe<
-    | ProductUpsertWithWhereUniqueWithoutCategoriesInput[]
-    | ProductUpsertWithWhereUniqueWithoutCategoriesInput
-  >;
-  deleteMany?: Maybe<ProductScalarWhereInput[] | ProductScalarWhereInput>;
-  updateMany?: Maybe<
-    | ProductUpdateManyWithWhereNestedInput[]
-    | ProductUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface ProductUpdateManyWithoutBrandInput {
-  create?: Maybe<
-    ProductCreateWithoutBrandInput[] | ProductCreateWithoutBrandInput
-  >;
-  delete?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
-  connect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
-  set?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
-  disconnect?: Maybe<ProductWhereUniqueInput[] | ProductWhereUniqueInput>;
-  update?: Maybe<
-    | ProductUpdateWithWhereUniqueWithoutBrandInput[]
-    | ProductUpdateWithWhereUniqueWithoutBrandInput
-  >;
-  upsert?: Maybe<
-    | ProductUpsertWithWhereUniqueWithoutBrandInput[]
-    | ProductUpsertWithWhereUniqueWithoutBrandInput
-  >;
-  deleteMany?: Maybe<ProductScalarWhereInput[] | ProductScalarWhereInput>;
-  updateMany?: Maybe<
-    | ProductUpdateManyWithWhereNestedInput[]
-    | ProductUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface ProductUpdateWithWhereUniqueWithoutCategoriesInput {
-  where: ProductWhereUniqueInput;
-  data: ProductUpdateWithoutCategoriesDataInput;
-}
-
-export interface CategoryUpdateManyWithWhereNestedInput {
-  where: CategoryScalarWhereInput;
-  data: CategoryUpdateManyDataInput;
-}
-
-export interface ProductUpdateWithoutCategoriesDataInput {
-  title?: Maybe<String>;
-  description?: Maybe<String>;
-  price?: Maybe<String>;
-  brand?: Maybe<BrandUpdateOneWithoutProductsInput>;
-  tags?: Maybe<TagUpdateManyWithoutProductsInput>;
-  images?: Maybe<ProductImageUpdateManyWithoutProductInput>;
-  shop?: Maybe<ShopUpdateOneRequiredWithoutProductsInput>;
-  variants?: Maybe<VariantUpdateManyWithoutProductInput>;
-  reviews?: Maybe<ProductReviewUpdateManyWithoutProductInput>;
-}
-
-export interface TagUpdateManyDataInput {
-  name?: Maybe<String>;
-}
-
-export interface ProductUpsertWithWhereUniqueWithoutCategoriesInput {
-  where: ProductWhereUniqueInput;
-  update: ProductUpdateWithoutCategoriesDataInput;
-  create: ProductCreateWithoutCategoriesInput;
-}
-
-export interface ProductImageWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  imageUrl?: Maybe<String>;
-  imageUrl_not?: Maybe<String>;
-  imageUrl_in?: Maybe<String[] | String>;
-  imageUrl_not_in?: Maybe<String[] | String>;
-  imageUrl_lt?: Maybe<String>;
-  imageUrl_lte?: Maybe<String>;
-  imageUrl_gt?: Maybe<String>;
-  imageUrl_gte?: Maybe<String>;
-  imageUrl_contains?: Maybe<String>;
-  imageUrl_not_contains?: Maybe<String>;
-  imageUrl_starts_with?: Maybe<String>;
-  imageUrl_not_starts_with?: Maybe<String>;
-  imageUrl_ends_with?: Maybe<String>;
-  imageUrl_not_ends_with?: Maybe<String>;
-  largeImageUrl?: Maybe<String>;
-  largeImageUrl_not?: Maybe<String>;
-  largeImageUrl_in?: Maybe<String[] | String>;
-  largeImageUrl_not_in?: Maybe<String[] | String>;
-  largeImageUrl_lt?: Maybe<String>;
-  largeImageUrl_lte?: Maybe<String>;
-  largeImageUrl_gt?: Maybe<String>;
-  largeImageUrl_gte?: Maybe<String>;
-  largeImageUrl_contains?: Maybe<String>;
-  largeImageUrl_not_contains?: Maybe<String>;
-  largeImageUrl_starts_with?: Maybe<String>;
-  largeImageUrl_not_starts_with?: Maybe<String>;
-  largeImageUrl_ends_with?: Maybe<String>;
-  largeImageUrl_not_ends_with?: Maybe<String>;
-  product?: Maybe<ProductWhereInput>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<ProductImageWhereInput[] | ProductImageWhereInput>;
-  OR?: Maybe<ProductImageWhereInput[] | ProductImageWhereInput>;
-  NOT?: Maybe<ProductImageWhereInput[] | ProductImageWhereInput>;
-}
-
-export interface CategoryUpdateManyMutationInput {
-  name?: Maybe<String>;
-}
-
-export interface VariantUpdateManyMutationInput {
-  name?: Maybe<String>;
-  values?: Maybe<VariantUpdatevaluesInput>;
-}
-
-export interface ForumCreateInput {
-  id?: Maybe<ID_Input>;
-  avatarPic?: Maybe<String>;
-  coverPic?: Maybe<String>;
-  members?: Maybe<UserCreateManyWithoutForumsInput>;
-  posts?: Maybe<ForumPostCreateManyWithoutForumInput>;
-  name: String;
-  description?: Maybe<String>;
-}
-
-export interface UserImageUpdateInput {
-  imageUrl?: Maybe<String>;
-  user?: Maybe<UserUpdateOneWithoutImagesInput>;
-}
-
-export interface ForumUpdateInput {
-  avatarPic?: Maybe<String>;
-  coverPic?: Maybe<String>;
-  members?: Maybe<UserUpdateManyWithoutForumsInput>;
-  posts?: Maybe<ForumPostUpdateManyWithoutForumInput>;
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-}
-
-export interface TagUpdateInput {
-  name?: Maybe<String>;
-  products?: Maybe<ProductUpdateManyWithoutTagsInput>;
-}
-
-export interface ForumUpdateManyMutationInput {
-  avatarPic?: Maybe<String>;
-  coverPic?: Maybe<String>;
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-}
-
-export interface ShopUpdateManyMutationInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  category?: Maybe<String>;
-  live?: Maybe<Boolean>;
-}
-
-export interface ForumPostCreateInput {
-  id?: Maybe<ID_Input>;
-  postedBy: UserCreateOneWithoutForumpostsInput;
-  forum: ForumCreateOneWithoutPostsInput;
-  title: String;
-  content?: Maybe<String>;
-  type: ForumPostType;
-  comments?: Maybe<ForumPostCommentCreateManyWithoutForumPostInput>;
-}
-
-export interface ProductCreateOneWithoutImagesInput {
-  create?: Maybe<ProductCreateWithoutImagesInput>;
-  connect?: Maybe<ProductWhereUniqueInput>;
-}
-
-export interface ForumPostUpdateInput {
-  postedBy?: Maybe<UserUpdateOneRequiredWithoutForumpostsInput>;
-  forum?: Maybe<ForumUpdateOneRequiredWithoutPostsInput>;
-  title?: Maybe<String>;
-  content?: Maybe<String>;
-  type?: Maybe<ForumPostType>;
-  comments?: Maybe<ForumPostCommentUpdateManyWithoutForumPostInput>;
-}
-
-export interface ShopCreateWithoutProductsInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  description: String;
-  category: String;
-  live?: Maybe<Boolean>;
-  owners?: Maybe<UserCreateManyWithoutShopsInput>;
-  images?: Maybe<ShopImageCreateManyWithoutShopInput>;
-}
-
-export interface ForumPostUpdateManyMutationInput {
-  title?: Maybe<String>;
-  content?: Maybe<String>;
-  type?: Maybe<ForumPostType>;
-}
-
-export interface CartItemCreateManyWithoutCartInput {
-  create?: Maybe<
-    CartItemCreateWithoutCartInput[] | CartItemCreateWithoutCartInput
-  >;
-  connect?: Maybe<CartItemWhereUniqueInput[] | CartItemWhereUniqueInput>;
-}
-
-export interface ForumPostCommentCreateInput {
-  id?: Maybe<ID_Input>;
-  user: UserCreateOneWithoutPostCommentsInput;
-  forumPost: ForumPostCreateOneWithoutCommentsInput;
-  comment: String;
-}
-
-export interface ForumCreateOneWithoutPostsInput {
-  create?: Maybe<ForumCreateWithoutPostsInput>;
-  connect?: Maybe<ForumWhereUniqueInput>;
-}
-
-export interface ForumPostCommentUpdateInput {
-  user?: Maybe<UserUpdateOneRequiredWithoutPostCommentsInput>;
-  forumPost?: Maybe<ForumPostUpdateOneRequiredWithoutCommentsInput>;
-  comment?: Maybe<String>;
-}
-
-export interface UserCreateOneWithoutPostCommentsInput {
-  create?: Maybe<UserCreateWithoutPostCommentsInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface ForumPostCommentUpdateManyMutationInput {
-  comment?: Maybe<String>;
-}
-
-export interface TagUpdateWithoutProductsDataInput {
-  name?: Maybe<String>;
-}
-
-export interface OrderCreateInput {
-  id?: Maybe<ID_Input>;
-  items?: Maybe<orderItemCreateManyInput>;
-  total: String;
-  user: UserCreateOneInput;
-  paymentId: String;
-  PayerID: String;
-  imageUrl?: Maybe<String>;
-}
-
-export interface CartItemSubscriptionWhereInput {
+export interface ProductSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
   updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<CartItemWhereInput>;
+  node?: Maybe<ProductWhereInput>;
+  AND?: Maybe<ProductSubscriptionWhereInput[] | ProductSubscriptionWhereInput>;
+  OR?: Maybe<ProductSubscriptionWhereInput[] | ProductSubscriptionWhereInput>;
+  NOT?: Maybe<ProductSubscriptionWhereInput[] | ProductSubscriptionWhereInput>;
+}
+
+export interface ProductImageSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<ProductImageWhereInput>;
   AND?: Maybe<
-    CartItemSubscriptionWhereInput[] | CartItemSubscriptionWhereInput
+    ProductImageSubscriptionWhereInput[] | ProductImageSubscriptionWhereInput
   >;
-  OR?: Maybe<CartItemSubscriptionWhereInput[] | CartItemSubscriptionWhereInput>;
+  OR?: Maybe<
+    ProductImageSubscriptionWhereInput[] | ProductImageSubscriptionWhereInput
+  >;
   NOT?: Maybe<
-    CartItemSubscriptionWhereInput[] | CartItemSubscriptionWhereInput
+    ProductImageSubscriptionWhereInput[] | ProductImageSubscriptionWhereInput
   >;
 }
 
-export interface orderItemCreateManyInput {
-  create?: Maybe<orderItemCreateInput[] | orderItemCreateInput>;
-  connect?: Maybe<orderItemWhereUniqueInput[] | orderItemWhereUniqueInput>;
+export interface ProductReviewSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<ProductReviewWhereInput>;
+  AND?: Maybe<
+    ProductReviewSubscriptionWhereInput[] | ProductReviewSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    ProductReviewSubscriptionWhereInput[] | ProductReviewSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    ProductReviewSubscriptionWhereInput[] | ProductReviewSubscriptionWhereInput
+  >;
 }
 
-export interface OrderWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  items_every?: Maybe<orderItemWhereInput>;
-  items_some?: Maybe<orderItemWhereInput>;
-  items_none?: Maybe<orderItemWhereInput>;
-  total?: Maybe<String>;
-  total_not?: Maybe<String>;
-  total_in?: Maybe<String[] | String>;
-  total_not_in?: Maybe<String[] | String>;
-  total_lt?: Maybe<String>;
-  total_lte?: Maybe<String>;
-  total_gt?: Maybe<String>;
-  total_gte?: Maybe<String>;
-  total_contains?: Maybe<String>;
-  total_not_contains?: Maybe<String>;
-  total_starts_with?: Maybe<String>;
-  total_not_starts_with?: Maybe<String>;
-  total_ends_with?: Maybe<String>;
-  total_not_ends_with?: Maybe<String>;
-  user?: Maybe<UserWhereInput>;
-  paymentId?: Maybe<String>;
-  paymentId_not?: Maybe<String>;
-  paymentId_in?: Maybe<String[] | String>;
-  paymentId_not_in?: Maybe<String[] | String>;
-  paymentId_lt?: Maybe<String>;
-  paymentId_lte?: Maybe<String>;
-  paymentId_gt?: Maybe<String>;
-  paymentId_gte?: Maybe<String>;
-  paymentId_contains?: Maybe<String>;
-  paymentId_not_contains?: Maybe<String>;
-  paymentId_starts_with?: Maybe<String>;
-  paymentId_not_starts_with?: Maybe<String>;
-  paymentId_ends_with?: Maybe<String>;
-  paymentId_not_ends_with?: Maybe<String>;
-  PayerID?: Maybe<String>;
-  PayerID_not?: Maybe<String>;
-  PayerID_in?: Maybe<String[] | String>;
-  PayerID_not_in?: Maybe<String[] | String>;
-  PayerID_lt?: Maybe<String>;
-  PayerID_lte?: Maybe<String>;
-  PayerID_gt?: Maybe<String>;
-  PayerID_gte?: Maybe<String>;
-  PayerID_contains?: Maybe<String>;
-  PayerID_not_contains?: Maybe<String>;
-  PayerID_starts_with?: Maybe<String>;
-  PayerID_not_starts_with?: Maybe<String>;
-  PayerID_ends_with?: Maybe<String>;
-  PayerID_not_ends_with?: Maybe<String>;
-  imageUrl?: Maybe<String>;
-  imageUrl_not?: Maybe<String>;
-  imageUrl_in?: Maybe<String[] | String>;
-  imageUrl_not_in?: Maybe<String[] | String>;
-  imageUrl_lt?: Maybe<String>;
-  imageUrl_lte?: Maybe<String>;
-  imageUrl_gt?: Maybe<String>;
-  imageUrl_gte?: Maybe<String>;
-  imageUrl_contains?: Maybe<String>;
-  imageUrl_not_contains?: Maybe<String>;
-  imageUrl_starts_with?: Maybe<String>;
-  imageUrl_not_starts_with?: Maybe<String>;
-  imageUrl_ends_with?: Maybe<String>;
-  imageUrl_not_ends_with?: Maybe<String>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<OrderWhereInput[] | OrderWhereInput>;
-  OR?: Maybe<OrderWhereInput[] | OrderWhereInput>;
-  NOT?: Maybe<OrderWhereInput[] | OrderWhereInput>;
+export interface ShopSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<ShopWhereInput>;
+  AND?: Maybe<ShopSubscriptionWhereInput[] | ShopSubscriptionWhereInput>;
+  OR?: Maybe<ShopSubscriptionWhereInput[] | ShopSubscriptionWhereInput>;
+  NOT?: Maybe<ShopSubscriptionWhereInput[] | ShopSubscriptionWhereInput>;
 }
 
-export interface orderItemCreateInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  description: String;
-  price: String;
-  quantity: Int;
-  imageUrl?: Maybe<String>;
-  variants?: Maybe<orderItemCreatevariantsInput>;
-}
-
-export interface ProductImageUpdateManyMutationInput {
-  imageUrl?: Maybe<String>;
-  largeImageUrl?: Maybe<String>;
-}
-
-export interface orderItemCreatevariantsInput {
-  set?: Maybe<String[] | String>;
-}
-
-export interface ProductCreateWithoutReviewsInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  description: String;
-  price: String;
-  categories?: Maybe<CategoryCreateManyWithoutProductInput>;
-  brand?: Maybe<BrandCreateOneWithoutProductsInput>;
-  tags?: Maybe<TagCreateManyWithoutProductsInput>;
-  images?: Maybe<ProductImageCreateManyWithoutProductInput>;
-  shop: ShopCreateOneWithoutProductsInput;
-  variants?: Maybe<VariantCreateManyWithoutProductInput>;
-}
-
-export interface UserCreateOneInput {
-  create?: Maybe<UserCreateInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface UserCreateOneWithoutForumpostsInput {
-  create?: Maybe<UserCreateWithoutForumpostsInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface UserCreateInput {
-  id?: Maybe<ID_Input>;
-  firebaseId: String;
-  email?: Maybe<String>;
-  name: String;
-  username: String;
-  profilePic?: Maybe<String>;
-  isAnonymous?: Maybe<Boolean>;
-  emailVerified?: Maybe<Boolean>;
-  shops?: Maybe<ShopCreateManyWithoutOwnersInput>;
-  images?: Maybe<UserImageCreateManyWithoutUserInput>;
-  productReviews?: Maybe<ProductReviewCreateManyWithoutUserInput>;
-  cartItems?: Maybe<CartCreateOneWithoutUserInput>;
-  forumposts?: Maybe<ForumPostCreateManyWithoutPostedByInput>;
-  forums?: Maybe<ForumCreateManyWithoutMembersInput>;
-  postComments?: Maybe<ForumPostCommentCreateManyWithoutUserInput>;
+export interface ShopImageSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<ShopImageWhereInput>;
+  AND?: Maybe<
+    ShopImageSubscriptionWhereInput[] | ShopImageSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    ShopImageSubscriptionWhereInput[] | ShopImageSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    ShopImageSubscriptionWhereInput[] | ShopImageSubscriptionWhereInput
+  >;
 }
 
 export interface TagSubscriptionWhereInput {
@@ -6096,422 +6125,74 @@ export interface TagSubscriptionWhereInput {
   NOT?: Maybe<TagSubscriptionWhereInput[] | TagSubscriptionWhereInput>;
 }
 
-export interface OrderUpdateInput {
-  items?: Maybe<orderItemUpdateManyInput>;
-  total?: Maybe<String>;
-  user?: Maybe<UserUpdateOneRequiredInput>;
-  paymentId?: Maybe<String>;
-  PayerID?: Maybe<String>;
-  imageUrl?: Maybe<String>;
+export interface UserSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<UserWhereInput>;
+  AND?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
+  OR?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
+  NOT?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
 }
 
-export interface ShopUpdateWithoutImagesDataInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-  category?: Maybe<String>;
-  live?: Maybe<Boolean>;
-  owners?: Maybe<UserUpdateManyWithoutShopsInput>;
-  products?: Maybe<ProductUpdateManyWithoutShopInput>;
-}
-
-export interface orderItemUpdatevariantsInput {
-  set?: Maybe<String[] | String>;
-}
-
-export interface orderItemUpdateDataInput {
-  title?: Maybe<String>;
-  description?: Maybe<String>;
-  price?: Maybe<String>;
-  quantity?: Maybe<Int>;
-  imageUrl?: Maybe<String>;
-  variants?: Maybe<orderItemUpdatevariantsInput>;
-}
-
-export interface orderItemUpdateWithWhereUniqueNestedInput {
-  where: orderItemWhereUniqueInput;
-  data: orderItemUpdateDataInput;
-}
-
-export interface orderItemUpdateManyInput {
-  create?: Maybe<orderItemCreateInput[] | orderItemCreateInput>;
-  update?: Maybe<
-    | orderItemUpdateWithWhereUniqueNestedInput[]
-    | orderItemUpdateWithWhereUniqueNestedInput
+export interface UserImageSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<UserImageWhereInput>;
+  AND?: Maybe<
+    UserImageSubscriptionWhereInput[] | UserImageSubscriptionWhereInput
   >;
-  upsert?: Maybe<
-    | orderItemUpsertWithWhereUniqueNestedInput[]
-    | orderItemUpsertWithWhereUniqueNestedInput
+  OR?: Maybe<
+    UserImageSubscriptionWhereInput[] | UserImageSubscriptionWhereInput
   >;
-  delete?: Maybe<orderItemWhereUniqueInput[] | orderItemWhereUniqueInput>;
-  connect?: Maybe<orderItemWhereUniqueInput[] | orderItemWhereUniqueInput>;
-  set?: Maybe<orderItemWhereUniqueInput[] | orderItemWhereUniqueInput>;
-  disconnect?: Maybe<orderItemWhereUniqueInput[] | orderItemWhereUniqueInput>;
-  deleteMany?: Maybe<orderItemScalarWhereInput[] | orderItemScalarWhereInput>;
-  updateMany?: Maybe<
-    | orderItemUpdateManyWithWhereNestedInput[]
-    | orderItemUpdateManyWithWhereNestedInput
+  NOT?: Maybe<
+    UserImageSubscriptionWhereInput[] | UserImageSubscriptionWhereInput
   >;
 }
 
-export interface ProductCreateWithoutBrandInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  description: String;
-  price: String;
-  categories?: Maybe<CategoryCreateManyWithoutProductInput>;
-  tags?: Maybe<TagCreateManyWithoutProductsInput>;
-  images?: Maybe<ProductImageCreateManyWithoutProductInput>;
-  shop: ShopCreateOneWithoutProductsInput;
-  variants?: Maybe<VariantCreateManyWithoutProductInput>;
-  reviews?: Maybe<ProductReviewCreateManyWithoutProductInput>;
+export interface VariantSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<VariantWhereInput>;
+  AND?: Maybe<VariantSubscriptionWhereInput[] | VariantSubscriptionWhereInput>;
+  OR?: Maybe<VariantSubscriptionWhereInput[] | VariantSubscriptionWhereInput>;
+  NOT?: Maybe<VariantSubscriptionWhereInput[] | VariantSubscriptionWhereInput>;
 }
 
-export interface ProductCreateOneWithoutVariantsInput {
-  create?: Maybe<ProductCreateWithoutVariantsInput>;
-  connect?: Maybe<ProductWhereUniqueInput>;
-}
-
-export interface CategoryUpdateWithWhereUniqueWithoutProductInput {
-  where: CategoryWhereUniqueInput;
-  data: CategoryUpdateWithoutProductDataInput;
-}
-
-export interface ShopCreateManyWithoutOwnersInput {
-  create?: Maybe<ShopCreateWithoutOwnersInput[] | ShopCreateWithoutOwnersInput>;
-  connect?: Maybe<ShopWhereUniqueInput[] | ShopWhereUniqueInput>;
+export interface orderItemSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<orderItemWhereInput>;
+  AND?: Maybe<
+    orderItemSubscriptionWhereInput[] | orderItemSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    orderItemSubscriptionWhereInput[] | orderItemSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    orderItemSubscriptionWhereInput[] | orderItemSubscriptionWhereInput
+  >;
 }
 
 export interface NodeNode {
   id: ID_Output;
 }
 
-export interface orderItemPreviousValues {
-  id: ID_Output;
-  title: String;
-  description: String;
-  price: String;
-  quantity: Int;
-  imageUrl?: String;
-  variants: String[];
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface orderItemPreviousValuesPromise
-  extends Promise<orderItemPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  description: () => Promise<String>;
-  price: () => Promise<String>;
-  quantity: () => Promise<Int>;
-  imageUrl: () => Promise<String>;
-  variants: () => Promise<String[]>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface orderItemPreviousValuesSubscription
-  extends Promise<AsyncIterator<orderItemPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  price: () => Promise<AsyncIterator<String>>;
-  quantity: () => Promise<AsyncIterator<Int>>;
-  imageUrl: () => Promise<AsyncIterator<String>>;
-  variants: () => Promise<AsyncIterator<String[]>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface CartItemConnection {
-  pageInfo: PageInfo;
-  edges: CartItemEdge[];
-}
-
-export interface CartItemConnectionPromise
-  extends Promise<CartItemConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<CartItemEdge>>() => T;
-  aggregate: <T = AggregateCartItemPromise>() => T;
-}
-
-export interface CartItemConnectionSubscription
-  extends Promise<AsyncIterator<CartItemConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<CartItemEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateCartItemSubscription>() => T;
-}
-
-export interface Shop {
-  id: ID_Output;
-  name: String;
-  description: String;
-  category: String;
-  live: Boolean;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface ShopPromise extends Promise<Shop>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  category: () => Promise<String>;
-  live: () => Promise<Boolean>;
-  owners: <T = FragmentableArray<User>>(args?: {
-    where?: UserWhereInput;
-    orderBy?: UserOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  images: <T = FragmentableArray<ShopImage>>(args?: {
-    where?: ShopImageWhereInput;
-    orderBy?: ShopImageOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  products: <T = FragmentableArray<Product>>(args?: {
-    where?: ProductWhereInput;
-    orderBy?: ProductOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface ShopSubscription
-  extends Promise<AsyncIterator<Shop>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  category: () => Promise<AsyncIterator<String>>;
-  live: () => Promise<AsyncIterator<Boolean>>;
-  owners: <T = Promise<AsyncIterator<UserSubscription>>>(args?: {
-    where?: UserWhereInput;
-    orderBy?: UserOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  images: <T = Promise<AsyncIterator<ShopImageSubscription>>>(args?: {
-    where?: ShopImageWhereInput;
-    orderBy?: ShopImageOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  products: <T = Promise<AsyncIterator<ProductSubscription>>>(args?: {
-    where?: ProductWhereInput;
-    orderBy?: ProductOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface ShopNullablePromise
-  extends Promise<Shop | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  category: () => Promise<String>;
-  live: () => Promise<Boolean>;
-  owners: <T = FragmentableArray<User>>(args?: {
-    where?: UserWhereInput;
-    orderBy?: UserOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  images: <T = FragmentableArray<ShopImage>>(args?: {
-    where?: ShopImageWhereInput;
-    orderBy?: ShopImageOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  products: <T = FragmentableArray<Product>>(args?: {
-    where?: ProductWhereInput;
-    orderBy?: ProductOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface AggregateCart {
-  count: Int;
-}
-
-export interface AggregateCartPromise
-  extends Promise<AggregateCart>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateCartSubscription
-  extends Promise<AsyncIterator<AggregateCart>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface ProductImage {
-  id: ID_Output;
-  imageUrl: String;
-  largeImageUrl?: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface ProductImagePromise
-  extends Promise<ProductImage>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  imageUrl: () => Promise<String>;
-  largeImageUrl: () => Promise<String>;
-  product: <T = ProductPromise>() => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface ProductImageSubscription
-  extends Promise<AsyncIterator<ProductImage>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  imageUrl: () => Promise<AsyncIterator<String>>;
-  largeImageUrl: () => Promise<AsyncIterator<String>>;
-  product: <T = ProductSubscription>() => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface ProductImageNullablePromise
-  extends Promise<ProductImage | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  imageUrl: () => Promise<String>;
-  largeImageUrl: () => Promise<String>;
-  product: <T = ProductPromise>() => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface CartEdge {
-  node: Cart;
-  cursor: String;
-}
-
-export interface CartEdgePromise extends Promise<CartEdge>, Fragmentable {
-  node: <T = CartPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface CartEdgeSubscription
-  extends Promise<AsyncIterator<CartEdge>>,
-    Fragmentable {
-  node: <T = CartSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface Category {
+export interface Brand {
   id: ID_Output;
   name: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
 
-export interface CategoryPromise extends Promise<Category>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  product: <T = FragmentableArray<Product>>(args?: {
-    where?: ProductWhereInput;
-    orderBy?: ProductOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface CategorySubscription
-  extends Promise<AsyncIterator<Category>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  product: <T = Promise<AsyncIterator<ProductSubscription>>>(args?: {
-    where?: ProductWhereInput;
-    orderBy?: ProductOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface CategoryNullablePromise
-  extends Promise<Category | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  product: <T = FragmentableArray<Product>>(args?: {
-    where?: ProductWhereInput;
-    orderBy?: ProductOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface Tag {
-  id: ID_Output;
-  name: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface TagPromise extends Promise<Tag>, Fragmentable {
+export interface BrandPromise extends Promise<Brand>, Fragmentable {
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
   products: <T = FragmentableArray<Product>>(args?: {
@@ -6527,8 +6208,8 @@ export interface TagPromise extends Promise<Tag>, Fragmentable {
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface TagSubscription
-  extends Promise<AsyncIterator<Tag>>,
+export interface BrandSubscription
+  extends Promise<AsyncIterator<Brand>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   name: () => Promise<AsyncIterator<String>>;
@@ -6545,7 +6226,9 @@ export interface TagSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface TagNullablePromise extends Promise<Tag | null>, Fragmentable {
+export interface BrandNullablePromise
+  extends Promise<Brand | null>,
+    Fragmentable {
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
   products: <T = FragmentableArray<Product>>(args?: {
@@ -6559,31 +6242,6 @@ export interface TagNullablePromise extends Promise<Tag | null>, Fragmentable {
   }) => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface VariantSubscriptionPayload {
-  mutation: MutationType;
-  node: Variant;
-  updatedFields: String[];
-  previousValues: VariantPreviousValues;
-}
-
-export interface VariantSubscriptionPayloadPromise
-  extends Promise<VariantSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = VariantPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = VariantPreviousValuesPromise>() => T;
-}
-
-export interface VariantSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<VariantSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = VariantSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = VariantPreviousValuesSubscription>() => T;
 }
 
 export interface Product {
@@ -6767,697 +6425,286 @@ export interface ProductNullablePromise
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface CartConnection {
-  pageInfo: PageInfo;
-  edges: CartEdge[];
-}
-
-export interface CartConnectionPromise
-  extends Promise<CartConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<CartEdge>>() => T;
-  aggregate: <T = AggregateCartPromise>() => T;
-}
-
-export interface CartConnectionSubscription
-  extends Promise<AsyncIterator<CartConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<CartEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateCartSubscription>() => T;
-}
-
-export interface AggregateorderItem {
-  count: Int;
-}
-
-export interface AggregateorderItemPromise
-  extends Promise<AggregateorderItem>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateorderItemSubscription
-  extends Promise<AsyncIterator<AggregateorderItem>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface orderItemConnection {
-  pageInfo: PageInfo;
-  edges: orderItemEdge[];
-}
-
-export interface orderItemConnectionPromise
-  extends Promise<orderItemConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<orderItemEdge>>() => T;
-  aggregate: <T = AggregateorderItemPromise>() => T;
-}
-
-export interface orderItemConnectionSubscription
-  extends Promise<AsyncIterator<orderItemConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<orderItemEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateorderItemSubscription>() => T;
-}
-
-export interface orderItemSubscriptionPayload {
-  mutation: MutationType;
-  node: orderItem;
-  updatedFields: String[];
-  previousValues: orderItemPreviousValues;
-}
-
-export interface orderItemSubscriptionPayloadPromise
-  extends Promise<orderItemSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = orderItemPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = orderItemPreviousValuesPromise>() => T;
-}
-
-export interface orderItemSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<orderItemSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = orderItemSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = orderItemPreviousValuesSubscription>() => T;
-}
-
-export interface VariantEdge {
-  node: Variant;
-  cursor: String;
-}
-
-export interface VariantEdgePromise extends Promise<VariantEdge>, Fragmentable {
-  node: <T = VariantPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface VariantEdgeSubscription
-  extends Promise<AsyncIterator<VariantEdge>>,
-    Fragmentable {
-  node: <T = VariantSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface BrandSubscriptionPayload {
-  mutation: MutationType;
-  node: Brand;
-  updatedFields: String[];
-  previousValues: BrandPreviousValues;
-}
-
-export interface BrandSubscriptionPayloadPromise
-  extends Promise<BrandSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = BrandPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = BrandPreviousValuesPromise>() => T;
-}
-
-export interface BrandSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<BrandSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = BrandSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = BrandPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateUserImage {
-  count: Int;
-}
-
-export interface AggregateUserImagePromise
-  extends Promise<AggregateUserImage>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateUserImageSubscription
-  extends Promise<AsyncIterator<AggregateUserImage>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface BrandPreviousValues {
+export interface Category {
   id: ID_Output;
   name: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
 
-export interface BrandPreviousValuesPromise
-  extends Promise<BrandPreviousValues>,
-    Fragmentable {
+export interface CategoryPromise extends Promise<Category>, Fragmentable {
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
+  product: <T = FragmentableArray<Product>>(args?: {
+    where?: ProductWhereInput;
+    orderBy?: ProductOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface BrandPreviousValuesSubscription
-  extends Promise<AsyncIterator<BrandPreviousValues>>,
+export interface CategorySubscription
+  extends Promise<AsyncIterator<Category>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   name: () => Promise<AsyncIterator<String>>;
+  product: <T = Promise<AsyncIterator<ProductSubscription>>>(args?: {
+    where?: ProductWhereInput;
+    orderBy?: ProductOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface UserImageConnection {
-  pageInfo: PageInfo;
-  edges: UserImageEdge[];
-}
-
-export interface UserImageConnectionPromise
-  extends Promise<UserImageConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<UserImageEdge>>() => T;
-  aggregate: <T = AggregateUserImagePromise>() => T;
-}
-
-export interface UserImageConnectionSubscription
-  extends Promise<AsyncIterator<UserImageConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<UserImageEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateUserImageSubscription>() => T;
-}
-
-export interface AggregateBrand {
-  count: Int;
-}
-
-export interface AggregateBrandPromise
-  extends Promise<AggregateBrand>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateBrandSubscription
-  extends Promise<AsyncIterator<AggregateBrand>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface UserEdge {
-  node: User;
-  cursor: String;
-}
-
-export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
-  node: <T = UserPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface UserEdgeSubscription
-  extends Promise<AsyncIterator<UserEdge>>,
-    Fragmentable {
-  node: <T = UserSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface CartSubscriptionPayload {
-  mutation: MutationType;
-  node: Cart;
-  updatedFields: String[];
-  previousValues: CartPreviousValues;
-}
-
-export interface CartSubscriptionPayloadPromise
-  extends Promise<CartSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = CartPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = CartPreviousValuesPromise>() => T;
-}
-
-export interface CartSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<CartSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = CartSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = CartPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateTag {
-  count: Int;
-}
-
-export interface AggregateTagPromise
-  extends Promise<AggregateTag>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateTagSubscription
-  extends Promise<AsyncIterator<AggregateTag>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface CartPreviousValues {
-  id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface CartPreviousValuesPromise
-  extends Promise<CartPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface CartPreviousValuesSubscription
-  extends Promise<AsyncIterator<CartPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface TagConnection {
-  pageInfo: PageInfo;
-  edges: TagEdge[];
-}
-
-export interface TagConnectionPromise
-  extends Promise<TagConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<TagEdge>>() => T;
-  aggregate: <T = AggregateTagPromise>() => T;
-}
-
-export interface TagConnectionSubscription
-  extends Promise<AsyncIterator<TagConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<TagEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateTagSubscription>() => T;
-}
-
-export interface BrandEdge {
-  node: Brand;
-  cursor: String;
-}
-
-export interface BrandEdgePromise extends Promise<BrandEdge>, Fragmentable {
-  node: <T = BrandPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface BrandEdgeSubscription
-  extends Promise<AsyncIterator<BrandEdge>>,
-    Fragmentable {
-  node: <T = BrandSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ShopImageEdge {
-  node: ShopImage;
-  cursor: String;
-}
-
-export interface ShopImageEdgePromise
-  extends Promise<ShopImageEdge>,
-    Fragmentable {
-  node: <T = ShopImagePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ShopImageEdgeSubscription
-  extends Promise<AsyncIterator<ShopImageEdge>>,
-    Fragmentable {
-  node: <T = ShopImageSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface CartItemSubscriptionPayload {
-  mutation: MutationType;
-  node: CartItem;
-  updatedFields: String[];
-  previousValues: CartItemPreviousValues;
-}
-
-export interface CartItemSubscriptionPayloadPromise
-  extends Promise<CartItemSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = CartItemPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = CartItemPreviousValuesPromise>() => T;
-}
-
-export interface CartItemSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<CartItemSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = CartItemSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = CartItemPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateShop {
-  count: Int;
-}
-
-export interface AggregateShopPromise
-  extends Promise<AggregateShop>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateShopSubscription
-  extends Promise<AsyncIterator<AggregateShop>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface CartItemPreviousValues {
-  id: ID_Output;
-  quantity: Int;
-  variants: String[];
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface CartItemPreviousValuesPromise
-  extends Promise<CartItemPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  quantity: () => Promise<Int>;
-  variants: () => Promise<String[]>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface CartItemPreviousValuesSubscription
-  extends Promise<AsyncIterator<CartItemPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  quantity: () => Promise<AsyncIterator<Int>>;
-  variants: () => Promise<AsyncIterator<String[]>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface ShopConnection {
-  pageInfo: PageInfo;
-  edges: ShopEdge[];
-}
-
-export interface ShopConnectionPromise
-  extends Promise<ShopConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ShopEdge>>() => T;
-  aggregate: <T = AggregateShopPromise>() => T;
-}
-
-export interface ShopConnectionSubscription
-  extends Promise<AsyncIterator<ShopConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ShopEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateShopSubscription>() => T;
-}
-
-export interface PageInfo {
-  hasNextPage: Boolean;
-  hasPreviousPage: Boolean;
-  startCursor?: String;
-  endCursor?: String;
-}
-
-export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
-  hasNextPage: () => Promise<Boolean>;
-  hasPreviousPage: () => Promise<Boolean>;
-  startCursor: () => Promise<String>;
-  endCursor: () => Promise<String>;
-}
-
-export interface PageInfoSubscription
-  extends Promise<AsyncIterator<PageInfo>>,
-    Fragmentable {
-  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
-  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
-  startCursor: () => Promise<AsyncIterator<String>>;
-  endCursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ProductReviewEdge {
-  node: ProductReview;
-  cursor: String;
-}
-
-export interface ProductReviewEdgePromise
-  extends Promise<ProductReviewEdge>,
-    Fragmentable {
-  node: <T = ProductReviewPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ProductReviewEdgeSubscription
-  extends Promise<AsyncIterator<ProductReviewEdge>>,
-    Fragmentable {
-  node: <T = ProductReviewSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface CategorySubscriptionPayload {
-  mutation: MutationType;
-  node: Category;
-  updatedFields: String[];
-  previousValues: CategoryPreviousValues;
-}
-
-export interface CategorySubscriptionPayloadPromise
-  extends Promise<CategorySubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = CategoryPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = CategoryPreviousValuesPromise>() => T;
-}
-
-export interface CategorySubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<CategorySubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = CategorySubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = CategoryPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateProductImage {
-  count: Int;
-}
-
-export interface AggregateProductImagePromise
-  extends Promise<AggregateProductImage>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateProductImageSubscription
-  extends Promise<AsyncIterator<AggregateProductImage>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface CategoryPreviousValues {
-  id: ID_Output;
-  name: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface CategoryPreviousValuesPromise
-  extends Promise<CategoryPreviousValues>,
+export interface CategoryNullablePromise
+  extends Promise<Category | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
+  product: <T = FragmentableArray<Product>>(args?: {
+    where?: ProductWhereInput;
+    orderBy?: ProductOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface CategoryPreviousValuesSubscription
-  extends Promise<AsyncIterator<CategoryPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface ProductImageConnection {
-  pageInfo: PageInfo;
-  edges: ProductImageEdge[];
-}
-
-export interface ProductImageConnectionPromise
-  extends Promise<ProductImageConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ProductImageEdge>>() => T;
-  aggregate: <T = AggregateProductImagePromise>() => T;
-}
-
-export interface ProductImageConnectionSubscription
-  extends Promise<AsyncIterator<ProductImageConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ProductImageEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateProductImageSubscription>() => T;
-}
-
-export interface BrandConnection {
-  pageInfo: PageInfo;
-  edges: BrandEdge[];
-}
-
-export interface BrandConnectionPromise
-  extends Promise<BrandConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<BrandEdge>>() => T;
-  aggregate: <T = AggregateBrandPromise>() => T;
-}
-
-export interface BrandConnectionSubscription
-  extends Promise<AsyncIterator<BrandConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<BrandEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateBrandSubscription>() => T;
-}
-
-export interface ProductEdge {
-  node: Product;
-  cursor: String;
-}
-
-export interface ProductEdgePromise extends Promise<ProductEdge>, Fragmentable {
-  node: <T = ProductPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ProductEdgeSubscription
-  extends Promise<AsyncIterator<ProductEdge>>,
-    Fragmentable {
-  node: <T = ProductSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ForumSubscriptionPayload {
-  mutation: MutationType;
-  node: Forum;
-  updatedFields: String[];
-  previousValues: ForumPreviousValues;
-}
-
-export interface ForumSubscriptionPayloadPromise
-  extends Promise<ForumSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ForumPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ForumPreviousValuesPromise>() => T;
-}
-
-export interface ForumSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ForumSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ForumSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ForumPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateOrder {
-  count: Int;
-}
-
-export interface AggregateOrderPromise
-  extends Promise<AggregateOrder>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateOrderSubscription
-  extends Promise<AsyncIterator<AggregateOrder>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface ForumPreviousValues {
+export interface Tag {
   id: ID_Output;
-  avatarPic: String;
-  coverPic: String;
   name: String;
-  description?: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
 
-export interface ForumPreviousValuesPromise
-  extends Promise<ForumPreviousValues>,
+export interface TagPromise extends Promise<Tag>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  products: <T = FragmentableArray<Product>>(args?: {
+    where?: ProductWhereInput;
+    orderBy?: ProductOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface TagSubscription
+  extends Promise<AsyncIterator<Tag>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  products: <T = Promise<AsyncIterator<ProductSubscription>>>(args?: {
+    where?: ProductWhereInput;
+    orderBy?: ProductOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface TagNullablePromise extends Promise<Tag | null>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  products: <T = FragmentableArray<Product>>(args?: {
+    where?: ProductWhereInput;
+    orderBy?: ProductOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ProductImage {
+  id: ID_Output;
+  imageUrl: String;
+  largeImageUrl?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface ProductImagePromise
+  extends Promise<ProductImage>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  avatarPic: () => Promise<String>;
-  coverPic: () => Promise<String>;
+  imageUrl: () => Promise<String>;
+  largeImageUrl: () => Promise<String>;
+  product: <T = ProductPromise>() => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ProductImageSubscription
+  extends Promise<AsyncIterator<ProductImage>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  imageUrl: () => Promise<AsyncIterator<String>>;
+  largeImageUrl: () => Promise<AsyncIterator<String>>;
+  product: <T = ProductSubscription>() => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface ProductImageNullablePromise
+  extends Promise<ProductImage | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  imageUrl: () => Promise<String>;
+  largeImageUrl: () => Promise<String>;
+  product: <T = ProductPromise>() => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface Shop {
+  id: ID_Output;
+  name: String;
+  description: String;
+  category: String;
+  live: Boolean;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface ShopPromise extends Promise<Shop>, Fragmentable {
+  id: () => Promise<ID_Output>;
   name: () => Promise<String>;
   description: () => Promise<String>;
+  category: () => Promise<String>;
+  live: () => Promise<Boolean>;
+  owners: <T = FragmentableArray<User>>(args?: {
+    where?: UserWhereInput;
+    orderBy?: UserOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
+  images: <T = FragmentableArray<ShopImage>>(args?: {
+    where?: ShopImageWhereInput;
+    orderBy?: ShopImageOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  products: <T = FragmentableArray<Product>>(args?: {
+    where?: ProductWhereInput;
+    orderBy?: ProductOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
 }
 
-export interface ForumPreviousValuesSubscription
-  extends Promise<AsyncIterator<ForumPreviousValues>>,
+export interface ShopSubscription
+  extends Promise<AsyncIterator<Shop>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  avatarPic: () => Promise<AsyncIterator<String>>;
-  coverPic: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
   description: () => Promise<AsyncIterator<String>>;
+  category: () => Promise<AsyncIterator<String>>;
+  live: () => Promise<AsyncIterator<Boolean>>;
+  owners: <T = Promise<AsyncIterator<UserSubscription>>>(args?: {
+    where?: UserWhereInput;
+    orderBy?: UserOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  images: <T = Promise<AsyncIterator<ShopImageSubscription>>>(args?: {
+    where?: ShopImageWhereInput;
+    orderBy?: ShopImageOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  products: <T = Promise<AsyncIterator<ProductSubscription>>>(args?: {
+    where?: ProductWhereInput;
+    orderBy?: ProductOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
 }
 
-export interface OrderConnection {
-  pageInfo: PageInfo;
-  edges: OrderEdge[];
-}
-
-export interface OrderConnectionPromise
-  extends Promise<OrderConnection>,
+export interface ShopNullablePromise
+  extends Promise<Shop | null>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<OrderEdge>>() => T;
-  aggregate: <T = AggregateOrderPromise>() => T;
-}
-
-export interface OrderConnectionSubscription
-  extends Promise<AsyncIterator<OrderConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<OrderEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateOrderSubscription>() => T;
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  description: () => Promise<String>;
+  category: () => Promise<String>;
+  live: () => Promise<Boolean>;
+  owners: <T = FragmentableArray<User>>(args?: {
+    where?: UserWhereInput;
+    orderBy?: UserOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  images: <T = FragmentableArray<ShopImage>>(args?: {
+    where?: ShopImageWhereInput;
+    orderBy?: ShopImageOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  products: <T = FragmentableArray<Product>>(args?: {
+    where?: ProductWhereInput;
+    orderBy?: ProductOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
 }
 
 export interface User {
@@ -7685,100 +6932,186 @@ export interface UserNullablePromise
   }) => T;
 }
 
-export interface orderItem {
+export interface UserImage {
   id: ID_Output;
-  title: String;
-  description: String;
-  price: String;
+  imageUrl: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface UserImagePromise extends Promise<UserImage>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  imageUrl: () => Promise<String>;
+  user: <T = UserPromise>() => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface UserImageSubscription
+  extends Promise<AsyncIterator<UserImage>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  imageUrl: () => Promise<AsyncIterator<String>>;
+  user: <T = UserSubscription>() => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface UserImageNullablePromise
+  extends Promise<UserImage | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  imageUrl: () => Promise<String>;
+  user: <T = UserPromise>() => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ProductReview {
+  id: ID_Output;
+  rating: Int;
+  review?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface ProductReviewPromise
+  extends Promise<ProductReview>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  user: <T = UserPromise>() => T;
+  product: <T = ProductPromise>() => T;
+  rating: () => Promise<Int>;
+  review: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ProductReviewSubscription
+  extends Promise<AsyncIterator<ProductReview>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  user: <T = UserSubscription>() => T;
+  product: <T = ProductSubscription>() => T;
+  rating: () => Promise<AsyncIterator<Int>>;
+  review: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface ProductReviewNullablePromise
+  extends Promise<ProductReview | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  user: <T = UserPromise>() => T;
+  product: <T = ProductPromise>() => T;
+  rating: () => Promise<Int>;
+  review: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface Cart {
+  id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface CartPromise extends Promise<Cart>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  user: <T = UserPromise>() => T;
+  items: <T = FragmentableArray<CartItem>>(args?: {
+    where?: CartItemWhereInput;
+    orderBy?: CartItemOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface CartSubscription
+  extends Promise<AsyncIterator<Cart>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  user: <T = UserSubscription>() => T;
+  items: <T = Promise<AsyncIterator<CartItemSubscription>>>(args?: {
+    where?: CartItemWhereInput;
+    orderBy?: CartItemOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface CartNullablePromise
+  extends Promise<Cart | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  user: <T = UserPromise>() => T;
+  items: <T = FragmentableArray<CartItem>>(args?: {
+    where?: CartItemWhereInput;
+    orderBy?: CartItemOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface CartItem {
+  id: ID_Output;
   quantity: Int;
-  imageUrl?: String;
   variants: String[];
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
 
-export interface orderItemPromise extends Promise<orderItem>, Fragmentable {
+export interface CartItemPromise extends Promise<CartItem>, Fragmentable {
   id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  description: () => Promise<String>;
-  price: () => Promise<String>;
+  product: <T = ProductPromise>() => T;
   quantity: () => Promise<Int>;
-  imageUrl: () => Promise<String>;
   variants: () => Promise<String[]>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
+  cart: <T = CartPromise>() => T;
 }
 
-export interface orderItemSubscription
-  extends Promise<AsyncIterator<orderItem>>,
+export interface CartItemSubscription
+  extends Promise<AsyncIterator<CartItem>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  price: () => Promise<AsyncIterator<String>>;
+  product: <T = ProductSubscription>() => T;
   quantity: () => Promise<AsyncIterator<Int>>;
-  imageUrl: () => Promise<AsyncIterator<String>>;
   variants: () => Promise<AsyncIterator<String[]>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  cart: <T = CartSubscription>() => T;
 }
 
-export interface orderItemNullablePromise
-  extends Promise<orderItem | null>,
+export interface CartItemNullablePromise
+  extends Promise<CartItem | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  description: () => Promise<String>;
-  price: () => Promise<String>;
+  product: <T = ProductPromise>() => T;
   quantity: () => Promise<Int>;
-  imageUrl: () => Promise<String>;
   variants: () => Promise<String[]>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
+  cart: <T = CartPromise>() => T;
 }
 
-export interface ForumPostSubscriptionPayload {
-  mutation: MutationType;
-  node: ForumPost;
-  updatedFields: String[];
-  previousValues: ForumPostPreviousValues;
-}
-
-export interface ForumPostSubscriptionPayloadPromise
-  extends Promise<ForumPostSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ForumPostPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ForumPostPreviousValuesPromise>() => T;
-}
-
-export interface ForumPostSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ForumPostSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ForumPostSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ForumPostPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateForumPostComment {
-  count: Int;
-}
-
-export interface AggregateForumPostCommentPromise
-  extends Promise<AggregateForumPostComment>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateForumPostCommentSubscription
-  extends Promise<AsyncIterator<AggregateForumPostComment>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface ForumPostPreviousValues {
+export interface ForumPost {
   id: ID_Output;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -7787,493 +7120,68 @@ export interface ForumPostPreviousValues {
   type: ForumPostType;
 }
 
-export interface ForumPostPreviousValuesPromise
-  extends Promise<ForumPostPreviousValues>,
-    Fragmentable {
+export interface ForumPostPromise extends Promise<ForumPost>, Fragmentable {
   id: () => Promise<ID_Output>;
+  postedBy: <T = UserPromise>() => T;
+  forum: <T = ForumPromise>() => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   title: () => Promise<String>;
   content: () => Promise<String>;
   type: () => Promise<ForumPostType>;
+  comments: <T = FragmentableArray<ForumPostComment>>(args?: {
+    where?: ForumPostCommentWhereInput;
+    orderBy?: ForumPostCommentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
 }
 
-export interface ForumPostPreviousValuesSubscription
-  extends Promise<AsyncIterator<ForumPostPreviousValues>>,
+export interface ForumPostSubscription
+  extends Promise<AsyncIterator<ForumPost>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  postedBy: <T = UserSubscription>() => T;
+  forum: <T = ForumSubscription>() => T;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   title: () => Promise<AsyncIterator<String>>;
   content: () => Promise<AsyncIterator<String>>;
   type: () => Promise<AsyncIterator<ForumPostType>>;
+  comments: <T = Promise<AsyncIterator<ForumPostCommentSubscription>>>(args?: {
+    where?: ForumPostCommentWhereInput;
+    orderBy?: ForumPostCommentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
 }
 
-export interface ForumPostCommentConnection {
-  pageInfo: PageInfo;
-  edges: ForumPostCommentEdge[];
-}
-
-export interface ForumPostCommentConnectionPromise
-  extends Promise<ForumPostCommentConnection>,
+export interface ForumPostNullablePromise
+  extends Promise<ForumPost | null>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ForumPostCommentEdge>>() => T;
-  aggregate: <T = AggregateForumPostCommentPromise>() => T;
-}
-
-export interface ForumPostCommentConnectionSubscription
-  extends Promise<AsyncIterator<ForumPostCommentConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ForumPostCommentEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateForumPostCommentSubscription>() => T;
-}
-
-export interface Variant {
-  id: ID_Output;
-  name: String;
-  values: String[];
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface VariantPromise extends Promise<Variant>, Fragmentable {
   id: () => Promise<ID_Output>;
-  product: <T = ProductPromise>() => T;
-  name: () => Promise<String>;
-  values: () => Promise<String[]>;
+  postedBy: <T = UserPromise>() => T;
+  forum: <T = ForumPromise>() => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface VariantSubscription
-  extends Promise<AsyncIterator<Variant>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  product: <T = ProductSubscription>() => T;
-  name: () => Promise<AsyncIterator<String>>;
-  values: () => Promise<AsyncIterator<String[]>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface VariantNullablePromise
-  extends Promise<Variant | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  product: <T = ProductPromise>() => T;
-  name: () => Promise<String>;
-  values: () => Promise<String[]>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface ForumPostEdge {
-  node: ForumPost;
-  cursor: String;
-}
-
-export interface ForumPostEdgePromise
-  extends Promise<ForumPostEdge>,
-    Fragmentable {
-  node: <T = ForumPostPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ForumPostEdgeSubscription
-  extends Promise<AsyncIterator<ForumPostEdge>>,
-    Fragmentable {
-  node: <T = ForumPostSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ForumPostCommentSubscriptionPayload {
-  mutation: MutationType;
-  node: ForumPostComment;
-  updatedFields: String[];
-  previousValues: ForumPostCommentPreviousValues;
-}
-
-export interface ForumPostCommentSubscriptionPayloadPromise
-  extends Promise<ForumPostCommentSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ForumPostCommentPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ForumPostCommentPreviousValuesPromise>() => T;
-}
-
-export interface ForumPostCommentSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ForumPostCommentSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ForumPostCommentSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ForumPostCommentPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateForum {
-  count: Int;
-}
-
-export interface AggregateForumPromise
-  extends Promise<AggregateForum>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateForumSubscription
-  extends Promise<AsyncIterator<AggregateForum>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface ForumPostCommentPreviousValues {
-  id: ID_Output;
-  comment: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface ForumPostCommentPreviousValuesPromise
-  extends Promise<ForumPostCommentPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  comment: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface ForumPostCommentPreviousValuesSubscription
-  extends Promise<AsyncIterator<ForumPostCommentPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  comment: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface ForumConnection {
-  pageInfo: PageInfo;
-  edges: ForumEdge[];
-}
-
-export interface ForumConnectionPromise
-  extends Promise<ForumConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ForumEdge>>() => T;
-  aggregate: <T = AggregateForumPromise>() => T;
-}
-
-export interface ForumConnectionSubscription
-  extends Promise<AsyncIterator<ForumConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ForumEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateForumSubscription>() => T;
-}
-
-export interface ShopImage {
-  id: ID_Output;
-  imageUrl: String;
-  largeImageUrl?: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface ShopImagePromise extends Promise<ShopImage>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  imageUrl: () => Promise<String>;
-  largeImageUrl: () => Promise<String>;
-  shop: <T = ShopPromise>() => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface ShopImageSubscription
-  extends Promise<AsyncIterator<ShopImage>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  imageUrl: () => Promise<AsyncIterator<String>>;
-  largeImageUrl: () => Promise<AsyncIterator<String>>;
-  shop: <T = ShopSubscription>() => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface ShopImageNullablePromise
-  extends Promise<ShopImage | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  imageUrl: () => Promise<String>;
-  largeImageUrl: () => Promise<String>;
-  shop: <T = ShopPromise>() => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface CategoryEdge {
-  node: Category;
-  cursor: String;
-}
-
-export interface CategoryEdgePromise
-  extends Promise<CategoryEdge>,
-    Fragmentable {
-  node: <T = CategoryPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface CategoryEdgeSubscription
-  extends Promise<AsyncIterator<CategoryEdge>>,
-    Fragmentable {
-  node: <T = CategorySubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface OrderSubscriptionPayload {
-  mutation: MutationType;
-  node: Order;
-  updatedFields: String[];
-  previousValues: OrderPreviousValues;
-}
-
-export interface OrderSubscriptionPayloadPromise
-  extends Promise<OrderSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = OrderPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = OrderPreviousValuesPromise>() => T;
-}
-
-export interface OrderSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<OrderSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = OrderSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = OrderPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateCartItem {
-  count: Int;
-}
-
-export interface AggregateCartItemPromise
-  extends Promise<AggregateCartItem>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateCartItemSubscription
-  extends Promise<AsyncIterator<AggregateCartItem>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface OrderPreviousValues {
-  id: ID_Output;
-  total: String;
-  paymentId: String;
-  PayerID: String;
-  imageUrl?: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface OrderPreviousValuesPromise
-  extends Promise<OrderPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  total: () => Promise<String>;
-  paymentId: () => Promise<String>;
-  PayerID: () => Promise<String>;
-  imageUrl: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface OrderPreviousValuesSubscription
-  extends Promise<AsyncIterator<OrderPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  total: () => Promise<AsyncIterator<String>>;
-  paymentId: () => Promise<AsyncIterator<String>>;
-  PayerID: () => Promise<AsyncIterator<String>>;
-  imageUrl: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface BatchPayload {
-  count: Long;
-}
-
-export interface BatchPayloadPromise
-  extends Promise<BatchPayload>,
-    Fragmentable {
-  count: () => Promise<Long>;
-}
-
-export interface BatchPayloadSubscription
-  extends Promise<AsyncIterator<BatchPayload>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Long>>;
-}
-
-export interface ForumPostComment {
-  id: ID_Output;
-  comment: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface ForumPostCommentPromise
-  extends Promise<ForumPostComment>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  user: <T = UserPromise>() => T;
-  forumPost: <T = ForumPostPromise>() => T;
-  comment: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface ForumPostCommentSubscription
-  extends Promise<AsyncIterator<ForumPostComment>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  user: <T = UserSubscription>() => T;
-  forumPost: <T = ForumPostSubscription>() => T;
-  comment: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface ForumPostCommentNullablePromise
-  extends Promise<ForumPostComment | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  user: <T = UserPromise>() => T;
-  forumPost: <T = ForumPostPromise>() => T;
-  comment: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface AggregateVariant {
-  count: Int;
-}
-
-export interface AggregateVariantPromise
-  extends Promise<AggregateVariant>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateVariantSubscription
-  extends Promise<AsyncIterator<AggregateVariant>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface ProductSubscriptionPayload {
-  mutation: MutationType;
-  node: Product;
-  updatedFields: String[];
-  previousValues: ProductPreviousValues;
-}
-
-export interface ProductSubscriptionPayloadPromise
-  extends Promise<ProductSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ProductPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ProductPreviousValuesPromise>() => T;
-}
-
-export interface ProductSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ProductSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ProductSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ProductPreviousValuesSubscription>() => T;
-}
-
-export interface UserImageEdge {
-  node: UserImage;
-  cursor: String;
-}
-
-export interface UserImageEdgePromise
-  extends Promise<UserImageEdge>,
-    Fragmentable {
-  node: <T = UserImagePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface UserImageEdgeSubscription
-  extends Promise<AsyncIterator<UserImageEdge>>,
-    Fragmentable {
-  node: <T = UserImageSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ProductPreviousValues {
-  id: ID_Output;
-  title: String;
-  description: String;
-  price: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface ProductPreviousValuesPromise
-  extends Promise<ProductPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
   title: () => Promise<String>;
-  description: () => Promise<String>;
-  price: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface ProductPreviousValuesSubscription
-  extends Promise<AsyncIterator<ProductPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  price: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface UserConnection {
-  pageInfo: PageInfo;
-  edges: UserEdge[];
-}
-
-export interface UserConnectionPromise
-  extends Promise<UserConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<UserEdge>>() => T;
-  aggregate: <T = AggregateUserPromise>() => T;
-}
-
-export interface UserConnectionSubscription
-  extends Promise<AsyncIterator<UserConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateUserSubscription>() => T;
+  content: () => Promise<String>;
+  type: () => Promise<ForumPostType>;
+  comments: <T = FragmentableArray<ForumPostComment>>(args?: {
+    where?: ForumPostCommentWhereInput;
+    orderBy?: ForumPostCommentOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
 }
 
 export interface Forum {
@@ -8374,65 +7282,47 @@ export interface ForumNullablePromise
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface AggregateShopImage {
-  count: Int;
+export interface ForumPostComment {
+  id: ID_Output;
+  comment: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
-export interface AggregateShopImagePromise
-  extends Promise<AggregateShopImage>,
+export interface ForumPostCommentPromise
+  extends Promise<ForumPostComment>,
     Fragmentable {
-  count: () => Promise<Int>;
+  id: () => Promise<ID_Output>;
+  user: <T = UserPromise>() => T;
+  forumPost: <T = ForumPostPromise>() => T;
+  comment: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface AggregateShopImageSubscription
-  extends Promise<AsyncIterator<AggregateShopImage>>,
+export interface ForumPostCommentSubscription
+  extends Promise<AsyncIterator<ForumPostComment>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  user: <T = UserSubscription>() => T;
+  forumPost: <T = ForumPostSubscription>() => T;
+  comment: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface ProductImageSubscriptionPayload {
-  mutation: MutationType;
-  node: ProductImage;
-  updatedFields: String[];
-  previousValues: ProductImagePreviousValues;
-}
-
-export interface ProductImageSubscriptionPayloadPromise
-  extends Promise<ProductImageSubscriptionPayload>,
+export interface ForumPostCommentNullablePromise
+  extends Promise<ForumPostComment | null>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ProductImagePromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ProductImagePreviousValuesPromise>() => T;
+  id: () => Promise<ID_Output>;
+  user: <T = UserPromise>() => T;
+  forumPost: <T = ForumPostPromise>() => T;
+  comment: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface ProductImageSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ProductImageSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ProductImageSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ProductImagePreviousValuesSubscription>() => T;
-}
-
-export interface ShopEdge {
-  node: Shop;
-  cursor: String;
-}
-
-export interface ShopEdgePromise extends Promise<ShopEdge>, Fragmentable {
-  node: <T = ShopPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ShopEdgeSubscription
-  extends Promise<AsyncIterator<ShopEdge>>,
-    Fragmentable {
-  node: <T = ShopSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ProductImagePreviousValues {
+export interface ShopImage {
   id: ID_Output;
   imageUrl: String;
   largeImageUrl?: String;
@@ -8440,204 +7330,483 @@ export interface ProductImagePreviousValues {
   updatedAt: DateTimeOutput;
 }
 
-export interface ProductImagePreviousValuesPromise
-  extends Promise<ProductImagePreviousValues>,
-    Fragmentable {
+export interface ShopImagePromise extends Promise<ShopImage>, Fragmentable {
   id: () => Promise<ID_Output>;
   imageUrl: () => Promise<String>;
   largeImageUrl: () => Promise<String>;
+  shop: <T = ShopPromise>() => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface ProductImagePreviousValuesSubscription
-  extends Promise<AsyncIterator<ProductImagePreviousValues>>,
+export interface ShopImageSubscription
+  extends Promise<AsyncIterator<ShopImage>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   imageUrl: () => Promise<AsyncIterator<String>>;
   largeImageUrl: () => Promise<AsyncIterator<String>>;
+  shop: <T = ShopSubscription>() => T;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface ProductReviewConnection {
-  pageInfo: PageInfo;
-  edges: ProductReviewEdge[];
-}
-
-export interface ProductReviewConnectionPromise
-  extends Promise<ProductReviewConnection>,
+export interface ShopImageNullablePromise
+  extends Promise<ShopImage | null>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ProductReviewEdge>>() => T;
-  aggregate: <T = AggregateProductReviewPromise>() => T;
+  id: () => Promise<ID_Output>;
+  imageUrl: () => Promise<String>;
+  largeImageUrl: () => Promise<String>;
+  shop: <T = ShopPromise>() => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface ProductReviewConnectionSubscription
-  extends Promise<AsyncIterator<ProductReviewConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ProductReviewEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateProductReviewSubscription>() => T;
-}
-
-export interface ForumPost {
+export interface Variant {
   id: ID_Output;
+  name: String;
+  values: String[];
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
-  title: String;
-  content?: String;
-  type: ForumPostType;
 }
 
-export interface ForumPostPromise extends Promise<ForumPost>, Fragmentable {
+export interface VariantPromise extends Promise<Variant>, Fragmentable {
   id: () => Promise<ID_Output>;
-  postedBy: <T = UserPromise>() => T;
-  forum: <T = ForumPromise>() => T;
+  product: <T = ProductPromise>() => T;
+  name: () => Promise<String>;
+  values: () => Promise<String[]>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
-  title: () => Promise<String>;
-  content: () => Promise<String>;
-  type: () => Promise<ForumPostType>;
-  comments: <T = FragmentableArray<ForumPostComment>>(args?: {
-    where?: ForumPostCommentWhereInput;
-    orderBy?: ForumPostCommentOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
 }
 
-export interface ForumPostSubscription
-  extends Promise<AsyncIterator<ForumPost>>,
+export interface VariantSubscription
+  extends Promise<AsyncIterator<Variant>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  postedBy: <T = UserSubscription>() => T;
-  forum: <T = ForumSubscription>() => T;
+  product: <T = ProductSubscription>() => T;
+  name: () => Promise<AsyncIterator<String>>;
+  values: () => Promise<AsyncIterator<String[]>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  title: () => Promise<AsyncIterator<String>>;
-  content: () => Promise<AsyncIterator<String>>;
-  type: () => Promise<AsyncIterator<ForumPostType>>;
-  comments: <T = Promise<AsyncIterator<ForumPostCommentSubscription>>>(args?: {
-    where?: ForumPostCommentWhereInput;
-    orderBy?: ForumPostCommentOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
 }
 
-export interface ForumPostNullablePromise
-  extends Promise<ForumPost | null>,
+export interface VariantNullablePromise
+  extends Promise<Variant | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  postedBy: <T = UserPromise>() => T;
-  forum: <T = ForumPromise>() => T;
+  product: <T = ProductPromise>() => T;
+  name: () => Promise<String>;
+  values: () => Promise<String[]>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
-  title: () => Promise<String>;
-  content: () => Promise<String>;
-  type: () => Promise<ForumPostType>;
-  comments: <T = FragmentableArray<ForumPostComment>>(args?: {
-    where?: ForumPostCommentWhereInput;
-    orderBy?: ForumPostCommentOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
 }
 
-export interface AggregateProduct {
+export interface BrandConnection {
+  pageInfo: PageInfo;
+  edges: BrandEdge[];
+}
+
+export interface BrandConnectionPromise
+  extends Promise<BrandConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<BrandEdge>>() => T;
+  aggregate: <T = AggregateBrandPromise>() => T;
+}
+
+export interface BrandConnectionSubscription
+  extends Promise<AsyncIterator<BrandConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<BrandEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateBrandSubscription>() => T;
+}
+
+export interface PageInfo {
+  hasNextPage: Boolean;
+  hasPreviousPage: Boolean;
+  startCursor?: String;
+  endCursor?: String;
+}
+
+export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
+  hasNextPage: () => Promise<Boolean>;
+  hasPreviousPage: () => Promise<Boolean>;
+  startCursor: () => Promise<String>;
+  endCursor: () => Promise<String>;
+}
+
+export interface PageInfoSubscription
+  extends Promise<AsyncIterator<PageInfo>>,
+    Fragmentable {
+  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
+  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
+  startCursor: () => Promise<AsyncIterator<String>>;
+  endCursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface BrandEdge {
+  node: Brand;
+  cursor: String;
+}
+
+export interface BrandEdgePromise extends Promise<BrandEdge>, Fragmentable {
+  node: <T = BrandPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface BrandEdgeSubscription
+  extends Promise<AsyncIterator<BrandEdge>>,
+    Fragmentable {
+  node: <T = BrandSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateBrand {
   count: Int;
 }
 
-export interface AggregateProductPromise
-  extends Promise<AggregateProduct>,
+export interface AggregateBrandPromise
+  extends Promise<AggregateBrand>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateProductSubscription
-  extends Promise<AsyncIterator<AggregateProduct>>,
+export interface AggregateBrandSubscription
+  extends Promise<AsyncIterator<AggregateBrand>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface ProductReviewSubscriptionPayload {
-  mutation: MutationType;
-  node: ProductReview;
-  updatedFields: String[];
-  previousValues: ProductReviewPreviousValues;
+export interface CartConnection {
+  pageInfo: PageInfo;
+  edges: CartEdge[];
 }
 
-export interface ProductReviewSubscriptionPayloadPromise
-  extends Promise<ProductReviewSubscriptionPayload>,
+export interface CartConnectionPromise
+  extends Promise<CartConnection>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ProductReviewPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ProductReviewPreviousValuesPromise>() => T;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<CartEdge>>() => T;
+  aggregate: <T = AggregateCartPromise>() => T;
 }
 
-export interface ProductReviewSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ProductReviewSubscriptionPayload>>,
+export interface CartConnectionSubscription
+  extends Promise<AsyncIterator<CartConnection>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ProductReviewSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ProductReviewPreviousValuesSubscription>() => T;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<CartEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateCartSubscription>() => T;
 }
 
-export interface OrderEdge {
-  node: Order;
+export interface CartEdge {
+  node: Cart;
   cursor: String;
 }
 
-export interface OrderEdgePromise extends Promise<OrderEdge>, Fragmentable {
-  node: <T = OrderPromise>() => T;
+export interface CartEdgePromise extends Promise<CartEdge>, Fragmentable {
+  node: <T = CartPromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface OrderEdgeSubscription
-  extends Promise<AsyncIterator<OrderEdge>>,
+export interface CartEdgeSubscription
+  extends Promise<AsyncIterator<CartEdge>>,
     Fragmentable {
-  node: <T = OrderSubscription>() => T;
+  node: <T = CartSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface ProductReviewPreviousValues {
-  id: ID_Output;
-  rating: Int;
-  review?: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
+export interface AggregateCart {
+  count: Int;
 }
 
-export interface ProductReviewPreviousValuesPromise
-  extends Promise<ProductReviewPreviousValues>,
+export interface AggregateCartPromise
+  extends Promise<AggregateCart>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  rating: () => Promise<Int>;
-  review: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
+  count: () => Promise<Int>;
 }
 
-export interface ProductReviewPreviousValuesSubscription
-  extends Promise<AsyncIterator<ProductReviewPreviousValues>>,
+export interface AggregateCartSubscription
+  extends Promise<AsyncIterator<AggregateCart>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  rating: () => Promise<AsyncIterator<Int>>;
-  review: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface CartItemConnection {
+  pageInfo: PageInfo;
+  edges: CartItemEdge[];
+}
+
+export interface CartItemConnectionPromise
+  extends Promise<CartItemConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<CartItemEdge>>() => T;
+  aggregate: <T = AggregateCartItemPromise>() => T;
+}
+
+export interface CartItemConnectionSubscription
+  extends Promise<AsyncIterator<CartItemConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<CartItemEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateCartItemSubscription>() => T;
+}
+
+export interface CartItemEdge {
+  node: CartItem;
+  cursor: String;
+}
+
+export interface CartItemEdgePromise
+  extends Promise<CartItemEdge>,
+    Fragmentable {
+  node: <T = CartItemPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface CartItemEdgeSubscription
+  extends Promise<AsyncIterator<CartItemEdge>>,
+    Fragmentable {
+  node: <T = CartItemSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateCartItem {
+  count: Int;
+}
+
+export interface AggregateCartItemPromise
+  extends Promise<AggregateCartItem>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateCartItemSubscription
+  extends Promise<AsyncIterator<AggregateCartItem>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface CategoryConnection {
+  pageInfo: PageInfo;
+  edges: CategoryEdge[];
+}
+
+export interface CategoryConnectionPromise
+  extends Promise<CategoryConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<CategoryEdge>>() => T;
+  aggregate: <T = AggregateCategoryPromise>() => T;
+}
+
+export interface CategoryConnectionSubscription
+  extends Promise<AsyncIterator<CategoryConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<CategoryEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateCategorySubscription>() => T;
+}
+
+export interface CategoryEdge {
+  node: Category;
+  cursor: String;
+}
+
+export interface CategoryEdgePromise
+  extends Promise<CategoryEdge>,
+    Fragmentable {
+  node: <T = CategoryPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface CategoryEdgeSubscription
+  extends Promise<AsyncIterator<CategoryEdge>>,
+    Fragmentable {
+  node: <T = CategorySubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateCategory {
+  count: Int;
+}
+
+export interface AggregateCategoryPromise
+  extends Promise<AggregateCategory>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateCategorySubscription
+  extends Promise<AsyncIterator<AggregateCategory>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ForumConnection {
+  pageInfo: PageInfo;
+  edges: ForumEdge[];
+}
+
+export interface ForumConnectionPromise
+  extends Promise<ForumConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ForumEdge>>() => T;
+  aggregate: <T = AggregateForumPromise>() => T;
+}
+
+export interface ForumConnectionSubscription
+  extends Promise<AsyncIterator<ForumConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ForumEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateForumSubscription>() => T;
+}
+
+export interface ForumEdge {
+  node: Forum;
+  cursor: String;
+}
+
+export interface ForumEdgePromise extends Promise<ForumEdge>, Fragmentable {
+  node: <T = ForumPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ForumEdgeSubscription
+  extends Promise<AsyncIterator<ForumEdge>>,
+    Fragmentable {
+  node: <T = ForumSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateForum {
+  count: Int;
+}
+
+export interface AggregateForumPromise
+  extends Promise<AggregateForum>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateForumSubscription
+  extends Promise<AsyncIterator<AggregateForum>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ForumPostConnection {
+  pageInfo: PageInfo;
+  edges: ForumPostEdge[];
+}
+
+export interface ForumPostConnectionPromise
+  extends Promise<ForumPostConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ForumPostEdge>>() => T;
+  aggregate: <T = AggregateForumPostPromise>() => T;
+}
+
+export interface ForumPostConnectionSubscription
+  extends Promise<AsyncIterator<ForumPostConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ForumPostEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateForumPostSubscription>() => T;
+}
+
+export interface ForumPostEdge {
+  node: ForumPost;
+  cursor: String;
+}
+
+export interface ForumPostEdgePromise
+  extends Promise<ForumPostEdge>,
+    Fragmentable {
+  node: <T = ForumPostPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ForumPostEdgeSubscription
+  extends Promise<AsyncIterator<ForumPostEdge>>,
+    Fragmentable {
+  node: <T = ForumPostSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateForumPost {
+  count: Int;
+}
+
+export interface AggregateForumPostPromise
+  extends Promise<AggregateForumPost>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateForumPostSubscription
+  extends Promise<AsyncIterator<AggregateForumPost>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ForumPostCommentConnection {
+  pageInfo: PageInfo;
+  edges: ForumPostCommentEdge[];
+}
+
+export interface ForumPostCommentConnectionPromise
+  extends Promise<ForumPostCommentConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ForumPostCommentEdge>>() => T;
+  aggregate: <T = AggregateForumPostCommentPromise>() => T;
+}
+
+export interface ForumPostCommentConnectionSubscription
+  extends Promise<AsyncIterator<ForumPostCommentConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ForumPostCommentEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateForumPostCommentSubscription>() => T;
+}
+
+export interface ForumPostCommentEdge {
+  node: ForumPostComment;
+  cursor: String;
+}
+
+export interface ForumPostCommentEdgePromise
+  extends Promise<ForumPostCommentEdge>,
+    Fragmentable {
+  node: <T = ForumPostCommentPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ForumPostCommentEdgeSubscription
+  extends Promise<AsyncIterator<ForumPostCommentEdge>>,
+    Fragmentable {
+  node: <T = ForumPostCommentSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateForumPostComment {
+  count: Int;
+}
+
+export interface AggregateForumPostCommentPromise
+  extends Promise<AggregateForumPostComment>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateForumPostCommentSubscription
+  extends Promise<AsyncIterator<AggregateForumPostComment>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface Order {
@@ -8714,48 +7883,1262 @@ export interface OrderNullablePromise
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface VariantPreviousValues {
+export interface orderItem {
   id: ID_Output;
-  name: String;
-  values: String[];
+  title: String;
+  description: String;
+  price: String;
+  quantity: Int;
+  imageUrl?: String;
+  variants: String[];
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
 
-export interface VariantPreviousValuesPromise
-  extends Promise<VariantPreviousValues>,
-    Fragmentable {
+export interface orderItemPromise extends Promise<orderItem>, Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  values: () => Promise<String[]>;
+  title: () => Promise<String>;
+  description: () => Promise<String>;
+  price: () => Promise<String>;
+  quantity: () => Promise<Int>;
+  imageUrl: () => Promise<String>;
+  variants: () => Promise<String[]>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface VariantPreviousValuesSubscription
-  extends Promise<AsyncIterator<VariantPreviousValues>>,
+export interface orderItemSubscription
+  extends Promise<AsyncIterator<orderItem>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  values: () => Promise<AsyncIterator<String[]>>;
+  title: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  price: () => Promise<AsyncIterator<String>>;
+  quantity: () => Promise<AsyncIterator<Int>>;
+  imageUrl: () => Promise<AsyncIterator<String>>;
+  variants: () => Promise<AsyncIterator<String[]>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface AggregateForumPost {
+export interface orderItemNullablePromise
+  extends Promise<orderItem | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  description: () => Promise<String>;
+  price: () => Promise<String>;
+  quantity: () => Promise<Int>;
+  imageUrl: () => Promise<String>;
+  variants: () => Promise<String[]>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface OrderConnection {
+  pageInfo: PageInfo;
+  edges: OrderEdge[];
+}
+
+export interface OrderConnectionPromise
+  extends Promise<OrderConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<OrderEdge>>() => T;
+  aggregate: <T = AggregateOrderPromise>() => T;
+}
+
+export interface OrderConnectionSubscription
+  extends Promise<AsyncIterator<OrderConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<OrderEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateOrderSubscription>() => T;
+}
+
+export interface OrderEdge {
+  node: Order;
+  cursor: String;
+}
+
+export interface OrderEdgePromise extends Promise<OrderEdge>, Fragmentable {
+  node: <T = OrderPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface OrderEdgeSubscription
+  extends Promise<AsyncIterator<OrderEdge>>,
+    Fragmentable {
+  node: <T = OrderSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateOrder {
   count: Int;
 }
 
-export interface AggregateForumPostPromise
-  extends Promise<AggregateForumPost>,
+export interface AggregateOrderPromise
+  extends Promise<AggregateOrder>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateForumPostSubscription
-  extends Promise<AsyncIterator<AggregateForumPost>>,
+export interface AggregateOrderSubscription
+  extends Promise<AsyncIterator<AggregateOrder>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ProductConnection {
+  pageInfo: PageInfo;
+  edges: ProductEdge[];
+}
+
+export interface ProductConnectionPromise
+  extends Promise<ProductConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ProductEdge>>() => T;
+  aggregate: <T = AggregateProductPromise>() => T;
+}
+
+export interface ProductConnectionSubscription
+  extends Promise<AsyncIterator<ProductConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ProductEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateProductSubscription>() => T;
+}
+
+export interface ProductEdge {
+  node: Product;
+  cursor: String;
+}
+
+export interface ProductEdgePromise extends Promise<ProductEdge>, Fragmentable {
+  node: <T = ProductPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ProductEdgeSubscription
+  extends Promise<AsyncIterator<ProductEdge>>,
+    Fragmentable {
+  node: <T = ProductSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateProduct {
+  count: Int;
+}
+
+export interface AggregateProductPromise
+  extends Promise<AggregateProduct>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateProductSubscription
+  extends Promise<AsyncIterator<AggregateProduct>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ProductImageConnection {
+  pageInfo: PageInfo;
+  edges: ProductImageEdge[];
+}
+
+export interface ProductImageConnectionPromise
+  extends Promise<ProductImageConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ProductImageEdge>>() => T;
+  aggregate: <T = AggregateProductImagePromise>() => T;
+}
+
+export interface ProductImageConnectionSubscription
+  extends Promise<AsyncIterator<ProductImageConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ProductImageEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateProductImageSubscription>() => T;
+}
+
+export interface ProductImageEdge {
+  node: ProductImage;
+  cursor: String;
+}
+
+export interface ProductImageEdgePromise
+  extends Promise<ProductImageEdge>,
+    Fragmentable {
+  node: <T = ProductImagePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ProductImageEdgeSubscription
+  extends Promise<AsyncIterator<ProductImageEdge>>,
+    Fragmentable {
+  node: <T = ProductImageSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateProductImage {
+  count: Int;
+}
+
+export interface AggregateProductImagePromise
+  extends Promise<AggregateProductImage>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateProductImageSubscription
+  extends Promise<AsyncIterator<AggregateProductImage>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ProductReviewConnection {
+  pageInfo: PageInfo;
+  edges: ProductReviewEdge[];
+}
+
+export interface ProductReviewConnectionPromise
+  extends Promise<ProductReviewConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ProductReviewEdge>>() => T;
+  aggregate: <T = AggregateProductReviewPromise>() => T;
+}
+
+export interface ProductReviewConnectionSubscription
+  extends Promise<AsyncIterator<ProductReviewConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ProductReviewEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateProductReviewSubscription>() => T;
+}
+
+export interface ProductReviewEdge {
+  node: ProductReview;
+  cursor: String;
+}
+
+export interface ProductReviewEdgePromise
+  extends Promise<ProductReviewEdge>,
+    Fragmentable {
+  node: <T = ProductReviewPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ProductReviewEdgeSubscription
+  extends Promise<AsyncIterator<ProductReviewEdge>>,
+    Fragmentable {
+  node: <T = ProductReviewSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateProductReview {
+  count: Int;
+}
+
+export interface AggregateProductReviewPromise
+  extends Promise<AggregateProductReview>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateProductReviewSubscription
+  extends Promise<AsyncIterator<AggregateProductReview>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ShopConnection {
+  pageInfo: PageInfo;
+  edges: ShopEdge[];
+}
+
+export interface ShopConnectionPromise
+  extends Promise<ShopConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ShopEdge>>() => T;
+  aggregate: <T = AggregateShopPromise>() => T;
+}
+
+export interface ShopConnectionSubscription
+  extends Promise<AsyncIterator<ShopConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ShopEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateShopSubscription>() => T;
+}
+
+export interface ShopEdge {
+  node: Shop;
+  cursor: String;
+}
+
+export interface ShopEdgePromise extends Promise<ShopEdge>, Fragmentable {
+  node: <T = ShopPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ShopEdgeSubscription
+  extends Promise<AsyncIterator<ShopEdge>>,
+    Fragmentable {
+  node: <T = ShopSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateShop {
+  count: Int;
+}
+
+export interface AggregateShopPromise
+  extends Promise<AggregateShop>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateShopSubscription
+  extends Promise<AsyncIterator<AggregateShop>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ShopImageConnection {
+  pageInfo: PageInfo;
+  edges: ShopImageEdge[];
+}
+
+export interface ShopImageConnectionPromise
+  extends Promise<ShopImageConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ShopImageEdge>>() => T;
+  aggregate: <T = AggregateShopImagePromise>() => T;
+}
+
+export interface ShopImageConnectionSubscription
+  extends Promise<AsyncIterator<ShopImageConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ShopImageEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateShopImageSubscription>() => T;
+}
+
+export interface ShopImageEdge {
+  node: ShopImage;
+  cursor: String;
+}
+
+export interface ShopImageEdgePromise
+  extends Promise<ShopImageEdge>,
+    Fragmentable {
+  node: <T = ShopImagePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ShopImageEdgeSubscription
+  extends Promise<AsyncIterator<ShopImageEdge>>,
+    Fragmentable {
+  node: <T = ShopImageSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateShopImage {
+  count: Int;
+}
+
+export interface AggregateShopImagePromise
+  extends Promise<AggregateShopImage>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateShopImageSubscription
+  extends Promise<AsyncIterator<AggregateShopImage>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface TagConnection {
+  pageInfo: PageInfo;
+  edges: TagEdge[];
+}
+
+export interface TagConnectionPromise
+  extends Promise<TagConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<TagEdge>>() => T;
+  aggregate: <T = AggregateTagPromise>() => T;
+}
+
+export interface TagConnectionSubscription
+  extends Promise<AsyncIterator<TagConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<TagEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateTagSubscription>() => T;
+}
+
+export interface TagEdge {
+  node: Tag;
+  cursor: String;
+}
+
+export interface TagEdgePromise extends Promise<TagEdge>, Fragmentable {
+  node: <T = TagPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface TagEdgeSubscription
+  extends Promise<AsyncIterator<TagEdge>>,
+    Fragmentable {
+  node: <T = TagSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateTag {
+  count: Int;
+}
+
+export interface AggregateTagPromise
+  extends Promise<AggregateTag>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateTagSubscription
+  extends Promise<AsyncIterator<AggregateTag>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface UserConnection {
+  pageInfo: PageInfo;
+  edges: UserEdge[];
+}
+
+export interface UserConnectionPromise
+  extends Promise<UserConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<UserEdge>>() => T;
+  aggregate: <T = AggregateUserPromise>() => T;
+}
+
+export interface UserConnectionSubscription
+  extends Promise<AsyncIterator<UserConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateUserSubscription>() => T;
+}
+
+export interface UserEdge {
+  node: User;
+  cursor: String;
+}
+
+export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
+  node: <T = UserPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface UserEdgeSubscription
+  extends Promise<AsyncIterator<UserEdge>>,
+    Fragmentable {
+  node: <T = UserSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateUser {
+  count: Int;
+}
+
+export interface AggregateUserPromise
+  extends Promise<AggregateUser>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateUserSubscription
+  extends Promise<AsyncIterator<AggregateUser>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface UserImageConnection {
+  pageInfo: PageInfo;
+  edges: UserImageEdge[];
+}
+
+export interface UserImageConnectionPromise
+  extends Promise<UserImageConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<UserImageEdge>>() => T;
+  aggregate: <T = AggregateUserImagePromise>() => T;
+}
+
+export interface UserImageConnectionSubscription
+  extends Promise<AsyncIterator<UserImageConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<UserImageEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateUserImageSubscription>() => T;
+}
+
+export interface UserImageEdge {
+  node: UserImage;
+  cursor: String;
+}
+
+export interface UserImageEdgePromise
+  extends Promise<UserImageEdge>,
+    Fragmentable {
+  node: <T = UserImagePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface UserImageEdgeSubscription
+  extends Promise<AsyncIterator<UserImageEdge>>,
+    Fragmentable {
+  node: <T = UserImageSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateUserImage {
+  count: Int;
+}
+
+export interface AggregateUserImagePromise
+  extends Promise<AggregateUserImage>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateUserImageSubscription
+  extends Promise<AsyncIterator<AggregateUserImage>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface VariantConnection {
+  pageInfo: PageInfo;
+  edges: VariantEdge[];
+}
+
+export interface VariantConnectionPromise
+  extends Promise<VariantConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<VariantEdge>>() => T;
+  aggregate: <T = AggregateVariantPromise>() => T;
+}
+
+export interface VariantConnectionSubscription
+  extends Promise<AsyncIterator<VariantConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<VariantEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateVariantSubscription>() => T;
+}
+
+export interface VariantEdge {
+  node: Variant;
+  cursor: String;
+}
+
+export interface VariantEdgePromise extends Promise<VariantEdge>, Fragmentable {
+  node: <T = VariantPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface VariantEdgeSubscription
+  extends Promise<AsyncIterator<VariantEdge>>,
+    Fragmentable {
+  node: <T = VariantSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateVariant {
+  count: Int;
+}
+
+export interface AggregateVariantPromise
+  extends Promise<AggregateVariant>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateVariantSubscription
+  extends Promise<AsyncIterator<AggregateVariant>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface orderItemConnection {
+  pageInfo: PageInfo;
+  edges: orderItemEdge[];
+}
+
+export interface orderItemConnectionPromise
+  extends Promise<orderItemConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<orderItemEdge>>() => T;
+  aggregate: <T = AggregateorderItemPromise>() => T;
+}
+
+export interface orderItemConnectionSubscription
+  extends Promise<AsyncIterator<orderItemConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<orderItemEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateorderItemSubscription>() => T;
+}
+
+export interface orderItemEdge {
+  node: orderItem;
+  cursor: String;
+}
+
+export interface orderItemEdgePromise
+  extends Promise<orderItemEdge>,
+    Fragmentable {
+  node: <T = orderItemPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface orderItemEdgeSubscription
+  extends Promise<AsyncIterator<orderItemEdge>>,
+    Fragmentable {
+  node: <T = orderItemSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateorderItem {
+  count: Int;
+}
+
+export interface AggregateorderItemPromise
+  extends Promise<AggregateorderItem>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateorderItemSubscription
+  extends Promise<AsyncIterator<AggregateorderItem>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface BatchPayload {
+  count: Long;
+}
+
+export interface BatchPayloadPromise
+  extends Promise<BatchPayload>,
+    Fragmentable {
+  count: () => Promise<Long>;
+}
+
+export interface BatchPayloadSubscription
+  extends Promise<AsyncIterator<BatchPayload>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Long>>;
+}
+
+export interface BrandSubscriptionPayload {
+  mutation: MutationType;
+  node: Brand;
+  updatedFields: String[];
+  previousValues: BrandPreviousValues;
+}
+
+export interface BrandSubscriptionPayloadPromise
+  extends Promise<BrandSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = BrandPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = BrandPreviousValuesPromise>() => T;
+}
+
+export interface BrandSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<BrandSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = BrandSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = BrandPreviousValuesSubscription>() => T;
+}
+
+export interface BrandPreviousValues {
+  id: ID_Output;
+  name: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface BrandPreviousValuesPromise
+  extends Promise<BrandPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface BrandPreviousValuesSubscription
+  extends Promise<AsyncIterator<BrandPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface CartSubscriptionPayload {
+  mutation: MutationType;
+  node: Cart;
+  updatedFields: String[];
+  previousValues: CartPreviousValues;
+}
+
+export interface CartSubscriptionPayloadPromise
+  extends Promise<CartSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = CartPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = CartPreviousValuesPromise>() => T;
+}
+
+export interface CartSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<CartSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = CartSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = CartPreviousValuesSubscription>() => T;
+}
+
+export interface CartPreviousValues {
+  id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface CartPreviousValuesPromise
+  extends Promise<CartPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface CartPreviousValuesSubscription
+  extends Promise<AsyncIterator<CartPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface CartItemSubscriptionPayload {
+  mutation: MutationType;
+  node: CartItem;
+  updatedFields: String[];
+  previousValues: CartItemPreviousValues;
+}
+
+export interface CartItemSubscriptionPayloadPromise
+  extends Promise<CartItemSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = CartItemPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = CartItemPreviousValuesPromise>() => T;
+}
+
+export interface CartItemSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<CartItemSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = CartItemSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = CartItemPreviousValuesSubscription>() => T;
+}
+
+export interface CartItemPreviousValues {
+  id: ID_Output;
+  quantity: Int;
+  variants: String[];
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface CartItemPreviousValuesPromise
+  extends Promise<CartItemPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  quantity: () => Promise<Int>;
+  variants: () => Promise<String[]>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface CartItemPreviousValuesSubscription
+  extends Promise<AsyncIterator<CartItemPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  quantity: () => Promise<AsyncIterator<Int>>;
+  variants: () => Promise<AsyncIterator<String[]>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface CategorySubscriptionPayload {
+  mutation: MutationType;
+  node: Category;
+  updatedFields: String[];
+  previousValues: CategoryPreviousValues;
+}
+
+export interface CategorySubscriptionPayloadPromise
+  extends Promise<CategorySubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = CategoryPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = CategoryPreviousValuesPromise>() => T;
+}
+
+export interface CategorySubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<CategorySubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = CategorySubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = CategoryPreviousValuesSubscription>() => T;
+}
+
+export interface CategoryPreviousValues {
+  id: ID_Output;
+  name: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface CategoryPreviousValuesPromise
+  extends Promise<CategoryPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface CategoryPreviousValuesSubscription
+  extends Promise<AsyncIterator<CategoryPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface ForumSubscriptionPayload {
+  mutation: MutationType;
+  node: Forum;
+  updatedFields: String[];
+  previousValues: ForumPreviousValues;
+}
+
+export interface ForumSubscriptionPayloadPromise
+  extends Promise<ForumSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ForumPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ForumPreviousValuesPromise>() => T;
+}
+
+export interface ForumSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ForumSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ForumSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ForumPreviousValuesSubscription>() => T;
+}
+
+export interface ForumPreviousValues {
+  id: ID_Output;
+  avatarPic: String;
+  coverPic: String;
+  name: String;
+  description?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface ForumPreviousValuesPromise
+  extends Promise<ForumPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  avatarPic: () => Promise<String>;
+  coverPic: () => Promise<String>;
+  name: () => Promise<String>;
+  description: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ForumPreviousValuesSubscription
+  extends Promise<AsyncIterator<ForumPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  avatarPic: () => Promise<AsyncIterator<String>>;
+  coverPic: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface ForumPostSubscriptionPayload {
+  mutation: MutationType;
+  node: ForumPost;
+  updatedFields: String[];
+  previousValues: ForumPostPreviousValues;
+}
+
+export interface ForumPostSubscriptionPayloadPromise
+  extends Promise<ForumPostSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ForumPostPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ForumPostPreviousValuesPromise>() => T;
+}
+
+export interface ForumPostSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ForumPostSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ForumPostSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ForumPostPreviousValuesSubscription>() => T;
+}
+
+export interface ForumPostPreviousValues {
+  id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  title: String;
+  content?: String;
+  type: ForumPostType;
+}
+
+export interface ForumPostPreviousValuesPromise
+  extends Promise<ForumPostPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  title: () => Promise<String>;
+  content: () => Promise<String>;
+  type: () => Promise<ForumPostType>;
+}
+
+export interface ForumPostPreviousValuesSubscription
+  extends Promise<AsyncIterator<ForumPostPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  title: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  type: () => Promise<AsyncIterator<ForumPostType>>;
+}
+
+export interface ForumPostCommentSubscriptionPayload {
+  mutation: MutationType;
+  node: ForumPostComment;
+  updatedFields: String[];
+  previousValues: ForumPostCommentPreviousValues;
+}
+
+export interface ForumPostCommentSubscriptionPayloadPromise
+  extends Promise<ForumPostCommentSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ForumPostCommentPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ForumPostCommentPreviousValuesPromise>() => T;
+}
+
+export interface ForumPostCommentSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ForumPostCommentSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ForumPostCommentSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ForumPostCommentPreviousValuesSubscription>() => T;
+}
+
+export interface ForumPostCommentPreviousValues {
+  id: ID_Output;
+  comment: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface ForumPostCommentPreviousValuesPromise
+  extends Promise<ForumPostCommentPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  comment: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ForumPostCommentPreviousValuesSubscription
+  extends Promise<AsyncIterator<ForumPostCommentPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  comment: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface OrderSubscriptionPayload {
+  mutation: MutationType;
+  node: Order;
+  updatedFields: String[];
+  previousValues: OrderPreviousValues;
+}
+
+export interface OrderSubscriptionPayloadPromise
+  extends Promise<OrderSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = OrderPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = OrderPreviousValuesPromise>() => T;
+}
+
+export interface OrderSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<OrderSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = OrderSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = OrderPreviousValuesSubscription>() => T;
+}
+
+export interface OrderPreviousValues {
+  id: ID_Output;
+  total: String;
+  paymentId: String;
+  PayerID: String;
+  imageUrl?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface OrderPreviousValuesPromise
+  extends Promise<OrderPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  total: () => Promise<String>;
+  paymentId: () => Promise<String>;
+  PayerID: () => Promise<String>;
+  imageUrl: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface OrderPreviousValuesSubscription
+  extends Promise<AsyncIterator<OrderPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  total: () => Promise<AsyncIterator<String>>;
+  paymentId: () => Promise<AsyncIterator<String>>;
+  PayerID: () => Promise<AsyncIterator<String>>;
+  imageUrl: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface ProductSubscriptionPayload {
+  mutation: MutationType;
+  node: Product;
+  updatedFields: String[];
+  previousValues: ProductPreviousValues;
+}
+
+export interface ProductSubscriptionPayloadPromise
+  extends Promise<ProductSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ProductPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ProductPreviousValuesPromise>() => T;
+}
+
+export interface ProductSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ProductSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ProductSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ProductPreviousValuesSubscription>() => T;
+}
+
+export interface ProductPreviousValues {
+  id: ID_Output;
+  title: String;
+  description: String;
+  price: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface ProductPreviousValuesPromise
+  extends Promise<ProductPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  description: () => Promise<String>;
+  price: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ProductPreviousValuesSubscription
+  extends Promise<AsyncIterator<ProductPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  price: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface ProductImageSubscriptionPayload {
+  mutation: MutationType;
+  node: ProductImage;
+  updatedFields: String[];
+  previousValues: ProductImagePreviousValues;
+}
+
+export interface ProductImageSubscriptionPayloadPromise
+  extends Promise<ProductImageSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ProductImagePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ProductImagePreviousValuesPromise>() => T;
+}
+
+export interface ProductImageSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ProductImageSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ProductImageSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ProductImagePreviousValuesSubscription>() => T;
+}
+
+export interface ProductImagePreviousValues {
+  id: ID_Output;
+  imageUrl: String;
+  largeImageUrl?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface ProductImagePreviousValuesPromise
+  extends Promise<ProductImagePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  imageUrl: () => Promise<String>;
+  largeImageUrl: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ProductImagePreviousValuesSubscription
+  extends Promise<AsyncIterator<ProductImagePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  imageUrl: () => Promise<AsyncIterator<String>>;
+  largeImageUrl: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface ProductReviewSubscriptionPayload {
+  mutation: MutationType;
+  node: ProductReview;
+  updatedFields: String[];
+  previousValues: ProductReviewPreviousValues;
+}
+
+export interface ProductReviewSubscriptionPayloadPromise
+  extends Promise<ProductReviewSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ProductReviewPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ProductReviewPreviousValuesPromise>() => T;
+}
+
+export interface ProductReviewSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ProductReviewSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ProductReviewSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ProductReviewPreviousValuesSubscription>() => T;
+}
+
+export interface ProductReviewPreviousValues {
+  id: ID_Output;
+  rating: Int;
+  review?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface ProductReviewPreviousValuesPromise
+  extends Promise<ProductReviewPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  rating: () => Promise<Int>;
+  review: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ProductReviewPreviousValuesSubscription
+  extends Promise<AsyncIterator<ProductReviewPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  rating: () => Promise<AsyncIterator<Int>>;
+  review: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface ShopSubscriptionPayload {
@@ -8781,23 +9164,6 @@ export interface ShopSubscriptionPayloadSubscription
   node: <T = ShopSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
   previousValues: <T = ShopPreviousValuesSubscription>() => T;
-}
-
-export interface ForumEdge {
-  node: Forum;
-  cursor: String;
-}
-
-export interface ForumEdgePromise extends Promise<ForumEdge>, Fragmentable {
-  node: <T = ForumPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ForumEdgeSubscription
-  extends Promise<AsyncIterator<ForumEdge>>,
-    Fragmentable {
-  node: <T = ForumSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface ShopPreviousValues {
@@ -8834,88 +9200,6 @@ export interface ShopPreviousValuesSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface CategoryConnection {
-  pageInfo: PageInfo;
-  edges: CategoryEdge[];
-}
-
-export interface CategoryConnectionPromise
-  extends Promise<CategoryConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<CategoryEdge>>() => T;
-  aggregate: <T = AggregateCategoryPromise>() => T;
-}
-
-export interface CategoryConnectionSubscription
-  extends Promise<AsyncIterator<CategoryConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<CategoryEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateCategorySubscription>() => T;
-}
-
-export interface CartItem {
-  id: ID_Output;
-  quantity: Int;
-  variants: String[];
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface CartItemPromise extends Promise<CartItem>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  product: <T = ProductPromise>() => T;
-  quantity: () => Promise<Int>;
-  variants: () => Promise<String[]>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  cart: <T = CartPromise>() => T;
-}
-
-export interface CartItemSubscription
-  extends Promise<AsyncIterator<CartItem>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  product: <T = ProductSubscription>() => T;
-  quantity: () => Promise<AsyncIterator<Int>>;
-  variants: () => Promise<AsyncIterator<String[]>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  cart: <T = CartSubscription>() => T;
-}
-
-export interface CartItemNullablePromise
-  extends Promise<CartItem | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  product: <T = ProductPromise>() => T;
-  quantity: () => Promise<Int>;
-  variants: () => Promise<String[]>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  cart: <T = CartPromise>() => T;
-}
-
-export interface orderItemEdge {
-  node: orderItem;
-  cursor: String;
-}
-
-export interface orderItemEdgePromise
-  extends Promise<orderItemEdge>,
-    Fragmentable {
-  node: <T = orderItemPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface orderItemEdgeSubscription
-  extends Promise<AsyncIterator<orderItemEdge>>,
-    Fragmentable {
-  node: <T = orderItemSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
 export interface ShopImageSubscriptionPayload {
   mutation: MutationType;
   node: ShopImage;
@@ -8939,22 +9223,6 @@ export interface ShopImageSubscriptionPayloadSubscription
   node: <T = ShopImageSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
   previousValues: <T = ShopImagePreviousValuesSubscription>() => T;
-}
-
-export interface AggregateUser {
-  count: Int;
-}
-
-export interface AggregateUserPromise
-  extends Promise<AggregateUser>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateUserSubscription
-  extends Promise<AsyncIterator<AggregateUser>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface ShopImagePreviousValues {
@@ -8985,104 +9253,6 @@ export interface ShopImagePreviousValuesSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface ShopImageConnection {
-  pageInfo: PageInfo;
-  edges: ShopImageEdge[];
-}
-
-export interface ShopImageConnectionPromise
-  extends Promise<ShopImageConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ShopImageEdge>>() => T;
-  aggregate: <T = AggregateShopImagePromise>() => T;
-}
-
-export interface ShopImageConnectionSubscription
-  extends Promise<AsyncIterator<ShopImageConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ShopImageEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateShopImageSubscription>() => T;
-}
-
-export interface Cart {
-  id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface CartPromise extends Promise<Cart>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  user: <T = UserPromise>() => T;
-  items: <T = FragmentableArray<CartItem>>(args?: {
-    where?: CartItemWhereInput;
-    orderBy?: CartItemOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface CartSubscription
-  extends Promise<AsyncIterator<Cart>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  user: <T = UserSubscription>() => T;
-  items: <T = Promise<AsyncIterator<CartItemSubscription>>>(args?: {
-    where?: CartItemWhereInput;
-    orderBy?: CartItemOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface CartNullablePromise
-  extends Promise<Cart | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  user: <T = UserPromise>() => T;
-  items: <T = FragmentableArray<CartItem>>(args?: {
-    where?: CartItemWhereInput;
-    orderBy?: CartItemOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface ProductImageEdge {
-  node: ProductImage;
-  cursor: String;
-}
-
-export interface ProductImageEdgePromise
-  extends Promise<ProductImageEdge>,
-    Fragmentable {
-  node: <T = ProductImagePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ProductImageEdgeSubscription
-  extends Promise<AsyncIterator<ProductImageEdge>>,
-    Fragmentable {
-  node: <T = ProductImageSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
 export interface TagSubscriptionPayload {
   mutation: MutationType;
   node: Tag;
@@ -9106,65 +9276,6 @@ export interface TagSubscriptionPayloadSubscription
   node: <T = TagSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
   previousValues: <T = TagPreviousValuesSubscription>() => T;
-}
-
-export interface Brand {
-  id: ID_Output;
-  name: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface BrandPromise extends Promise<Brand>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  products: <T = FragmentableArray<Product>>(args?: {
-    where?: ProductWhereInput;
-    orderBy?: ProductOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface BrandSubscription
-  extends Promise<AsyncIterator<Brand>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  products: <T = Promise<AsyncIterator<ProductSubscription>>>(args?: {
-    where?: ProductWhereInput;
-    orderBy?: ProductOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface BrandNullablePromise
-  extends Promise<Brand | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  products: <T = FragmentableArray<Product>>(args?: {
-    where?: ProductWhereInput;
-    orderBy?: ProductOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface TagPreviousValues {
@@ -9192,90 +9303,6 @@ export interface TagPreviousValuesSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface ForumPostConnection {
-  pageInfo: PageInfo;
-  edges: ForumPostEdge[];
-}
-
-export interface ForumPostConnectionPromise
-  extends Promise<ForumPostConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ForumPostEdge>>() => T;
-  aggregate: <T = AggregateForumPostPromise>() => T;
-}
-
-export interface ForumPostConnectionSubscription
-  extends Promise<AsyncIterator<ForumPostConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ForumPostEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateForumPostSubscription>() => T;
-}
-
-export interface ProductReview {
-  id: ID_Output;
-  rating: Int;
-  review?: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface ProductReviewPromise
-  extends Promise<ProductReview>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  user: <T = UserPromise>() => T;
-  product: <T = ProductPromise>() => T;
-  rating: () => Promise<Int>;
-  review: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface ProductReviewSubscription
-  extends Promise<AsyncIterator<ProductReview>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  user: <T = UserSubscription>() => T;
-  product: <T = ProductSubscription>() => T;
-  rating: () => Promise<AsyncIterator<Int>>;
-  review: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface ProductReviewNullablePromise
-  extends Promise<ProductReview | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  user: <T = UserPromise>() => T;
-  product: <T = ProductPromise>() => T;
-  rating: () => Promise<Int>;
-  review: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface CartItemEdge {
-  node: CartItem;
-  cursor: String;
-}
-
-export interface CartItemEdgePromise
-  extends Promise<CartItemEdge>,
-    Fragmentable {
-  node: <T = CartItemPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface CartItemEdgeSubscription
-  extends Promise<AsyncIterator<CartItemEdge>>,
-    Fragmentable {
-  node: <T = CartItemSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
 export interface UserSubscriptionPayload {
   mutation: MutationType;
   node: User;
@@ -9299,129 +9326,6 @@ export interface UserSubscriptionPayloadSubscription
   node: <T = UserSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
   previousValues: <T = UserPreviousValuesSubscription>() => T;
-}
-
-export interface TagEdge {
-  node: Tag;
-  cursor: String;
-}
-
-export interface TagEdgePromise extends Promise<TagEdge>, Fragmentable {
-  node: <T = TagPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface TagEdgeSubscription
-  extends Promise<AsyncIterator<TagEdge>>,
-    Fragmentable {
-  node: <T = TagSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ProductConnection {
-  pageInfo: PageInfo;
-  edges: ProductEdge[];
-}
-
-export interface ProductConnectionPromise
-  extends Promise<ProductConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ProductEdge>>() => T;
-  aggregate: <T = AggregateProductPromise>() => T;
-}
-
-export interface ProductConnectionSubscription
-  extends Promise<AsyncIterator<ProductConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ProductEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateProductSubscription>() => T;
-}
-
-export interface UserImagePreviousValues {
-  id: ID_Output;
-  imageUrl: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface UserImagePreviousValuesPromise
-  extends Promise<UserImagePreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  imageUrl: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface UserImagePreviousValuesSubscription
-  extends Promise<AsyncIterator<UserImagePreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  imageUrl: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface UserImageSubscriptionPayload {
-  mutation: MutationType;
-  node: UserImage;
-  updatedFields: String[];
-  previousValues: UserImagePreviousValues;
-}
-
-export interface UserImageSubscriptionPayloadPromise
-  extends Promise<UserImageSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = UserImagePromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = UserImagePreviousValuesPromise>() => T;
-}
-
-export interface UserImageSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<UserImageSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = UserImageSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = UserImagePreviousValuesSubscription>() => T;
-}
-
-export interface UserImage {
-  id: ID_Output;
-  imageUrl: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface UserImagePromise extends Promise<UserImage>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  imageUrl: () => Promise<String>;
-  user: <T = UserPromise>() => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface UserImageSubscription
-  extends Promise<AsyncIterator<UserImage>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  imageUrl: () => Promise<AsyncIterator<String>>;
-  user: <T = UserSubscription>() => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface UserImageNullablePromise
-  extends Promise<UserImage | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  imageUrl: () => Promise<String>;
-  user: <T = UserPromise>() => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface UserPreviousValues {
@@ -9467,79 +9371,173 @@ export interface UserPreviousValuesSubscription
   emailVerified: () => Promise<AsyncIterator<Boolean>>;
 }
 
-export interface ForumPostCommentEdge {
-  node: ForumPostComment;
-  cursor: String;
+export interface UserImageSubscriptionPayload {
+  mutation: MutationType;
+  node: UserImage;
+  updatedFields: String[];
+  previousValues: UserImagePreviousValues;
 }
 
-export interface ForumPostCommentEdgePromise
-  extends Promise<ForumPostCommentEdge>,
+export interface UserImageSubscriptionPayloadPromise
+  extends Promise<UserImageSubscriptionPayload>,
     Fragmentable {
-  node: <T = ForumPostCommentPromise>() => T;
-  cursor: () => Promise<String>;
+  mutation: () => Promise<MutationType>;
+  node: <T = UserImagePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = UserImagePreviousValuesPromise>() => T;
 }
 
-export interface ForumPostCommentEdgeSubscription
-  extends Promise<AsyncIterator<ForumPostCommentEdge>>,
+export interface UserImageSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<UserImageSubscriptionPayload>>,
     Fragmentable {
-  node: <T = ForumPostCommentSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = UserImageSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = UserImagePreviousValuesSubscription>() => T;
 }
 
-export interface AggregateProductReview {
-  count: Int;
+export interface UserImagePreviousValues {
+  id: ID_Output;
+  imageUrl: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
-export interface AggregateProductReviewPromise
-  extends Promise<AggregateProductReview>,
+export interface UserImagePreviousValuesPromise
+  extends Promise<UserImagePreviousValues>,
     Fragmentable {
-  count: () => Promise<Int>;
+  id: () => Promise<ID_Output>;
+  imageUrl: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface AggregateProductReviewSubscription
-  extends Promise<AsyncIterator<AggregateProductReview>>,
+export interface UserImagePreviousValuesSubscription
+  extends Promise<AsyncIterator<UserImagePreviousValues>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  imageUrl: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface VariantConnection {
-  pageInfo: PageInfo;
-  edges: VariantEdge[];
+export interface VariantSubscriptionPayload {
+  mutation: MutationType;
+  node: Variant;
+  updatedFields: String[];
+  previousValues: VariantPreviousValues;
 }
 
-export interface VariantConnectionPromise
-  extends Promise<VariantConnection>,
+export interface VariantSubscriptionPayloadPromise
+  extends Promise<VariantSubscriptionPayload>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<VariantEdge>>() => T;
-  aggregate: <T = AggregateVariantPromise>() => T;
+  mutation: () => Promise<MutationType>;
+  node: <T = VariantPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = VariantPreviousValuesPromise>() => T;
 }
 
-export interface VariantConnectionSubscription
-  extends Promise<AsyncIterator<VariantConnection>>,
+export interface VariantSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<VariantSubscriptionPayload>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<VariantEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateVariantSubscription>() => T;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = VariantSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = VariantPreviousValuesSubscription>() => T;
 }
 
-export interface AggregateCategory {
-  count: Int;
+export interface VariantPreviousValues {
+  id: ID_Output;
+  name: String;
+  values: String[];
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
-export interface AggregateCategoryPromise
-  extends Promise<AggregateCategory>,
+export interface VariantPreviousValuesPromise
+  extends Promise<VariantPreviousValues>,
     Fragmentable {
-  count: () => Promise<Int>;
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  values: () => Promise<String[]>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface AggregateCategorySubscription
-  extends Promise<AsyncIterator<AggregateCategory>>,
+export interface VariantPreviousValuesSubscription
+  extends Promise<AsyncIterator<VariantPreviousValues>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  values: () => Promise<AsyncIterator<String[]>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export type Long = string;
+export interface orderItemSubscriptionPayload {
+  mutation: MutationType;
+  node: orderItem;
+  updatedFields: String[];
+  previousValues: orderItemPreviousValues;
+}
+
+export interface orderItemSubscriptionPayloadPromise
+  extends Promise<orderItemSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = orderItemPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = orderItemPreviousValuesPromise>() => T;
+}
+
+export interface orderItemSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<orderItemSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = orderItemSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = orderItemPreviousValuesSubscription>() => T;
+}
+
+export interface orderItemPreviousValues {
+  id: ID_Output;
+  title: String;
+  description: String;
+  price: String;
+  quantity: Int;
+  imageUrl?: String;
+  variants: String[];
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface orderItemPreviousValuesPromise
+  extends Promise<orderItemPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  description: () => Promise<String>;
+  price: () => Promise<String>;
+  quantity: () => Promise<Int>;
+  imageUrl: () => Promise<String>;
+  variants: () => Promise<String[]>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface orderItemPreviousValuesSubscription
+  extends Promise<AsyncIterator<orderItemPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  price: () => Promise<AsyncIterator<String>>;
+  quantity: () => Promise<AsyncIterator<Int>>;
+  imageUrl: () => Promise<AsyncIterator<String>>;
+  variants: () => Promise<AsyncIterator<String[]>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
 
 /*
 The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
@@ -9571,6 +9569,8 @@ export type Boolean = boolean;
 The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
 */
 export type Int = number;
+
+export type Long = string;
 
 /**
  * Model Metadata

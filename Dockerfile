@@ -15,16 +15,21 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-# for typescript
-RUN npm run build
 ENV NODE_ENV=production
-COPY .env ./dist/
-COPY prisma.yml ./dist/
-COPY src/credentials ./dist/
-COPY src/generated/schema.graphql ./dist/src/generated/
-COPY src/types.ts ./dist/src/
-WORKDIR ./dist
-
 EXPOSE 4000
-CMD node src/index.js
+CMD npm run dev
 USER node
+
+# for typescript
+# RUN npm run build
+# ENV NODE_ENV=production
+# COPY .env ./dist/
+# COPY prisma.yml ./dist/
+# COPY src/credentials ./dist/
+# COPY src/generated/schema.graphql ./dist/src/generated/
+# COPY src/types.ts ./dist/src/
+# WORKDIR ./dist
+
+# EXPOSE 4000
+# CMD node src/index.js
+# USER node

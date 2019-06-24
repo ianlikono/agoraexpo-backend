@@ -29,6 +29,8 @@ const firebaseProd = {
     "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fmq7i%40agoraexpo-prod.iam.gserviceaccount.com"
 };
 
-export default (process.env.NODE_ENV == "production"
-  ? firebaseProd
-  : firebaseDev);
+export default firebaseProd;
+
+// export default (process.env.NODE_ENV == "production"
+//   ? firebaseProd
+//   : firebaseDev);

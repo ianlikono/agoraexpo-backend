@@ -1228,6 +1228,7 @@ export interface NexusGenRootTypes {
     createdAt: any; // DateTime!
     id: string; // ID!
     title: string; // String!
+    type: NexusGenEnums['ForumPostType']; // ForumPostType!
     updatedAt: any; // DateTime!
   }
   ForumPostComment: { // root type
