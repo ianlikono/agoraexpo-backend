@@ -72,11 +72,13 @@ const sess = {
   saveUninitialized: false,
   cookie: {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    // secure: process.env.NODE_ENV === "production",
     maxAge: 1000 * 60 * 60 * 24 * 7 * 365 // 7 years
+    // domain: ".agoraexpo.com"
   }
 };
 
+server.express.set("trust proxy", 1);
 server.use(session(sess));
 
 server.start(opts, () =>

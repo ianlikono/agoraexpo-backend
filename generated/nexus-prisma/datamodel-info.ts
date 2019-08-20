@@ -26,7 +26,7 @@ export default {
     ProductReview: ['id']
   },
   embeddedTypes: [],
-  clientPath: 'generated/prisma-client',
+  clientPath: 'generated\\prisma-client',
   schema: {
   "__schema": {
     "queryType": {
